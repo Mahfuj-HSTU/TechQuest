@@ -3,8 +3,8 @@ import { AiFillLinkedin } from "react-icons/ai";
 import { TfiYoutube } from "react-icons/tfi";
 import { BsInstagram } from "react-icons/bs";
 import { FaFacebookSquare } from "react-icons/fa";
-import img1 from "../../../assets/footer img 1.webp";
-import img2 from "../../../assets/footer img 2.webp";
+import img1 from "../../../assets/footer img/footer img 1.webp";
+import img2 from "../../../assets/footer img/footer img 2.webp";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
