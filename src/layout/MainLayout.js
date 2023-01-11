@@ -1,14 +1,16 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from '../Pages/Shared/Footer/Footer';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../Pages/Shared/Footer/Footer";
 
 const MainLayout = () => {
-    return (
-        <div>
-            <Outlet/>
-            <Footer/>
-        </div>
-    );
+  return (
+    <div>
+      <div className="max-w-4xl mx-auto">
+        <Outlet />
+        <Footer />
+      </div>
+    </div>
+  );
 };
 
 export default MainLayout;
