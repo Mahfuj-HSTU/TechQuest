@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "01",
+        "name": "Nobonita Banargee",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYdrGAMJ-BVn2VNawcsjHuBwfDTmHCppU0CQ&usqp=CAU",
+        "country": "India",
+        "title": "Devops Engineer ",
+        "aws": "6 years",
+        "docker": "4 years",
+        "devops": "6 years"
+    },
+    {
+        "_id": "02",
+        "name": " Dimanu Chang",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNLa6iBDXTPNEpklyQYXOf_R5GdVDDPAjYA&usqp=CAU",
+        "country": "China",
+        "title": "Devops Engineer ",
+        "aws": "6 years",
+        "docker": "6 years",
+        "devops": "6 years"
+    },
+    {
+        "_id": "03",
+        "name": " Robin Kalopas",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWgERzfW4qeBFCjNlgLYJ-dlJPF0YHJgfQ&usqp=CAU",
+        "country": "England",
+        "title": "Devops Engineer ",
+        "aws": "5 years",
+        "docker": "5 years",
+        "devops": "5 years"
+    }
+]

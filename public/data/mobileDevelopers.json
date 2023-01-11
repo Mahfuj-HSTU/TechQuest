@@ -1,0 +1,36 @@
+[
+    {
+        "_id": "01",
+        "name": " Sarah Insamah",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQju64El11ovRuwrWDDUQJvDxRz50asGxsrw&usqp=CAU",
+        "country": "Germany",
+        "title": "Mobile Developer ",
+        "mobileDevelopment": "5 years",
+        "los": "5 years",
+        "swift": "6 years",
+        "react": "6 years"
+    },
+    {
+        "_id": "02",
+        "name": " Zidan Khan",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ShLtHfrV7qRu7LB4ppvOEwAotI5A19J6EQ&usqp=CAU",
+        "country": "Bangladesh",
+        "title": "Mobile Developer ",
+        "mobileDevelopment": "6 years",
+        "los": "4 years",
+        "swift": "4 years",
+        "react": "6 years"
+    },
+    {
+        "_id": "03",
+        "name": " Abhi Chattergy",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZB1cTQv7DQAcETMWPVqJgaYB19pG8eUvodw&usqp=CAU",
+        "country": "India ",
+        "title": "Mobile Developer ",
+        "mobileDevelopment": "5 years",
+        "los": "5 years",
+        "swift": "3 years",
+        "react": "6 years"
+    }
+    
+]
