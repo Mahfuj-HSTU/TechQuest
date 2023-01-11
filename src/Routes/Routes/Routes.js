@@ -1,10 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LifeEasier from '../../Pages/Home/Home/LifeEasier/LifeEasier';
+import MainLayout from '../../layout/MainLayout';
+import Home from '../../Pages/Home/Home/Home';
 const router = createBrowserRouter( [
     {
         path: '/',
-        element: <LifeEasier></LifeEasier>
+        element: <MainLayout/>,
+        children:[
+            {
+                path: '/',
+                element: <Home/>
+            }
+        ]
     }
 ] )
 
-export default router
+export default router;
