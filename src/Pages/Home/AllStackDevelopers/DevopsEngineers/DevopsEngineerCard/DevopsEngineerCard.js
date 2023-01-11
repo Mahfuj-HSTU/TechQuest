@@ -1,4 +1,3 @@
-import Aos from "aos";
 import React from "react";
 
 const DevopsEngineerCard = ({ developer }) => {
