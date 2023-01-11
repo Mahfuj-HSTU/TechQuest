@@ -11,7 +11,7 @@ const LookingJobs = () => {
         <div className=' my-12'>
             <h1 className=' text-2xl font-semibold text-blue-500'>Looking for tech jobs in Canada, the US or Europe?</h1>
             <button className="mt-8 rounded-3xl btn btn-outline font-semibold text-blue-500">Apply for jobs now</button>
-            <div className=' grid lg:grid-cols-7 justify-items-center mt-12'>
+            <div className=' grid lg:grid-cols-7 justify-items-center my-14'>
                 <div>
                     <h3 className=' font-bold text-md'>Trusted by 600+ companies</h3>
                 </div>
