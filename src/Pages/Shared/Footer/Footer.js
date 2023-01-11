@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-white text-base-content">
+    <div className="mx-5">
+      <footer className="footer p-10 bg-white text-left">
         <div className="w-52 text-left">
           <p className="text-xl font-bold">Connecting cultures through code</p>
           <div className="text-xl flex flex-row gap-6 my-3">
@@ -24,35 +24,47 @@ const Footer = () => {
             <img src={img2} alt="" />
           </div>
         </div>
-        <div>
-          <span className="footer-title">For Employers</span>
+        <div className=" text-slate-400">
+          <span className="text-black font-semibold">For Employers</span>
           <Link>Talent Pool</Link>
           <Link>Employer Events</Link>
           <Link>Client Success Cases</Link>
           <Link>Referral Program</Link>
         </div>
 
-        <div>
-          <span className="footer-title">For Candidates</span>
+        <div className=" text-slate-400">
+          <span className="text-black font-semibold">For Candidates</span>
           <Link>How VanHack Works</Link>
           <Link>Find a Job</Link>
           <Link>Learning Hub</Link>
           <Link>VanHack Academy</Link>
           <Link>Events</Link>
         </div>
-        <div>
-          <span className="footer-title">Why VanHack</span>
+        <div className=" text-slate-400">
+          <span className="text-black font-semibold">Why VanHack</span>
           <Link>About</Link>
           <Link>Careers</Link>
         </div>
-        <div>
-          <span className="footer-title"> Resources</span>
+        <div className=" text-slate-400">
+          <span className="text-black font-semibold"> Resources</span>
           <Link>Employer Blog</Link>
           <Link>Candidate Blog</Link>
           <Link>Podcast</Link>
           <Link>Salary Guide</Link>
         </div>
       </footer>
+      <div>
+        <div className="border border-b-gray-200 mb-5 "></div>
+        <div className="flex flex-col-reverse md:flex-row text-left mb-5">
+          <div className=" md:basis-1/2 flex-1 ">
+            <p>&copy; TechQuest 2023 Technologies Inc.</p>
+          </div>
+          <div className="mb-2">
+            <Link className="mr-6">Terms of Services</Link>
+            <Link>Privacy Policy</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
