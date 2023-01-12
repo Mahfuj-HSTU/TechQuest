@@ -6,6 +6,7 @@ import LatestNews from "../LatestNews/LatestNews.js";
 import LifeEasier from "../LifeEasier/LifeEasier.js";
 import LookingJobs from "../LookingJobs/LookingJobs.js";
 import Review from "../Review/Review.js";
+import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <LookingJobs></LookingJobs>
+      <StartHiring></StartHiring>
       <Review></Review>
       <Developers />
       <LifeEasier />
@@ -21,6 +23,6 @@ const Home = () => {
       <WeAreSpecialist />
     </div>
   );
-};
+}
 
 export default Home;
