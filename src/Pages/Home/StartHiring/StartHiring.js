@@ -8,23 +8,17 @@ const StartHiring = () => {
         <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
           <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
             <div className="max-w-xl mb-6">
-              <div>
-                <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 text-teal-900 rounded-full">
-                  Brand new
+              <div className="mr-5">
+                <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-green-300 text-teal-900 rounded-full ">
+                Hire from Anywhere
                 </p>
               </div>
               <h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none max-w-lg mb-6">
-                Everything you
-                <br className="hidden md:block" />
-                can imagine{" "}
-                <span className="inline-block text-deep-purple-accent-400">
-                  is real
-                </span>
+              Hire From Anywhere
+                
               </h2>
               <p className="text-gray-700 text-base md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+              Our Global Mobility team helps with the visa process, doing all the heavy lifting. We also support fully remote hires. Or combine both by starting remotely and then relocating.
               </p>
             </div>
             <div className="flex items-center space-x-3">
@@ -32,21 +26,8 @@ const StartHiring = () => {
                 href="/"
                 className="w-32 transition duration-300 hover:shadow-lg"
               >
-                <img
-                  src="https://kitwind.io/assets/kometa/app-store.png"
-                  className="object-cover object-top w-full h-auto mx-auto"
-                  alt=""
-                />
-              </Link>
-              <Link
-                href="/"
-                className="w-32 transition duration-300 hover:shadow-lg"
-              >
-                <img
-                  src="https://kitwind.io/assets/kometa/google-play.png"
-                  className="object-cover object-top w-full h-auto mx-auto"
-                  alt=""
-                />
+                      <button className="btn btn-primary">Start Hiring</button>
+
               </Link>
             </div>
           </div>
@@ -58,7 +39,7 @@ const StartHiring = () => {
                 alt=""
               />
             </div>
-            <div className="w-5/12 -ml-16 lg:-ml-32">
+            <div className="w-5/12 -ml-16 lg:-ml-10">
               <img
                 className="object-cover"
                 src="https://kitwind.io/assets/kometa/two-girls-phone.png"
