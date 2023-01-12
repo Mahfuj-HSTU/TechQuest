@@ -11,7 +11,7 @@ const AllStackDevelopers = () => {
       </div>
 
       <div>
-        <ul className="flex justify-between ">
+        <ul className="grid gap-8 md:flex md:justify-between ">
           <li>
             <NavLink
               className="font-bold pb-3  text-[#646464] hover:text-[#0675CE]  hover:border-b-4 hover:border-[#0675CE]  "
