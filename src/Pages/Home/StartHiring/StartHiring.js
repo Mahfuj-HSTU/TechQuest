@@ -10,7 +10,7 @@ const StartHiring = () => {
             <div className="max-w-xl mb-6">
               <div className="mr-52">
                 <p style={{whiteSpace:"nowrap"}} className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider uppercase bg-green-300  rounded-full ">
-                  Get The Best Professionals
+                  Hire The Best Professionals
                 </p>
               </div>
               <div style={{marginRight: "140px"}}>

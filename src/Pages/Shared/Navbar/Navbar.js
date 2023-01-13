@@ -8,8 +8,8 @@ const Navbar = () => {
         <div class="flex items-center">
           <a
             href="/"
-            aria-label="Company"
-            title="Company"
+            aria-label="TechQuest"
+            title="TechQuest"
             class="inline-flex items-center mr-8"
           >
             <svg
@@ -28,7 +28,7 @@ const Navbar = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-              Company
+              TechQuest
             </span>
           </a>
           <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -125,8 +125,8 @@ const Navbar = () => {
                   <div>
                     <a
                       href="/"
-                      aria-label="Company"
-                      title="Company"
+                      aria-label="TechQuest"
+                      title="TechQuest"
                       class="inline-flex items-center"
                     >
                       <svg
@@ -145,7 +145,7 @@ const Navbar = () => {
                         <rect x="14" y="11" width="7" height="12" />
                       </svg>
                       <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
+                        TechQuest
                       </span>
                     </a>
                   </div>
