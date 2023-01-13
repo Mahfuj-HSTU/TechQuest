@@ -1,27 +1,28 @@
-import React from 'react';
+import React from "react";
 
 const Banner = () => {
-    return (
-        <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
+  return (
+    <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
       <div className="pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-5">
         <div className="max-w-xl mb-6">
-          <div>
-            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-              Brand new
+          <div style={{marginRight: "140px"}}>
+            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-green-400">
+              Start Hiring
+            </p>
+            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-green-400">
+              Get A Job
             </p>
           </div>
           <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-            The quick, brown fox
+            Hire Great
             <br className="hidden md:block" />
-            jumps over{' '}
+            jumps over{" "}
             <span className="inline-block text-deep-purple-accent-400">
               a lazy dog
             </span>
           </h2>
           <p className="text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae. explicabo.
+            Get your first 10 candidates in 48 hours!
           </p>
         </div>
         <div className="flex items-center">
@@ -34,7 +35,7 @@ const Banner = () => {
           <a
             href="/"
             aria-label=""
-            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+            className="inline-flex items-center font-semibold transition-colors duration-200 text-purple-400 hover:text-purple-800"
           >
             Learn More
           </a>
@@ -48,7 +49,7 @@ const Banner = () => {
         />
       </div>
     </div>
-    );
+  );
 };
 
 export default Banner;
