@@ -4,7 +4,7 @@ import AllStackDevelopers from "../Pages/Home/AllStackDevelopers/AllStackDevelop
 
 const Developers = () => {
   return (
-    <div>
+    <div className="mb-20">
       <AllStackDevelopers />
       <Outlet />
     </div>
