@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner.js';
+import DevelopersCategory from '../DevelopersTab/DevelopersCategory.js';
 import Events from '../Events/Events.js';
 import LatestNews from '../LatestNews/LatestNews.js';
 import LifeEasier from '../LifeEasier/LifeEasier.js';
@@ -11,6 +12,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <LookingJobs></LookingJobs>
+            <DevelopersCategory/>
             <LifeEasier />
             <Events></Events> 
             <LatestNews/>
