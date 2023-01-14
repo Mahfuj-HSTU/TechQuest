@@ -2,7 +2,6 @@ import React from "react";
 import DevelopersCategory from '../DevelopersTab/DevelopersCategory.js';
 // import Developers from "../../../layout/Developers.js";
 import Banner from "../Banner/Banner.js";
-import DevelopersCategory from "../DevelopersTab/DevelopersCategory.js";
 import EmployersCategories from "../EmployersCategories/EmployersCategories.js";
 import Events from "../Events/Events.js";
 import GetCandidateForm from "../GetCandidateForm/GetCandidateForm.js";
@@ -22,7 +21,6 @@ const Home = () => {
       <Review></Review>
       {/* <Developers /> */}
       <DevelopersCategory/>
-       <DevelopersCategory/>
       <EmployersCategories />
       <GetCandidateForm />
       <LifeEasier />
