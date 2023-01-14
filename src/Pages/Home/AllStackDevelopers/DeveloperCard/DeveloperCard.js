@@ -4,7 +4,7 @@ import React from "react";
 const DeveloperCard = ({ developer }) => {
   const { name, img, title, country, javascript, react, html } = developer;
   return (
-    <div data-aos="fade-left" className="card p-5 border ">
+    <div data-aos="fade-left" className="card p-8 border ">
       <div className="w-full h-[250px]">
         <img className="w-full h-full" src={img} alt="" />
       </div>

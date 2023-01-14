@@ -1,7 +1,7 @@
 import React from "react";
 
-const DevopsEngineerCard = ({ developer }) => {
-  const { name, img, title, country, aws, docker, devops } = developer;
+const DevopsEngineerCard = ({ engineer }) => {
+  const { name, img, title, country, aws, docker, devops } = engineer;
   return (
     <div data-aos="fade-left" className="card p-8 border ">
       <div className="w-full h-[250px]">
