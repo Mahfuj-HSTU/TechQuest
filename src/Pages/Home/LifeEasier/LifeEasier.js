@@ -13,9 +13,9 @@ const LifeEasier = () => {
                     <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-0 left-0'><p>Build Diverse Teams</p></div>
                     <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-10 left-60'><p>Vetted Tech Talent</p></div>
                     <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-48 left-0'><p>Long Term Retention</p></div>
-                    <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-56 left-60'><p>Risk Free</p></div>
+                    <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-56 left-60 mt-3'><p>Risk Free</p></div>
                     <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-96 left-0'><p>The fastest way to hire</p></div>
-                    <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-96 left-60'><p>Maximize your budget</p></div>
+                    <div className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-96 left-60 mt-12'><p>Maximize your budget</p></div>
                 </div>
             </div>
         </div>
