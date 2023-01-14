@@ -8,8 +8,8 @@ const Navbar = () => {
         <div class="flex items-center">
           <a
             href="/"
-            aria-label="Company"
-            title="Company"
+            aria-label="TechQuest"
+            title="TechQuest"
             class="inline-flex items-center mr-8"
           >
             <svg
@@ -28,7 +28,7 @@ const Navbar = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-              Company
+              TechQuest
             </span>
           </a>
           <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -69,7 +69,7 @@ const Navbar = () => {
                 title="About us"
                 class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                About us
+                About Us
               </a>
             </li>
           </ul>
@@ -82,17 +82,17 @@ const Navbar = () => {
               title="Sign in"
               class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              Sign in
+              Sign In
             </a>
           </li>
           <li>
             <a
               href="/"
-              class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+              class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-700 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white"
               aria-label="Sign up"
               title="Sign up"
             >
-              Sign up
+              Sign Up
             </a>
           </li>
         </ul>
@@ -125,8 +125,8 @@ const Navbar = () => {
                   <div>
                     <a
                       href="/"
-                      aria-label="Company"
-                      title="Company"
+                      aria-label="TechQuest"
+                      title="TechQuest"
                       class="inline-flex items-center"
                     >
                       <svg
@@ -145,7 +145,7 @@ const Navbar = () => {
                         <rect x="14" y="11" width="7" height="12" />
                       </svg>
                       <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
+                        TechQuest
                       </span>
                     </a>
                   </div>
@@ -220,7 +220,7 @@ const Navbar = () => {
                     <li>
                       <a
                         href="/"
-                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-700 hover:bg-purple-400 focus:shadow-outline focus:outline-none"
                         aria-label="Sign up"
                         title="Sign up"
                       >

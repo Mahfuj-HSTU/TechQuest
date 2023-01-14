@@ -1,20 +1,28 @@
-import React from 'react';
-import AllStackDevelopers from '../AllStackDevelopers/AllStackDevelopers.js';
-import Banner from '../Banner/Banner.js';
-import Events from '../Events/Events.js';
-import LatestNews from '../LatestNews/LatestNews.js';
-import LifeEasier from '../LifeEasier/LifeEasier.js';
-import LookingJobs from '../LookingJobs/LookingJobs.js';
-import Review from '../Review/Review.js';
-import WeAreSpecialist from '../WeAreSpecialist/WeAreSpecialist.js';
+import React from "react";
+import DevelopersCategory from '../DevelopersTab/DevelopersCategory.js';
+import Developers from "../../../layout/Developers.js";
+import Banner from "../Banner/Banner.js";
+import EmployersCategories from "../EmployersCategories/EmployersCategories.js";
+import Events from "../Events/Events.js";
+import GetCandidateForm from "../GetCandidateForm/GetCandidateForm.js";
+import LatestNews from "../LatestNews/LatestNews.js";
+import LifeEasier from "../LifeEasier/LifeEasier.js";
+import LookingJobs from "../LookingJobs/LookingJobs.js";
+import Review from "../Review/Review.js";
+import StartHiring from "../StartHiring/StartHiring.js";
+import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <LookingJobs></LookingJobs>
+            <StartHiring></StartHiring>
             <Review></Review>
-            <AllStackDevelopers></AllStackDevelopers>
+            <Developers />
+            <DevelopersCategory />
+            <EmployersCategories />
+            <GetCandidateForm />
             <LifeEasier />
             <Events></Events>
             <LatestNews />
