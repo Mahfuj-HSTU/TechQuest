@@ -1,9 +1,7 @@
-import Aos from "aos";
 import React from "react";
 
 const FullStackDeveloperCard = ({ developer }) => {
-  const { name, img, title, country, javascript, react, node, php, mongodb } =
-    developer;
+  const { name, img, title, country, javascript, node, php } = developer;
   return (
     <div data-aos="fade-left" className="card p-8 border ">
       <div className="w-full h-[250px]">
