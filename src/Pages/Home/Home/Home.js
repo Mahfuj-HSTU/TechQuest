@@ -1,4 +1,5 @@
 import React from 'react';
+import AllStackDevelopers from '../AllStackDevelopers/AllStackDevelopers.js';
 import Banner from '../Banner/Banner.js';
 import Events from '../Events/Events.js';
 import LatestNews from '../LatestNews/LatestNews.js';
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <LookingJobs></LookingJobs>
             <Review></Review>
+            <AllStackDevelopers></AllStackDevelopers>
             <LifeEasier />
             <Events></Events>
             <LatestNews />
