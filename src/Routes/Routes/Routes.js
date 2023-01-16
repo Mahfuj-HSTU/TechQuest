@@ -11,7 +11,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
-const router = createBrowserRouter( [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -46,23 +46,22 @@ const router = createBrowserRouter( [
               },
             ],
           },
-        ]
+        ],
       },
       {
-        path: '/jobSeeker',
-        element: <JobSeeker></JobSeeker>
+        path: "/jobSeeker",
+        element: <JobSeeker></JobSeeker>,
       },
       {
-        path: '/recruiter',
-        element: <Recruiter></Recruiter>
+        path: "/recruiter",
+        element: <Recruiter></Recruiter>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
-      }
+        path: "/login",
+        element: <Login></Login>,
+      },
     ],
   },
-
-] );
+]);
 
 export default router;
