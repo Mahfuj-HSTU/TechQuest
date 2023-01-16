@@ -8,7 +8,10 @@ import FrontEndDevelopers from "../../Pages/Home/AllStackDevelopers/FrontEndDeve
 import FullStackDevelopers from "../../Pages/Home/AllStackDevelopers/FullstackDevelopers/FullStackDevelopers";
 import MobileDevelopers from "../../Pages/Home/AllStackDevelopers/MobileDevelopers/MobileDevelopers";
 import Home from "../../Pages/Home/Home/Home";
-const router = createBrowserRouter([
+import Login from "../../Pages/SignUp/Login/Login";
+import Employer from "../../Pages/SignUp/Registration/JobSeeker";
+import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
+const router = createBrowserRouter( [
   {
     path: "/",
     element: <MainLayout />,
@@ -16,35 +19,50 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        children: [
+          {
+            path: "/",
+            element: <Developers />,
+            children: [
+              {
+                path: "/forntend_developers",
+                element: <FrontEndDevelopers />,
+              },
+              {
+                path: "/backend_developers",
+                element: <BackendDevelopers />,
+              },
+              {
+                path: "/fullstack_developers",
+                element: <FullStackDevelopers />,
+              },
+              {
+                path: "/mobile_developers",
+                element: <MobileDevelopers />,
+              },
+              {
+                path: "/devops_engineers",
+                element: <DevopsEngineers />,
+              },
+            ],
+          },
+        ]
       },
+      {
+        path: '/employer',
+        element: <Employer></Employer>
+      },
+      {
+        path: '/recruiter',
+        element: <Recruiter></Recruiter>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      }
     ],
   },
-  {
-    path: "/",
-    element: <Developers />,
-    children: [
-      {
-        path: "/forntend_developers",
-        element: <FrontEndDevelopers />,
-      },
-      {
-        path: "/backend_developers",
-        element: <BackendDevelopers />,
-      },
-      {
-        path: "/fullstack_developers",
-        element: <FullStackDevelopers />,
-      },
-      {
-        path: "/mobile_developers",
-        element: <MobileDevelopers />,
-      },
-      {
-        path: "/devops_engineers",
-        element: <DevopsEngineers />,
-      },
-    ],
-  },
-]);
+
+] );
 
 export default router;
