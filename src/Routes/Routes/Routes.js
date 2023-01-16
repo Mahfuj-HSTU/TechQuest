@@ -9,7 +9,7 @@ import FullStackDevelopers from "../../Pages/Home/AllStackDevelopers/FullstackDe
 import MobileDevelopers from "../../Pages/Home/AllStackDevelopers/MobileDevelopers/MobileDevelopers";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/SignUp/Login/Login";
-import Employer from "../../Pages/SignUp/Registration/JobSeeker";
+import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 const router = createBrowserRouter( [
   {
@@ -49,8 +49,8 @@ const router = createBrowserRouter( [
         ]
       },
       {
-        path: '/employer',
-        element: <Employer></Employer>
+        path: '/jobSeeker',
+        element: <JobSeeker></JobSeeker>
       },
       {
         path: '/recruiter',
