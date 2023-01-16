@@ -1,6 +1,6 @@
 import React from "react";
 import DevelopersCategory from "../DevelopersTab/DevelopersCategory.js";
-import Developers from "../../../layout/Developers.js";
+// import Developers from "../../../layout/Developers.js";
 import Banner from "../Banner/Banner.js";
 import EmployersCategories from "../EmployersCategories/EmployersCategories.js";
 import Events from "../Events/Events.js";
