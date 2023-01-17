@@ -1,6 +1,5 @@
 import React from "react";
-import DevelopersCategory from '../DevelopersTab/DevelopersCategory.js';
-import Developers from "../../../layout/Developers.js";
+import DevelopersCategory from "../DevelopersTab/DevelopersCategory.js";
 import Banner from "../Banner/Banner.js";
 import EmployersCategories from "../EmployersCategories/EmployersCategories.js";
 import Events from "../Events/Events.js";
@@ -14,23 +13,21 @@ import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
 
 const Home = () => {
-    return (
-        <div>
-            <Banner></Banner>
-            <LookingJobs></LookingJobs>
-            <StartHiring></StartHiring>
-            <Review></Review>
-            <Developers />
-            <DevelopersCategory />
-            <EmployersCategories />
-            <GetCandidateForm />
-            <LifeEasier />
-            <Events></Events>
-            <InterviewAndHire />
-            <LatestNews />
-            <WeAreSpecialist />
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <LookingJobs></LookingJobs>
+      <StartHiring></StartHiring>
+      <Review></Review>
+      <DevelopersCategory />
+      <EmployersCategories />
+      <GetCandidateForm />
+      <LifeEasier />
+      <Events></Events>
+      <LatestNews />
+      <WeAreSpecialist />
+    </div>
+  );
 };
 
 export default Home;

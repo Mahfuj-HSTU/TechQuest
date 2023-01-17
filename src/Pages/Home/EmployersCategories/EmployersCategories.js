@@ -6,7 +6,7 @@ const EmployersCategories = () => {
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
           <button
-            href="javascript:;"
+            href="javascript"
             className=" my-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -24,7 +24,7 @@ const EmployersCategories = () => {
           </button>
           9071+ Javascript Engineers
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -46,10 +46,7 @@ const EmployersCategories = () => {
       </div>
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
-          <button
-            href="javascript:;"
-            className=" m-2 rounded-full   text-black "
-          >
+          <button href="javascript" className=" m-2 rounded-full   text-black ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -65,7 +62,7 @@ const EmployersCategories = () => {
           </button>
           3621+ Python Engineers
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -87,10 +84,7 @@ const EmployersCategories = () => {
       </div>
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
-          <button
-            href="javascript:;"
-            className=" m-2 rounded-full   text-black "
-          >
+          <button href="javascript" className=" m-2 rounded-full   text-black ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -106,7 +100,7 @@ const EmployersCategories = () => {
           </button>
           9071+ React Engineers
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -128,10 +122,7 @@ const EmployersCategories = () => {
       </div>
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
-          <button
-            href="javascript:;"
-            className=" m-2 rounded-full   text-black"
-          >
+          <button href="javascript" className=" m-2 rounded-full   text-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -147,7 +138,7 @@ const EmployersCategories = () => {
           </button>
           3571+ DevOps Engineers
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -169,10 +160,7 @@ const EmployersCategories = () => {
       </div>
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
-          <button
-            href="javascript:"
-            className=" m-2 rounded-full   text-black "
-          >
+          <button href="javascript" className=" m-2 rounded-full   text-black ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -188,7 +176,7 @@ const EmployersCategories = () => {
           </button>
           9071+ UI/UX Designers
           <button
-            href="javascript:"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -210,10 +198,7 @@ const EmployersCategories = () => {
       </div>
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
-          <button
-            href="javascript:"
-            className=" m-2 rounded-full   text-black "
-          >
+          <button href="javascript" className=" m-2 rounded-full   text-black ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -229,7 +214,7 @@ const EmployersCategories = () => {
           </button>
           4071+ Mobile Developer
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -252,7 +237,7 @@ const EmployersCategories = () => {
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -270,7 +255,7 @@ const EmployersCategories = () => {
           </button>
           9071+ Java Developers
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -293,7 +278,7 @@ const EmployersCategories = () => {
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
@@ -311,7 +296,7 @@ const EmployersCategories = () => {
           </button>
           9071+ Q.A Specialists
           <button
-            href="javascript:;"
+            href="javascript"
             className=" m-2 rounded-full   text-black hover:bg-slate-300  hover:text-white-700 hover:shadow-xl focus:outline-none w-10 h-10  transition duration-300"
           >
             <svg
