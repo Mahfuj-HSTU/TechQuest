@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import SignUpModal from '../../SignUp/SignUpModal';
 
 const Navbar = () => {
+  const { user, logOut } = useContext( AuthContext )
+
+  // console.log( user )
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch()
+
+  }
+
   const menuItems = <>
     <li className='font-semibold'><Link to='/'>Product</Link> </li>
     <li className='font-semibold'><Link to='/'>Features</Link> </li>
     <li className='font-semibold'><Link to='/'>About Us</Link> </li>
 
-    {/* <li className='font-semibold'>
-      <button className='btn-ghost'>Log Out</button>
-    </li> */}
-    <li className='font-semibold'><Link to='/login'>Login</Link> </li>
-    <li className="font-semibold">
-      <label htmlFor="sign-up-modal" >Sign Up</label>
-    </li>
+    {
+      user?.email ?
+        <>
+          <li className='font-semibold'>
+            <button onClick={ handleLogOut } className='btn-ghost'>Log Out</button>
+          </li>
+        </> :
+        <>
+          <li className='font-semibold'><Link to='/login'>Login</Link> </li>
+          <li className="font-semibold">
+            <label htmlFor="sign-up-modal" >Sign Up</label>
+          </li>
+        </>
+    }
   </>
 
   return (
