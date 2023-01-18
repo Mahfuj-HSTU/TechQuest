@@ -13,22 +13,21 @@ import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
 
 const Home = () => {
-    return (
-        <div>
-            <Banner></Banner>
-            <LookingJobs></LookingJobs>
-            <StartHiring></StartHiring>
-            <Review></Review>
-            <DevelopersCategory />
-            <EmployersCategories />
-            <GetCandidateForm />
-            <LifeEasier />
-            <Events></Events>
-            <InterviewAndHire></InterviewAndHire>
-            <LatestNews />
-            <WeAreSpecialist />
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <LookingJobs></LookingJobs>
+      <StartHiring></StartHiring>
+      <Review></Review>
+      <DevelopersCategory />
+      <EmployersCategories />
+      <GetCandidateForm />
+      <LifeEasier />
+      <Events></Events>
+      <LatestNews />
+      <WeAreSpecialist />
+    </div>
+  );
 };
 
 export default Home;
