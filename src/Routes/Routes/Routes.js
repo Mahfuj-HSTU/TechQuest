@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllJobsView from "../../features/AllJobs/AllJobsView";
 import Developers from "../../layout/Developers";
 import MainLayout from "../../layout/MainLayout";
-// import AllStackDevelopers from "../../Pages/Home/AllStackDevelopers/AllStackDevelopers";
 import BackendDevelopers from "../../Pages/Home/AllStackDevelopers/BackendDevelopers/BackendDevelopers";
 import DevopsEngineers from "../../Pages/Home/AllStackDevelopers/DevopsEngineers/DevopsEngineers";
 import FrontEndDevelopers from "../../Pages/Home/AllStackDevelopers/FrontEndDevelopers/FrontEndDevelopers";
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
             ],
           },
         ],
+      },
+      {
+        path: "/all-jobs",
+        element: <AllJobsView />,
       },
       {
         path: "/jobSeeker",
