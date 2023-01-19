@@ -46,11 +46,11 @@ const AddJobs = () => {
   };
 
   return (
-    <div className="my-10">
-      <h5 className="text-4xl">You Need Employee!! Add A Job Post Here</h5>
+    <div className="my-24">
+      <h5 className="text-xl font-semibold mb-10">
+        You Need Employee? Add A Job Post Here.
+      </h5>
       <form onSubmit={handleSubmit(handleAddJObs)} action="">
-        <input type="text" />
-
         <div className="form-control mb-4 w-full ">
           <label className="label font-semibold">
             <span className="label-text">Job Title</span>
@@ -259,9 +259,9 @@ const AddJobs = () => {
         </div>
 
         <input
-          className="btn bg-[#0675CE] text-white"
+          className="btn bg-[#0675CE] hover:bg-blue-500 w-1/5 border-0 text-white"
           type="submit"
-          value="Create"
+          value="Submit"
         />
       </form>
     </div>
