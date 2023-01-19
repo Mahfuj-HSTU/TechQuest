@@ -5,7 +5,8 @@ const AddJobs = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
+
     formState: { errors },
   } = useForm();
 
@@ -27,13 +28,21 @@ const AddJobs = () => {
       openings: data.openings,
     };
     console.log(jobDetails);
-    // fetch("", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: jobDetails,
-    // });
+    fetch("http://localhost:5000/alljobs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(jobDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("successfully created a job post");
+          reset();
+        }
+      });
   };
 
   return (
