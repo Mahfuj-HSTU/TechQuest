@@ -2,14 +2,15 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { ImLocation } from 'react-icons/im';
 import { RiRemoteControlLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const SingleJobView = () => {
     const location = useLocation();
     const job = location.state;
     const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
-    // console.log(job);
-    return (
-        <div className='m-20 text-left'>
+    console.log(job);
+    return (<div>
+        {job && <div className='m-20 text-left'>
             <h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
             <div className='flex gap-3 my-3'>
                 <p className='border p-1 rounded-lg'><ImLocation className='inline' />{job.location}</p>
@@ -34,7 +35,7 @@ const SingleJobView = () => {
                 <p className='font-semibold inline'>Experience: </p>
                 <small className=' rounded-3xl px-2 text-xs font-semibold bg-gray-200'>{experience}</small>
             </div>
-            <p className='my-5'>{jobDescription}</p>
+            <p className='my-5 text-justify'>{jobDescription}</p>
             <p className='font-bold'>Responsibilities:</p>
             <ul className='my-5 ml-5'>
                 {
@@ -51,7 +52,11 @@ const SingleJobView = () => {
                     )}
             </ul>
 
-        </div>
+            <div>
+                <Link to='/' className='btn'>Apply Now</Link>
+            </div>
+        </div>}
+    </div>
     );
 };
 
