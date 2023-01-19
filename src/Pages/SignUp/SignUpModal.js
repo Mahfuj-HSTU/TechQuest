@@ -21,7 +21,7 @@ const SignUpModal = () => {
                     <Link to='/recruiter' className="btn  btn-outline btn-info w-full mb-5">Recruiter</Link>
                     <Link to='/jobSeeker' className="btn  btn-outline btn-info w-full">Job Seeker</Link>
                     <div className="modal-action">
-                        <label htmlFor="sign-up-modal" className="btn">Close</label>
+                        <label htmlFor="sign-up-modal" className="btn">Submit</label>
                     </div>
                 </div>
             </div>
