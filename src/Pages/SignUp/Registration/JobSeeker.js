@@ -35,7 +35,7 @@ const JobSeeker = () => {
         // save users
         const saveUsers = () => {
             const user = { name, email, role };
-            fetch( 'http://localhost:5000//users', {
+            fetch( 'http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
