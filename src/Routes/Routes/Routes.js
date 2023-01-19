@@ -8,6 +8,7 @@ import FrontEndDevelopers from "../../Pages/Home/AllStackDevelopers/FrontEndDeve
 import FullStackDevelopers from "../../Pages/Home/AllStackDevelopers/FullstackDevelopers/FullStackDevelopers";
 import MobileDevelopers from "../../Pages/Home/AllStackDevelopers/MobileDevelopers/MobileDevelopers";
 import Home from "../../Pages/Home/Home/Home";
+import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/MyJobPost",
+        element: <MyJobPost></MyJobPost>,
       },
     ],
   },
