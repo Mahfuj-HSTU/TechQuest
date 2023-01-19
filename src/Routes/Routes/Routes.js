@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Developers from "../../layout/Developers";
+import AllJobsView from "../../features/AllJobs/AllJobsView";
+import SingleJobView from "../../features/AllJobs/SingleJobView";
 import MainLayout from "../../layout/MainLayout";
-// import AllStackDevelopers from "../../Pages/Home/AllStackDevelopers/AllStackDevelopers";
-import BackendDevelopers from "../../Pages/Home/AllStackDevelopers/BackendDevelopers/BackendDevelopers";
-import DevopsEngineers from "../../Pages/Home/AllStackDevelopers/DevopsEngineers/DevopsEngineers";
-import FrontEndDevelopers from "../../Pages/Home/AllStackDevelopers/FrontEndDevelopers/FrontEndDevelopers";
-import FullStackDevelopers from "../../Pages/Home/AllStackDevelopers/FullstackDevelopers/FullStackDevelopers";
-import MobileDevelopers from "../../Pages/Home/AllStackDevelopers/MobileDevelopers/MobileDevelopers";
 import Home from "../../Pages/Home/Home/Home";
+import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
+import Login from "../../Pages/SignUp/Login/Login";
+import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
+import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,31 +16,29 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-    ],
-  },
-  {
-    path: "/",
-    element: <Developers />,
-    children: [
       {
-        path: "/forntend_developers",
-        element: <FrontEndDevelopers />,
+        path: "/all-jobs",
+        element: <AllJobsView />,
       },
       {
-        path: "/backend_developers",
-        element: <BackendDevelopers />,
+        path: "/job-details",
+        element: <SingleJobView />,
       },
       {
-        path: "/fullstack_developers",
-        element: <FullStackDevelopers />,
+        path: "/jobSeeker",
+        element: <JobSeeker></JobSeeker>,
       },
       {
-        path: "/mobile_developers",
-        element: <MobileDevelopers />,
+        path: "/recruiter",
+        element: <Recruiter></Recruiter>,
       },
       {
-        path: "/devops_engineers",
-        element: <DevopsEngineers />,
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/MyJobPost",
+        element: <MyJobPost></MyJobPost>,
       },
     ],
   },
