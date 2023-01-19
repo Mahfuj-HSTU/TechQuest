@@ -1,6 +1,5 @@
 import React from "react";
-import DevelopersCategory from '../DevelopersTab/DevelopersCategory.js';
-import Developers from "../../../layout/Developers.js";
+import DevelopersCategory from "../DevelopersTab/DevelopersCategory.js";
 import Banner from "../Banner/Banner.js";
 import EmployersCategories from "../EmployersCategories/EmployersCategories.js";
 import Events from "../Events/Events.js";
@@ -11,7 +10,7 @@ import LookingJobs from "../LookingJobs/LookingJobs.js";
 import Review from "../Review/Review.js";
 import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
-import MyJobs from "../../MyJobs/MyJobs.js";
+import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
 
 const Home = () => {
   return (
@@ -20,7 +19,6 @@ const Home = () => {
       <LookingJobs></LookingJobs>
       <StartHiring></StartHiring>
       <Review></Review>
-      <Developers />
       <DevelopersCategory />
       <EmployersCategories />
       <MyJobs></MyJobs>

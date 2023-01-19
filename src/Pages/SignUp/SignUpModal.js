@@ -19,7 +19,7 @@ const SignUpModal = () => {
             <div className="modal">
                 <div className="modal-box">
                     <Link to='/recruiter' className="btn  btn-outline btn-info w-full mb-5">Recruiter</Link>
-                    <Link to='/employer' className="btn  btn-outline btn-info w-full">Employer</Link>
+                    <Link to='/jobSeeker' className="btn  btn-outline btn-info w-full">Job Seeker</Link>
                     <div className="modal-action">
                         <label htmlFor="sign-up-modal" className="btn">Close</label>
                     </div>

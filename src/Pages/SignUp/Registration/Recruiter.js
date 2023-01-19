@@ -13,14 +13,16 @@ const Recruiter = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photoUrl = form.photoUrl.value;
+        // const photoUrl = form.photoUrl.value;
         const password = form.password.value;
+        const role = 'recruiter';
 
         // registered user create
         createUser( email, password )
             .then( result => {
                 const user = result.user;
                 console.log( user );
+                saveUsers();
                 form.reset();
                 toast.success( 'Registration successful.' )
                 setError( '' )
@@ -29,6 +31,23 @@ const Recruiter = () => {
                 console.error( error )
                 setError( error.message );
             } )
+
+        // save users
+        const saveUsers = () => {
+            const user = { name, email, role };
+            fetch( 'http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify( user )
+            } )
+                .then( res => res.json() )
+                .then( data => {
+                    console.log( data );
+                } )
+        }
+
     }
 
     return (
@@ -48,7 +67,7 @@ const Recruiter = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="Enter your email" className="input input-bordered" required />
-                        <p className='text-red-600 font-semibold'>{ error.slice( 22, 42 ) }</p>
+                        <p className='text-red-600 font-semibold'>{ error.slice( 22, 45 ) }</p>
                     </div>
 
                     <div className="form-control">

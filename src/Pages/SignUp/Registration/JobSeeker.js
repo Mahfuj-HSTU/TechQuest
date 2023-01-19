@@ -13,14 +13,16 @@ const JobSeeker = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photoUrl = form.photoUrl.value;
+        // const photoUrl = form.photoUrl.value;
         const password = form.password.value;
+        const role = 'jobSeeker';
 
         // registered user create
         createUser( email, password )
             .then( result => {
                 const user = result.user;
                 console.log( user );
+                saveUsers();
                 form.reset();
                 toast.success( 'Registration successful.' )
                 setError( '' )
@@ -29,6 +31,22 @@ const JobSeeker = () => {
                 console.error( error )
                 setError( error.message );
             } )
+
+        // save users
+        const saveUsers = () => {
+            const user = { name, email, role };
+            fetch( 'http://localhost:5000//users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify( user )
+            } )
+                .then( res => res.json() )
+                .then( data => {
+                    console.log( data );
+                } )
+        }
     }
 
     return (
