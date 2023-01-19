@@ -17,12 +17,12 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-
       <LookingJobs></LookingJobs>
       <StartHiring></StartHiring>
       <Review></Review>
       <DevelopersCategory />
       <EmployersCategories />
+      <InterviewAndHire/>
       <MyJobs></MyJobs>
       <GetCandidateForm />
       <LifeEasier />
