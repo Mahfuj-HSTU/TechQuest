@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import DevelopersCard from "./DevelopersCard";
 
 const categories = [
@@ -13,6 +12,7 @@ const categories = [
 const DevelopersCategory = () => {
   const [category, setCategory] = useState(0);
   const [developers, setDevelopers] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     fetch("data/developers.json")
@@ -31,20 +31,31 @@ const DevelopersCategory = () => {
 
   const handleCategory = (e) => {
     // console.log(e);
-    setCategory(e)
+    setCategory(e);
+    setIsActive(true);
   };
 
   return (
     <div className="mx-3">
-      <div className="tabs gap-3">
+      <div className="mb-10">
+        <h2 className="text-4xl font-bold text-center">
+          The world is your talent pool
+        </h2>
+      </div>
+      <div className="tabs flex justify-between gap-3 ">
         {categories.map((category, i) => (
-          <Link
+          <div
             key={i}
             onClick={() => handleCategory(i)}
-            className="tab tab-bordered"
+            className={
+              category === i && isActive
+                ? "  tab-bordered font-bold pb-3 mb-6 text-[#0675CE] border-b-4 border-[#0675CE]  hover:text-[#0675CE]  hover:border-b-4 hover:border-[#0675CE]"
+                : "tab-bordered font-bold pb-3 mb-6 text-[#646464]  hover:text-[#0675CE]  hover:border-b-4 hover:border-[#0675CE]"
+            }
+            // className="tab tab-bordered"
           >
             {category}
-          </Link>
+          </div>
         ))}
         <div className="">
           <DevelopersCard developers={developers} />
