@@ -14,18 +14,20 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold">
-        <Link to="/all-jobs">All Jobs</Link>{" "}
+      <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
+      <li className="font-semibold"><Link to="/">Features</Link></li>
+      <li className="font-semibold" tabIndex={0}>
+        <Link>
+          Reqruiter
+          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+        </Link>
+        <ul className="p-2">
+          <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
+          <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
+        </ul>
       </li>
-      <li className="font-semibold">
-        <Link to="/">Features</Link>{" "}
-      </li>
-      <li className="font-semibold">
-        <Link to="/addjob">Add Job</Link>{" "}
-      </li>
-      <li className="font-semibold">
-        <Link to="/">About Us</Link>{" "}
-      </li>
+      <li className="font-semibold"><Link to="/">About Us</Link></li>
+      <li className="font-semibold"><Link to="/courses">Courses</Link></li>
 
       {user?.email ? (
         <>
