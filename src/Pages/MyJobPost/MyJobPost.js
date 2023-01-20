@@ -1,27 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
+    const [MyJobPost, setMyJobPost] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/recruiterJobPosts')
+            .then(res => res.json())
+            .then(data => setMyJobPost(data))
+    }, [])
+
+
+
+
     return (
-        <div className=' my-14 grid lg:grid-cols-4 md:grid-cols-2 gap-4'>
+        <div className='lg:mt-24 grid lg:grid-cols-4 md:grid-cols-2 gap-4'>
             <div className='lg:col-span-3 text-left'>
-                <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
-                    <div className="flex justify-between p-4">
-                        <div className="flex space-x-4">
-                            <div>
-                                <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
-                            </div>
-                            <div>
-                                <h4 className="font-bold">Leroy Jenkins</h4>
-                                {/* <span className="text-xs dark:text-gray-400">2 days ago</span> */}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                        <h1 className='text-2xl font-semibold text-info'>Company Name</h1>
-                        <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                        <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
-                    </div>
-                </div>
+                {
+                    MyJobPost.map(jobPost => <JobPostCard key={MyJobPost._id} jobPost={jobPost}></JobPostCard>)
+                }
             </div>
             <div className=' hidden lg:inline md:inline'>
                 <div className="card bg-base-100 shadow-xl text-left">
@@ -31,6 +28,25 @@ const MyJobPost = () => {
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl my-8">
+                    <div className="card-body">
+                        <h2 className="card-title">Job Search</h2>
+                        <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis.</p>
+                        <div className="card-actions justify-end">
+                            <p className='text-info text-left'>See More</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="card bg-base-100 shadow-xl text-left my-8">
+                    <figure><img src="https://www.offlinepost.gr/wp-content/uploads/2022/09/flat-world-music-day-background_23-2149386277.jpg" alt="Shoes" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Play Music</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-warning">Play Now</button>
                         </div>
                     </div>
                 </div>
