@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-// import { useQuery } from '@tanstack/react-query';
-// import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
