@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import useJobSeeker from "../../../hooks/useJobSeeker";
+import useRecruiter from "../../../hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
   const { user, logOut } = useContext( AuthContext );
+  const [ isRecruiter ] = useRecruiter( user?.email );
+  const [ isJobSeeker ] = useJobSeeker( user?.email );
 
   // console.log( user )
 
@@ -14,9 +18,8 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
       <li className="font-semibold"><Link to="/">Features</Link></li>
-      <li className="font-semibold" tabIndex={ 0 }>
+      {/* <li className="font-semibold" tabIndex={ 0 }>
         <Link>
           Recruiter
           <svg className="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
@@ -25,28 +28,41 @@ const Navbar = () => {
           <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
           <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
         </ul>
-      </li>
+      </li> */}
       {/* <li className="font-semibold"><Link to="/">About Us</Link></li> */ }
-      <li className="font-semibold"><Link to="/courses">Courses</Link></li>
 
-      { user?.email ? (
-        <>
-          <li className="font-semibold">
-            <button onClick={ handleLogOut } className="btn-ghost">
-              Log Out
-            </button>
-          </li>
-        </>
-      ) : (
-        <>
-          <li className="font-semibold">
-            <Link to="/login">Login</Link>{ " " }
-          </li>
-          <li className="font-semibold">
-            <label htmlFor="sign-up-modal">Sign Up</label>
-          </li>
-        </>
-      ) }
+      {
+        user?.email ? (
+          <>
+            {
+              isRecruiter && <>
+                <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
+                <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
+              </>
+            }
+            {
+              isJobSeeker && <>
+                <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
+                <li className="font-semibold"><Link to="/courses">Courses</Link></li>
+              </>
+            }
+            <li className="font-semibold">
+              <button onClick={ handleLogOut } className="btn-ghost">
+                Log Out
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="font-semibold">
+              <Link to="/login">Login</Link>{ " " }
+            </li>
+            <li className="font-semibold">
+              <label htmlFor="sign-up-modal">Sign Up</label>
+            </li>
+          </>
+        )
+      }
     </>
   );
 
