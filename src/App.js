@@ -11,11 +11,11 @@ AOS.init();
 
 const queryClient = new QueryClient();
 
-function App () {
+function App() {
   return (
     <div className="App">
-      <QueryClientProvider client={ queryClient }>
-        <RouterProvider router={ router }></RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
       </QueryClientProvider>
     </div>
   );

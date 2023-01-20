@@ -10,6 +10,8 @@ import LookingJobs from "../LookingJobs/LookingJobs.js";
 import Review from "../Review/Review.js";
 import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
+import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
+import MyJobs from "../../MyJobs/MyJobs.js";
 
 const Home = () => {
   return (
@@ -20,6 +22,8 @@ const Home = () => {
       <Review></Review>
       <DevelopersCategory />
       <EmployersCategories />
+      <InterviewAndHire />
+      <MyJobs></MyJobs>
       <GetCandidateForm />
       <LifeEasier />
       <Events></Events>

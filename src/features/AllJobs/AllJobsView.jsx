@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const AllJobsView = () => {
     const jobs = useSelector(state => state.jobsReducer.jobs);
@@ -12,15 +13,12 @@ const AllJobsView = () => {
                 const { id,
                     jobTitle,
                     jobDescription,
-                    // jobRequirements,
-                    // jobResponsibilities,
                     jobStatus,
                     jobType,
                     location,
                     salary,
                     salaryCurrency,
                     experience,
-                    // language,
                     mustSkills,
                     optionalSkills,
                     openings } = job;
@@ -48,6 +46,7 @@ const AllJobsView = () => {
                             <p className='border rounded-3xl text-sm p-1'>{optionalSkills}</p>
                             <p className='border rounded-3xl text-sm p-1'>{experience}</p>
                         </div>
+                            <Link state={job} className='btn btn-info text-white hover:bg-white hover:text-black' to="/job-details">See Details</Link>
                     </div>)
             })}
         </div>

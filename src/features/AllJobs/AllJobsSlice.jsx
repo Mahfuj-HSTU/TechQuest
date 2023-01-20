@@ -36,7 +36,7 @@ const initialJobs = {
             openings: "5",
         },
         {
-            id: 1,
+            id: 3,
             jobTitle: "MERN Developer",
             jobDescription:
                 ["A startup in Toronto, Canada  is looking for a Full-stack Web Application Developer to implement and build features for our main web application. Responsibilities include implementic business logic functionality on backend, implementing UI/UX design wireframes and mockups into actual code that will produce visual elements within our web-application."
@@ -69,7 +69,7 @@ const initialJobs = {
             openings: "5",
         },
         {
-            id: 1,
+            id: 3,
             jobTitle: "MERN Developer",
             jobDescription:
                 ["A startup in Toronto, Canada  is looking for a Full-stack Web Application Developer to implement and build features for our main web application. Responsibilities include implementic business logic functionality on backend, implementing UI/UX design wireframes and mockups into actual code that will produce visual elements within our web-application."
