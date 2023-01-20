@@ -26,7 +26,7 @@ const AddJobs = () => {
       optionalSkills: data.optionalSkills,
       openings: data.openings,
     };
-    console.log(jobDetails);
+    // console.log(jobDetails);
     fetch("http://localhost:5000/alljobs", {
       method: "POST",
       headers: {
@@ -110,7 +110,7 @@ const AddJobs = () => {
               {...register("jobStatus", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled selected>
+              <option disabled>
                 Select job status
               </option>
               <option>On Site</option>
@@ -131,7 +131,7 @@ const AddJobs = () => {
               {...register("jobType", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled selected>
+              <option disabled>
                 Select job type
               </option>
               <option>Internship</option>
@@ -176,7 +176,7 @@ const AddJobs = () => {
               {...register("currency")}
               className="select select-bordered w-full max-w-xs"
             >
-              <option selected>USD</option>
+              <option>USD</option>
               <option>BDT</option>
               <option>EUR</option>
               <option>INR</option>
