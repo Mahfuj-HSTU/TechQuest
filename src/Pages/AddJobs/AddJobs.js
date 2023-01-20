@@ -6,7 +6,6 @@ const AddJobs = () => {
     register,
     handleSubmit,
     reset,
-
     formState: { errors },
   } = useForm();
 

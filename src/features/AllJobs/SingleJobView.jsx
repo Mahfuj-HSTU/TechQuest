@@ -53,7 +53,7 @@ const SingleJobView = () => {
             </ul>
 
             <div>
-                <Link to='/' className='btn'>Apply Now</Link>
+                <Link to='/my-job' className='btn'>Apply Now</Link>
             </div>
         </div>}
     </div>

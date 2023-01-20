@@ -5,6 +5,7 @@ import MainLayout from "../../layout/MainLayout";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
+import MyJobs from "../../Pages/MyJobs/MyJobs";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/jobSeeker",
         element: <JobSeeker></JobSeeker>,
+      },
+      {
+        path: "/my-job",
+        element: <MyJobs></MyJobs>,
       },
       {
         path: "/recruiter",

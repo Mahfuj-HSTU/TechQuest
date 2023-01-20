@@ -5,8 +5,8 @@ import toast from 'react-hot-toast';
 const MyJobs = () => {
    
 
-    const { data: doctors, isLoading, refetch } = useQuery({
-        queryKey: ['doctors'],
+    const { data: jobs, isLoading, refetch } = useQuery({
+        queryKey: ['jobs'],
         queryFn: async () => {
             try {
                 const res = await fetch('', {
