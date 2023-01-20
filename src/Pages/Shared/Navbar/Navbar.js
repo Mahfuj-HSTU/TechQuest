@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext( AuthContext );
 
   // console.log( user )
 
@@ -16,24 +16,24 @@ const Navbar = () => {
     <>
       <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
       <li className="font-semibold"><Link to="/">Features</Link></li>
-      <li className="font-semibold" tabIndex={0}>
+      <li className="font-semibold" tabIndex={ 0 }>
         <Link>
-          Reqruiter
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+          Recruiter
+          <svg className="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
         </Link>
-        <ul className="p-2">
+        <ul className="p-2 bg-slate-200">
           <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
           <li className="font-semibold"><Link to="/addjob">Add Employers</Link></li>
           <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
         </ul>
       </li>
-      <li className="font-semibold"><Link to="/">About Us</Link></li>
+      {/* <li className="font-semibold"><Link to="/">About Us</Link></li> */ }
       <li className="font-semibold"><Link to="/courses">Courses</Link></li>
 
-      {user?.email ? (
+      { user?.email ? (
         <>
           <li className="font-semibold">
-            <button onClick={handleLogOut} className="btn-ghost">
+            <button onClick={ handleLogOut } className="btn-ghost">
               Log Out
             </button>
           </li>
@@ -41,13 +41,13 @@ const Navbar = () => {
       ) : (
         <>
           <li className="font-semibold">
-            <Link to="/login">Login</Link>{" "}
+            <Link to="/login">Login</Link>{ " " }
           </li>
           <li className="font-semibold">
             <label htmlFor="sign-up-modal">Sign Up</label>
           </li>
         </>
-      )}
+      ) }
     </>
   );
 
@@ -55,7 +55,7 @@ const Navbar = () => {
     <div className="navbar h-16 fixed top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -72,14 +72,14 @@ const Navbar = () => {
             </svg>
           </label>
           <u
-            tabIndex={0}
+            tabIndex={ 0 }
             className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-52"
           >
-            {menuItems}
+            { menuItems }
           </u>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          {" "}
+          { " " }
           <svg
             className="w-8 text-deep-purple-accent-400"
             viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+        <ul className="menu menu-horizontal p-0">{ menuItems }</ul>
       </div>
       <SignUpModal></SignUpModal>
     </div>
