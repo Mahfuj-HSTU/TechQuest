@@ -34,7 +34,9 @@ const Banner = () => {
               <Typical
                 loop={Infinity}
                 wrapper="b"
-                steps={["Front-End", 5000, "Back-End", 5000, "Fullstack", 5000]}
+                steps={["Front-End", 5000, 
+                "Back-End", 5000, 
+                "Fullstack", 5000]}
               />
             </h2>
           </div>
