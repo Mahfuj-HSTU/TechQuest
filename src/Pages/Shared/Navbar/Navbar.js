@@ -23,6 +23,7 @@ const Navbar = () => {
         </Link>
         <ul className="p-2 bg-slate-200">
           <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
+          <li className="font-semibold"><Link to="/addjob">Add Employers</Link></li>
           <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
         </ul>
       </li>
