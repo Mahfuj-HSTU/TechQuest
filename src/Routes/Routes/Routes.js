@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
+import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import MainLayout from "../../layout/MainLayout";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Home from "../../Pages/Home/Home/Home";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/all-jobs",
         element: <AllJobsView />,
+      },
+      {
+        path: '/apply',
+        element: <ApplyJobView/>
       },
       {
         path: "/job-details",
