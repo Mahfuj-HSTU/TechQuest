@@ -19,6 +19,7 @@ const Navbar = () => {
     <li className='font-semibold'><Link to='/all-jobs'>All Jobs</Link> </li>
     <li className='font-semibold'><Link to='/'>Features</Link> </li>
     <li className='font-semibold'><Link to='/'>About Us</Link> </li>
+    <li className='font-semibold'><Link to='/courses'>Courses</Link> </li>
 
     {
       user?.email ?

@@ -10,7 +10,6 @@ import LookingJobs from "../LookingJobs/LookingJobs.js";
 import Review from "../Review/Review.js";
 import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
-import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
 
 const Home = () => {
   return (
