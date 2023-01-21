@@ -26,13 +26,12 @@ const router = createBrowserRouter( [
         element: <AllJobsView />,
       },
       {
-        path: '/apply',
+        path: '/my-jobs',
         element: <ApplyJobView/>
        },
        {
         path: "/all-employers",
         element: <AllEmployers />,
-
       },
       {
         path: "/job-details",
