@@ -10,6 +10,7 @@ const useRecruiter = email => {
                 .then( res => res.json() )
                 .then( data => {
                     console.log( data );
+                    // console.log( data );
                     setIsRecruiter( data.isRecruiter );
                     setIsRecruiterLoading( false )
                 } )
