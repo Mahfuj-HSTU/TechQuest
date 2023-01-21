@@ -7,6 +7,7 @@ import { addApply, fetchApplicationData } from '../ApplyJob/ApplyJobSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useIsApplied from '../../Hooks/useIsApplied';
+import Loading from '../../Pages/Shared/Loading/Loading';
 
 const SingleJobView = () => {
     const location = useLocation();
@@ -14,21 +15,13 @@ const SingleJobView = () => {
     const { user } = useContext(AuthContext);
 
     const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
-    // console.log(applications[1].email, user.email);
-    // console.log(isApplied);
 
-    // setIsApplied(useIsApplied(applications))
+    // checking if user is applied or not
     const isApplied = (useIsApplied(applications))
     // console.log(applied);
     useEffect(() => {
         dispatch(fetchApplicationData())
     }, [dispatch]);
-
-    // applications.map(check => {
-    //     if (check.email === user?.email) {
-    //         return setIsApplied(true);
-    //     }
-    // })
 
     const job = location.state;
     const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
@@ -44,6 +37,8 @@ const SingleJobView = () => {
     }
 
     return (<div>
+        {isLoading && <Loading />}
+        {error && <div className='text-red-600'>{error}</div>}
         {job && <div className='m-20 text-left'>
             <h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
             <div className='flex gap-3 my-3'>
@@ -87,10 +82,10 @@ const SingleJobView = () => {
             </ul>
 
             <div>
-                { isApplied ?
-                <button className='btn bg-gray-400 hover:bg-white' >Applied</button>:
-                <button onClick={() => handleApply()} 
-                className='btn'>Apply Now</button>
+                {isApplied ?
+                    <button className='btn bg-gray-400 hover:bg-white' >Applied</button> :
+                    <button onClick={() => handleApply()}
+                        className='btn'>Apply Now</button>
                 }
             </div>
         </div>}
