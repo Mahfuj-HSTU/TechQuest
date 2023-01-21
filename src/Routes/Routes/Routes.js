@@ -26,6 +26,10 @@ const router = createBrowserRouter( [
         element: <AllJobsView />,
       },
       {
+        path: '/my-jobs',
+        element: <ApplyJobView/>
+      },
+      {
         path: "/all-employers",
         element: <AllEmployers />,
       },
@@ -34,20 +38,8 @@ const router = createBrowserRouter( [
         element: <SingleJobView />,
       },
       {
-        path: "/jobSeeker",
-        element: <JobSeeker></JobSeeker>,
-      },
-      {
-        path: "/recruiter",
-        element: <Recruiter></Recruiter>,
-      },
-      {
         path: "/addjob",
         element: <AddJobs />,
-      },
-      {
-        path: "/login",
-        element: <Login></Login>,
       },
       {
         path: "/MyJobPost",

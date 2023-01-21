@@ -1,12 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchApplicationData } from './ApplyJobSlice';
 
 const ApplyJobView = () => {
-    const application = useSelector(state => state.applicationReducer.apply);
-    console.log(application);
+    const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
+    // console.log(applications);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchApplicationData())
+    }, [dispatch])
+
     return (
-        <div>
-            apply
+        <div className='my-20'>
+            <h1>MY JOBS</h1>
+            {isLoading && <h1>Loading..</h1>}
+            {error && <h1>{error}</h1>}
+            {applications && applications?.map(app => {
+                return <div>
+                    {app.email}
+                </div>
+            })}
         </div>
     );
 };

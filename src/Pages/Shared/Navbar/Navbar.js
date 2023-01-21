@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useJobSeeker from "../../../hooks/useJobSeeker";
-import useRecruiter from "../../../hooks/useRecruiter";
+import useRecruiter from "../../../Hooks/useRecruiter";
+import useJobSeeker from "../../../Hooks/useJobSeeker";
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
@@ -36,14 +36,17 @@ const Navbar = () => {
         user?.email ? (
           <>
             {
-              isRecruiter && <>
+              // isRecruiter && 
+              <>
                 <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
                 <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
               </>
             }
             {
-              isJobSeeker && <>
+              // isJobSeeker && 
+              <>
                 <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
+                <li className="font-semibold"><Link to="/my-jobs">My Jobs</Link></li>
                 <li className="font-semibold"><Link to="/courses">Courses</Link></li>
               </>
             }
