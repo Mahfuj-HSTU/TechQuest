@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllEmployers from "../../features/AllEmployers/AllEmployers";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
@@ -25,8 +26,8 @@ const router = createBrowserRouter( [
         element: <AllJobsView />,
       },
       {
-        path: '/apply',
-        element: <ApplyJobView/>
+        path: "/all-employers",
+        element: <AllEmployers />,
       },
       {
         path: "/job-details",
