@@ -3,27 +3,26 @@ import { useQuery } from '@tanstack/react-query';
 
 import toast from 'react-hot-toast';
 const MyJobs = () => {
-   
 
-    const { data: doctors, isLoading, refetch } = useQuery({
-        queryKey: ['doctors'],
+
+    const { data: doctors, isLoading, refetch } = useQuery( {
+        queryKey: [ 'doctors' ],
         queryFn: async () => {
             try {
-                const res = await fetch('', {
+                const res = await fetch( '', {
                     headers: {
-                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        authorization: `bearer ${ localStorage.getItem( 'accessToken' ) }`
                     }
-                });
+                } );
                 const data = await res.json();
                 return data;
             }
-            catch (error) {
-
+            catch ( error ) {
             }
         }
-    });
+    } );
 
-    
+
 
 
     // if (isLoading) {
@@ -46,11 +45,11 @@ const MyJobs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
-          
+
         </div>
     );
 };

@@ -2,13 +2,29 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { ImLocation } from 'react-icons/im';
 import { RiRemoteControlLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addApply } from '../ApplyJob/ApplyJobSlice';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SingleJobView = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
+    const { user } = useContext(AuthContext);
+
     const job = location.state;
     const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
-    console.log(job);
+    // console.log(job);
+
+    const handleApply = () => {
+        // console.log(job);
+        const applyInfo = {
+            job,
+            email: user.email
+        }
+        dispatch(addApply(applyInfo));
+    }
+
     return (<div>
         {job && <div className='m-20 text-left'>
             <h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
@@ -53,7 +69,7 @@ const SingleJobView = () => {
             </ul>
 
             <div>
-                <Link to='/' className='btn'>Apply Now</Link>
+                <button onClick={() => handleApply()} className='btn'>Apply Now</button>
             </div>
         </div>}
     </div>
