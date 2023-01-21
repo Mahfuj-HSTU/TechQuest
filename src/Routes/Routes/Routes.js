@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllEmployers from "../../features/AllEmployers/AllEmployers";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
+import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import MainLayout from "../../layout/MainLayout";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Course from "../../Pages/Courses/Course/Course";
@@ -25,28 +27,21 @@ const router = createBrowserRouter( [
         element: <AllJobsView />,
       },
       {
+        path: '/apply',
+        element: <ApplyJobView/>
+       },
+       {
+        path: "/all-employers",
+        element: <AllEmployers />,
+
+      },
+      {
         path: "/job-details",
         element: <SingleJobView />,
       },
       {
-        path: "/jobSeeker",
-        element: <JobSeeker></JobSeeker>,
-      },
-      {
-        path: "/my-job",
-        element: <MyJobs></MyJobs>,
-      },
-      {
-        path: "/recruiter",
-        element: <Recruiter></Recruiter>,
-      },
-      {
         path: "/addjob",
         element: <AddJobs />,
-      },
-      {
-        path: "/login",
-        element: <Login></Login>,
       },
       {
         path: "/MyJobPost",

@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Recruiter = () => {
     const [ error, setError ] = useState( '' )
     const { createUser } = useContext( AuthContext )
+    const navigate = useNavigate();
+
 
     // handle user create
     const handleRegister = event => {
@@ -25,6 +27,7 @@ const Recruiter = () => {
                 saveUsers();
                 form.reset();
                 toast.success( 'Registration successful.' )
+                navigate( '/' )
                 setError( '' )
             } )
             .catch( error => {

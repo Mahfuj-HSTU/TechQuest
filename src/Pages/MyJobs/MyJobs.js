@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 const MyJobs = () => {
+
     const jobs = useSelector(state => state.jobsReducer.jobs);
     console.log(jobs);
     const { user, logOut } = useContext(AuthContext);
@@ -28,11 +29,24 @@ const MyJobs = () => {
     //         }
     //         catch (error) {
 
-    //         }
-    //     }
-    // });
+    const { data: doctors, isLoading, refetch } = useQuery( {
+        queryKey: [ 'doctors' ],
+        queryFn: async () => {
+            try {
+                const res = await fetch( '', {
+                    headers: {
+                        authorization: `bearer ${ localStorage.getItem( 'accessToken' ) }`
+                    }
+                } );
+                const data = await res.json();
+                return data;
+            }
+            catch ( error ) {
+            }
+        }
+    } );
 
-    
+
 
 
     // if (isLoading) {
@@ -57,27 +71,11 @@ const MyJobs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {
-                            jobs.map((job, i) => <tr key={job.id}>
-                                <th>{i + 1}</th>
-                                <td><div className="">
-                                    <div className="">
-                                        <p> {user?.email}</p>
-                                    </div>
-                                </div></td>
-                                <td>{job?.jobTitle}</td>
-                                <td>{job?.jobType}</td>
-                                <td>{job?.location}</td>
-                                <td>{job?.mustSkills}</td>
-                                {/* <td>
-                                    <label onClick={() => setDeletingjob(job)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
-                                </td> */}
-                            </tr>)
-                        }
+
                     </tbody>
                 </table>
             </div>
-          
+
         </div>
         
        </div>
