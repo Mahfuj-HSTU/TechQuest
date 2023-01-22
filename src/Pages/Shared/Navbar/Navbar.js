@@ -14,25 +14,26 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
-      <li className="font-semibold"><Link to="/">Features</Link></li>
-      <li className="font-semibold" tabIndex={ 0 }>
+      <li className="font-medium"><Link to="/all-jobs">All Jobs</Link></li>
+      <li className="font-medium"><Link to="/all-employers">All Employers</Link></li>
+      <li className="font-medium"><Link to="/">Features</Link></li>
+      <li className="font-medium" tabIndex={ 0 }>
         <Link>
           Recruiter
           <svg className="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
         </Link>
         <ul className="p-2 bg-slate-200">
-          <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
-          <li className="font-semibold"><Link to="/addjob">Add Employers</Link></li>
-          <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
+          <li className="font-medium"><Link to="/addjob">Add Job</Link></li>
+          <li className="font-medium"><Link to="/addjob">Add Employers</Link></li>
+          <li className="font-medium"><Link to="/MyJobPost">MyPost</Link></li>
         </ul>
       </li>
-      {/* <li className="font-semibold"><Link to="/">About Us</Link></li> */ }
-      <li className="font-semibold"><Link to="/courses">Courses</Link></li>
+      {/* <li className="font-medium"><Link to="/">About Us</Link></li> */ }
+      <li className="font-medium"><Link to="/courses">Courses</Link></li>
 
       { user?.email ? (
         <>
-          <li className="font-semibold">
+          <li className="font-medium">
             <button onClick={ handleLogOut } className="btn-ghost">
               Log Out
             </button>
@@ -40,10 +41,10 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li className="font-semibold">
+          <li className="font-medium">
             <Link to="/login">Login</Link>{ " " }
           </li>
-          <li className="font-semibold">
+          <li className="font-medium">
             <label htmlFor="sign-up-modal">Sign Up</label>
           </li>
         </>
@@ -71,12 +72,12 @@ const Navbar = () => {
               />
             </svg>
           </label>
-          <u
+          <ul
             tabIndex={ 0 }
-            className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-52"
+            className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-80"
           >
             { menuItems }
-          </u>
+          </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           { " " }
