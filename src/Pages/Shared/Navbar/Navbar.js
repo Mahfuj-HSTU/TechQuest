@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useRecruiter from "../../../Hooks/useRecruiter";
 import useJobSeeker from "../../../Hooks/useJobSeeker";
+
+import useRecruiter from "../../../Hooks/useRecruiter";
+import useJobSeeker from "../../../Hooks/useJobSeeker";
+
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
