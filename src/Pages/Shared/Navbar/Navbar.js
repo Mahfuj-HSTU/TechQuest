@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+
 import useRecruiter from "../../../Hooks/useRecruiter";
 import useJobSeeker from "../../../Hooks/useJobSeeker";
 
@@ -10,7 +11,7 @@ const Navbar = () => {
   const { user, logOut } = useContext( AuthContext );
   const [ isRecruiter ] = useRecruiter( user?.email );
   const [ isJobSeeker ] = useJobSeeker( user?.email );
-  
+
 
   // console.log( user )
 
