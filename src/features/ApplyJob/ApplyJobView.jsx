@@ -5,7 +5,7 @@ import { fetchApplicationData } from './ApplyJobSlice';
 
 const ApplyJobView = () => {
     const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
-    // console.log(applications);
+    console.log(applications);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,8 +18,8 @@ const ApplyJobView = () => {
             {isLoading && <h1>Loading..</h1>}
             {error && <h1>{error}</h1>}
             {applications && applications?.map(app => {
-                return <div>
-                    {app.email}
+                return <div> 
+                    <p>Email: {app.email} </p>
                 </div>
             })}
         </div>
