@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { ImLocation } from 'react-icons/im';
 import { RiRemoteControlLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addApply, fetchApplicationData } from '../ApplyJob/ApplyJobSlice';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useIsApplied from '../../Hooks/useIsApplied';
 
 const SingleJobView = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
+    const { user } = useContext(AuthContext);
+
+    const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
+    // console.log(applications[1].email, user.email);
+    // console.log(isApplied);
+
+    // setIsApplied(useIsApplied(applications))
+    const isApplied = (useIsApplied(applications))
+    // console.log(applied);
+    useEffect(() => {
+        dispatch(fetchApplicationData())
+    }, [dispatch]);
+
+    // applications.map(check => {
+    //     if (check.email === user?.email) {
+    //         return setIsApplied(true);
+    //     }
+    // })
+
     const job = location.state;
     const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
-    console.log(job);
+    // console.log(job);
+
+    const handleApply = () => {
+        // console.log(job);
+        const applyInfo = {
+            job,
+            email: user.email
+        }
+        dispatch(addApply(applyInfo));
+    }
+
     return (<div>
         {job && <div className='m-20 text-left'>
             <h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
@@ -53,7 +87,11 @@ const SingleJobView = () => {
             </ul>
 
             <div>
-                <Link to='/' className='btn'>Apply Now</Link>
+                { isApplied ?
+                <button className='btn bg-gray-400 hover:bg-white' >Applied</button>:
+                <button onClick={() => handleApply()} 
+                className='btn'>Apply Now</button>
+                }
             </div>
         </div>}
     </div>

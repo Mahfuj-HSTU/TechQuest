@@ -1,10 +1,9 @@
 import React from 'react';
+import AboutUsOne from '../AboutUsOne/AboutUsOne';
 
 const AboutUs = () => {
     return (
-        <div>
-            
-        </div>
+        <AboutUsOne></AboutUsOne>
     );
 };
 

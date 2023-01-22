@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
         <ul className="p-2 bg-slate-200">
           <li className="font-medium"><Link to="/addjob">Add Job</Link></li>
-          <li className="font-medium"><Link to="/addjob">Add Employers</Link></li>
+          {/* <li className="font-medium"><Link to="/addjob">Add Employers</Link></li> */}
           <li className="font-medium"><Link to="/MyJobPost">MyPost</Link></li>
         </ul>
       </li>
@@ -74,7 +74,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={ 0 }
-            className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-80"
+            className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-64"
           >
             { menuItems }
           </ul>
