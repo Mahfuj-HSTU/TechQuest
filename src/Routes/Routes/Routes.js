@@ -4,9 +4,11 @@ import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import MainLayout from "../../layout/MainLayout";
+import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Course from "../../Pages/Courses/Course/Course";
 import Courses from "../../Pages/Courses/Courses";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
 import MyJobs from "../../Pages/MyJobs/MyJobs";
@@ -17,6 +19,7 @@ const router = createBrowserRouter( [
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -65,6 +68,10 @@ const router = createBrowserRouter( [
       {
         path: '/courses',
         element: <Courses></Courses>
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>
       },
       {
         path: '/courses/:id',
