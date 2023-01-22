@@ -46,7 +46,7 @@ const AllJobsView = () => {
                             <p className='border rounded-3xl text-sm p-1'>{optionalSkills}</p>
                             <p className='border rounded-3xl text-sm p-1'>{experience}</p>
                         </div>
-                            <Link state={job} className='btn btn-info text-white hover:bg-white hover:text-black' to="/job-details">See Details</Link>
+                        <Link state={job} className='btn btn-info text-white hover:bg-white hover:text-black' to="/job-details">See Details</Link>
                     </div>)
             })}
         </div>
