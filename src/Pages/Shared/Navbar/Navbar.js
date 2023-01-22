@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+
 import useRecruiter from "../../../Hooks/useRecruiter";
 import useJobSeeker from "../../../Hooks/useJobSeeker";
+
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
   const { user, logOut } = useContext( AuthContext );
   const [ isRecruiter ] = useRecruiter( user?.email );
   const [ isJobSeeker ] = useJobSeeker( user?.email );
+  
 
   // console.log( user )
 
@@ -19,6 +22,7 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li className="font-semibold"><Link to="/">Features</Link></li>
+      <li className="font-semibold"><Link to="/myjobs">My Jobs</Link></li>
       {/* <li className="font-semibold" tabIndex={ 0 }>
         <Link>
           Recruiter

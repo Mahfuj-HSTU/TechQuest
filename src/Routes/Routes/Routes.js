@@ -9,6 +9,7 @@ import Course from "../../Pages/Courses/Course/Course";
 import Courses from "../../Pages/Courses/Courses";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
+import MyJobs from "../../Pages/MyJobs/MyJobs";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
@@ -44,6 +45,10 @@ const router = createBrowserRouter( [
       {
         path: "/MyJobPost",
         element: <MyJobPost></MyJobPost>,
+      },
+      {
+        path: "/myJobs",
+        element: <MyJobs></MyJobs>,
       },
       {
         path: '/recruiter',
