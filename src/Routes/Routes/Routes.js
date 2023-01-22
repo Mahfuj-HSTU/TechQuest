@@ -48,6 +48,10 @@ const router = createBrowserRouter( [
         element: <MyJobPost></MyJobPost>,
       },
       {
+        path: "/myJobs",
+        element: <MyJobs></MyJobs>,
+      },
+      {
         path: '/recruiter',
         element: <Recruiter></Recruiter>
       },

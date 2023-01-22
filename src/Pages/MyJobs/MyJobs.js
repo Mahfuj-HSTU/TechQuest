@@ -1,84 +1,54 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useLocation } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
 
 
 const MyJobs = () => {
+    const { user } = useContext(AuthContext);
 
-    const jobs = useSelector(state => state.jobsReducer.jobs);
-    console.log(jobs);
-    const { user, logOut } = useContext(AuthContext);
-    const location = useLocation();
-    // const job = location.state;
-    // const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary,
-    //      salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
-    // console.log(job);
+    const url = `http://localhost:5000/myjobs?email=${user?.email}`;
 
-    // const { data: jobs, isLoading, refetch } = useQuery({
-    //     queryKey: ['jobs'],
-    //     queryFn: async () => {
-    //         try {
-    //             const res = await fetch('', {
-    //                 headers: {
-    //                     authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //                 }
-    //             });
-    //             const data = await res.json();
-    //             return data;
-    //         }
-    //         catch (error) {
-
-    const { data: doctors, isLoading, refetch } = useQuery( {
-        queryKey: [ 'doctors' ],
+    const { data: jobs = [] } = useQuery({
+        queryKey: ['jobs', user?.email],
         queryFn: async () => {
-            try {
-                const res = await fetch( '', {
-                    headers: {
-                        authorization: `bearer ${ localStorage.getItem( 'accessToken' ) }`
-                    }
-                } );
-                const data = await res.json();
-                return data;
-            }
-            catch ( error ) {
-            }
+            const res = await fetch(url);
+              const data = await res.json();
+            return data;
+          
         }
-    } );
-
-
-
-
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }z
+    })
+    
     return (
-        <div className='mt-48'>
-           
-          <div>
-           
-            <h2 className="text-3xl">My Applied Jobs: 3</h2>
+        <div className='mt-12 mb-12'>
+            <h3 className="text-3xl mb-5">My Appointments</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Email</th>
-                            <th>Job Title</th>
+                            <th>Your Email</th>
+                            <th>Applied Post</th>
                             <th>Job Type</th>
                             <th>Location</th>
-                            <th>Required Skill</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        {
+                            jobs.map((job, i) => <tr key={job._id}>
+                                <th>{i+1}</th>
+                                <td>{job.email}</td>
+                                <td>{job.job.jobTitle}</td>
+                                <td>{job.job.jobType}</td>
+                                <td>{job.job.location}</td>
+                                
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
-
         </div>
-        
-       </div>
     );
 };
 
