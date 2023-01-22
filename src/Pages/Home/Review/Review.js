@@ -6,15 +6,15 @@ const Review = () => {
             <div id="slide1" className="carousel-item relative w-full">
                 <div className='grid lg:grid-cols-4 grid-cols-2'>
 
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -25,19 +25,19 @@ const Review = () => {
                                 <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -48,19 +48,19 @@ const Review = () => {
                                 <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" defaultChecked />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -71,19 +71,19 @@ const Review = () => {
                                 <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -94,7 +94,7 @@ const Review = () => {
                                 <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" defaultChecked />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
@@ -107,15 +107,15 @@ const Review = () => {
             <div id="slide2" className="carousel-item relative w-full">
                 <div className='grid lg:grid-cols-4 grid-cols-2'>
 
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -126,19 +126,19 @@ const Review = () => {
                                 <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -149,19 +149,19 @@ const Review = () => {
                                 <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" defaultChecked />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -172,19 +172,19 @@ const Review = () => {
                                 <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
-                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                    <div className="container flex flex-col w-full max-w-lg p-5 mx-auto divide-y rounded-md divide-gray-700 ">
                         <div className=" p-3">
                             <div className="flex space-x-4">
                                 <div>
-                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold">Leroy Jenkins</h4>
-                                    <span className="text-xs dark:text-gray-400">2 days ago</span>
+                                    <span className="text-xs ">2 days ago</span>
                                 </div>
                             </div>
                             <div className="rating rating-sm">
@@ -195,7 +195,7 @@ const Review = () => {
                                 <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" defaultChecked />
                             </div>
                         </div>
-                        <div className="p-3 space-y-2 text-sm dark:text-gray-400">
+                        <div className="p-3 space-y-2 text-sm ">
                             <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae.</p>
                         </div>
                     </div>
