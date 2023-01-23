@@ -1,55 +1,53 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+// import { useLocation } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import { useQuery } from '@tanstack/react-query';
 
-import toast from 'react-hot-toast';
+
 const MyJobs = () => {
+    const { user } = useContext(AuthContext);
 
+    const url = `http://localhost:5000/myjobs?email=${user?.email}`;
 
-    const { data: doctors, isLoading, refetch } = useQuery( {
-        queryKey: [ 'doctors' ],
+    const { data: jobs = [] } = useQuery({
+        queryKey: ['jobs', user?.email],
         queryFn: async () => {
-            try {
-                const res = await fetch( '', {
-                    headers: {
-                        authorization: `bearer ${ localStorage.getItem( 'accessToken' ) }`
-                    }
-                } );
-                const data = await res.json();
-                return data;
-            }
-            catch ( error ) {
-            }
+            const res = await fetch(url);
+              const data = await res.json();
+            return data;
+          
         }
-    } );
-
-
-
-
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
+    })
+    
     return (
-        <div>
-            <h1>My Jobs</h1>
-            <h2 className="text-3xl">Manage Jobs: 0</h2>
+        <div className='mt-12 mb-12'>
+            <h3 className="text-3xl mb-5">My Appointments</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Avatar</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Specialty</th>
-                            <th>Action</th>
+                            <th>Your Email</th>
+                            <th>Applied Post</th>
+                            <th>Job Type</th>
+                            <th>Location</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        {
+                            jobs.map((job, i) => <tr key={job._id}>
+                                <th>{i+1}</th>
+                                <td>{job.email}</td>
+                                <td>{job.job.jobTitle}</td>
+                                <td>{job.job.jobType}</td>
+                                <td>{job.job.location}</td>
+                                
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
-
         </div>
     );
 };

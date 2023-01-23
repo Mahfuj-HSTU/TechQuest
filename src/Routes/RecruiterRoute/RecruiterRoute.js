@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import useRecruiter from '../../hooks/useRecruiter';
+import useRecruiter from '../../Hooks/useRecruiter';
 import Loading from '../../pages/Shared/Loading/Loading';
 
 const RecruiterRoute = ( { children } ) => {
