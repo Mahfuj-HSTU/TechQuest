@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { useLoaderData, useLocation } from 'react-router';
 import { ImLocation } from 'react-icons/im';
 import { RiRemoteControlLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,11 @@ const SingleJobView = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { user } = useContext(AuthContext);
+    // const idtktkt = useParams();
+    // console.log(idtktkt);
+
+    const jobs = useLoaderData()
+    // console.log(jobs);
 
     const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
 
@@ -24,7 +29,7 @@ const SingleJobView = () => {
     }, [dispatch]);
 
     const job = location.state;
-    const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = job;
+    const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills } = jobs;
     // console.log(job);
 
     const handleApply = () => {
@@ -68,17 +73,20 @@ const SingleJobView = () => {
             <p className='font-bold'>Responsibilities:</p>
             <ul className='my-5 ml-5'>
                 {
-                    jobResponsibilities.map((jobRes, i) =>
-                        <li key={i}>* {jobRes}</li>
-                    )
+                    jobResponsibilities
+                    // .map((jobRes, i) =>
+                    //     <li key={i}>* {jobRes}</li>
+                    // )
                 }
             </ul>
             <p className='font-bold'>Requirements:</p>
             <ul className='my-5 ml-5'>
                 {
-                    jobRequirements.map((jobReq, i) =>
-                        <li key={i}>* {jobReq}</li>
-                    )}
+                    jobRequirements
+                    // .map((jobReq, i) =>
+                    //     <li key={i}>* {jobReq}</li>
+                    // )
+                }
             </ul>
 
             <div>
