@@ -5,7 +5,7 @@ import { fetchAllJobs } from './AllJobsSlice';
 
 const AllJobsView = () => {
     const jobs = useSelector(state => state.jobsReducer.jobs);
-    console.log(jobs);
+    // console.log(jobs);
 
     const dispatch = useDispatch();
 
@@ -17,18 +17,7 @@ const AllJobsView = () => {
         <div className='mt-20'>
             <h1 className='text-3xl font-semibold'>Find your dream job abroad or remote</h1>
             {jobs && jobs.map(job => {
-                const { _id,
-                    jobTitle,
-                    jobDescription,
-                    jobStatus,
-                    jobType,
-                    location,
-                    salary,
-                    salaryCurrency,
-                    experience,
-                    mustSkills,
-                    optionalSkills,
-                    openings } = job;
+                const { _id, jobTitle, jobDescription, jobStatus, jobType, location, salary, salaryCurrency, experience, mustSkills, optionalSkills, openings } = job;
 
                 return (
                     <div key={_id} className="text-left border rounded-lg mx-10 my-5 p-5 w-3/4 hover:shadow-lg">
