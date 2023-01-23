@@ -44,6 +44,10 @@ const router = createBrowserRouter( [
         loader: ({params}) => fetch(`${ServerLink}/job-details/${params.id}`)
       },
       {
+        path: '/applications',
+        element: <ApplyJobView/>
+      },
+      {
         path: "/addjob",
         element: <AddJobs />,
       },
