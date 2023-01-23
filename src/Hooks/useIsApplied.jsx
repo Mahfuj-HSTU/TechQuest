@@ -1,18 +1,11 @@
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthProvider/AuthProvider';
-
-const useIsApplied = (data) => {
-    const { user } = useContext(AuthContext);
-    let c = false
+const useIsApplied = (data, currentId) => {
+    let c = false;
+    // console.log(data);
     data.map(check =>
-        c = ((check.email === user?.email) && true
-        //  console.log(check.email) 
-        )
-        
-        
+        c = ((check.job._id === currentId) && true)
+        // console.log(check.job._id)
     )
     return c;
-
 };
 
 export default useIsApplied;

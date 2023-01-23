@@ -8,51 +8,39 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useIsApplied from '../../Hooks/useIsApplied'
 import Loading from '../../Pages/Shared/Loading/Loading';
+import { useState } from 'react';
 
 const SingleJobView = () => {
-	const location = useLocation();
-	const dispatch = useDispatch();
-	const { user } = useContext(AuthContext);
-    // const idtktkt = useParams();
-    // console.log(idtktkt);
-
-    const jobs = useLoaderData()
-    // console.log(jobs);
-
+    const [applied, setApplied] = useState(false);
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const { user } = useContext(AuthContext);
+    const jobs = useLoaderData();
+    
     const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
+    // console.log(jobs,applications);
 
     // checking if user is applied or not
-    const isApplied = (useIsApplied(applications))
+    const isApplied = (useIsApplied(applications, jobs._id))
     // console.log(applied);
     useEffect(() => {
         dispatch(fetchApplicationData())
     }, [dispatch]);
 
-	const job = location.state;
-	const {
-		jobTitle,
-		jobDescription,
-		jobRequirements,
-		jobResponsibilities,
-		jobStatus,
-		jobType,
-		salary,
-		salaryCurrency,
-		experience,
-		language,
-		mustSkills,
-		optionalSkills,
-	} = jobs;
-	// console.log(job);
+    const job = location.state;
+    const { jobTitle, jobDescription, jobRequirements, jobResponsibilities, jobStatus, jobType, salary, salaryCurrency, experience, language, mustSkills, optionalSkills,
+    } = jobs;
+    // console.log(job);
 
-	const handleApply = () => {
-		// console.log(job);
-		const applyInfo = {
-			job,
-			email: user.email,
-		};
-		dispatch(addApply(applyInfo));
-	};
+    const handleApply = () => {
+        // console.log(job);
+        const applyInfo = {
+            job,
+            email: user.email,
+        };
+        dispatch(addApply(applyInfo));
+        setApplied(!applied)
+    };
 
     return (<div>
         {isLoading && <Loading />}
@@ -103,10 +91,10 @@ const SingleJobView = () => {
             </ul>
 
             <div>
-                {isApplied ?
-                    <button className='btn bg-gray-400 hover:bg-white' >Applied</button> :
+                {isApplied === true ?
+                    <p className='text-white font-semibold bg-sky-400 rounded-lg w-20 px-3 py-4 hover:bg-red-400' >Applied</p> :
                     <button onClick={() => handleApply()}
-                        className='btn'>Apply Now</button>
+                        className='btn' disabled={applied}>Apply Now</button>
                 }
             </div>
         </div>}
