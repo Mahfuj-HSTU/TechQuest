@@ -23,7 +23,7 @@ const AllJobsView = () => {
 
                 return (
                     <div key={_id} className="text-left border rounded-lg my-5 p-5 w-3/4 hover:shadow-lg">
-                        {openings === 1 ? <small>{openings} position</small>
+                        {openings <= 1 ? <small>{openings} position</small>
                             :
                             <small>{openings} positions</small>
                         }
