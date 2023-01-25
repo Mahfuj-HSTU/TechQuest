@@ -3,7 +3,7 @@ import DevelopersCategory from "../../Pages/Home/DevelopersTab/DevelopersCategor
 
 const AllEmployers = () => {
   return (
-    <div className="my-20">
+    <div>
       <DevelopersCategory/>
     </div>
   );
