@@ -1,19 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { ServerLink } from '../../hooks/useServerLink';
-
-// const initialApply = {
-//     apply: [
-//         fetch(`${ServerLink}/applications`)
-//             .then(res => res.json())
-//             .then(data => {
-//                 console.log(data);
-//                 return data;
-//             })
-//             .catch(e => console.error('application fetching error => ', e))
-//     ]
-// };
+import { ServerLink } from '../../Hooks/useServerLink';
 
 export const fetchApplicationData = createAsyncThunk(
 	'applications/fetchApplications',
@@ -55,7 +43,7 @@ export const ApplyJobSlice = createSlice({
 			axios
 				.post(`${ServerLink}/applications`, action.payload)
 				.then((data) => {
-					console.log(data);
+					// console.log(data);
 					if (data.status === 200) {
 						toast.success('Application submitted');
 					}

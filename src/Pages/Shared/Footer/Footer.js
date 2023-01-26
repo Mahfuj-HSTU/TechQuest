@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="mx-5">
-      <footer className="footer p-10 bg-white text-left">
+    <div className="m-5">
+      <footer className="footer p-2 bg-slate-100 rounded-md text-left">
         <div className="w-52 text-left">
           <p className="text-xl font-bold">Connecting cultures through code</p>
           <div className="text-xl flex flex-row gap-6 my-3">
@@ -34,14 +34,14 @@ const Footer = () => {
 
         <div className=" text-slate-400">
           <span className="text-black font-semibold">For Candidates</span>
-          <Link>How VanHack Works</Link>
+          <Link>How TechQuest Works</Link>
           <Link>Find a Job</Link>
           <Link>Learning Hub</Link>
-          <Link>VanHack Academy</Link>
+          <Link>TechQuest Academy</Link>
           <Link>Events</Link>
         </div>
         <div className=" text-slate-400">
-          <span className="text-black font-semibold">Why VanHack</span>
+          <span className="text-black font-semibold">Why TechQuest</span>
           <Link>About</Link>
           <Link>Careers</Link>
         </div>
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </footer>
       <div>
-        <div className="border border-b-gray-200 mb-5 "></div>
+        <div className="border border-b-gray-200 my-5 "></div>
         <div className="flex flex-col-reverse md:flex-row text-left mb-5">
           <div className=" md:basis-1/2 flex-1 ">
             <p>&copy; TechQuest 2023 Technologies Inc.</p>

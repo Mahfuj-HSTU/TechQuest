@@ -18,8 +18,9 @@ const ApplyJobView = () => {
             {isLoading && <h1>Loading..</h1>}
             {error && <h1>{error}</h1>}
             {applications && applications?.map(app => {
-                return <div>
-                    {app.email}
+                return <div key={app._id}>
+                    <p>{app.email}</p>
+                    <p>ID: {app.job._id || app.job.id}</p>
                 </div>
             })}
         </div>

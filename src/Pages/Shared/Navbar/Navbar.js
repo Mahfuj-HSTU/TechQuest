@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useJobSeeker from "../../../hooks/useJobSeeker";
-import useRecruiter from "../../../hooks/useRecruiter";
+
+import useRecruiter from "../../../Hooks/useRecruiter";
+import useJobSeeker from "../../../Hooks/useJobSeeker";
+
 import SignUpModal from "../../SignUp/SignUpModal";
 
 const Navbar = () => {
   const { user, logOut } = useContext( AuthContext );
   const [ isRecruiter ] = useRecruiter( user?.email );
   const [ isJobSeeker ] = useJobSeeker( user?.email );
-
 
   // console.log( user )
 
@@ -58,7 +59,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar h-16 fixed top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200">
+    <div className="navbar fixed h-16 top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200 rounded-md">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
@@ -79,7 +80,7 @@ const Navbar = () => {
           </label>
           <u
             tabIndex={ 0 }
-            className="menu menu-compact dropdown-content p-2 shadow bg-base-500 rounded-box w-52"
+            className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52"
           >
             { menuItems }
           </u>
@@ -107,7 +108,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{ menuItems }</ul>
+        <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">{ menuItems }</ul>
       </div>
       <SignUpModal></SignUpModal>
     </div>
