@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAllJobs } from './AllJobsSlice';
-import SearchOption from './SearchOption';
+import SearchOption from '../Search/SearchOption';
 
 const AllJobsView = () => {
     const jobs = useSelector(state => state.jobsReducer.jobs);
