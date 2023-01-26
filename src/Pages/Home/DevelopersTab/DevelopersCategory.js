@@ -42,7 +42,7 @@ const DevelopersCategory = () => {
           The world is your talent pool
         </h2>
       </div>
-      <div className="tabs flex justify-between gap-3 ">
+      <div className="tabs grid grid-cols-1 md:flex justify-between gap-3 ">
         {categories.map((category, i) => (
           <div
             key={i}
