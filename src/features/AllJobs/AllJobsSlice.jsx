@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ServerLink } from "../../Hooks/useServerLink";
+import { ServerLink } from "../../hooks/useServerLink";
 
 // fake data
 // const initialJobs = {
@@ -38,7 +38,7 @@ import { ServerLink } from "../../Hooks/useServerLink";
 //             optionalSkills: "Redux",
 //             openings: "5",
 //         },
-        
+
 //     ],
 // };
 

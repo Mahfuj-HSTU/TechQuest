@@ -21,8 +21,8 @@ const Home = () => {
       <Review></Review>
       <DevelopersCategory />
       <EmployersCategories />
-      <InterviewAndHire/>
-      <GetCandidateForm />
+      <InterviewAndHire />
+      {/* <GetCandidateForm /> */ }
       <LifeEasier />
       <Events></Events>
       <LatestNews />
