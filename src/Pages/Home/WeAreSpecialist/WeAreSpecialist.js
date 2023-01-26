@@ -12,7 +12,7 @@ const WeAreSpecialist = () => {
           </div>
         </div>
       </div> */}
-      <div className="bg-sky-600 rounded-lg  mx-auto h-64 items-center flex flex-col justify-center gap-6">
+      <div className="bg-sky-600 rounded-lg mx-2 h-72 lg:h-64 items-center flex flex-col justify-center gap-6">
         <p className="text-3xl font-bold text-white w-3/4">
           We are specialists in finding candidates for the hardest tech roles!
         </p>
