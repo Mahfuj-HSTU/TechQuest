@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-
-import useRecruiter from "../../../Hooks/useRecruiter";
-import useJobSeeker from "../../../Hooks/useJobSeeker";
-
+import useJobSeeker from "../../../hooks/useJobSeeker";
+import useRecruiter from "../../../hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
 import { FaCog, FaEdit, FaPowerOff, FaUserAlt, } from "react-icons/fa"
 
@@ -23,9 +21,6 @@ const Navbar = () => {
     <>
       <li className="font-semibold">
         <Link to="/">Features</Link>
-      </li>
-      <li className="font-semibold">
-        <Link to="/myjobs">My Jobs</Link>
       </li>
       {user?.email ? (
         <>
@@ -100,6 +95,9 @@ const Navbar = () => {
             <>
               <li className="font-semibold">
                 <Link to="/all-jobs">All Jobs</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/myjobs">My Jobs</Link>
               </li>
               <li className="font-semibold">
                 <Link to="/courses">Courses</Link>
@@ -232,3 +230,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addApply, fetchApplicationData } from '../ApplyJob/ApplyJobSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import useIsApplied from '../../Hooks/useIsApplied'
+import useIsApplied from '../../hooks/useIsApplied'
 import Loading from '../../Pages/Shared/Loading/Loading';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ const SingleJobView = () => {
     const dispatch = useDispatch();
     const { user } = useContext(AuthContext);
     const jobs = useLoaderData();
-    
+
     const { isLoading, error, applications } = useSelector(state => state.applicationReducer);
     // console.log(jobs,applications);
 
