@@ -17,7 +17,7 @@ const JobSeeker = () => {
         const email = form.email.value;
         // const photoUrl = form.photoUrl.value;
         const password = form.password.value;
-        const role = 'recruiter';
+        const role = 'jobSeeker';
 
         // registered user create
         createUser( email, password )
