@@ -1,31 +1,29 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchAllJobs } from './AllJobsSlice';
+import SearchOption from '../Search/SearchOptionView';
 
 const AllJobsView = () => {
     const jobs = useSelector(state => state.jobsReducer.jobs);
-    console.log(jobs);
+    // console.log(jobs);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchAllJobs())
+    }, [dispatch])
 
     return (
-        <div className='mt-20'>
-            <h1 className='text-3xl font-semibold'>Find your dream job abroad or remote</h1>
+        <div className='mt-20 mx-10 '>
+            <h1 className='text-3xl font-bold text-left'>Find your dream job abroad or remote</h1>
+            <SearchOption/>
             {jobs && jobs.map(job => {
-                const { id,
-                    jobTitle,
-                    jobDescription,
-                    jobStatus,
-                    jobType,
-                    location,
-                    salary,
-                    salaryCurrency,
-                    experience,
-                    mustSkills,
-                    optionalSkills,
-                    openings } = job;
+                const { _id, jobTitle, jobDescription, jobStatus, jobType, location, salary, salaryCurrency, experience, mustSkills, optionalSkills, openings } = job;
 
                 return (
-                    <div key={id} className="text-left border rounded-lg mx-10 my-5 p-5 w-3/4 hover:shadow-lg">
-                        {openings === 1 ? <small>{openings} position</small>
+                    <div key={_id} className="text-left border rounded-lg my-5 p-5 w-3/4 hover:shadow-lg">
+                        {openings <= 1 ? <small>{openings} position</small>
                             :
                             <small>{openings} positions</small>
                         }
@@ -46,7 +44,10 @@ const AllJobsView = () => {
                             <p className='border rounded-3xl text-sm p-1'>{optionalSkills}</p>
                             <p className='border rounded-3xl text-sm p-1'>{experience}</p>
                         </div>
-                            <Link state={job} className='btn btn-info text-white hover:bg-white hover:text-black' to="/job-details">See Details</Link>
+                        <Link state={job}
+                            to={`/job-details/${_id}`}
+                            className='btn btn-info text-white hover:bg-white hover:text-black'
+                        >See Details</Link>
                     </div>)
             })}
         </div>
