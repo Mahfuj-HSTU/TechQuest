@@ -11,12 +11,13 @@ const JobPostCard = ({ jobPost }) => {
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
-                        <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                        {/* <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" /> */}
+                        <h1 className='text-2xl font-semibold text-info'>{jobTitle}</h1>
                     </div>
-                    <div>
+                    {/* <div>
                         <h4 className="font-bold">Leroy Jenkins</h4>
                         <span className="text-xs text-gray-400">{user?.email}</span>
-                    </div>
+                    </div> */}
                 </div>
                 <div>
                     <button className='text-2xl'><AiFillDelete></AiFillDelete></button>
@@ -24,7 +25,6 @@ const JobPostCard = ({ jobPost }) => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm ">
-                <h1 className='text-2xl font-semibold text-info'>{jobTitle}</h1>
                 <div className=' text-sm font-semibold text-gray-400'>
                     <span>Location: {location}</span>
                     <span className=' ml-8'>jobType: {jobType}</span>

@@ -18,4 +18,5 @@ const useRecruiter = (email) => {
   }, [email]);
   return [isRecruiter, isRecruiterLoading];
 };
+
 export default useRecruiter;
