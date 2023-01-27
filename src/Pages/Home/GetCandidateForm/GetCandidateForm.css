@@ -1,0 +1,7 @@
+@media screen and (max-width:600px) {
+    .responsive-1,input{
+        width: 100%;
+        background-color: brown;
+        
+    }   
+}
