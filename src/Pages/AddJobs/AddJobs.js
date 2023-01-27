@@ -46,7 +46,7 @@ const AddJobs = () => {
   };
 
   return (
-    <div className="my-24">
+    <div className="my-24 px-2">
       <h5 className="text-xl font-semibold mb-10">
         You Need Employee? Add A Job Post Here.
       </h5>
@@ -111,9 +111,7 @@ const AddJobs = () => {
               {...register("jobStatus", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled>
-                Select job status
-              </option>
+              <option disabled>Select job status</option>
               <option>On Site</option>
               <option>Remote</option>
               <option>Hybrid</option>
@@ -132,9 +130,7 @@ const AddJobs = () => {
               {...register("jobType", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled>
-                Select job type
-              </option>
+              <option disabled>Select job type</option>
               <option>Internship</option>
               <option>Full time</option>
               <option> Part time</option>
@@ -175,7 +171,7 @@ const AddJobs = () => {
             )}
             <select
               {...register("currency")}
-              className="select select-bordered w-full max-w-xs"
+              className="select select-bordered md:w-full max-w-xs"
             >
               <option>USD</option>
               <option>BDT</option>
