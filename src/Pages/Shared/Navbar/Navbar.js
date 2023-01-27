@@ -13,7 +13,9 @@ const Navbar = () => {
   // console.log( user )
 
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then()
+      .catch()
   };
 
   const menuItems = (
