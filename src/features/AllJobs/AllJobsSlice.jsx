@@ -48,6 +48,7 @@ export const fetchAllJobs = createAsyncThunk('jobs/fetchAllJobs', async () => {
 });
 
 export const JobsSlice = createSlice({
+<<<<<<< HEAD
 	name: 'jobs',
 	initialState: {
 		isLoading: false,
@@ -88,6 +89,48 @@ export const JobsSlice = createSlice({
 			state.jobs = state.jobs.filter((book) => book.id !== id);
 		},
 	},
+=======
+    name: "jobs",
+    initialState: {
+        isLoading: false,
+        jobs: [],
+        isApplied: false,
+        error: null
+    },
+    extraReducers: builder => {
+        builder.addCase(fetchAllJobs.pending, state => {
+            state.isLoading = true;
+        })
+        builder.addCase(fetchAllJobs.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.jobs = action.payload;
+            state.error = null;
+        })
+        builder.addCase(fetchAllJobs.rejected, (state, action) => {
+            state.isLoading = false;
+            state.jobs = [];
+            state.error = action.error.message;
+        })
+    },
+    reducers: {
+        showJobs: (state) => state,
+        addJobs: (state, action) => {
+            state.jobs.push(action.payload);
+        },
+        updateJobs: (state, action) => {
+            const { id, title, author } = action.payload;
+            const isJobExist = state.jobs.filter((job) => job.id === id);
+            if (isJobExist) {
+                isJobExist[0].title = title;
+                isJobExist[0].author = author;
+            }
+        },
+        deleteJobs: (state, action) => {
+            const id = action.payload;
+            state.jobs = state.jobs.filter((book) => book.id !== id);
+        },
+    },
+>>>>>>> 884ba8a29464dc5c6bc6d0458fe8e8f0fb93b993
 });
 
 export const { showJobs, addJobs, deleteJobs, updateJobs } = JobsSlice.actions;
