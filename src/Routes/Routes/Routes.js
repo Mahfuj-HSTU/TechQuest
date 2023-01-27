@@ -3,7 +3,8 @@ import AllEmployers from "../../features/AllEmployers/AllEmployers";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
-import { ServerLink } from "../../Hooks//useServerLink.jsx";
+import { ServerLink } from "../../hooks/useServerLink";
+
 import MainLayout from "../../layout/MainLayout";
 import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
