@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const AddJobs = () => {
   const {
@@ -9,8 +10,13 @@ const AddJobs = () => {
     formState: { errors },
   } = useForm();
 
+  const { user } = useContext(AuthContext);
+
   const handleAddJObs = (data) => {
     const jobDetails = {
+      recruiterEmail: user?.email,
+      recruiterName: user?.displayName,
+      recruiterImage: user?.photoURL,
       jobTitle: data.jobTitle,
       jobDescription: data.jobDescription,
       jobRequirements: data.jobRequirements,
@@ -26,7 +32,9 @@ const AddJobs = () => {
       optionalSkills: data.optionalSkills,
       openings: data.openings,
     };
+
     // console.log(jobDetails);
+
     fetch("http://localhost:5000/alljobs", {
       method: "POST",
       headers: {
