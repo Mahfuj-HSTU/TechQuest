@@ -3,8 +3,12 @@ import AllEmployers from "../../features/AllEmployers/AllEmployers";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
+<<<<<<<< < Temporary merge branch 1
 import { ServerLink } from "../../hooks/useServerLink";
 
+=========
+import { ServerLink } from "../../Hooks/useServerLink.jsx";
+>>>>>>>>> Temporary merge branch 2
 import MainLayout from "../../layout/MainLayout";
 import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
@@ -17,7 +21,7 @@ import MyJobs from "../../Pages/MyJobs/MyJobs";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
-const router = createBrowserRouter([
+const router = createBrowserRouter( [
   {
     path: "/",
     element: <MainLayout />,
@@ -42,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`)
+        loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
       },
       {
         path: '/applications',
@@ -83,10 +87,10 @@ const router = createBrowserRouter([
       {
         path: '/courses/:id',
         element: <Course></Course>,
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        loader: ( { params } ) => fetch( `http://localhost:5000/courses/${ params.id }` ),
       }
     ],
   },
-]);
+] );
 
 export default router;
