@@ -4,55 +4,68 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useJobSeeker from "../../../Hooks/useJobSeeker";
 import useRecruiter from "../../../Hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
+import { FaEdit, FaPowerOff, } from "react-icons/fa"
+import EditProfile from "./EditProfile";
 
 const Navbar = () => {
-  const { user, logOut } = useContext( AuthContext );
-  const [ isRecruiter ] = useRecruiter( user?.email );
-  const [ isJobSeeker ] = useJobSeeker( user?.email );
+  const { user, logOut } = useContext(AuthContext);
+  const [isRecruiter] = useRecruiter(user?.email);
+  const [isJobSeeker] = useJobSeeker(user?.email);
 
-  // console.log( user )
+  // console.log(user)
 
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then()
+      .catch()
   };
 
   const menuItems = (
     <>
-      <li className="font-semibold"><Link to="/">Features</Link></li>
-
-      {
-        user?.email ?
-          <>
-            {
-              isRecruiter && <>
-                <li className="font-semibold"><Link to="/addjob">Add Job</Link></li>
-                <li className="font-semibold"><Link to="/MyJobPost">MyPost</Link></li>
-              </>
-            }
-            {
-              isJobSeeker && <>
-                <li className="font-semibold"><Link to="/all-jobs">All Jobs</Link></li>
-                <li className="font-semibold"><Link to="/myjobs">My Jobs</Link></li>
-                <li className="font-semibold"><Link to="/courses">Courses</Link></li>
-              </>
-            }
-            <li className="font-semibold">
-              <button onClick={ handleLogOut } className="btn-ghost">
-                Log Out
-              </button>
-            </li>
-          </>
-          :
-          <>
-            <li className="font-semibold">
-              <Link to="/login">Login</Link>{ " " }
-            </li>
-            <li className="font-semibold">
-              <label htmlFor="sign-up-modal">Sign Up</label>
-            </li>
-          </>
-
-      }
+      <li className="font-semibold">
+        <Link to="/">Features</Link>
+      </li>
+      {user?.email ? (
+        <>
+          {isRecruiter && (
+            <>
+              <li className="font-medium">
+                <Link to="/all-employers">All Employers</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/addjob">Add Job</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/MyJobPost">MyPost</Link>
+              </li>
+              <EditProfile></EditProfile>
+            </>
+          )}
+          {isJobSeeker && (
+            <>
+              <li className="font-semibold">
+                <Link to="/all-jobs">All Jobs</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/myjobs">My Jobs</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/courses">Courses</Link>
+              </li>
+              <EditProfile></EditProfile>
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <li className="font-semibold">
+            <Link to="/login">Login</Link>{" "}
+          </li>
+          <li className="font-semibold">
+            <label htmlFor="sign-up-modal">Sign Up</label>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -60,7 +73,7 @@ const Navbar = () => {
     <div className="navbar fixed h-16 top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200 rounded-md">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -77,14 +90,14 @@ const Navbar = () => {
             </svg>
           </label>
           <u
-            tabIndex={ 0 }
+            tabIndex={0}
             className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52"
           >
-            { menuItems }
+            {menuItems}
           </u>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          { " " }
+          {" "}
           <svg
             className="w-8 text-deep-purple-accent-400"
             viewBox="0 0 24 24"
@@ -106,7 +119,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">{ menuItems }</ul>
+        <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">{menuItems}</ul>
       </div>
       <SignUpModal></SignUpModal>
     </div>

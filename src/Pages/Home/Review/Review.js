@@ -118,11 +118,11 @@ const Review = () => {
                                 </div>
                             </div>
                             <div className="flex ml-16 rating rating-sm">
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" defaultChecked />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-16" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-16" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-16" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                                <input type="radio" name="rating-16" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-16" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
                         <div className="p-3 space-y-2 text-sm ">
@@ -164,11 +164,11 @@ const Review = () => {
                                 </div>
                             </div>
                             <div className="flex ml-16 rating rating-sm">
-                                <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" defaultChecked />
-                                <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-11" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-11" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-11" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-11" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                                <input type="radio" name="rating-11" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
                         <div className="p-3 space-y-2 text-sm ">
@@ -187,11 +187,11 @@ const Review = () => {
                                 </div>
                             </div>
                             <div className="flex ml-16 rating rating-sm">
-                                <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                                <input type="radio" name="rating-15" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-15" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                                <input type="radio" name="rating-15" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-15" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-15" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </div>
                         <div className="p-3 space-y-2 text-sm ">
