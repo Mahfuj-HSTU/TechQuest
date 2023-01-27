@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ServerLink } from "../../Hooks/useServerLink";
 
-export const fetchSearch = createAsyncThunk("searchData/fetchSearch", async ({SD}) => {
-    const res = await axios.get(`${ServerLink}/search`);
+export const fetchSearch = createAsyncThunk("searchData/fetchSearch", async (searchData) => {
+    const res = await axios.get(`${ServerLink}/search/${searchData.title}`);
     return res.data;
 })
 

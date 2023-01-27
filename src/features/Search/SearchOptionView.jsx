@@ -1,6 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSearch } from './SearchOptionSlice';
+import SearchResult from './SearchResult';
 
 const SearchOptionView = () => {
+
+    const search = useSelector(state => state.searchReducer.searchData);
+    // console.log(search.length);
+
+    const dispatch = useDispatch();
+    // console.log(dispatch);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -8,15 +17,15 @@ const SearchOptionView = () => {
         const title = form.title.value;
         const country = form.country.value;
         const status = form.status.value;
-        const searchData = { title, country, status}
-        console.log(searchData);
+        const searchData = { title, country, status }
+        // console.log(searchData);
+        dispatch(fetchSearch(searchData))
     }
 
     return (
         <form onSubmit={handleSearch}>
-            <div className='mt-10 p-5 border rounded-lg shadow-lg'>
-                <div className='flex justify-evenly gap-5 '>
-
+            <div className='mt-10 p-5 border rounded-lg shadow-lg text-left'>
+                <div className='flex flex-col justify-evenly  gap-2 md:flex-row'>
                     <div>
                         <input name='title' type="text" className='input border' placeholder='Job Title' />
                     </div>
@@ -27,7 +36,7 @@ const SearchOptionView = () => {
                     <div className='divider-horizontal bg-gray-300 w-1'></div>
                     <div>
                         <select
-                        name='status'
+                            name='status'
                             className="select select-bordered w-full "
                         >
                             <option disabled>
@@ -37,11 +46,13 @@ const SearchOptionView = () => {
                             <option>Remote</option>
                             <option>Hybrid</option>
                         </select>
-                        {/* <input type="text" placeholder='Job Title' /> */}
                     </div>
                 </div>
             </div>
             <input type="submit" name='submit' value='search' className='btn mt-2' />
+            <div>
+                {search.length !== 0 && <SearchResult />}
+            </div>
         </form>
     );
 };
