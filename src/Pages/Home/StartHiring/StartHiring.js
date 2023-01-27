@@ -5,7 +5,7 @@ import animation from "../../../assets/Animation/animation.json";
 
 const StartHiring = () => {
   return (
-    <div className="mt-20 mb-20">
+    <div className="mt-20">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
           <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
@@ -47,12 +47,12 @@ const StartHiring = () => {
             </div>
           </div>
           <div className="flex items-center justify-center lg:w-1/2">
-          <div>
-                <div style={{marginTop:"-20px"}} className="animation">
-                  <Lottie animationData={animation}></Lottie>
-                </div>
+            <div>
+              <div style={{ marginTop: "-20px" }} className="animation">
+                <Lottie animationData={animation}></Lottie>
+              </div>
             </div>
-            
+
           </div>
         </div>
       </div>
