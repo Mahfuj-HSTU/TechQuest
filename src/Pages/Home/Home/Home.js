@@ -22,7 +22,7 @@ const Home = () => {
       <DevelopersCategory />
       <EmployersCategories />
       <InterviewAndHire />
-      {/* <GetCandidateForm /> */ }
+      <GetCandidateForm />
       <LifeEasier />
       <Events></Events>
       <LatestNews />
