@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addApply, fetchApplicationData } from '../ApplyJob/ApplyJobSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import useIsApplied from '../../hooks/useIsApplied'
+import useIsApplied from '../../Hooks/useIsApplied'
 import Loading from '../../Pages/Shared/Loading/Loading';
 import { useState } from 'react';
 

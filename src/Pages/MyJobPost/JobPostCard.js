@@ -3,9 +3,9 @@ import { AiFillDelete } from 'react-icons/ai';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const JobPostCard = ({ jobPost }) => {
+    // console.log(jobPost)
     const { jobDescription, jobTitle, location, jobType, jobStatus } = jobPost;
     const { user } = useContext(AuthContext);
-    // console.log(user)
     return (
         <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-700 ">
             <div className="flex justify-between p-4">
