@@ -5,8 +5,8 @@ import animation from "../../../assets/Animation2/animation2.json";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:flex-row md:px-8 lg:max-w-screen-xl">
-      <div className="pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-5">
+    <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:flex-row md:px-8 lg:max-w-screen-xl lg:-mt-10">
+      <div className="lg:mb-0 lg:pt-16 lg:max-w-lg">
         <div className="max-w-xl mb-6">
           <div style={ { marginRight: "40px" } }>
             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full border-0">
@@ -34,29 +34,17 @@ const Banner = () => {
               <Typical
                 loop={ Infinity }
                 wrapper="b"
-                steps={["Front-End", 5000, 
-                "Back-End", 5000, 
-                "Fullstack", 5000]}
+                steps={["Front-End ", 5000, 
+                "Back-End ", 5000, 
+                "Fullstack ", 5000]}
               />
             </h2>
           </div>
           <div>
             <h2
-              style={ { marginRight: "90px" } }
-              className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-purple-700 sm:text-4xl sm:leading-none"
-            >
-              <Typical
-                loop={ Infinity }
-                wrapper="b"
-                steps={ [
-                  "Developers",
-                  4000,
-                  "Developers",
-                  4000,
-                  "Developers",
-                  4000,
-                ] }
-              />
+              style={ { marginRight: "100px" } }
+              className="max-w-lg mb-6 font-sans text-3xl font-extrabold tracking-tight text-purple-700 sm:text-4xl sm:leading-none"
+            >Developers
             </h2>
           </div>
           <p

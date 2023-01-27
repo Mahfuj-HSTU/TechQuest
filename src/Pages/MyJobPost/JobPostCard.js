@@ -15,7 +15,7 @@ const JobPostCard = ({ jobPost }) => {
                     </div>
                     <div>
                         <h4 className="font-bold">Leroy Jenkins</h4>
-                        <span className="text-xs text-gray-400">{user.email}</span>
+                        <span className="text-xs text-gray-400">{user?.email}</span>
                     </div>
                 </div>
                 <div>
@@ -30,8 +30,7 @@ const JobPostCard = ({ jobPost }) => {
                     <span className=' ml-8'>jobType: {jobType}</span>
                     <span className=' ml-8'>Job Status: {jobStatus}</span>
                 </div>
-                <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
+                <p>{jobDescription}.</p>
             </div>
         </div>
     );

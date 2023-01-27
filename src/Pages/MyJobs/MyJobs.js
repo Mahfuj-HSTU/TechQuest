@@ -7,20 +7,20 @@ import { Link } from 'react-router-dom';
 
 
 const MyJobs = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext( AuthContext );
 
-    const url = `http://localhost:5000/myjobs?email=${user?.email}`;
+    const url = `http://localhost:5000/myjobs?email=${ user?.email }`;
 
-    const { data: jobs = [] } = useQuery({
-        queryKey: ['jobs', user?.email],
+    const { data: jobs = [] } = useQuery( {
+        queryKey: [ 'jobs', user?.email ],
         queryFn: async () => {
-            const res = await fetch(url);
-              const data = await res.json();
+            const res = await fetch( url );
+            const data = await res.json();
             return data;
-          
+
         }
-    })
-    
+    } )
+
     return (
         <div className='mt-32 mb-12'>
             <h3 className="text-3xl mb-5">My Applied Jobs</h3>
