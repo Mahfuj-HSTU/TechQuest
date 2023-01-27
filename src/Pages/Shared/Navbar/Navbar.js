@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useJobSeeker from "../../../hooks/useJobSeeker";
 import useRecruiter from "../../../hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
-import { FaCog, FaEdit, FaPowerOff, FaUserAlt, } from "react-icons/fa"
+import { FaEdit, FaPowerOff, } from "react-icons/fa"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -70,14 +70,6 @@ const Navbar = () => {
 
                       </ul>
                       <ul className="pt-4 pb-2 space-y-1 text-sm">
-                        {/* <li>
-                          <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                            <div className=" text-gray-400">
-                              <FaCog></FaCog>
-                            </div>
-                            <span>Setting</span>
-                          </a>
-                        </li> */}
                         <li>
                           <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                             <div className=" text-gray-500">
@@ -114,21 +106,21 @@ const Navbar = () => {
 
                 </a>
                 <ul className="relative">
-                  <div className=" p-3 space-y-2 w-60 bg-gray-900 text-gray-100 fixed top-10 right-40">
+                  <div className=" p-3 space-y-2 w-60 bg-slate-200 fixed top-10 right-40">
                     <div className="flex items-center p-2 space-x-4">
                       <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                       <div>
                         <h2 className="text-lg font-semibold">Leroy Jenkins</h2>
                         <span className="flex items-center space-x-1">
-                          <a rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-400">{user?.email}</a>
+                          <a rel="noopener noreferrer" href="#" className="text-xs hover:underline">{user?.email}</a>
                         </span>
                       </div>
                     </div>
-                    <div className="divide-y divide-gray-700">
+                    <div className="divide-y divide-gray-400">
                       <ul className="pt-2 pb-4 space-y-1 text-sm">
                         <li>
                           <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                            <div className=" text-gray-400">
+                            <div className=" text-gray-500">
                               <FaEdit></FaEdit>
                             </div>
                             <span>Edit Profile</span>
@@ -137,17 +129,9 @@ const Navbar = () => {
 
                       </ul>
                       <ul className="pt-4 pb-2 space-y-1 text-sm">
-                        {/* <li>
-                          <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                            <div className=" text-gray-400">
-                              <FaCog></FaCog>
-                            </div>
-                            <span>Setting</span>
-                          </a>
-                        </li> */}
                         <li>
                           <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                            <div className=" text-gray-400">
+                            <div className=" text-gray-500">
                               <FaPowerOff></FaPowerOff>
                             </div>
                             <span onClick={handleLogOut}>Logout</span>
