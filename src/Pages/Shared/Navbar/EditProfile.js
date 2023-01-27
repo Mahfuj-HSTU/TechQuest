@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const EditProfile = () => {
     const { user, logOut } = useContext(AuthContext);
-
+    console.log(user)
     const handleLogOut = () => {
         logOut()
             .then()
@@ -24,7 +24,7 @@ const EditProfile = () => {
 
             </Link>
             <ul className="relative">
-                <div className=" p-3 space-y-2 w-60 bg-slate-200 fixed top-10 right-40">
+                <div className=" p-3 space-y-2 w-60 bg-slate-200 fixed top-10 lg:right-40 left-16 lg:left-auto">
                     <div className="flex items-center p-2 space-x-4">
                         <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                         <div>

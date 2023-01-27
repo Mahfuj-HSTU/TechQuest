@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { ServerLink } from '../../Hooks/useServerLink';
+import { ServerLink } from '../../hooks/useServerLink';
 
 export const fetchApplicationData = createAsyncThunk(
 	'applications/fetchApplications',
