@@ -4,21 +4,14 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useJobSeeker from "../../../Hooks/useJobSeeker";
 import useRecruiter from "../../../Hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
-import { FaEdit, FaPowerOff, } from "react-icons/fa"
 import EditProfile from "./EditProfile";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [isRecruiter] = useRecruiter(user?.email);
   const [isJobSeeker] = useJobSeeker(user?.email);
 
   // console.log(user)
-
-  const handleLogOut = () => {
-    logOut()
-      .then()
-      .catch()
-  };
 
   const menuItems = (
     <>
