@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useJobSeeker from "../../../Hooks/useJobSeeker";
-import useRecruiter from "../../../Hooks/useRecruiter";
+import useJobSeeker from "../../../hooks/useJobSeeker";
+import useRecruiter from "../../../hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
 import EditProfile from "./EditProfile";
 
