@@ -3,18 +3,29 @@ import { useContext } from 'react';
 import { FaEdit, FaPowerOff, } from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const EditProfile = () => {
-    const { user, logOut } = useContext(AuthContext);
-    console.log(user)
+    const [ theme, setTheme ] = useState( "cupcake" )
+    const { user, logOut } = useContext( AuthContext );
+    // console.log( user )
     const handleLogOut = () => {
         logOut()
             .then()
             .catch()
     };
 
+    const handleMode = () => {
+        // console.log( 'clicked' );
+        setTheme( theme === 'luxury' ? 'cupcake' : 'luxury' );
+    }
+    useEffect( () => {
+        document.querySelector( 'html' ).setAttribute( 'data-theme', theme );
+    }, [ theme ] );
+
     return (
-        <li tabIndex={1}>
+        <li tabIndex={ 1 }>
             <Link>
                 <div className="avatar">
                     <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -24,24 +35,24 @@ const EditProfile = () => {
 
             </Link>
             <ul className="relative">
-                <div className=" p-3 space-y-2 w-60 bg-slate-200 fixed top-10 lg:right-40 left-16 lg:left-auto">
+                <div className=" p-3 pb-5 space-y-2 w-64 bg-slate-200 font-semibold fixed top-10 lg:right-40 left-16 lg:left-auto rounded-lg">
                     <div className="flex items-center p-2 space-x-4">
                         <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
-                        <div>
-                            <h2 className="text-lg font-semibold">Loreyan Jacks</h2>
-                            <span className="flex items-center space-x-1">
-                                <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline">{user?.email}</Link>
+                        <div className='text-start'>
+                            <h2 className="text-lg font-semibold">{ user?.displayName }</h2>
+                            <span className="">
+                                <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline">{ user?.email }</Link>
                             </span>
                         </div>
                     </div>
-                    <div className="divide-y divide-gray-400">
+                    <div className="divide-y divide-gray-600">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
                             <li>
                                 <Link rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                     <div className=" text-gray-500">
                                         <FaEdit></FaEdit>
                                     </div>
-                                    <span>Edit Profile</span>
+                                    <span className='text-lg'>Edit Profile</span>
                                 </Link>
                             </li>
 
@@ -52,10 +63,11 @@ const EditProfile = () => {
                                     <div className=" text-gray-500">
                                         <FaPowerOff></FaPowerOff>
                                     </div>
-                                    <span onClick={handleLogOut}>Logout</span>
+                                    <span className='text-lg' onClick={ handleLogOut }>Logout</span>
                                 </Link>
                             </li>
                         </ul>
+                        <input onClick={ handleMode } type="checkbox" className="toggle text-start" />
                     </div>
                 </div>
             </ul>
