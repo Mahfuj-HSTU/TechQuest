@@ -39,7 +39,7 @@ const EditProfile = () => {
                     <div className="flex items-center p-2 space-x-4">
                         <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                         <div className='text-start'>
-                            <h2 className="text-lg font-semibold">{ user?.displayName }</h2>
+                            <h2 className="text-lg font-semibold">{ user?.displayName } ? { user?.displayName } : Name not found</h2>
                             <span className="">
                                 <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline">{ user?.email }</Link>
                             </span>
