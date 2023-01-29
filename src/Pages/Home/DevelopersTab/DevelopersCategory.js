@@ -36,13 +36,13 @@ const DevelopersCategory = () => {
   };
 
   return (
-    <div className="mx-3">
+    <div className="mx-5">
       <div className="mb-10">
         <h2 className="text-4xl font-bold text-center">
           The world is your talent pool
         </h2>
       </div>
-      <div className="tabs flex justify-between gap-3 ">
+      <div className="tabs flex flex-col md:flex-row justify-between gap-3 ">
         {categories.map((category, i) => (
           <div
             key={i}

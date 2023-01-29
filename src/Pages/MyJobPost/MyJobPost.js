@@ -1,26 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
     const [MyJobPost, setMyJobPost] = useState([]);
+    console.log(MyJobPost)
+    const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch('http://localhost:5000/recruiterJobPosts')
+        fetch(`http://localhost:5000/recruiterJobPosts/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyJobPost(data))
-    }, [])
+    }, [user?.email])
 
 
 
 
     return (
-        <div className='lg:mt-24 grid lg:grid-cols-4 md:grid-cols-2 gap-4'>
-            <div className='lg:col-span-3 text-left'>
-                {
-                    MyJobPost.map(jobPost => <JobPostCard key={MyJobPost._id} jobPost={jobPost}></JobPostCard>)
-                }
+        <div className='lg:mt-24 mt-20 grid lg:grid-cols-4 md:grid-cols-3 gap-4'>
+            <div className='lg:col-span-3 md:col-span-2 text-left'>
+                <>
+                    {
+                        MyJobPost.length !== 0 ? (
+
+                            <>
+                                {
+                                    MyJobPost.map(jobPost => <JobPostCard key={jobPost._id} jobPost={jobPost}></JobPostCard>)
+                                }
+                            </>
+
+                        ) : <h1 className=' text-2xl font-semibold'>No post done yet</h1>
+
+                    }
+                </>
             </div>
-            <div className=' hidden lg:inline md:inline'>
+            <div className='md:col-span-1 hidden lg:inline md:inline'>
                 <div className="card bg-base-100 shadow-xl text-left">
                     <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                     <div className="card-body">
@@ -31,7 +46,7 @@ const MyJobPost = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl my-8">
+                <div className="card lg:w-96 bg-base-100 shadow-xl my-8">
                     <div className="card-body">
                         <h2 className="card-title">Job Search</h2>
                         <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis.</p>

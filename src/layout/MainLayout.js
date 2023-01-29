@@ -5,10 +5,14 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="mx-auto">
+      <div className="mb-24">
+        <Navbar />
+      </div>
       <div className="max-w-[1240px] mx-auto">
-        <Navbar></Navbar>
         <Outlet />
+      </div>
+      <div className="max-w-screen-xl mx-auto mt-10">
         <Footer />
       </div>
     </div>

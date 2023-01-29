@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const AddJobs = () => {
   const {
@@ -9,8 +10,13 @@ const AddJobs = () => {
     formState: { errors },
   } = useForm();
 
+  const { user } = useContext(AuthContext);
+
   const handleAddJObs = (data) => {
     const jobDetails = {
+      recruiterEmail: user?.email,
+      recruiterName: user?.displayName,
+      recruiterImage: user?.photoURL,
       jobTitle: data.jobTitle,
       jobDescription: data.jobDescription,
       jobRequirements: data.jobRequirements,
@@ -26,7 +32,9 @@ const AddJobs = () => {
       optionalSkills: data.optionalSkills,
       openings: data.openings,
     };
+
     // console.log(jobDetails);
+
     fetch("http://localhost:5000/alljobs", {
       method: "POST",
       headers: {
@@ -45,7 +53,7 @@ const AddJobs = () => {
   };
 
   return (
-    <div className="my-24">
+    <div className="my-24 px-2">
       <h5 className="text-xl font-semibold mb-10">
         You Need Employee? Add A Job Post Here.
       </h5>
@@ -110,9 +118,7 @@ const AddJobs = () => {
               {...register("jobStatus", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled>
-                Select job status
-              </option>
+              <option disabled>Select job status</option>
               <option>On Site</option>
               <option>Remote</option>
               <option>Hybrid</option>
@@ -131,9 +137,7 @@ const AddJobs = () => {
               {...register("jobType", { required: true })}
               className="select select-bordered w-full "
             >
-              <option disabled>
-                Select job type
-              </option>
+              <option disabled>Select job type</option>
               <option>Internship</option>
               <option>Full time</option>
               <option> Part time</option>
@@ -174,7 +178,7 @@ const AddJobs = () => {
             )}
             <select
               {...register("currency")}
-              className="select select-bordered w-full max-w-xs"
+              className="select select-bordered md:w-full max-w-xs"
             >
               <option>USD</option>
               <option>BDT</option>

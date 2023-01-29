@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const JobSeeker = () => {
     const [ error, setError ] = useState( '' )
     const { createUser } = useContext( AuthContext )
+    const navigate = useNavigate();
+
 
     // handle user create
     const handleRegister = event => {
@@ -14,27 +16,50 @@ const JobSeeker = () => {
         const name = form.name.value;
         const email = form.email.value;
         const photoUrl = form.photoUrl.value;
+        const address = form.address.value;
+        const experience = form.experience.value;
+        const institute = form.institute.value;
         const password = form.password.value;
+        const role = 'jobSeeker';
 
         // registered user create
         createUser( email, password )
             .then( result => {
                 const user = result.user;
                 console.log( user );
+                saveUsers();
                 form.reset();
                 toast.success( 'Registration successful.' )
+                navigate( '/' )
                 setError( '' )
             } )
             .catch( error => {
                 console.error( error )
                 setError( error.message );
             } )
+
+        // save users
+        const saveUsers = () => {
+            const user = { name, email, address, photoUrl, experience, institute, role };
+            fetch( 'http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify( user )
+            } )
+                .then( res => res.json() )
+                .then( data => {
+                    console.log( data );
+                } )
+        }
+
     }
 
     return (
         <div className="hero w-full my-24">
             <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 py-10">
-                <h1 className="text-5xl text-center font-bold">Register </h1>
+                <h1 className="text-5xl text-center font-bold">Employee Register </h1>
                 <form onSubmit={ handleRegister } className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -48,7 +73,28 @@ const JobSeeker = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="Enter your email" className="input input-bordered" required />
-                        <p className='text-red-600 font-semibold'>{ error.slice( 22, 42 ) }</p>
+                        <p className='text-red-600 font-semibold'>{ error.slice( 22, 45 ) }</p>
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Address</span>
+                        </label>
+                        <input type="text" name='address' placeholder="your address" className="input input-bordered" />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Job Experience</span>
+                        </label>
+                        <input type="text" name='experience' placeholder="ex: 1 year or N/A" className="input input-bordered" />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Institute</span>
+                        </label>
+                        <input type="text" name='institute' placeholder="..... university" className="input input-bordered" />
                     </div>
 
                     <div className="form-control">
@@ -63,9 +109,6 @@ const JobSeeker = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                        <label className="label">
-                            <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
-                        </label>
                     </div>
 
                     <div className="form-control mt-6">
@@ -80,4 +123,3 @@ const JobSeeker = () => {
 };
 
 export default JobSeeker;
- 
