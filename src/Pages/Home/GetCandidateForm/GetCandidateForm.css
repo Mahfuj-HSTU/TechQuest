@@ -1,7 +1,22 @@
+.col-25 {
+    float: left;
+    width: 45%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: right;
+    width: 55%;
+    margin-top: 6px;
+  }
+  
+
+
 @media screen and (max-width:600px) {
-    .responsive-1,input{
+    .col-25 .col-75{
         width: 100%;
-        background-color: brown;
+        margin: 0;
         
     }   
+  
 }

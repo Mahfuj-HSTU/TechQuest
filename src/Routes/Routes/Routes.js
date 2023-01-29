@@ -5,7 +5,7 @@ import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
 import MainLayout from "../../layout/MainLayout";
-import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
+import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs"; 
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Course from "../../Pages/Courses/Course/Course";
 import Courses from "../../Pages/Courses/Courses";
