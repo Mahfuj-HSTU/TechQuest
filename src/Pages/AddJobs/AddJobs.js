@@ -10,9 +10,9 @@ const AddJobs = () => {
     formState: { errors },
   } = useForm();
 
-  const { user } = useContext(AuthContext);
+  const { user } = useContext( AuthContext );
 
-  const handleAddJObs = (data) => {
+  const handleAddJObs = ( data ) => {
     const jobDetails = {
       recruiterEmail: user?.email,
       recruiterName: user?.displayName,
@@ -35,44 +35,44 @@ const AddJobs = () => {
 
     // console.log(jobDetails);
 
-    fetch("http://localhost:5000/alljobs", {
+    fetch( "http://localhost:5000/alljobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(jobDetails),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          alert("successfully created a job post");
+      body: JSON.stringify( jobDetails ),
+    } )
+      .then( ( res ) => res.json() )
+      .then( ( data ) => {
+        console.log( data );
+        if ( data.acknowledged ) {
+          alert( "successfully created a job post" );
           reset();
         }
-      });
+      } );
   };
 
   return (
-    <div className="my-24 px-2">
-      <h5 className="text-xl font-semibold mb-10">
+    <div className="my-20 py-9 px-6 lg:w-11/12 md:w-full mx-auto bg-base-100 shadow-2xl rounded-3xl">
+      <h5 className="text-2xl font-semibold mb-10">
         You Need Employee? Add A Job Post Here.
       </h5>
-      <form onSubmit={handleSubmit(handleAddJObs)} action="">
+      <form onSubmit={ handleSubmit( handleAddJObs ) } action="">
         <div className="form-control mb-4 w-full ">
           <label className="label font-semibold">
             <span className="label-text">Job Title</span>
           </label>
           <input
             type="text"
-            {...register("jobTitle", { required: true })}
+            { ...register( "jobTitle", { required: true } ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
-          {errors.openings && (
+          { errors.openings && (
             <span className="text-red-500 font-semibold">
               This field is required
             </span>
-          )}
+          ) }
         </div>
         <div className="form-control mb-4 w-full ">
           <label className="label font-semibold">
@@ -80,14 +80,14 @@ const AddJobs = () => {
           </label>
           <textarea
             className="textarea textarea-bordered"
-            {...register("jobDescription", { required: true })}
+            { ...register( "jobDescription", { required: true } ) }
             placeholder="Job description"
           ></textarea>
-          {errors.openings && (
+          { errors.openings && (
             <span className="text-red-500 font-semibold">
               This field is required
             </span>
-          )}
+          ) }
         </div>
         <div className="form-control mb-4 w-full ">
           <label className="label font-semibold">
@@ -95,7 +95,7 @@ const AddJobs = () => {
           </label>
           <textarea
             className="textarea textarea-bordered"
-            {...register("jobRequirements")}
+            { ...register( "jobRequirements" ) }
             placeholder="Job Requirements"
           ></textarea>
         </div>
@@ -105,7 +105,7 @@ const AddJobs = () => {
           </label>
           <textarea
             className="textarea textarea-bordered"
-            {...register("jobResponsibilities")}
+            { ...register( "jobResponsibilities" ) }
             placeholder="Job Responsibilities"
           ></textarea>
         </div>
@@ -115,7 +115,7 @@ const AddJobs = () => {
               <span className="label-text">Job status</span>
             </label>
             <select
-              {...register("jobStatus", { required: true })}
+              { ...register( "jobStatus", { required: true } ) }
               className="select select-bordered w-full "
             >
               <option disabled>Select job status</option>
@@ -123,18 +123,18 @@ const AddJobs = () => {
               <option>Remote</option>
               <option>Hybrid</option>
             </select>
-            {errors.openings && (
+            { errors.openings && (
               <span className="text-red-500 font-semibold">
                 This field is required
               </span>
-            )}
+            ) }
           </div>
           <div className="form-control mb-4 w-full ">
             <label className="label font-semibold">
               <span className="label-text">Job type</span>
             </label>
             <select
-              {...register("jobType", { required: true })}
+              { ...register( "jobType", { required: true } ) }
               className="select select-bordered w-full "
             >
               <option disabled>Select job type</option>
@@ -142,11 +142,11 @@ const AddJobs = () => {
               <option>Full time</option>
               <option> Part time</option>
             </select>
-            {errors.openings && (
+            { errors.openings && (
               <span className="text-red-500 font-semibold">
                 This field is required
               </span>
-            )}
+            ) }
           </div>
         </div>
         <div className="form-control w-full ">
@@ -155,7 +155,7 @@ const AddJobs = () => {
           </label>
           <input
             type="text"
-            {...register("location")}
+            { ...register( "location" ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
@@ -167,17 +167,17 @@ const AddJobs = () => {
           <div className="flex gap-4">
             <input
               type="text"
-              {...register("salary", { required: true })}
+              { ...register( "salary", { required: true } ) }
               placeholder="How is the salary for this job?"
               className="input input-bordered w-full "
             />
-            {errors.openings && (
+            { errors.openings && (
               <span className="text-red-500 font-semibold">
                 This field is required
               </span>
-            )}
+            ) }
             <select
-              {...register("currency")}
+              { ...register( "currency" ) }
               className="select select-bordered md:w-full max-w-xs"
             >
               <option>USD</option>
@@ -194,7 +194,7 @@ const AddJobs = () => {
           </label>
           <input
             type="text"
-            {...register("experience")}
+            { ...register( "experience" ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
@@ -205,15 +205,15 @@ const AddJobs = () => {
           </label>
           <input
             type="text"
-            {...register("language", { required: true })}
+            { ...register( "language", { required: true } ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
-          {errors.openings && (
+          { errors.openings && (
             <span className="text-red-500 font-semibold">
               This field is required
             </span>
-          )}
+          ) }
         </div>
         <div className="form-control mb-4 w-full ">
           <label className="label">
@@ -221,15 +221,15 @@ const AddJobs = () => {
           </label>
           <input
             type="text"
-            {...register("mustSkills", { required: true })}
+            { ...register( "mustSkills", { required: true } ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
-          {errors.openings && (
+          { errors.openings && (
             <span className="text-red-500 font-semibold">
               This field is required
             </span>
-          )}
+          ) }
         </div>
         <div className="form-control mb-4 w-full ">
           <label className="label">
@@ -239,7 +239,7 @@ const AddJobs = () => {
           </label>
           <input
             type="text"
-            {...register("optionalSkills")}
+            { ...register( "optionalSkills" ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
@@ -250,19 +250,19 @@ const AddJobs = () => {
           </label>
           <input
             type="number"
-            {...register("openings", { required: true })}
+            { ...register( "openings", { required: true } ) }
             placeholder="Type here"
             className="input input-bordered w-full "
           />
-          {errors.openings && (
+          { errors.openings && (
             <span className="text-red-500 font-semibold">
               This field is required
             </span>
-          )}
+          ) }
         </div>
 
         <input
-          className="btn bg-[#0675CE] hover:bg-blue-500 w-1/5 border-0 text-white"
+          className="btn bg-[#0675CE] hover:bg-blue-500 w-1/5 border-0 text-white mt-4"
           type="submit"
           value="Submit"
         />
