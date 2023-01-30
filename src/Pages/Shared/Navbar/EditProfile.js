@@ -14,7 +14,7 @@ const EditProfile = () => {
     };
 
     return (
-        <li tabIndex={1}>
+        <li tabIndex={1} >
             <Link>
                 <div className="avatar">
                     <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -23,7 +23,7 @@ const EditProfile = () => {
                 </div>
 
             </Link>
-            <ul className="relative">
+            <ul>
                 <div className=" p-3 space-y-2 w-60 bg-slate-200 fixed top-10 lg:right-40 left-16 lg:left-auto">
                     <div className="flex items-center p-2 space-x-4">
                         <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
