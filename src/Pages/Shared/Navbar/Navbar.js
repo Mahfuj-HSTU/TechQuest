@@ -15,7 +15,6 @@ const Navbar = () => {
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
-
   const dispatch = useDispatch();
 
   useEffect(() => {
