@@ -31,7 +31,7 @@ const Banner = () => {
                 1000,
                 "Game Developers",
                 1000,
-                "Q.A Specialist",
+                "Q.A Specialists",
                 1000,
                 "UI/UX Designers",
                 1000,
