@@ -64,7 +64,7 @@ const Banner = () => {
           <a
             href="/"
             className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-700 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white"
-          >
+          > 
             Get Started
           </a>
           <a
