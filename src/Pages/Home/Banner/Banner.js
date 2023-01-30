@@ -6,7 +6,7 @@ import animation from "../../../assets/Animation2/animation2.json";
 const Banner = () => {
   return (
     <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:flex-row md:px-8 lg:max-w-screen-xl lg:-mt-10">
-      <div className="lg:mb-0 lg:pt-16 lg:max-w-lg">
+      <div className="lg:mb-0 lg:pt-16 lg:max-w-lg mt-44">
         <div className="max-w-xl mb-6">
           <div style={{ marginRight: "40px" }}>
             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full border-0">
@@ -77,7 +77,7 @@ const Banner = () => {
         </div>
       </div>
       <div style={{ marginLeft: "200px" }}>
-        <div style={{ marginTop: "60px" }} className="animation">
+        <div style={{ marginTop: "60px" }} className="animation sm:">
           <Lottie animationData={animation}></Lottie>
         </div>
       </div>
