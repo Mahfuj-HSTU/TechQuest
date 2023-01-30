@@ -1,40 +1,55 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useJobSeeker from "../../../Hooks/useJobSeeker";
-import useRecruiter from "../../../Hooks/useRecruiter";
 import SignUpModal from "../../SignUp/SignUpModal";
 import EditProfile from "./EditProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
-  const [isRecruiter] = useRecruiter(user?.email);
-  const [isJobSeeker] = useJobSeeker(user?.email);
+  // const [isRecruiter] = useRecruiter(user?.email);
+  // const [isJobSeeker] = useJobSeeker(user?.email);
+  const role = useSelector((state) => state.roleReducer.role.role);
+  const admin = "admin";
+  const recruiter = "recruiter";
+  const jobSeeker = "jobSeeker";
 
-  // console.log(user)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRole(user?.email));
+  }, [dispatch, user?.email]);
 
   const menuItems = (
     <>
-      <li className="font-semibold">
-        <Link to="/">Features</Link>
-      </li>
+      <li className="font-semibold"></li>
       {user?.email ? (
         <>
-          {isRecruiter && (
+          {role === admin && (
             <>
               <li className="font-medium">
                 <Link to="/all-employers">All Employers</Link>
-              </li>
-              <li className="font-semibold">
+                <Link to="/all-jobs">All Jobs</Link>
                 <Link to="/addjob">Add Job</Link>
-              </li>
-              <li className="font-semibold">
-                <Link to="/MyJobPost">MyPost</Link>
+                <Link to="/courses">Courses</Link>
               </li>
               <EditProfile></EditProfile>
             </>
           )}
-          {isJobSeeker && (
+          {role === recruiter && (
+            <>
+              <li className="font-medium">
+                <Link to="/all-employers">All Employers</Link>
+                <Link to="/addjob">Add Job</Link>
+                <Link to="/MyJobPost">MyPost</Link>
+                <Link to="/courses">Courses</Link>
+              </li>
+              <EditProfile></EditProfile>
+            </>
+          )}
+          {role === jobSeeker && (
             <>
               <li className="font-semibold">
                 <Link to="/all-jobs">All Jobs</Link>
