@@ -34,15 +34,14 @@ const JobPostCard = ({ jobPost, refetch }) => {
                         </div>
                     </div>
                     <div>
-
                         <label htmlFor="my-modal-3" className='text-2xl cursor-pointer'> <AiFillDelete></AiFillDelete></label>
                         <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                         <div className="modal">
                             <div className="modal-box relative">
                                 <h3 className="text-lg font-bold">Are you sure, You Want to delete it?</h3>
                                 <div className="modal-action ">
-                                    <label htmlFor="my-modal-3" className="btn">NO</label>
-                                    <label onClick={() => handleDelete(_id)} htmlFor="my-modal" className="btn">YES</label>
+                                    <label htmlFor="my-modal-3" className="btn btn-primary">NO</label>
+                                    <label onClick={() => handleDelete(_id)} htmlFor="my-modal-3" className="btn btn-primary">YES</label>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +57,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                 </div>
             </div>
 
-            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            {/* <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
@@ -67,7 +66,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                         <label htmlFor="my-modal" className="btn">Yay!</label>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
