@@ -7,7 +7,7 @@ export const deleteJob = createAsyncThunk("jobs/removeJob", async (id) => {
   return res.data;
 });
 
-console.log(deleteJob());
+// console.log(deleteJob());
 export const JobsSlice = createSlice({
   name: "jobs",
   initialState: {
