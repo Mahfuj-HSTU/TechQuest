@@ -9,7 +9,7 @@ const RemoveJob = ({ id, title, des, openings }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.removeJobReducer);
-  console.log(state);
+//   console.log(state);
 
   const from = location.state?.from?.pathname || "/all-jobs";
 
