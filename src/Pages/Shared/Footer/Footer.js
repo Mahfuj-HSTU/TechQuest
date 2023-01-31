@@ -20,8 +20,8 @@ const Footer = () => {
             <FaFacebookSquare />
           </div>
           <div className="w-24 flex">
-            <img src={img1} alt="" />
-            <img src={img2} alt="" />
+            <img src={ img1 } alt="" />
+            <img src={ img2 } alt="" />
           </div>
         </div>
         <div className=" text-slate-400">
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </footer>
       <div>
-        <div className="border border-b-gray-200 my-5 "></div>
+        <div className="border border-b-gray-400 my-5 "></div>
         <div className="flex flex-col-reverse md:flex-row text-left mb-5">
           <div className=" md:basis-1/2 flex-1 ">
             <p>&copy; TechQuest 2023 Technologies Inc.</p>

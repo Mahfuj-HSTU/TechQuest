@@ -15,7 +15,10 @@ const JobSeeker = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        // const photoUrl = form.photoUrl.value;
+        const photoUrl = form.photoUrl.value;
+        const address = form.address.value;
+        const experience = form.experience.value;
+        const institute = form.institute.value;
         const password = form.password.value;
         const role = 'jobSeeker';
 
@@ -37,7 +40,7 @@ const JobSeeker = () => {
 
         // save users
         const saveUsers = () => {
-            const user = { name, email, role };
+            const user = { name, email, address, photoUrl, experience, institute, role };
             fetch( 'http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -56,7 +59,7 @@ const JobSeeker = () => {
     return (
         <div className="hero w-full my-24">
             <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 py-10">
-                <h1 className="text-5xl text-center font-bold">Register </h1>
+                <h1 className="text-5xl text-center font-bold">Employee Register </h1>
                 <form onSubmit={ handleRegister } className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -71,6 +74,27 @@ const JobSeeker = () => {
                         </label>
                         <input type="email" name='email' placeholder="Enter your email" className="input input-bordered" required />
                         <p className='text-red-600 font-semibold'>{ error.slice( 22, 45 ) }</p>
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Address</span>
+                        </label>
+                        <input type="text" name='address' placeholder="your address" className="input input-bordered" />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Job Experience</span>
+                        </label>
+                        <input type="text" name='experience' placeholder="ex: 1 year or N/A" className="input input-bordered" />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Institute</span>
+                        </label>
+                        <input type="text" name='institute' placeholder="..... university" className="input input-bordered" />
                     </div>
 
                     <div className="form-control">

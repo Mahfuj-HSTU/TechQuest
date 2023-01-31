@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { ServerLink } from "../../Hooks/useServerLink";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { ServerLink } from '../../Hooks/useServerLink';
 
 export const fetchSearch = createAsyncThunk(
   "searchData/fetchSearch",
