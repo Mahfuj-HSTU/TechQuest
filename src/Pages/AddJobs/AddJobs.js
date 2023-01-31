@@ -10,6 +10,7 @@ const AddJobs = () => {
     formState: { errors },
   } = useForm();
 
+  //use the context api
   const { user } = useContext(AuthContext);
 
   const handleAddJObs = (data) => {

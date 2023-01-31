@@ -4,10 +4,6 @@ import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
-<<<<<<< HEAD
-=======
-
->>>>>>> 884ba8a29464dc5c6bc6d0458fe8e8f0fb93b993
 import MainLayout from "../../layout/MainLayout";
 import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
@@ -20,7 +16,7 @@ import MyJobs from "../../Pages/MyJobs/MyJobs";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
-const router = createBrowserRouter( [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -35,8 +31,8 @@ const router = createBrowserRouter( [
         element: <AllJobsView />,
       },
       {
-        path: '/my-jobs',
-        element: <ApplyJobView />
+        path: "/my-jobs",
+        element: <ApplyJobView />,
       },
       {
         path: "/all-employers",
@@ -45,11 +41,11 @@ const router = createBrowserRouter( [
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
+        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
       },
       {
-        path: '/applications',
-        element: <ApplyJobView />
+        path: "/applications",
+        element: <ApplyJobView />,
       },
       {
         path: "/addjob",
@@ -64,32 +60,33 @@ const router = createBrowserRouter( [
         element: <MyJobs></MyJobs>,
       },
       {
-        path: '/recruiter',
-        element: <Recruiter></Recruiter>
+        path: "/recruiter",
+        element: <Recruiter></Recruiter>,
       },
       {
-        path: '/jobSeeker',
-        element: <JobSeeker></JobSeeker>
+        path: "/jobSeeker",
+        element: <JobSeeker></JobSeeker>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/courses',
-        element: <Courses></Courses>
+        path: "/courses",
+        element: <Courses></Courses>,
       },
       {
-        path: '/about',
-        element: <AboutUs></AboutUs>
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
-        path: '/courses/:id',
+        path: "/courses/:id",
         element: <Course></Course>,
-        loader: ( { params } ) => fetch( `http://localhost:5000/courses/${ params.id }` ),
-      }
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
+      },
     ],
   },
-] );
+]);
 
 export default router;
