@@ -1,11 +1,33 @@
 import React from "react";
+import { toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { deleteJob } from "./RemoveJobSlice";
 
 const RemoveJob = ({ id, title, des, openings }) => {
-  // console.log(id, title, des, openings);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.removeJobReducer);
+  console.log(state);
+
+  const from = location.state?.from?.pathname || "/all-jobs";
+
   const removeJob = (id) => {
     // console.log(id);
-    const t = window.confirm ('Do you want to delete this job post? \n Undo is not possible after clicking "ok".');
-    console.log(t);
+    const confirm = window.confirm(
+      'Do you want to delete this job post? \n Undo is not possible after clicking "ok".'
+    );
+    console.log(confirm);
+    if (confirm === true) {
+      dispatch(deleteJob(id));
+
+      if (state.deleteCount.deletedCount > 0) {
+        toast.success("Job deleted");
+        state.deleteCount.deletedCount=0;
+        navigate(from, { replace: true });
+      }
+    }
   };
   return (
     <div>
@@ -32,7 +54,7 @@ const RemoveJob = ({ id, title, des, openings }) => {
           <p className="py-4">{des}</p>
           <div className="my-7">
             <label
-              onClick={() => removeJob(12)}
+              onClick={() => removeJob(id)}
               htmlFor="remove-job"
               className="btn btn-error absolute right-2 bottom-5"
             >
