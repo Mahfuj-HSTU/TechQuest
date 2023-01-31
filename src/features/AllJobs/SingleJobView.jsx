@@ -37,6 +37,7 @@ const SingleJobView = () => {
 
   const job = location.state;
   const {
+	_id,
     jobTitle,
     jobDescription,
     jobRequirements,
@@ -70,7 +71,7 @@ const SingleJobView = () => {
         <div className="m-20 text-left">
           <div className="flex gap-5">
             <h1 className="text-4xl font-semibold text-cyan-600">{jobTitle}</h1>
-            {role === 'admin' && <RemoveJob />}
+            {role === 'admin' && <RemoveJob></RemoveJob>}
           </div>
           <div className="flex gap-3 my-3">
             <p className="border p-1 rounded-lg">
