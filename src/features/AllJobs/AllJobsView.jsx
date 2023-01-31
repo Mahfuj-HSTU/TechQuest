@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchAllJobs } from "./AllJobsSlice";
 import SearchOption from "../Search/SearchOptionView";
-import RemoveJob from "./RemoveJob";
 
 const AllJobsView = () => {
   const jobs = useSelector((state) => state.jobsReducer.jobs);
@@ -67,9 +66,9 @@ const AllJobsView = () => {
                     </div>
                   </div>
 
-                  <div className="justify-end">
-                    <RemoveJob/>
-                  </div>
+                  {/* <div className="justify-end">
+                    <RemoveJob id={_id} title={jobTitle} des={jobDescription} openings={openings}/>
+                  </div> */}
                 </div>
                 <p className="my-2">{jobDescription}</p>
                 {/* .slice(0,250) */}

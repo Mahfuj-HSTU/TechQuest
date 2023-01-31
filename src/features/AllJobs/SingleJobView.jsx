@@ -23,20 +23,22 @@ const SingleJobView = () => {
     (state) => state
     // (state) => state.applicationReducer
   );
-  const { isLoading, error, applications } = data.applicationReducer
+  const { isLoading, error, applications } = data.applicationReducer;
   const role = data.roleReducer.role.role;
-//   console.log(role);
+  //   console.log(role);
 
   // checking if user is applied or not
   const isApplied = useIsApplied(applications, jobs._id);
   // console.log(applied);
   useEffect(() => {
     dispatch(fetchApplicationData());
-	dispatch(fetchRole(user?.email))
+    dispatch(fetchRole(user?.email));
   }, [dispatch, user?.email]);
 
   const job = location.state;
   const {
+    _id,
+    openings,
     jobTitle,
     jobDescription,
     jobRequirements,
@@ -70,7 +72,14 @@ const SingleJobView = () => {
         <div className="m-20 text-left">
           <div className="flex gap-5">
             <h1 className="text-4xl font-semibold text-cyan-600">{jobTitle}</h1>
-            {role === 'admin' && <RemoveJob />}
+            {role === "admin" && (
+              <RemoveJob
+                id={_id}
+                title={jobTitle}
+                openings={openings}
+                des={jobDescription}
+              ></RemoveJob>
+            )}
           </div>
           <div className="flex gap-3 my-3">
             <p className="border p-1 rounded-lg">
