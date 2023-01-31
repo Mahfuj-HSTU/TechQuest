@@ -6,7 +6,7 @@ import animation from "../../../assets/Animation2/animation2.json";
 const Banner = () => {
   return (
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl">
+     <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl">
       {/* left side of the banner */}
       <div className="flex flex-col my-auto items-center gap-5">
         <div className=" flex gap-2">
@@ -18,7 +18,7 @@ const Banner = () => {
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Hire Skillful
           </h2>
-        <div>
+        <div> 
           <div>
             <TypeAnimation
               className="font-sans text-4xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap"

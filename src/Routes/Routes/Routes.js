@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         element: <AllJobsView />,
       },
       {
-        path: '/my-jobs',
-        element: <ApplyJobView />
+        path: "/my-jobs",
+        element: <ApplyJobView />,
       },
       {
         path: "/all-employers",
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`)
       },
       {
-        path: '/applications',
-        element: <ApplyJobView />
+        path: "/applications",
+        element: <ApplyJobView />,
       },
       {
         path: "/addjob",
@@ -60,27 +60,27 @@ const router = createBrowserRouter([
         element: <MyJobs></MyJobs>,
       },
       {
-        path: '/recruiter',
-        element: <Recruiter></Recruiter>
+        path: "/recruiter",
+        element: <Recruiter></Recruiter>,
       },
       {
-        path: '/jobSeeker',
-        element: <JobSeeker></JobSeeker>
+        path: "/jobSeeker",
+        element: <JobSeeker></JobSeeker>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/courses',
-        element: <Courses></Courses>
+        path: "/courses",
+        element: <Courses></Courses>,
       },
       {
-        path: '/about',
-        element: <AboutUs></AboutUs>
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
-        path: '/courses/:id',
+        path: "/courses/:id",
         element: <Course></Course>,
         loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
       }
