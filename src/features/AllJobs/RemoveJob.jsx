@@ -1,9 +1,12 @@
 import React from "react";
 
-const RemoveJob = () => {
-    const removeJob = (id) =>{
-        console.log(id);
-    }
+const RemoveJob = ({ id, title, des, openings }) => {
+  // console.log(id, title, des, openings);
+  const removeJob = (id) => {
+    // console.log(id);
+    const t = window.confirm ('Do you want to delete this job post? \n Undo is not possible after clicking "ok".');
+    console.log(t);
+  };
   return (
     <div>
       <label htmlFor="remove-job" className="btn btn-warning">
@@ -20,25 +23,25 @@ const RemoveJob = () => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">
-            Congratulations random Internet user!
-          </h3>
-          <p className="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
-          <div className="my-5">
+          {openings <= 1 ? (
+            <small>{openings} position</small>
+          ) : (
+            <small>{openings} positions</small>
+          )}
+          <h3 className="text-lg font-bold">{title}</h3>
+          <p className="py-4">{des}</p>
+          <div className="my-7">
             <label
-            onClick={()=>removeJob(12)}
+              onClick={() => removeJob(12)}
               htmlFor="remove-job"
               className="btn btn-error absolute right-2 bottom-5"
             >
-              Yay
+              Delete
             </label>
             <label
-            onClick={()=>removeJob(20)}
+              onClick={() => removeJob(20)}
               htmlFor="remove-job"
-              className="btn btn-warning absolute right-20 bottom-5"
+              className="btn btn-warning absolute right-28 bottom-5"
             >
               Flag
             </label>
