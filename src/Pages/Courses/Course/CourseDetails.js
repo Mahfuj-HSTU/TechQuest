@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import RemoveCourse from "../RemoveCourse/RemoveCourse";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -11,7 +12,7 @@ const CourseDetails = () => {
       <div className="m-5 rounded-lg">
         <img className="w-full" src={img} alt="#" />
         <div className="text-start">
-          <Link>Remove</Link>
+          <RemoveCourse name={name} img={img}/>
           <h3 className="card-title my-7 text-3xl">{name}</h3>
           <p className="text-justify	">{details}</p>
           <p className="mt-7">
