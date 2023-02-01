@@ -1,6 +1,5 @@
 import React from 'react';
-import { toast } from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { deleteJob } from './RemoveJobSlice';
 
@@ -8,8 +7,6 @@ const RemoveJob = ({ id, title, des, openings }) => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const state = useSelector((state) => state.removeJobReducer);
-	//   console.log(state);
 
 	const from = location.state?.from?.pathname || '/all-jobs';
 
@@ -21,12 +18,7 @@ const RemoveJob = ({ id, title, des, openings }) => {
 		console.log(confirm);
 		if (confirm === true) {
 			dispatch(deleteJob(id));
-
-			if (state.deleteCount.deletedCount > 0) {
-				toast.success('Job deleted');
-				state.deleteCount.deletedCount = 0;
-				navigate(from, { replace: true });
-			}
+			navigate(from, { replace: true });
 		}
 	};
 	return (
@@ -34,7 +26,7 @@ const RemoveJob = ({ id, title, des, openings }) => {
 			<label
 				htmlFor='remove-job'
 				className='btn btn-warning'>
-				remove job
+				remove
 			</label>
 
 			{/* Put this part before </body> tag */}

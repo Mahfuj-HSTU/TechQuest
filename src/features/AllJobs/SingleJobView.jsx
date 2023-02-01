@@ -70,9 +70,9 @@ const SingleJobView = () => {
 			{error && <div className='text-red-600'>{error}</div>}
 			{job && (
 				<div className='m-20 text-left'>
-					<div className='flex gap-5'>
-						<h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
-						{/* {role === "admin" && (
+					{/* <div className='flex gap-5'> */}
+					<h1 className='text-4xl font-semibold text-cyan-600'>{jobTitle}</h1>
+					{/* {role === "admin" && (
               <RemoveJob
                 id={_id}
                 title={jobTitle}
@@ -80,7 +80,7 @@ const SingleJobView = () => {
                 des={jobDescription}
               ></RemoveJob>
             )} */}
-					</div>
+					{/* </div> */}
 					<div className='flex gap-3 my-3'>
 						<p className='border p-1 rounded-lg'>
 							<ImLocation className='inline' />
