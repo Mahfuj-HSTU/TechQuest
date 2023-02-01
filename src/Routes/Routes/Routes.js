@@ -5,7 +5,7 @@ import SingleJobView from "../../features/AllJobs/SingleJobView";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
 import MainLayout from "../../layout/MainLayout";
-import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs"; 
+import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
 import Course from "../../Pages/Courses/Course/Course";
 import Courses from "../../Pages/Courses/Courses";
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
+        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`)
       },
       {
         path: "/applications",
@@ -82,9 +82,8 @@ const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <Course></Course>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
-      },
+        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+      }
     ],
   },
 ]);

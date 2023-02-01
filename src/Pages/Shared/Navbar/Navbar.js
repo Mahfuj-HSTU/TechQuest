@@ -126,9 +126,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
-          {menuItems}
-        </ul>
+        <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">{menuItems}</ul>
       </div>
       <SignUpModal></SignUpModal>
     </div>
