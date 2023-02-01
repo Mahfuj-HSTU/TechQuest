@@ -4,8 +4,8 @@ import RemoveCourse from "../RemoveCourse/RemoveCourse";
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  // console.log( course );
-  const { name, img, details, inst } = course;
+  console.log( course );
+  const { name, img, details, instructor } = course;
 
   return (
     <div className="mt-20 p-5 card bg-base-100 shadow-xl">
@@ -16,7 +16,7 @@ const CourseDetails = () => {
           <h3 className="card-title my-7 text-3xl">{name}</h3>
           <p className="text-justify	">{details}</p>
           <p className="mt-7">
-            <b>Our Experienced Instructors : </b> {inst}
+            <b>Our Experienced Instructors : </b> {instructor}
           </p>
         </div>
       </div>
