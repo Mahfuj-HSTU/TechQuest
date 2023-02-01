@@ -1,9 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 import { ServerLink } from "../../Hooks/useServerLink";
 
 export const deleteJob = createAsyncThunk("jobs/removeJob", async (id) => {
   const res = await axios.delete(`${ServerLink}/delete-job/${id}`);
+  if(res.data.acknowledged){
+    toast.success("Job deleted");
+  }
   return res.data;
 });
 
@@ -23,8 +27,6 @@ export const JobsSlice = createSlice({
       state.isLoading = false;
       state.deleteCount = action.payload;
       state.error = null;
-      console.log("state.jobs: ",state.deleteCount);
-      console.log("state.jobs: ",state.deleteCount.deletedCount);
     });
     builder.addCase(deleteJob.rejected, (state, action) => {
       state.isLoading = false;
