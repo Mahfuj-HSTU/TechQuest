@@ -7,7 +7,7 @@ import { ServerLink } from "../../Hooks/useServerLink.jsx";
 import MainLayout from "../../layout/MainLayout";
 import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs"; 
 import AddJobs from "../../Pages/AddJobs/AddJobs";
-import Course from "../../Pages/Courses/Course/Course";
+import CourseDetails from "../../Pages/Courses/Course/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses/:id",
-        element: <Course></Course>,
+        element: <CourseDetails/>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
       },
