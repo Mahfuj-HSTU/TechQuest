@@ -15,7 +15,7 @@ const Courses = () => {
         <h1 className="text-4xl font-semibold">Courses</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mx-5">
         {courses.map((course) => (
-          <CourseCard key={course.id} course={course}></CourseCard>
+          <CourseCard key={course._id} course={course}></CourseCard>
         ))}
       </div>
     </div>

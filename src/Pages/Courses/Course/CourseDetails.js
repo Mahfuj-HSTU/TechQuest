@@ -4,7 +4,7 @@ import RemoveCourse from "../RemoveCourse/RemoveCourse";
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  console.log( course );
+//   console.log( course );
   const { name, img, details, instructor } = course;
 
   return (
