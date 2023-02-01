@@ -6,7 +6,7 @@ import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
     const [ MyJobPost, setMyJobPost ] = useState( [] );
-    console.log( MyJobPost )
+    // console.log( MyJobPost )
     const { user } = useContext( AuthContext );
     useEffect( () => {
         fetch( `http://localhost:5000/recruiterJobPosts/${ user?.email }` )
