@@ -1,9 +1,12 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { deleteCourse } from "./RemoveCourseSlice";
 
 const RemoveCourseData = ({ name, img }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const { id } = useParams();
 //   console.log(id);
 
@@ -16,11 +19,7 @@ const RemoveCourseData = ({ name, img }) => {
     );
     // console.log(confirm);
     if (confirm === true) {
-      //   dispatch(deleteJob(id));
-
-      //   if (state.deleteCount.deletedCount > 0) {
-      //     toast.success("Job deleted");
-      // state.deleteCount.deletedCount=0;
+        dispatch(deleteCourse(id));
       navigate(from, { replace: true });
     }
   };

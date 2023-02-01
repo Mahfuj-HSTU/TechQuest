@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { ServerLink } from "../../Hooks/useServerLink";
+import { ServerLink } from "../../../Hooks/useServerLink";
 
-export const deleteJob = createAsyncThunk("jobs/removeJob", async (id) => {
-  const res = await axios.delete(`${ServerLink}/delete-job/${id}`);
+export const deleteCourse = createAsyncThunk("courses/removeCourse", async (id) => {
+  const res = await axios.delete(`${ServerLink}/delete-course/${id}`);
   if(res.data.acknowledged){
-    toast.success("Job deleted");
+    toast.success("Course deleted");
   }
   return res.data;
 });
 
 // console.log(deleteJob());
-export const JobsSlice = createSlice({
+export const RemoveCourseSlice = createSlice({
   name: "removeCourse",
   initialState: {
     isLoading: false,
@@ -20,15 +20,15 @@ export const JobsSlice = createSlice({
     error: null,
   },
   extraReducers: (builder) => {
-    builder.addCase(deleteJob.pending, (state) => {
+    builder.addCase(deleteCourse.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(deleteJob.fulfilled, (state, action) => {
+    builder.addCase(deleteCourse.fulfilled, (state, action) => {
       state.isLoading = false;
       state.deleteCount = action.payload;
       state.error = null;
     });
-    builder.addCase(deleteJob.rejected, (state, action) => {
+    builder.addCase(deleteCourse.rejected, (state, action) => {
       state.isLoading = false;
       state.deleteCount = 0;
       state.error = action.error.message;
@@ -36,4 +36,4 @@ export const JobsSlice = createSlice({
   },
 });
 
-export default JobsSlice.reducer;
+export default RemoveCourseSlice.reducer;
