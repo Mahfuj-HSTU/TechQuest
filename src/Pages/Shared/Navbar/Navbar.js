@@ -30,7 +30,7 @@ const Navbar = () => {
           { role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/all-employers">All Job Seekers</Link>
+                <Link to="/all-job-seekers">All Job Seekers</Link>
                 <Link to="/all-jobs">All Jobs</Link>
                 {/* <Link to="/addjob">Add Job</Link> */ }
                 <Link to="/courses">Courses</Link>

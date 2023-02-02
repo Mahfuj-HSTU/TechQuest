@@ -13,6 +13,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
 import MyJobs from "../../Pages/MyJobs/MyJobs";
+import EditProfileModal from "../../Pages/Shared/Navbar/EditProfileModal";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
@@ -42,10 +43,6 @@ const router = createBrowserRouter( [
         path: "/all-job-seekers",
         element: <AllJobSeekers />,
       },
-      // {
-      //   path: "/all-employers",
-      //   element: <PrivateRoute><AllEmployers /></PrivateRoute>,
-      // },
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
@@ -58,6 +55,10 @@ const router = createBrowserRouter( [
       {
         path: "/addjob",
         element: <PrivateRoute><AddJobs></AddJobs></PrivateRoute>,
+      },
+      {
+        path: "/EditProfile",
+        element: <EditProfileModal />,
       },
       {
         path: "/MyJobPost",
