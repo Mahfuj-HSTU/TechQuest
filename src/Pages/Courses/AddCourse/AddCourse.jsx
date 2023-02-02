@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { fetchAddCourse } from "../AddCourseSlice";
 // import { useNavigate } from "react-router-dom";
 
 const AddCourse = () => {
   // const navigate = useNavigate();
+  const dispatch =  useDispatch();
 
   const handleAddCourse = (e) => {
     e.preventDefault();
@@ -11,13 +14,16 @@ const AddCourse = () => {
     const description = form.description.value;
     const instructor = form.instructor.value;
     const image = form.image.value;
+    const price = form.price.value;
     const courseInfo = {
-        title, description, instructor, image
+        title, description, instructor, image,price
     }
-    console.log(courseInfo);
+
+    dispatch(fetchAddCourse(courseInfo))
+    // console.log(courseInfo);
     // navigate('/')
   };
-  
+
   return (
     <div>
       <form onSubmit={handleAddCourse}>
@@ -67,6 +73,13 @@ const AddCourse = () => {
                 name="image"
                 className="input input-bordered w-full"
                 placeholder="course image link"
+              />
+              {/* course price */}
+              <input
+                type="text"
+                name="price"
+                className="input input-bordered w-full"
+                placeholder="course price"
               />
             </div>
             <div className="my-3 flex justify-center gap-3">
