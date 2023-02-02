@@ -8,7 +8,7 @@ const Banner = () => {
     // dividing into two part by grid 2 col
      <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl">
       {/* left side of the banner */}
-      <div className="flex flex-col my-auto items-center gap-5">
+      <div className="flex flex-col mt-20 items-center gap-5">
         <div className=" flex gap-2">
           <button className="btn rounded shadow-md bg-purple-700 hover:bg-purple-900 focus:shadow-outline focus:outline-none">
             Start Hiring
@@ -23,17 +23,17 @@ const Banner = () => {
             <TypeAnimation
               className="font-sans text-4xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap"
               sequence={[
-                "Frontend developers",
+                "Frontend Developers",
                 1000,
-                "Backend developers",
+                "Backend Developers",
                 1000,
-                "Full-stack engineers",
+                "Full Stack Engineers",
                 1000,
-                "Game developers",
+                "Game Developers",
                 1000,
-                "Q.A specialist",
+                "Q.A Specialists",
                 1000,
-                "UI/UX designer",
+                "UI/UX Designers",
                 1000,
               ]}
               style={{ fontSize: "2em" }}

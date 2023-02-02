@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import AllEmployers from "../../features/AllEmployers/AllEmployers";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
+import AllJobSeekers from "../../features/AllJobSeekers/AllJobSeekers";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
 import MainLayout from "../../layout/MainLayout";
@@ -36,6 +36,10 @@ const router = createBrowserRouter( [
       {
         path: "/my-jobs",
         element: <PrivateRoute><ApplyJobView /></PrivateRoute>,
+      },
+      {
+        path: "/all-job-seekers",
+        element: <AllJobSeekers />,
       },
       {
         path: "/all-employers",
