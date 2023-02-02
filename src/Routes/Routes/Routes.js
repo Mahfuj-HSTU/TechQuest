@@ -42,10 +42,6 @@ const router = createBrowserRouter( [
         element: <AllJobSeekers />,
       },
       {
-        path: "/all-employers",
-        element: <PrivateRoute><AllEmployers /></PrivateRoute>,
-      },
-      {
         path: "/job-details/:id",
         element: <SingleJobView />,
         loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
