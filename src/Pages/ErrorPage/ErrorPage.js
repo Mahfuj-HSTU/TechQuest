@@ -34,11 +34,11 @@ const ErrorPage = () => {
           Looks like our services are currently offline
         </p>
         <Link
+          to='/'
           rel="noopener noreferrer"
-          href="#"
           className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
         >
-          Back to homepage
+          <button className="btn btn-primary">Back to Homepage</button>
         </Link>
       </div>
     </section>

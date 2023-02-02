@@ -5,16 +5,16 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext( AuthContext );
 
-    const { data: MyJobPost = [], refetch } = useQuery({
-        queryKey: ['MyJobPost', user?.email],
+    const { data: MyJobPost = [], refetch } = useQuery( {
+        queryKey: [ 'MyJobPost', user?.email ],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/recruiterJobPosts?email=${user?.email}`)
+            const res = await fetch( `http://localhost:5000/recruiterJobPosts?email=${ user?.email }` )
             const data = await res.json()
             return data
         }
-    });
+    } );
 
 
     return (
@@ -25,7 +25,7 @@ const MyJobPost = () => {
                         MyJobPost.length !== 0 ? (
                             <>
                                 {
-                                    MyJobPost.map(jobPost => <JobPostCard key={jobPost._id} jobPost={jobPost} refetch={refetch}></JobPostCard>)
+                                    MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost } refetch={ refetch }></JobPostCard> )
                                 }
                             </>
                         ) : <h1 className=' text-4xl font-semibold text-center'>No post done yet</h1>
