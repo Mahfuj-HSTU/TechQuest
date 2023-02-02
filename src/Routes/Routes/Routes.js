@@ -20,7 +20,7 @@ import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
 import Users from "../../Pages/AllUsers/Users/Users";
-const router = createBrowserRouter( [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -45,7 +45,7 @@ const router = createBrowserRouter( [
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
+        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`)
       },
       {
         path: "/applications",
@@ -94,11 +94,11 @@ const router = createBrowserRouter( [
       {
         path: "/courses/:id",
         element: <CourseDetails />,
-        loader: ( { params } ) =>
-          fetch( `http://localhost:5000/courses/${ params.id }` ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
       },
     ],
   },
-] );
+]);
 
 export default router;

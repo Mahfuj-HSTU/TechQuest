@@ -53,13 +53,13 @@ const EditProfileModal = () => {
 
                 <div className="form-control mb-4 w-full ">
                     <label className="label font-semibold">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-primary">Email</span>
                     </label>
                     <input
                         type="text"
                         {...register("email")}
                         defaultValue={loginUser?.email}
-                        className="input input-bordered w-full "
+                        className="input input-bordered border-2 border-primary w-full "
                         readOnly
                     />
                     {errors.openings && (
@@ -70,13 +70,13 @@ const EditProfileModal = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label font-semibold">
-                        <span className="label-text">FullName</span>
+                        <span className="label-text text-primary">Full Name</span>
                     </label>
                     <input
                         type="text"
                         {...register("FullName", { required: true })}
                         defaultValue={loginUser?.name}
-                        className="input input-bordered w-full "
+                        className="input input-border border-2 border-primary w-full "
                     />
                     {errors.FullName && (
                         <span className="text-red-500 font-semibold">
@@ -86,13 +86,13 @@ const EditProfileModal = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label font-semibold">
-                        <span className="label-text">Present Address</span>
+                        <span className="label-text text-primary">Present Address</span>
                     </label>
                     <input
                         type="text"
                         {...register("PresentAddress", { required: true })}
                         defaultValue={loginUser?.PresentAddress}
-                        className="input input-bordered w-full "
+                        className="input input-bordered border-2 border-primary w-full "
                     />
                     {errors.PresentAddress && (
                         <span className="text-red-500 font-semibold">
@@ -102,13 +102,13 @@ const EditProfileModal = () => {
                 </div>
                 <div className="form-control mb-4 w-full ">
                     <label className="label">
-                        <span className="label-text font-semibold">Permanent address</span>
+                        <span className="label-text font-semibold text-primary">Permanent Address</span>
                     </label>
                     <input
                         type="text"
                         {...register("ParmanentAddress", { required: true })}
                         defaultValue={loginUser?.ParmanentAddress}
-                        className="input input-bordered w-full "
+                        className="input input-bordered border-2 border-primary w-full "
                     />
                     {errors.ParmanentAddress && (
                         <span className="text-red-500 font-semibold">
@@ -118,13 +118,13 @@ const EditProfileModal = () => {
                 </div>
                 <div className="form-control mb-4 w-full ">
                     <label className="label font-semibold">
-                        <span className="label-text">Mobile</span>
+                        <span className="label-text text-primary">Mobile</span>
                     </label>
                     <input
                         type="text"
                         {...register("mobile", { required: true })}
                         defaultValue={loginUser?.mobile}
-                        className="input input-bordered w-full "
+                        className="input input-bordered border-2 border-primary w-full "
                     />
                     {errors.mobile && (
                         <span className="text-red-500 font-semibold">
@@ -133,7 +133,7 @@ const EditProfileModal = () => {
                     )}
                 </div>
                 <input
-                    className="btn bg-[#0675CE] hover:bg-blue-500 w-1/5 border-0 text-white mt-4"
+                    className="btn btn-primary hover:bg-blue-500 w-1/5 border-0 text-white mt-4"
                     type="submit"
                     value="Update"
                 />
