@@ -59,6 +59,7 @@ const MyJobPost = () => {
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-warning">Play Now</button>
+                            {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */}
                         </div>
                     </div>
                 </div>

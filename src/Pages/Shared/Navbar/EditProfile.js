@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
+import EditProfileModal from "./EditProfileModal";
 
 const EditProfile = () => {
   const [theme, setTheme] = useState("cupcake");
@@ -59,13 +60,13 @@ const EditProfile = () => {
               <li>
                 <Link
                   rel="noopener noreferrer"
-                  href="#"
+                  to="/EditProfile"
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <div className=" text-gray-500">
                     <FaEdit></FaEdit>
                   </div>
-                  <span className="text-lg">Edit Profile</span>
+                  <label className="text-lg cursor-pointer" >Edit Profile</label>
                 </Link>
               </li>
             </ul>
