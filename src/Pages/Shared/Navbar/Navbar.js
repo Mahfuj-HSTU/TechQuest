@@ -24,6 +24,7 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li className="font-semibold"><Link to="/">Features</Link></li>
+      <li className="font-semibold"><Link to="/about">About US</Link></li>
       { user?.email ? (
         <>
           { role === admin && (
@@ -44,7 +45,7 @@ const Navbar = () => {
                 <Link to="/all-job-seekers">All Job Seekers</Link>
                 <Link to="/addjob">Add Job</Link>
                 <Link to="/MyJobPost">MyPost</Link>
-                <Link to="/about">About US</Link>
+
               </li>
               <EditProfile></EditProfile>
             </>
@@ -55,7 +56,6 @@ const Navbar = () => {
                 <Link to="/all-jobs">All Jobs</Link>
                 <Link to="/myjobs">My Jobs</Link>
                 <Link to="/courses">Courses</Link>
-                <Link to="/about">About Us</Link>
               </li>
               <EditProfile></EditProfile>
             </>

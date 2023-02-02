@@ -18,7 +18,8 @@ import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
-import Users from "../../Pages/AllUsers/Users/Users";
+// import Users from "../../Pages/AllUsers/Users/Users";
+import AllUsersView from "../../features/AllUsers/AllUsersView";
 const router = createBrowserRouter( [
   {
     path: "/",
@@ -41,10 +42,10 @@ const router = createBrowserRouter( [
         path: "/all-job-seekers",
         element: <AllJobSeekers />,
       },
-      {
-        path: "/all-employers",
-        element: <PrivateRoute><AllEmployers /></PrivateRoute>,
-      },
+      // {
+      //   path: "/all-employers",
+      //   element: <PrivateRoute><AllEmployers /></PrivateRoute>,
+      // },
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
@@ -84,7 +85,7 @@ const router = createBrowserRouter( [
       },
       {
         path: '/users',
-        element: <PrivateRoute><Users></Users></PrivateRoute>
+        element: <PrivateRoute><AllUsersView></AllUsersView></PrivateRoute>
       },
       {
         path: "/courses",
