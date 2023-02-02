@@ -102,7 +102,7 @@ const EditProfileModal = () => {
                 </div>
                 <div className="form-control mb-4 w-full ">
                     <label className="label">
-                        <span className="label-text font-semibold">Permanent Address</span>
+                        <span className="label-text font-semibold">Permanent address</span>
                     </label>
                     <input
                         type="text"
