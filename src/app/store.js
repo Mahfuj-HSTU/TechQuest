@@ -4,6 +4,7 @@ import RemoveJobSlice from "../features/AllJobs/RemoveJobSlice";
 import ApplyJobSlice from "../features/ApplyJob/ApplyJobSlice";
 import SearchOptionSlice from "../features/Search/SearchOptionSlice";
 import useRoleSlice from "../Hooks/Role/useRoleSlice";
+import AddCourseSlice from "../Pages/Courses/AddCourseSlice";
 import RemoveCourseSlice from "../Pages/Courses/RemoveCourse/RemoveCourseSlice";
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     roleReducer: useRoleSlice,
     removeJobReducer: RemoveJobSlice,
     removeCourseReducer: RemoveCourseSlice,
+    addCourseReducer: AddCourseSlice
   },
 });
 
