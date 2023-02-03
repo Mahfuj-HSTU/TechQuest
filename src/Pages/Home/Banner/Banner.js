@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
+// import { TypeAnimation } from "react-type-animation";
 import animation from "../../../assets/Animation2/animation2.json";
 
 const Banner = () => {

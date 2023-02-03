@@ -13,6 +13,7 @@ import Courses from "../../Pages/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
+import MyJobDetails from "../../Pages/MyJobs/MyJobDetails/MyJobDetails";
 import MyJobs from "../../Pages/MyJobs/MyJobs";
 import EditProfileModal from "../../Pages/Shared/Navbar/EditProfileModal";
 import Login from "../../Pages/SignUp/Login/Login";
@@ -69,6 +70,14 @@ const router = createBrowserRouter( [
         path: "/myJobs",
         element: <PrivateRoute> <MyJobs></MyJobs></PrivateRoute>,
       },
+      //  MY JOB DETAILS
+      {
+        path: "/myjob-details/:id",
+        element: <MyJobDetails />,
+        loader: ({ params }) => 
+        fetch(`${ServerLink}/applications/${params.id}`),
+      },
+
       {
         path: "/recruiter",
         element: <Recruiter></Recruiter>,
