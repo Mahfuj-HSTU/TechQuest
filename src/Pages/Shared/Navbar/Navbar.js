@@ -26,7 +26,7 @@ const Navbar = () => {
       <li className="font-semibold">
         <Link to="/">Features</Link>
         <Link to="/all-jobs">All Jobs</Link>
-        <Link to="/about">About US</Link>
+        <Link to="/about">About Us</Link>
       </li>
       {user?.email ? (
         <>
