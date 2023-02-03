@@ -29,16 +29,16 @@ const SignUpModal = () => {
             <label
               onClick={handleRecruiter}
               htmlFor="sign-up-modal"
-              className="btn btn-outline btn-info "
+              className="btn btn-outline btn-info"
             >
               Recruiter
             </label>
             <label
               onClick={handleJobSeeker}
               htmlFor="sign-up-modal"
-              className="btn btn-outline btn-info "
+              className="btn btn-outline btn-info"
             >
-              jobSeeker
+              JobSeeker
             </label>
           </div>
         </div>
