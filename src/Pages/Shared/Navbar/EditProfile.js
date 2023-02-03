@@ -23,77 +23,69 @@ const EditProfile = () => {
   }, [theme]);
 
   return (
-    <li tabIndex={1}>
-      <Link>
-        <div className="avatar">
-          <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src="https://source.unsplash.com/100x100/?portrait" alt="" />
-          </div>
-        </div>
-      </Link>
-      <ul className="relative">
-        <div className=" p-3 pb-5 space-y-2 w-64 bg-slate-200 font-semibold fixed top-10 lg:right-40 left-16 lg:left-auto rounded-lg">
-          <div className="flex items-center p-2 space-x-4">
-            <img
-              src="https://source.unsplash.com/100x100/?portrait"
-              alt=""
-              className="w-12 h-12 rounded-full bg-gray-500"
-            />
-            <div className="text-start">
-              <h2 className="text-lg font-semibold">
-                {user?.displayName} ? {user?.displayName} : Name not found
-              </h2>
-              <span className="">
-                <Link
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="text-xs hover:underline"
-                >
-                  {user?.email}
-                </Link>
-              </span>
+    <div>
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="inline-flex cursor-pointer m-1">
+          <div className="avatar">
+            <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <img src="https://source.unsplash.com/100x100/?portrait" alt="" />
             </div>
           </div>
-          <div className="divide-y divide-gray-600">
-            <ul className="pt-2 pb-4 space-y-1 text-sm">
-              <li>
-                <Link
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="flex items-center p-2 space-x-3 rounded-md"
-                >
-                  <div className=" text-gray-500">
-                    <FaEdit></FaEdit>
-                  </div>
-                  <span className="text-lg">Edit Profile</span>
-                </Link>
-              </li>
-            </ul>
-            <ul className="pt-4 pb-2 space-y-1 text-sm">
-              <li>
-                <Link
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="flex items-center p-2 space-x-3 rounded-md"
-                >
-                  <div className=" text-gray-500">
-                    <FaPowerOff></FaPowerOff>
-                  </div>
-                  <span className="text-lg" onClick={handleLogOut}>
-                    Logout
-                  </span>
-                </Link>
-              </li>
-            </ul>
-            <input
-              onClick={handleMode}
-              type="checkbox"
-              className="toggle text-start"
-            />
-          </div>
-        </div>
-      </ul>
-    </li>
+        </label>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu p-2 shadow-lg bg-slate-200 rounded-box w-56"
+        >
+          <li>
+            <div className="flex items-center p-2">
+              <img
+                src="https://source.unsplash.com/100x100/?portrait"
+                alt=""
+                className="w-12 h-12 rounded-full"
+              />
+              <div className="text-start">
+                {/* checking user has name or not */}
+                {user?.displayName ? (
+                  <h2 className="text-lg font-semibold">{user?.displayName}</h2>
+                ) : (
+                  <h2 className="text-lg font-semibold">{"Name not found"}</h2>
+                )}
+                <span className="text-xs hover:underline">{user?.email}</span>
+              </div>
+            </div>
+          </li>
+          <li className="flex flex-col items-start">
+            <Link
+              to="/EditProfile"
+              className="flex items-center p-2 space-x-3 rounded-md"
+            >
+              <div className=" text-gray-500">
+                <FaEdit></FaEdit>
+              </div>
+              <label className="text-lg cursor-pointer">Edit Profile</label>
+            </Link>
+            <Link
+              href="#"
+              className="flex items-center p-2 space-x-3 rounded-md"
+            >
+              <div className=" text-gray-500">
+                <FaPowerOff></FaPowerOff>
+              </div>
+              <span className="text-lg" onClick={handleLogOut}>
+                Logout
+              </span>
+            </Link>
+            <div className="">
+              <input
+                onClick={handleMode}
+                type="checkbox"
+                className="toggle mx-auto"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

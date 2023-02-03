@@ -3,21 +3,31 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+// import { useLocation } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const MyJobs = () => {
-    const { user } = useContext( AuthContext );
+  const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myjobs?email=${ user?.email }`;
+  const url = `http://localhost:5000/myjobs?email=${user?.email}`;
 
-    const { data: jobs = [] } = useQuery( {
-        queryKey: [ 'jobs', user?.email ],
-        queryFn: async () => {
-            const res = await fetch( url );
-            const data = await res.json();
-            return data;
-        }
-    } )
-    // console.log(jobs)
+  const { data: jobs = [] } = useQuery({
+    queryKey: ["jobs", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      const data = await res.json();
+      return data;
+    },
+  });
+  // console.log(jobs)
 
     return (
         <div className='mt-24 mb-16'>

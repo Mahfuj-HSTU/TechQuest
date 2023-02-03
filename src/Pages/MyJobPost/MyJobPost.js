@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
-    const [ MyJobPost, setMyJobPost ] = useState( [] );
-    console.log( MyJobPost )
     const { user } = useContext( AuthContext );
-    useEffect( () => {
-        fetch( `http://localhost:5000/recruiterJobPosts/${ user?.email }` )
-            .then( res => res.json() )
-            .then( data => setMyJobPost( data ) )
-    }, [ user?.email ] )
 
-
+    const { data: MyJobPost = [], refetch } = useQuery( {
+        queryKey: [ 'MyJobPost', user?.email ],
+        queryFn: async () => {
+            const res = await fetch( `http://localhost:5000/recruiterJobPosts?email=${ user?.email }` )
+            const data = await res.json()
+            return data
+        }
+    } );
 
 
     return (
@@ -25,7 +25,7 @@ const MyJobPost = () => {
                         MyJobPost.length !== 0 ? (
                             <>
                                 {
-                                    MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost }></JobPostCard> )
+                                    MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost } refetch={ refetch }></JobPostCard> )
                                 }
                             </>
                         ) : <h1 className=' text-4xl font-semibold text-center'>No post done yet</h1>
@@ -59,6 +59,7 @@ const MyJobPost = () => {
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-warning">Play Now</button>
+                            {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */}
                         </div>
                     </div>
                 </div>

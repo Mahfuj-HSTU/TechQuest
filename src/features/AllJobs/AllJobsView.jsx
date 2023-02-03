@@ -38,13 +38,13 @@ const AllJobsView = () => {
           } = job;
 
           return (
-            <Link
-              key={_id}
-              state={job}
-              to={`/job-details/${_id}`}
-              // className="btn btn-info text-white hover:bg-white hover:text-black mt-5"
-            >
-              <div className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl">
+            <div className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl">
+              <Link
+                key={_id}
+                state={job}
+                to={`/job-details/${_id}`}
+                // className="btn btn-info text-white hover:bg-white hover:text-black mt-5"
+              >
                 {openings <= 1 ? (
                   <small>{openings} position</small>
                 ) : (
@@ -83,8 +83,8 @@ const AllJobsView = () => {
                     {experience}
                   </p>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           );
         })}
     </div>
