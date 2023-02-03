@@ -27,7 +27,7 @@ const EditProfile = () => {
       <Link>
         <div className="avatar">
           <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src="https://source.unsplash.com/100x100/?portrait" alt="" />
+            <img src={user?.photoURL} alt="" />
           </div>
         </div>
       </Link>
@@ -35,14 +35,12 @@ const EditProfile = () => {
         <div className=" p-3 pb-5 space-y-2 w-64 bg-slate-200 font-semibold fixed top-10 lg:right-40 left-16 lg:left-auto rounded-lg">
           <div className="flex items-center p-2 space-x-4">
             <img
-              src="https://source.unsplash.com/100x100/?portrait"
+              src={user?.photoURL}
               alt=""
               className="w-12 h-12 rounded-full bg-gray-500"
             />
             <div className="text-start">
-              <h2 className="text-lg font-semibold">
-                {user?.displayName} ? {user?.displayName} : Name not found
-              </h2>
+              <h2 className="text-lg font-semibold">{user?.displayName}</h2>
               <span className="">
                 <Link
                   rel="noopener noreferrer"

@@ -55,8 +55,6 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         saveUsers(user?.displayName, user?.email, "jobSeeker");
-        // console.log( user );
-        navigate(from, { replace: true });
       })
       .catch((error) => console.error("error ", error));
 
@@ -73,6 +71,9 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          if (data.acknowledged) {
+            setLoginEmail(info?.email);
+          }
         });
     };
   };

@@ -23,9 +23,7 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold">
-        <EditProfile></EditProfile>
-      </li>
+      <li className="font-semibold"></li>
       {user?.email ? (
         <>
           {role === admin && (
