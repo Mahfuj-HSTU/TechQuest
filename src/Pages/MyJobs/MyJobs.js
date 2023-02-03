@@ -3,12 +3,6 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
-import React, { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-// import { useLocation } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
