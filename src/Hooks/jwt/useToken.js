@@ -3,7 +3,7 @@ import { ServerLink } from "../useServerLink";
 
 const useToken = (email) => {
   const [token, setToken] = useState("");
-  console.log(email);
+
   useEffect(() => {
     fetch(`${ServerLink}/jwt?email=${email}`)
       .then((res) => res.json())

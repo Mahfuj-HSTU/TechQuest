@@ -23,6 +23,9 @@ const Navbar = () => {
 
   const menuItems = (
     <>
+      <li className="font-semibold">
+        <EditProfile></EditProfile>
+      </li>
       <li className="font-semibold"><Link to="/">Features</Link></li>
       <li className="font-semibold"><Link to="/about">About US</Link></li>
       { user?.email ? (
