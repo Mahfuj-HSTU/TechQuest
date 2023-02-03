@@ -10,8 +10,8 @@ const DevelopersCard = ({ developers }) => {
         return (
           <div key={dev._id}>
             {/* {dev._id} */}
-            <div data-aos="fade-left" className="p-5 border  rounded-md ">
-              <div className="w-full h-[250px]">
+            <div data-aos="fade-left" className="p-5 border  rounded-md w-auto mx-14 md:mx-5">
+              <div className=" h-[250px]">
                 <img className="w-full h-full" src={dev.img} alt="" />
               </div>
               <div>
