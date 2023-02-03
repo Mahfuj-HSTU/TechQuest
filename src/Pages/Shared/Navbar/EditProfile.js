@@ -23,7 +23,7 @@ const EditProfile = () => {
   }, [theme]);
 
   return (
-    <div>
+    <div className="navbar-end">
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="inline-flex cursor-pointer m-1">
           <div className="avatar">
