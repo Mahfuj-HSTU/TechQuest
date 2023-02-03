@@ -14,9 +14,9 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
 
   return (
     <div>
-      <div className="bg-slate-200 card w-96 shadow-xl mx-24 my-20">
-        <figure className="px-10 pt-10">
-          <img src={jobSeekerImage} alt="" className="rounded-xl" />
+      <div className="bg-slate-200 card w-96  shadow-xl mx-28 my-20">
+        <figure className="px-10 pt-10 object-cover">
+          <img  src={jobSeekerImage} alt="" className="rounded-xl h-96"/>
         </figure>
         <div className="card-body ">
           <h2 className="font-bold text-2xl text-center">{jobSeekerName}</h2>
