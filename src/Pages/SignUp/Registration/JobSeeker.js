@@ -1,83 +1,158 @@
 import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useToken from "../../../Hooks/jwt/useToken";
 
 const JobSeeker = () => {
   const [error, setError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { register, handleSubmit, reset } = useForm();
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [token] = useToken(createdUserEmail);
+  const from = location.state?.from?.pathname || "/";
 
   if (token) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
   // handle user create
-  const handleRegister = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const photoUrl = form.photoUrl.value;
-    const address = form.address.value;
-    const experience = form.experience.value;
-    const institute = form.institute.value;
-    const password = form.password.value;
-    const role = "jobSeeker";
+  const imgApi = process.env.REACT_APP_imgbb;
 
-    // registered user create
-    createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        
-        saveUsers();
-        form.reset();
+  const onSubmit = (data) => {
+    const image = data.image[0];
+    console.log(image);
+    const formData = new FormData();
+    formData.append("image", image);
+    const imgUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${imgApi}`;
 
-        setError("");
-      })
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
+    fetch(imgUrl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const photoUrl = imgData.data.url;
+          const name = data.name;
+          const email = data.email;
+          const experience = data.experience;
+          const institute = data.institute;
+          const address = data.address;
+          const password = data.password;
+          const role = "jobSeeker";
+
+          createUser(email, password)
+            .then((result) => {
+              const user = result.user;
+              console.log(user);
+              updateUser({ displayName: name, photoURL: photoUrl });
+              saveUsers();
+              reset();
+              setError("");
+            })
+            .catch((error) => {
+              console.error(error);
+              setError(error.message);
+            });
+
+          // save users
+          const saveUsers = () => {
+            const user = {
+              name,
+              email,
+              institute,
+              experience,
+              address,
+              photoUrl,
+              role,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(user),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.acknowledged) {
+                  console.log(data);
+                  toast.success("Registration successful.");
+                  setCreatedUserEmail(user?.email);
+                  console.log(user);
+                }
+              });
+          };
+        }
       });
-
-    // save users
-    const saveUsers = () => {
-      const user = {
-        name,
-        email,
-        address,
-        photoUrl,
-        experience,
-        institute,
-        role,
-      };
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(user),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
-            toast.success("Registration successful.");
-            setCreatedUserEmail(user?.email);
-          }
-        });
-    };
   };
+
+  // const handleRegister = (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const name = form.name.value;
+  //   const email = form.email.value;
+  //   const photoUrl = form.photoUrl.value;
+  //   const address = form.address.value;
+  //   const experience = form.experience.value;
+  //   const institute = form.institute.value;
+  //   const password = form.password.value;
+  //   const role = "jobSeeker";
+
+  //   // registered user create
+  //   createUser(email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+
+  //       saveUsers();
+  //       form.reset();
+
+  //       setError("");
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       setError(error.message);
+  //     });
+
+  //   // save users
+  //   const saveUsers = () => {
+  //     const user = {
+  //       name,
+  //       email,
+  //       address,
+  //       photoUrl,
+  //       experience,
+  //       institute,
+  //       role,
+  //     };
+  //     fetch("http://localhost:5000/users", {
+  //       method: "POST",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(user),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //         if (data.acknowledged) {
+  //           toast.success("Registration successful.");
+  //           setCreatedUserEmail(user?.email);
+  //         }
+  //       });
+  //   };
+  // };
 
   return (
     <div className="hero w-full my-24">
       <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 py-10">
         <h1 className="text-5xl text-center font-bold">Employee Register </h1>
-        <form onSubmit={handleRegister} className="card-body">
+        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Full Name</span>
@@ -85,6 +160,7 @@ const JobSeeker = () => {
             <input
               type="text"
               name="name"
+              {...register("name", { required: true })}
               placeholder="Enter your name"
               className="input input-bordered"
             />
@@ -97,6 +173,7 @@ const JobSeeker = () => {
             <input
               type="email"
               name="email"
+              {...register("email", { required: true })}
               placeholder="Enter your email"
               className="input input-bordered"
               required
@@ -111,6 +188,7 @@ const JobSeeker = () => {
             <input
               type="text"
               name="address"
+              {...register("address", { required: true })}
               placeholder="your address"
               className="input input-bordered"
             />
@@ -123,6 +201,7 @@ const JobSeeker = () => {
             <input
               type="text"
               name="experience"
+              {...register("experience", { required: true })}
               placeholder="ex: 1 year or N/A"
               className="input input-bordered"
             />
@@ -135,7 +214,8 @@ const JobSeeker = () => {
             <input
               type="text"
               name="institute"
-              placeholder="..... university"
+              {...register("institute", { required: true })}
+              placeholder="Your Institute"
               className="input input-bordered"
             />
           </div>
@@ -145,10 +225,11 @@ const JobSeeker = () => {
               <span className="label-text">Photo URL</span>
             </label>
             <input
-              type="text"
+              type="file"
               name="photoUrl"
+              {...register("image", { required: true })}
               placeholder="photo url"
-              className="input input-bordered"
+              className="input pt-2 input-bordered"
             />
           </div>
 
@@ -159,6 +240,7 @@ const JobSeeker = () => {
             <input
               type="password"
               name="password"
+              {...register("password", { required: true })}
               placeholder="password"
               className="input input-bordered"
               required
