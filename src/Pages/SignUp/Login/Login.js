@@ -1,10 +1,11 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import SignUpModal from "../SignUpModal";
+import { ServerLink } from "../../../Hooks/useServerLink";
 import useToken from "../../../Hooks/jwt/useToken";
 
 const Login = () => {
@@ -38,6 +39,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setLoginEmail(user?.email);
+        navigate(from, { replace: true });
         form.reset();
         setError("");
       })
@@ -56,14 +58,14 @@ const Login = () => {
         const user = result.user;
         saveUsers(user?.displayName, user?.email, "jobSeeker");
         // console.log( user );
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
       })
       .catch((error) => console.error("error ", error));
 
     const saveUsers = (name, email, role) => {
       const info = { name, email, role };
       // console.log( info )
-      fetch("http://localhost:5000/users", {
+      fetch(`${ServerLink}/users`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -104,9 +106,9 @@ const Login = () => {
               className="input input-bordered"
             />
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
+              <Link href="#" className="label-text-alt link link-hover">
                 Forgot password?
-              </a>
+              </Link>
             </label>
             <p className="text-start text-red-600 font-semibold">
               {error.slice(22, 43)}

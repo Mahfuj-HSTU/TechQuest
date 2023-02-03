@@ -8,73 +8,72 @@ import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext( AuthContext );
   // const [isRecruiter] = useRecruiter(user?.email);
   // const [isJobSeeker] = useJobSeeker(user?.email);
-  const role = useSelector((state) => state.roleReducer.role.role);
+  const role = useSelector( ( state ) => state.roleReducer.role.role );
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchRole(user?.email));
-  }, [dispatch, user?.email]);
+  useEffect( () => {
+    dispatch( fetchRole( user?.email ) );
+  }, [ dispatch, user?.email ] );
 
   const menuItems = (
     <>
       <li className="font-semibold">
         <EditProfile></EditProfile>
       </li>
-      {user?.email ? (
+      <li className="font-semibold"><Link to="/">Features</Link></li>
+      <li className="font-semibold"><Link to="/about">About US</Link></li>
+      { user?.email ? (
         <>
-          {role === admin && (
+          { role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/all-employers">All Employers</Link>
+                <Link to="/all-job-seekers">All Job Seekers</Link>
                 <Link to="/all-jobs">All Jobs</Link>
-                <Link to="/addjob">Add Job</Link>
+                {/* <Link to="/addjob">Add Job</Link> */ }
                 <Link to="/courses">Courses</Link>
+                <Link to="/users">All Users</Link>
               </li>
               <EditProfile></EditProfile>
             </>
-          )}
-          {role === recruiter && (
+          ) }
+          { role === recruiter && (
             <>
               <li className="font-medium">
-                <Link to="/all-employers">All Employers</Link>
+                <Link to="/all-job-seekers">All Job Seekers</Link>
                 <Link to="/addjob">Add Job</Link>
                 <Link to="/MyJobPost">MyPost</Link>
-                <Link to="/courses">Courses</Link>
+
               </li>
               <EditProfile></EditProfile>
             </>
-          )}
-          {role === jobSeeker && (
+          ) }
+          { role === jobSeeker && (
             <>
               <li className="font-semibold">
                 <Link to="/all-jobs">All Jobs</Link>
-              </li>
-              <li className="font-semibold">
                 <Link to="/myjobs">My Jobs</Link>
-              </li>
-              <li className="font-semibold">
                 <Link to="/courses">Courses</Link>
               </li>
               <EditProfile></EditProfile>
             </>
-          )}
+          ) }
         </>
       ) : (
         <>
           <li className="font-semibold">
-            <Link to="/login">Login</Link>{" "}
+            <Link to="/login">Login</Link>{ " " }
           </li>
           <li className="font-semibold">
             <label htmlFor="sign-up-modal">Sign Up</label>
           </li>
         </>
-      )}
+      ) }
     </>
   );
 
@@ -82,7 +81,7 @@ const Navbar = () => {
     <div className="navbar fixed h-16 top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200 rounded-md">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -99,14 +98,14 @@ const Navbar = () => {
             </svg>
           </label>
           <u
-            tabIndex={0}
+            tabIndex={ 0 }
             className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52"
           >
-            {menuItems}
+            { menuItems }
           </u>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          {" "}
+          { " " }
           <svg
             className="w-8 text-deep-purple-accent-400"
             viewBox="0 0 24 24"
@@ -129,7 +128,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
-          {menuItems}
+          { menuItems }
         </ul>
       </div>
       <SignUpModal></SignUpModal>
