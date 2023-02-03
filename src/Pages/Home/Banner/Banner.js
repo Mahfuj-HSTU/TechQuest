@@ -7,9 +7,9 @@ import animation from "../../../assets/Animation2/animation2.json";
 const Banner = () => {
   return (
     // dividing into two part by grid 2 col
-     <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl">
+     <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl -mt-7">
       {/* left side of the banner */}
-      <div className="flex flex-col mt-20 items-center gap-5">
+      <div className="flex flex-col mt-40 items-center gap-5">
         <div className=" flex gap-2">
           <button className="btn rounded shadow-md bg-purple-700 hover:bg-purple-900 focus:shadow-outline focus:outline-none">
             Start Hiring
@@ -53,7 +53,7 @@ const Banner = () => {
           </p>
       </div>
       {/* right side of the banner */}
-      <div className="md:w-96">
+      <div className="">
         <Lottie animationData={animation}></Lottie>
       </div>
     </div>

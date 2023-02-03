@@ -23,12 +23,12 @@ const EditProfile = () => {
   }, [theme]);
 
   return (
-    <div>
+    <div className="navbar-end">
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="inline-flex cursor-pointer m-1">
           <div className="avatar">
             <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src="https://source.unsplash.com/100x100/?portrait" alt="" />
+              <img src={user?.photoURL} alt="" />
             </div>
           </div>
         </label>
@@ -39,18 +39,16 @@ const EditProfile = () => {
           <li>
             <div className="flex items-center p-2">
               <img
-                src="https://source.unsplash.com/100x100/?portrait"
+                src={user?.photoURL}
                 alt=""
                 className="w-12 h-12 rounded-full"
               />
-              <div className="text-start">
+              <div className="text-start font-semibold">
                 {/* checking user has name or not */}
-                {user?.displayName ? (
-                  <h2 className="text-lg font-semibold">{user?.displayName}</h2>
-                ) : (
-                  <h2 className="text-lg font-semibold">{"Name not found"}</h2>
-                )}
-                <span className="text-xs hover:underline">{user?.email}</span>
+                {user?.displayName}
+                <p>
+                  <span className="text-xs hover:underline">{user?.email}</span>
+                </p>
               </div>
             </div>
           </li>
