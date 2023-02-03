@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
-import EditProfileModal from "./EditProfileModal";
 
 const EditProfile = () => {
   const [theme, setTheme] = useState("cupcake");
@@ -41,9 +40,11 @@ const EditProfile = () => {
               className="w-12 h-12 rounded-full bg-gray-500"
             />
             <div className="text-start">
-              <h2 className="text-lg font-semibold">
-                {user?.displayName} ? {user?.displayName} : Name not found
-              </h2>
+              {user?.displayName ? (
+                <h2 className="text-lg font-semibold">{user?.displayName}</h2>
+              ) : (
+                <h2 className="text-lg font-semibold">{"Name not found"}</h2>
+              )}
               <span className="">
                 <Link
                   rel="noopener noreferrer"
@@ -66,7 +67,7 @@ const EditProfile = () => {
                   <div className=" text-gray-500">
                     <FaEdit></FaEdit>
                   </div>
-                  <label className="text-lg cursor-pointer" >Edit Profile</label>
+                  <label className="text-lg cursor-pointer">Edit Profile</label>
                 </Link>
               </li>
             </ul>
