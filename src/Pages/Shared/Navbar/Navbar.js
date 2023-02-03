@@ -23,16 +23,20 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold"></li>
+      <li className="font-semibold">
+        <Link to="/">Features</Link>
+        <Link to="/all-jobs">All Jobs</Link>
+        <Link to="/about">About US</Link>
+      </li>
       {user?.email ? (
         <>
           {role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/all-employers">All Job Seekers</Link>
-                <Link to="/all-jobs">All Jobs</Link>
-                <Link to="/addjob">Add Job</Link>
+                <Link to="/all-job-seekers">All Job Seekers</Link>
+                {/* <Link to="/addjob">Add Job</Link> */}
                 <Link to="/courses">Courses</Link>
+                <Link to="/users">All Users</Link>
               </li>
               <EditProfile></EditProfile>
             </>
@@ -43,7 +47,6 @@ const Navbar = () => {
                 <Link to="/all-job-seekers">All Job Seekers</Link>
                 <Link to="/addjob">Add Job</Link>
                 <Link to="/MyJobPost">MyPost</Link>
-                <Link to="/courses">Courses</Link>
               </li>
               <EditProfile></EditProfile>
             </>
@@ -51,12 +54,7 @@ const Navbar = () => {
           {role === jobSeeker && (
             <>
               <li className="font-semibold">
-                <Link to="/all-jobs">All Jobs</Link>
-              </li>
-              <li className="font-semibold">
                 <Link to="/myjobs">My Jobs</Link>
-              </li>
-              <li className="font-semibold">
                 <Link to="/courses">Courses</Link>
               </li>
               <EditProfile></EditProfile>

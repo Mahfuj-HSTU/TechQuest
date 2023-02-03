@@ -35,10 +35,6 @@ const ApplyJobView = () => {
                       </div>
                     </div>
                  </div>
-                return <div key={app._id}>
-                    <p>{app.email}</p>
-                    <p>ID: {app.job._id || app.job.id}</p>
-                </div>
             })}
         </div>
     );

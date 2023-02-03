@@ -6,18 +6,23 @@ import AllJobSeekers from "../../features/AllJobSeekers/AllJobSeekers";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
 import MainLayout from "../../layout/MainLayout";
-import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs"; 
+import AboutUs from "../../Pages/AboutUs/AboutUs/AboutUs";
 import AddJobs from "../../Pages/AddJobs/AddJobs";
-import Course from "../../Pages/Courses/Course/Course";
+import CourseDetails from "../../Pages/Courses/Course/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
 import MyJobs from "../../Pages/MyJobs/MyJobs";
+import EditProfileModal from "../../Pages/Shared/Navbar/EditProfileModal";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
-const router = createBrowserRouter([
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+// import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
+// import Users from "../../Pages/AllUsers/Users/Users";
+import AllUsersView from "../../features/AllUsers/AllUsersView";
+const router = createBrowserRouter( [
   {
     path: "/",
     element: <MainLayout />,
@@ -29,11 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-jobs",
-        element: <AllJobsView />,
+        element: <PrivateRoute><AllJobsView /></PrivateRoute>,
       },
       {
         path: "/my-jobs",
-        element: <ApplyJobView />,
+        element: <PrivateRoute><ApplyJobView /></PrivateRoute>,
       },
       {
         path: "/all-job-seekers",
@@ -42,23 +47,27 @@ const router = createBrowserRouter([
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
+        loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
       },
       {
         path: "/applications",
-        element: <ApplyJobView />,
+        element: <PrivateRoute><ApplyJobView /></PrivateRoute>,
       },
       {
         path: "/addjob",
-        element: <AddJobs />,
+        element: <PrivateRoute><AddJobs></AddJobs></PrivateRoute>,
+      },
+      {
+        path: "/EditProfile",
+        element: <EditProfileModal />,
       },
       {
         path: "/MyJobPost",
-        element: <MyJobPost></MyJobPost>,
+        element: <PrivateRoute><MyJobPost></MyJobPost></PrivateRoute>,
       },
       {
         path: "/myJobs",
-        element: <MyJobs></MyJobs>,
+        element: <PrivateRoute> <MyJobs></MyJobs></PrivateRoute>,
       },
       {
         path: "/recruiter",
@@ -73,21 +82,25 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/courses",
-        element: <Courses></Courses>,
-      },
-      {
         path: "/about",
         element: <AboutUs></AboutUs>,
       },
       {
+        path: '/users',
+        element: <PrivateRoute><AllUsersView></AllUsersView></PrivateRoute>
+      },
+      {
+        path: "/courses",
+        element: <PrivateRoute><Courses></Courses></PrivateRoute>,
+      },
+      {
         path: "/courses/:id",
-        element: <Course></Course>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+        element: <CourseDetails />,
+        loader: ( { params } ) =>
+          fetch( `http://localhost:5000/courses/${ params.id }` ),
       },
     ],
   },
-]);
+] );
 
 export default router;
