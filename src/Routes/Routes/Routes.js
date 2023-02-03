@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
+import ContactNow from "../../features/AllJobSeekerCard/ContactNow";
 import AllJobSeekers from "../../features/AllJobSeekers/AllJobSeekers";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
