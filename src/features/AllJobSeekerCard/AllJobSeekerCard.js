@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
   const {
@@ -15,13 +14,13 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
 
   return (
     <div>
-      <div className="bg-slate-200 card w-96 shadow-xl mx-96 my-20">
+      <div className="bg-slate-200 card w-96 shadow-xl mx-24 my-20">
         <figure className="px-10 pt-10">
           <img src={jobSeekerImage} alt="" className="rounded-xl" />
         </figure>
         <div className="card-body ">
-          <h2 className="card-title ml-28">{jobSeekerName}</h2>
-          <p className="font-semibold text-blue-500 text-left ml-24">
+          <h2 className="font-bold text-2xl text-center">{jobSeekerName}</h2>
+          <p className="font-semibold text-blue-500  text-center">
             {jobSeekerTitle}
           </p>
           <p className="font-semibold text-start">Skills: {jobSeekerSkills}</p>
@@ -37,7 +36,6 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
                 onClick={() => setContact(jobSeeker)}
                 htmlFor="contact-modal"
                 className="btn btn-primary ml-24"
-                
               >
                 Contact Now
               </label>

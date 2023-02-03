@@ -14,7 +14,7 @@ const AllJobSeekers = () => {
 
   return (
     <>
-      <div>
+      <div className="grid grid-cols-2">
         {jobSeekers.map((jobSeeker) => (
           <AllJobSeekerCard
             key={jobSeeker._id}
