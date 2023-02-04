@@ -6,7 +6,7 @@ import animation from "../../../assets/Animation2/animation2.json";
 const Banner = () => {
   return (
     // dividing into two part by grid 2 col
-     <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl -mt-7">
+     <div className="grid grid-cols-1 md:grid-cols-2 px-4  lg:flex-row md:px-8 lg:max-w-screen-xl -mt-8 rounded-md -mx-5 bg-gradient-to-r from-[#7209B7] via-sky-600 to-[#0675CE] shadow-lg shadow-info">
       {/* left side of the banner */}
       <div className="flex flex-col mt-40 items-center gap-5">
         <div className=" flex gap-2">
@@ -15,13 +15,13 @@ const Banner = () => {
           </button>
           <button className="btn">Get A Job</button>
         </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Hire Skillful
           </h2>
         <div> 
           <div>
             <TypeAnimation
-              className="font-sans text-4xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap"
+              className="font-sans text-4xl font-extrabold tracking-tight text-white whitespace-nowrap"
               sequence={[
                 "Frontend Developers",
                 1000,
@@ -44,7 +44,7 @@ const Banner = () => {
             />
           </div>
         </div>
-          <p className="text-base text-gray-700 whitespace-nowrap">
+          <p className="text-base-100 whitespace-nowrap">
             Get your first 10 candidates in 48 hours!
           </p>
           <p className="inline-flex items-center justify-center h-12 px-6 font-medium transition duration-200 rounded shadow-md bg-purple-700 hover:bg-purple-900 focus:shadow-outline focus:outline-none text-white">
