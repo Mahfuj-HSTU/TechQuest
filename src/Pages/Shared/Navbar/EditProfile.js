@@ -35,7 +35,7 @@ const EditProfile = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow-lg bg-slate-200 rounded-box w-56"
+            className="dropdown-content menu p-2 shadow-lg bg-base-100 rounded-box w-56"
           >
             <li>
               <div className="flex items-center p-2">
