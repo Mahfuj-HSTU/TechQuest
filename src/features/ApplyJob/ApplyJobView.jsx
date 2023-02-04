@@ -7,7 +7,7 @@ const ApplyJobView = () => {
   const { isLoading, error, applications } = useSelector(
     (state) => state.applicationReducer
   );
-  console.log(applications);
+  // console.log(applications);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const ApplyJobView = () => {
       {applications &&
         applications?.map((app) => {
           return (
-            <div className="flex ">
+            <div className="flex " key={app._id}>
               {/* <p>Email: {app.email} </p>
                     <p className='text-3xl'>{app.job.jobTitle}</p> */}
               <div className="card w-96 bg-base-100 shadow-xl flex-1 ">
