@@ -2,7 +2,7 @@ import React from "react";
 
 const EmployersCategories = () => {
   return (
-    <div className="grid grid-cols-2 gap-6 w-full h-100%    bg-white-700 mt-12 border-solid">
+    <div data-aos="fade-up" className="grid grid-cols-2 gap-6 w-full h-100%    bg-white-700 mt-12 border-solid">
       <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
           <button

@@ -35,21 +35,21 @@ const LatestNews = () => {
   ];
 
   return (
-    <div className="mx-1">
+    <div data-aos="fade-up" className="mx-1">
       <h1 className="text-4xl font-bold my-5">Latest News</h1>
       <Link>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-          {latestNews.map((news) => (
+          { latestNews.map( ( news ) => (
             <div
-              key={news.id}
+              key={ news.id }
               className="text-left border border-black p-3 rounded-lg shadow-md w-64 md:w-auto lg:h-96"
             >
-              <img className="w-48 mx-auto" src={news.image} alt="" />
-              <h1 className="text-xl font-semibold mt-5">{news.title}</h1>
+              <img className="w-48 mx-auto" src={ news.image } alt="" />
+              <h1 className="text-xl font-semibold mt-5">{ news.title }</h1>
               <br />
-              <p>{news.description}</p>
+              <p>{ news.description }</p>
             </div>
-          ))}
+          ) ) }
         </div>
       </Link>
     </div>

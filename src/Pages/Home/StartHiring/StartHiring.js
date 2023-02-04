@@ -4,14 +4,14 @@ import animation from "../../../assets/Animation/animation.json";
 
 const StartHiring = () => {
   return (
-    <div className="mt-20">
+    <div data-aos="fade-up" className="mt-20">
       <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
         <div className="flex flex-col  w-full lg:flex-row">
           <div className="mb-10 lg:mb-0 lg:max-w-lg ">
             <div className="mb-6 text-center lg:text-left">
               <div className="">
                 <p
-                  style={{ whiteSpace: "nowrap" }}
+                  style={ { whiteSpace: "nowrap" } }
                   className="inline-block px-3 mb-4 text-xl font-semibold tracking-wider uppercase bg-green-300  rounded-full "
                 >
                   Hire The Best Professionals
@@ -36,8 +36,8 @@ const StartHiring = () => {
           </div>
           <div className="flex items-center justify-center lg:w-1/2">
             <div>
-              <div style={{ marginTop: "-20px" }} className="animation">
-                <Lottie animationData={animation}></Lottie>
+              <div style={ { marginTop: "-20px" } } className="animation">
+                <Lottie animationData={ animation }></Lottie>
               </div>
             </div>
           </div>
