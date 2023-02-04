@@ -72,7 +72,7 @@ const Banner = () => {
             <p className="whitespace-nowrap">
               Get your first 10 candidates in 48 hours!
             </p>
-            <Link to='/recruiter' className="bg-white text-black p-3 rounded-md text-center font-bold w-2/3">
+            <Link to='/recruiter' className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2">
               Get Started
             </Link>
           </div>
