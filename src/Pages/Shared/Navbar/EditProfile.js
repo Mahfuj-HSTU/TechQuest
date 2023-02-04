@@ -16,7 +16,7 @@ const EditProfile = () => {
 
   const handleMode = () => {
     // console.log( 'clicked' );
-    setTheme(theme === "light" ? "mytheme" : "light");
+    setTheme(theme === "light" ? "dark" : "light");
   };
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);

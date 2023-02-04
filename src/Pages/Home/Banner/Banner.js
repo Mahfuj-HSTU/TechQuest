@@ -20,7 +20,7 @@ const Banner = () => {
 
   return (
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 md:grid-cols-2 min-h-full px-4 md:px-8 lg:max-w-screen-xl -mt-8 rounded-md -mx-5 bg-gradient-to-r from-violet-600 via-sky-600 to-[#0675CE] shadow-lg shadow-info">
+    <div className="grid grid-cols-1 md:grid-cols-2 min-h-full px-4 md:px-8 lg:max-w-screen-xl -mt-8 rounded-md -mx-5 bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg shadow-info">
       {/* left side of the banner // from-[#7209B7] */}
       <div className="flex flex-col mt-20 lg:mt-40 gap-5 mx-5">
         <div className="tabs gap-5 mb-5">
