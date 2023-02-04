@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+// import { TypeAnimation } from "react-type-animation";
 import animation from "../../../assets/Animation2/animation2.json";
 
 const Banner = () => {
