@@ -29,8 +29,8 @@ const CourseDetails = () => {
           <span className="bg-sky-600 rounded-md p-1 text-white">
             Price: {price}
           </span>
-          <Link to={`/courses/payment/${_id}`} className="btn">
-            make payment
+          <Link to={`/courses/payment/${_id}`} className="bg-green-600 rounded-lg p-1 m-1 text-white">
+            Buy This Course
           </Link>
           <p className="text-justify mt-3">{description}</p>
           <p className="mt-7">
