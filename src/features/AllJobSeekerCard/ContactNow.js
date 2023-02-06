@@ -8,10 +8,10 @@ const ContactNow = ({ contact }) => {
     e.preventDefault();
     alert("Email Sent");
     emailjs.sendForm(
-      "service_raursji",
-      "template_7uqicj6",
+      "service_gvok9j2",
+      "template_63cz797",
       e.target,
-      "B4GmTKHfPDuPabhpV"
+      "b3uAiwcP517FMtPsH"
     );
   };
   return (
