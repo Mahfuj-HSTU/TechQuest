@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
-import ContactNow from "../../features/AllJobSeekerCard/ContactNow";
 import AllJobSeekers from "../../features/AllJobSeekers/AllJobSeekers";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
@@ -23,6 +22,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
 // import Users from "../../Pages/AllUsers/Users/Users";
 import AllUsersView from "../../features/AllUsers/AllUsersView";
+import CoursePayment from "../../Pages/Courses/Course/CoursePayment";
 const router = createBrowserRouter( [
   {
     path: "/",
@@ -101,6 +101,10 @@ const router = createBrowserRouter( [
       {
         path: "/courses",
         element: <PrivateRoute><Courses></Courses></PrivateRoute>,
+      },
+      {
+        path: "/courses/payment/:id",
+        element: <PrivateRoute><CoursePayment/></PrivateRoute>,
       },
       {
         path: "/courses/:id",

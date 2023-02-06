@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import RemoveCourse from "../RemoveCourse/RemoveCourse";
@@ -14,7 +14,7 @@ const CourseDetails = () => {
   const state = useSelector(state => state.roleReducer.role.role)
   // console.log(state);
 
-  const { title, img, description, instructor, price } = course;
+  const { title, img, description, instructor, price, _id } = course;
   useEffect(() => {
     dispatch(fetchRole(user?.email));
   }, [dispatch, user?.email]);
@@ -29,6 +29,9 @@ const CourseDetails = () => {
           <span className="bg-sky-600 rounded-md p-1 text-white">
             Price: {price}
           </span>
+          <Link to={`/courses/payment/${_id}`} className="btn">
+            make payment
+          </Link>
           <p className="text-justify mt-3">{description}</p>
           <p className="mt-7">
             <b>Our Experienced Instructors : </b> {instructor}
