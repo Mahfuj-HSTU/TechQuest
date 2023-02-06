@@ -76,17 +76,17 @@ const AddCourse = () => {
               />
               {/* course price */}
               <input
-                type="text"
+                type="number"
                 name="price"
                 className="input input-bordered w-full"
                 placeholder="course price"
               />
             </div>
             <div className="my-3 flex justify-center gap-3">
-              <label htmlFor="add-course-modal" className="btn btn-sm  ">
+              <label htmlFor="add-course-modal" className="cursor-pointer bg-gray-500 rounded-lg text-white font-bold uppercase p-1 hover:bg-gray-700">
                 close
               </label>
-              <input type="submit" value="submit" className="btn btn-sm" />
+              <input type="submit" value="submit" className="cursor-pointer bg-green-500 rounded-lg text-white font-bold uppercase btn-sm hover:bg-green-700" />
             </div>
           </div>
         </div>
