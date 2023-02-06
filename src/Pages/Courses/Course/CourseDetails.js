@@ -26,21 +26,23 @@ const CourseDetails = () => {
         <div className="text-start">
           {role === "admin" && <RemoveCourse name={title} img={img} />}
           <h3 className="card-title my-3 text-3xl">{title}</h3>
-          {role === 'jobSeeker' && <div>
-            {price !== "0" && (
-              <span className="bg-sky-600 rounded-md p-1 text-white">
-                Price: {price}
-              </span>
-            )}
-            {price !== "0" && (
-              <Link
-                to={`/courses/payment/${_id}`}
-                className="bg-green-600 rounded-lg p-1 m-1 text-white"
-              >
-                Buy This Course
-              </Link>
-            )}
-          </div>}
+          {role === "jobSeeker" && (
+            <div>
+              {price !== "0" && (
+                <span className="bg-sky-600 rounded-md p-1 text-white">
+                  Price: {price}
+                </span>
+              )}
+              {price !== "0" && (
+                <Link
+                  to={`/courses/payment/${_id}`}
+                  className="bg-green-600 rounded-lg p-1 m-1 text-white"
+                >
+                  Buy This Course
+                </Link>
+              )}
+            </div>
+          )}
           <p className="text-justify mt-3">{description}</p>
           <p className="mt-7">
             <b>Our Experienced Instructors : </b> {instructor}
