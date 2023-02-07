@@ -27,6 +27,7 @@ const Home = () => {
       <Events></Events>
       <LatestNews />
       <WeAreSpecialist />
+  
     </div>
   );
 };

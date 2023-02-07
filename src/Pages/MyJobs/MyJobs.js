@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import MyJobDetails from './MyJobDetails/MyJobDetails';
 
 
 const MyJobs = () => {
+   const [modalOpen, setModalOpen] = useState(false);
   const { user } = useContext(AuthContext);
 
   const url = `http://localhost:5000/applications?email=${user?.email}`;
@@ -22,11 +24,14 @@ const MyJobs = () => {
     },
   });
   // console.log(jobs)
+  const showDetails =(e)=>{
+        console.log("clicked", e)
+  }
 
     return (
         <div className='mt-24 mb-16'>
             <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold">My Applied Jobs</h3>
-            <div className="overflow-x-auto gap-4">
+            <div className="overflow-x-auto gap-4 lg:w-full md:table-fixed">
                 <table className="table w-full table-auto md:flex-row">
                     <thead>
                         <tr>
@@ -47,13 +52,25 @@ const MyJobs = () => {
                                 <td>{job.job.jobTitle}</td>
                                 <td>{job.job.jobType}</td>
                                 <td>{job.job.location}</td>
-                                <td> <Link to={`/myjob-details/${job._id}`}><button className="btn btn-primary">Details</button></Link></td>
+                                {/* <td> <button onClick={` `} className="btn btn-primary"> 
+                                    <label htmlFor="my-modal-3">Details {job.job.jobTitle}</label>
+                                </button></td> */}
+
+                    <label
+                        htmlFor="my-modal-3"
+                        className="btn btn-primary text-white"
+                    
+                    >Details</label>
 
                             </tr>)
                         }
+                        
                     </tbody>
                 </table>
             </div>
+            {
+                jobs.map(job =><MyJobDetails job={job} key={job._id}></MyJobDetails>)
+            }
         </div>
     );
 };
@@ -67,7 +84,7 @@ export default MyJobs;
 
 
 
-// {
+{/* 
 //     jobs.map( ( job ) => <div key={ job._id } className=' card flex flex-wrap'>
 //         <div className="border bg-slate-100 shadow-lg hover:shadow-2xl card-body align-middle rounded-xl my-5">
 //             <h2 className="card-title text-blue-700">{ job.job.jobTitle } </h2>
@@ -79,8 +96,6 @@ export default MyJobs;
 //                 <Link to={`/myjob-details/${job._id}`}><button className="btn btn-primary">Details</button></Link>
 //             </div>
 //             {/* to={`/job-details/${job._id}`} */}
-//         </div>
+{/* //         </div>
 
-//     </div>
-//     )
-// }
+//     </div> */}
