@@ -6,10 +6,10 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const MainLayout = () => {
   return (
     <div className="mx-auto">
-      <div className="mb-24">
+      <div className="mb-20">
         <Navbar />
       </div>
-      <div className="max-w-[1240px] mx-auto">
+      <div className="mx-auto">
         <Outlet />
       </div>
       <div className="max-w-screen-xl mx-auto mt-10">
