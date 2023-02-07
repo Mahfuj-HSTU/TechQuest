@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const EditProfile = () => {
-  const [theme, setTheme] = useState("cupcake");
+  const [theme, setTheme] = useState("light");
   const { user, logOut } = useContext(AuthContext);
   // console.log( user )
   const handleLogOut = () => {
@@ -16,7 +16,7 @@ const EditProfile = () => {
 
   const handleMode = () => {
     // console.log( 'clicked' );
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
