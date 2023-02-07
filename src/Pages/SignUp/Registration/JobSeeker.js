@@ -246,7 +246,7 @@ const JobSeeker = () => {
         {/* if you are old user and you have an account */ }
         <p className="text-center">
           Already have an account?{ " " }
-          <Link className="text-orange-600 font-bold" to="/login">
+          <Link className="text-orange-600 font-bold" to="/auth/login">
             Login
           </Link>
         </p>
