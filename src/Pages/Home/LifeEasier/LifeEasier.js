@@ -2,7 +2,7 @@ import React from "react";
 
 const LifeEasier = () => {
   return (
-    <div className="hero mt-16 mb-32 mx-auto">
+    <div data-aos="fade-up" className="hero mt-16 mb-32 mx-auto">
       <div className="lg:flex ">
         <div className='lg:w-3/5 w-11/12 lg:text-start lg:mr-5 lg:my-40 my-20'>
           <h1 className="text-4xl font-bold">We make life easier for 600+ companies since 2015</h1>

@@ -6,25 +6,25 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import SignUpModal from "../SignUpModal";
 import { ServerLink } from "../../../Hooks/useServerLink";
-import useToken from "../../../Hooks/jwt/useToken";
+// import useToken from "../../../Hooks/jwt/useToken";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
+  // const [loginEmail, setLoginEmail] = useState("");
 
   const { providerLogin, login } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
-  const [token] = useToken(loginEmail);
+  // const [token] = useToken(loginEmail);
 
   // console.log( user )
 
   const from = location.state?.from?.pathname || "/";
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  // if (token) {
+  //   navigate(from, { replace: true });
+  // }
 
   // handle created user login
   const handleLogin = (event) => {
@@ -38,7 +38,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setLoginEmail(user?.email);
+        // setLoginEmail(user?.email);
         navigate(from, { replace: true });
         form.reset();
         setError("");
@@ -58,7 +58,7 @@ const Login = () => {
         const user = result.user;
         saveUsers(user?.displayName, user?.email, "jobSeeker");
         // console.log( user );
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error("error ", error));
 
@@ -76,7 +76,7 @@ const Login = () => {
         .then((data) => {
           console.log(data);
           if (data.acknowledged) {
-            setLoginEmail(info?.email);
+            // setLoginEmail(info?.email);
           }
         });
     };

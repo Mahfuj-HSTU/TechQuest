@@ -38,13 +38,12 @@ const AllJobsView = () => {
           } = job;
 
           return (
-            <div className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl">
-              <Link
-                key={_id}
-                state={job}
-                to={`/job-details/${_id}`}
-                // className="btn btn-info text-white hover:bg-white hover:text-black mt-5"
-              >
+            <div
+              key={_id}
+              data-aos="fade-up"
+              className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl"
+            >
+              <Link state={job} to={`/job-details/${_id}`}>
                 {openings <= 1 ? (
                   <small>{openings} position</small>
                 ) : (
@@ -72,7 +71,7 @@ const AllJobsView = () => {
                 </div>
                 <p className="my-2">{jobDescription}</p>
                 {/* .slice(0,250) */}
-                <div className="flex gap-3 w-auto p-1 font-semibold text-gray-400">
+                <div className="flex flex-col md:flex-row gap-3 w-56 md:w-auto p-1 font-semibold text-gray-400">
                   <p className="border rounded-3xl text-sm py-1 px-3 text-sky-800">
                     {mustSkills}
                   </p>

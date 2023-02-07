@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="m-5">
-      <footer className="footer p-2 bg-slate-100 rounded-md text-left">
+      <footer className="footer p-2 bg-slate-200 rounded-md text-left">
         <div className="w-52 text-left">
-          <p className="text-xl font-bold">Connecting cultures through code</p>
+          <p className="text-xl font-bold">Connecting Cultures Through Codes</p>
           <div className="text-xl flex flex-row gap-6 my-3">
             <AiFillLinkedin />
             <TfiYoutube />
@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
         <div className=" text-slate-400">
           <span className="text-black font-semibold">Why TechQuest</span>
-          <Link>About</Link>
+          <Link to="/about">About</Link>
           <Link>Careers</Link>
         </div>
         <div className=" text-slate-400">

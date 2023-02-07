@@ -6,23 +6,22 @@ import MyJobDetails from './MyJobDetails/MyJobDetails';
 
 
 const MyJobs = () => {
-   const [modalOpen, setModalOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user } = useContext( AuthContext );
 
-  const url = `http://localhost:5000/applications?email=${user?.email}`;
+  const url = `http://localhost:5000/applications?email=${ user?.email }`;
 
-  const { data: jobs = [] } = useQuery({
-    queryKey: ["jobs", user?.email],
+  const { data: jobs = [] } = useQuery( {
+    queryKey: [ "jobs", user?.email ],
     queryFn: async () => {
-      const res = await fetch(url, {
+      const res = await fetch( url, {
         headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `bearer ${ localStorage.getItem( "accessToken" ) }`,
         },
-      });
+      } );
       const data = await res.json();
       return data;
     },
-  });
+  } );
   // console.log(jobs)
   const showDetails =(e)=>{
         console.log("clicked", e)
@@ -37,42 +36,30 @@ const MyJobs = () => {
                         <tr>
                             <th></th>
 
-                            <th>Applied Post</th>
-                            <th>Job Type</th>
-                            <th>Location </th> 
-                            <th>Details</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            jobs.map((job, i) => <tr key={job._id}>
-                                <th>{i+1}</th>
+              <th>Applied Post</th>
+              <th>Job Type</th>
+              <th>Location </th>
+              <th>Details</th>
 
-                                <td>{job.job.jobTitle}</td>
-                                <td>{job.job.jobType}</td>
-                                <td>{job.job.location}</td>
-                                {/* <td> <button onClick={` `} className="btn btn-primary"> 
-                                    <label htmlFor="my-modal-3">Details {job.job.jobTitle}</label>
-                                </button></td> */}
-
-                    <label
-                        htmlFor="my-modal-3"
-                        className="btn btn-primary text-white"
-                    
-                    >Details</label>
-
-                            </tr>)
-                        }
-                        
-                    </tbody>
-                </table>
-            </div>
+            </tr>
+          </thead>
+          <tbody>
             {
-                jobs.map(job =><MyJobDetails job={job} key={job._id}></MyJobDetails>)
+              jobs.map( ( job, i ) => <tr key={ job._id }>
+                <th>{ i + 1 }</th>
+
+                <td>{ job.job.jobTitle }</td>
+                <td>{ job.job.jobType }</td>
+                <td>{ job.job.location }</td>
+                <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td>
+
+              </tr> )
             }
-        </div>
-    );
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default MyJobs;
@@ -82,20 +69,3 @@ export default MyJobs;
 
 
 
-
-
-{/* 
-//     jobs.map( ( job ) => <div key={ job._id } className=' card flex flex-wrap'>
-//         <div className="border bg-slate-100 shadow-lg hover:shadow-2xl card-body align-middle rounded-xl my-5">
-//             <h2 className="card-title text-blue-700">{ job.job.jobTitle } </h2>
-//             <span className="card-title" >({ ( job.job.jobType ) }) <span className='bg-base-500'> { job.job.jobStatus }</span></span>
-//             <h2 className="card-title">{ job.job.location }</h2>
-//             <h2 className="card-title">Must Have skill : { job.job.mustSkills }</h2>
-//             <h2 className="card-title">Nice to have skill: { job.job.optionalSkills }</h2>
-//             <div className="card-actions">
-//                 <Link to={`/myjob-details/${job._id}`}><button className="btn btn-primary">Details</button></Link>
-//             </div>
-//             {/* to={`/job-details/${job._id}`} */}
-{/* //         </div>
-
-//     </div> */}

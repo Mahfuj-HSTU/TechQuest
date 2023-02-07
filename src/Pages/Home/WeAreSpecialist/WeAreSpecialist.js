@@ -2,7 +2,7 @@ import React from "react";
 
 const WeAreSpecialist = () => {
   return (
-    <div className="mt-10">
+    <div data-aos="fade-up" className="mt-10">
       {/* <div className="bg-sky-600 rounded-lg w-4/5 mx-auto items-center">
         <div className="h-24 w-24 rounded-full bg-sky-600 border border-white">
 
