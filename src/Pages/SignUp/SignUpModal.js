@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 const SignUpModal = () => {
   const navigate = useNavigate();
   const handleRecruiter = () => {
-    navigate("/recruiter");
+    navigate("/auth/recruiter");
   };
   const handleJobSeeker = () => {
-    navigate("/jobSeeker");
+    navigate("/auth/jobSeeker");
   };
   return (
     // <div>
