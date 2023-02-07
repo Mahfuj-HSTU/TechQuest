@@ -91,7 +91,9 @@ const Banner = () => {
             <p className="text-4xl font-bold tracking-tighter leading-normal">
               Find your dream Tech job
             </p>
-            <p className="text-4xl font-bold tracking-tighter leading-normal"> in Canada, the US & Europe</p>
+            <p className="text-4xl font-bold tracking-tighter leading-normal">
+              in Canada, the US & Europe
+            </p>
             <small className="text-lg">Remote & International Positions</small>
             <Link
               to="/all-jobs"
