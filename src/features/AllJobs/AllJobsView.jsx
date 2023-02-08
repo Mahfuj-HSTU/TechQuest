@@ -1,18 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchAllJobs } from "./AllJobsSlice";
 import SearchOption from "../Search/SearchOptionView";
+import { fetchRole } from "../../Hooks/Role/useRoleSlice";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const AllJobsView = () => {
-  const jobs = useSelector((state) => state.jobsReducer.jobs);
-  // console.log(jobs);
+  const { user } = useContext(AuthContext);
+  const state = useSelector((state) => state);
+  console.log(state);
+  const jobs = state.jobsReducer.jobs;
+  const {role} = state.roleReducer.role;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAllJobs());
-  }, [dispatch]);
+    dispatch(fetchRole(user?.email));
+  }, [dispatch, user?.email]);
 
   return (
     <div className="mt-20 mx-10 ">
@@ -43,7 +49,14 @@ const AllJobsView = () => {
               data-aos="fade-up"
               className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl"
             >
-              <Link state={job} to={`/job-details/${_id}`}>
+              <Link
+                state={job}
+                to={
+                  (role === "admin" && `/admin/job-details/${_id}`) ||
+                  (role === "jobSeeker" && `/job-seeker/job-details/${_id}`) 
+                  // ||(`/auth/login`)
+                }
+              >
                 {openings <= 1 ? (
                   <small>{openings} position</small>
                 ) : (

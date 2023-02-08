@@ -38,10 +38,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/all-jobs",
+        element: (
+            <AllJobsView />
+        ),
+      },
+      {
         path: "/EditProfile",
         element: <EditProfileModal />,
       },
-    
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
@@ -53,15 +58,6 @@ const router = createBrowserRouter([
     element: <JobSeekerLayout />,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      {
-        path: "/job-seeker/all-jobs",
-        element: (
-          <PrivateRoute>
-            <AllJobsView />
-          </PrivateRoute>
-        ),
-      },
-
       {
         path: "/job-seeker/myJobs",
         element: (
@@ -133,19 +129,11 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      
       {
-        path: "/admin/courses",
-        element: (
-          <PrivateRoute>
-            <Courses></Courses>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/admin/courses/:id",
-        element: <CourseDetails />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+        path: "/admin/job-details/:id",
+        element: <SingleJobView />,
+        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
       },
       {
         path: "/admin/users",

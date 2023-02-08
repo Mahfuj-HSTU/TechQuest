@@ -6,7 +6,7 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const MainLayout = () => {
   return (
     <div className="mx-auto">
-      <div className="mb-20">
+      <div className="mb-10">
         <Navbar />
       </div>
       <div className="mx-auto">
