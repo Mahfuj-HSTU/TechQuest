@@ -93,7 +93,7 @@ const Banner = () => {
             </p>
             <small className="text-lg">Remote & International Positions</small>
             <Link
-              to="/common/all-jobs"
+              to="/all-jobs"
               className="bg-white text-black p-3 rounded-md text-center font-bold"
             >
               Apply
