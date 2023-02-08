@@ -73,7 +73,6 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${ServerLink}/applications/${params.id}`),
       },
-
       {
         path: "/job-seeker/my-jobs",
         element: (
@@ -86,6 +85,29 @@ const router = createBrowserRouter([
         path: "/job-seeker/job-details/:id",
         element: <SingleJobView />,
         loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
+      },
+      
+      {
+        path: "/job-seeker/courses",
+        element: (
+          <PrivateRoute>
+            <Courses></Courses>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/job-seeker/courses/payment/:id",
+        element: (
+          <PrivateRoute>
+            <CoursePayment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/job-seeker/courses/:id",
+        element: <CourseDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
       },
     ],
   },
@@ -130,6 +152,28 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       
+      {
+        path: "/admin/courses",
+        element: (
+          <PrivateRoute>
+            <Courses></Courses>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/admin/courses/payment/:id",
+        element: (
+          <PrivateRoute>
+            <CoursePayment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/admin/courses/:id",
+        element: <CourseDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
+      },
       {
         path: "/admin/job-details/:id",
         element: <SingleJobView />,
