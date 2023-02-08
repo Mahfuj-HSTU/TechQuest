@@ -54,7 +54,7 @@ const AllJobsView = () => {
                 to={
                   (role === "admin" && `/admin/job-details/${_id}`) ||
                   (role === "jobSeeker" && `/job-seeker/job-details/${_id}`) 
-                  // ||(`/auth/login`)
+                  ||(`/auth/login`)
                 }
               >
                 {openings <= 1 ? (

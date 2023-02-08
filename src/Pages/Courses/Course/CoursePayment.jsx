@@ -24,7 +24,7 @@ const CoursePayment = () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold my-5">
+      <h1 className="text-4xl font-semibold my-20">
         Payment for: <strong>{course?.title}</strong>
       </h1>
       <p>
