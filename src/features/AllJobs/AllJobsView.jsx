@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 const AllJobsView = () => {
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
-  console.log(state);
+  // console.log(state);
   const jobs = state.jobsReducer.jobs;
   const {role} = state.roleReducer.role;
 
