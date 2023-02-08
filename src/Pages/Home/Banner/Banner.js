@@ -20,7 +20,7 @@ const Banner = () => {
 
   return (
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 items-center justify-items-center md:grid-cols-2 min-h-full px-4 md:px-8 rounded-md bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg shadow-info">
+    <div className="grid grid-cols-1 items-center mt-20 justify-items-center md:grid-cols-2 min-h-full px-4 md:px-8 rounded-md bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg shadow-info">
       {/* left side of the banner // from-[#7209B7] */}
       <div className="flex flex-col mt-20 md:mt-0 gap-5 mx-5 top-0">
         <div className="tabs gap-5 mb-5">
@@ -79,7 +79,7 @@ const Banner = () => {
               Get your first 10 candidates in 48 hours!
             </p>
             <Link
-              to="/recruiter"
+              to="/auth/recruiter"
               className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2"
             >
               Get Started
@@ -87,16 +87,13 @@ const Banner = () => {
           </div>
         )}
         {getAJob && (
-          <div className="text-left text-white grid gap-5">
-            <p className="text-4xl font-bold tracking-tighter leading-normal">
-              Find your dream Tech job
-            </p>
-            <p className="text-4xl font-bold tracking-tighter leading-normal">
-              in Canada, the US & Europe
+          <div className="text-left text-white grid gap-5 w-80">
+            <p className="text-4xl font-bold leading-normal">
+              Find your dream Tech job in Canada, the US & Europe
             </p>
             <small className="text-lg">Remote & International Positions</small>
             <Link
-              to="/all-jobs"
+              to="/common/all-jobs"
               className="bg-white text-black p-3 rounded-md text-center font-bold"
             >
               Apply

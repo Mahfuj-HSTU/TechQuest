@@ -20,7 +20,7 @@ const CourseDetails = () => {
   }, [dispatch, user?.email]);
 
   return (
-    <div className="mt-20 p-5 card bg-base-100 shadow-xl">
+    <div className="p-5 card bg-base-100 shadow-xl">
       <div className="m-5 rounded-lg">
         <img className="w-full" src={img} alt="#" />
         <div className="text-start">
@@ -35,7 +35,7 @@ const CourseDetails = () => {
               )}
               {price !== "0" && (
                 <Link
-                  to={`/courses/payment/${_id}`}
+                  to={`/common/courses/payment/${_id}`}
                   className="bg-green-600 rounded-lg p-1 m-1 text-white"
                 >
                   Buy This Course
