@@ -41,21 +41,7 @@ const router = createBrowserRouter([
         path: "/EditProfile",
         element: <EditProfileModal />,
       },
-      {
-        path: "/myJobs",
-        element: (
-          <PrivateRoute>
-            <MyJobs></MyJobs>
-          </PrivateRoute>
-        ),
-      },
-      //  MY JOB DETAILS
-      {
-        path: "/myjob-details/:id",
-        element: <MyJobDetails />,
-        loader: ({ params }) =>
-          fetch(`${ServerLink}/applications/${params.id}`),
-      },
+    
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
@@ -75,6 +61,23 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+        path: "/job-seeker/myJobs",
+        element: (
+          <PrivateRoute>
+            <MyJobs></MyJobs>
+          </PrivateRoute>
+        ),
+      },
+      //  MY JOB DETAILS
+      {
+        path: "/job-seeker/myjob-details/:id",
+        element: <MyJobDetails />,
+        loader: ({ params }) =>
+          fetch(`${ServerLink}/applications/${params.id}`),
+      },
+
       {
         path: "/job-seeker/my-jobs",
         element: (
