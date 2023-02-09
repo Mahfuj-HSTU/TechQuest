@@ -14,6 +14,7 @@ const Navbar = () => {
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
+  console.log( role )
 
   useEffect( () => {
     dispatch( fetchRole( user?.email ) );
@@ -36,6 +37,7 @@ const Navbar = () => {
               </li>
             </>
           ) }
+
           { role === recruiter && (
             <>
               <li className="font-medium">
@@ -45,6 +47,7 @@ const Navbar = () => {
               </li>
             </>
           ) }
+
           { role === jobSeeker && (
             <>
               <li className="font-semibold">
@@ -123,8 +126,8 @@ const Navbar = () => {
           </ul>
         </div>
         <EditProfile></EditProfile>
-        <SignUpModal></SignUpModal>
       </div>
+      <SignUpModal></SignUpModal>
     </div>
   );
 };

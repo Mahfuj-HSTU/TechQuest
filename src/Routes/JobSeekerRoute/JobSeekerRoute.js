@@ -31,7 +31,7 @@ const JobSeekerRoute = ( { children } ) => {
         .then()
         .catch()
 
-    return <Navigate to='/login' state={ { from: location } } replace></Navigate>
+    return <Navigate to='/auth/login' state={ { from: location } } replace></Navigate>
 };
 
 export default JobSeekerRoute;

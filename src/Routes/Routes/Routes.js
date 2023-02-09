@@ -78,11 +78,11 @@ const router = createBrowserRouter( [
       },
 
       {
-        path: "/recruiter",
+        path: "/auth/recruiter",
         element: <Recruiter></Recruiter>,
       },
       {
-        path: "/jobSeeker",
+        path: "/auth/jobSeeker",
         element: <JobSeeker></JobSeeker>,
       },
       {

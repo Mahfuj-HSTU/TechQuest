@@ -6,7 +6,7 @@ const CourseCard = ( { course } ) => {
     // console.log( course );
 
     return (
-        <div className='p-5 bg-base-100 shadow-lg'>
+        <div data-aos="fade-up" className='p-5 bg-base-100 shadow-lg'>
             <div className='m-5 rounded-lg'>
                 <img className='h-80' src={ img } alt="#" />
                 <div className="text-start">
