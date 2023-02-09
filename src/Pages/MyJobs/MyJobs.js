@@ -7,7 +7,6 @@ import MyJobDetails from './MyJobDetails/MyJobDetails';
 
 const MyJobs = () => {
   const { user } = useContext( AuthContext );
-
   const url = `http://localhost:5000/applications?email=${ user?.email }`;
 
   const { data: jobs = [] } = useQuery( {
