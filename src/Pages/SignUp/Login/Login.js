@@ -9,10 +9,10 @@ import { ServerLink } from "../../../Hooks/useServerLink";
 // import useToken from "../../../Hooks/jwt/useToken";
 
 const Login = () => {
-  const [error, setError] = useState("");
+  const [ error, setError ] = useState( "" );
   // const [loginEmail, setLoginEmail] = useState("");
 
-  const { providerLogin, login } = useContext(AuthContext);
+  const { providerLogin, login } = useContext( AuthContext );
   const googleProvider = new GoogleAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,58 +27,58 @@ const Login = () => {
   // }
 
   // handle created user login
-  const handleLogin = (event) => {
+  const handleLogin = ( event ) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
     // console.log( user )
-    login(email, password)
-      .then((result) => {
+    login( email, password )
+      .then( ( result ) => {
         const user = result.user;
-        console.log(user);
+        console.log( user );
         // setLoginEmail(user?.email);
-        navigate(from, { replace: true });
+        navigate( from, { replace: true } );
         form.reset();
-        setError("");
-      })
-      .catch((error) => {
-        console.error("error ", error);
-        toast.error("Register first to login");
-        setError(error.message);
+        setError( "" );
+      } )
+      .catch( ( error ) => {
+        console.error( "error ", error );
+        toast.error( "Register first to login" );
+        setError( error.message );
         form.reset();
-      });
+      } );
   };
 
   // handle google login
   const handleGoogleSignIn = () => {
-    providerLogin(googleProvider)
-      .then((result) => {
+    providerLogin( googleProvider )
+      .then( ( result ) => {
         const user = result.user;
-        saveUsers(user?.displayName, user?.email, "jobSeeker");
+        saveUsers( user?.displayName, user?.email, "jobSeeker" );
         // console.log( user );
-        navigate(from, { replace: true });
-      })
-      .catch((error) => console.error("error ", error));
+        navigate( from, { replace: true } );
+      } )
+      .catch( ( error ) => console.error( "error ", error ) );
 
-    const saveUsers = (name, email, role) => {
+    const saveUsers = ( name, email, role ) => {
       const info = { name, email, role };
       // console.log( info )
-      fetch(`${ServerLink}/users`, {
+      fetch( `${ ServerLink }/users`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(info),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
+        body: JSON.stringify( info ),
+      } )
+        .then( ( res ) => res.json() )
+        .then( ( data ) => {
+          console.log( data );
+          if ( data.acknowledged ) {
             // setLoginEmail(info?.email);
           }
-        });
+        } );
     };
   };
 
@@ -86,7 +86,7 @@ const Login = () => {
     <div className="hero w-full my-20">
       <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 py-10">
         <h1 className="text-5xl text-center font-bold">Login </h1>
-        <form onSubmit={handleLogin} className="card-body">
+        <form onSubmit={ handleLogin } className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -114,7 +114,7 @@ const Login = () => {
               </Link>
             </label>
             <p className="text-start text-red-600 font-semibold">
-              {error.slice(22, 43)}
+              { error.slice( 22, 43 ) }
             </p>
           </div>
           <div className="form-control mt-6">
@@ -122,7 +122,7 @@ const Login = () => {
           </div>
         </form>
         <p className="text-center">
-          New to TechQuest{" "}
+          New to TechQuest{ " " }
           <label
             htmlFor="sign-up-modal"
             className="text-orange-600 font-bold cursor-pointer"
@@ -135,7 +135,7 @@ const Login = () => {
         <div className="divider">OR</div>
 
         <button
-          onClick={handleGoogleSignIn}
+          onClick={ handleGoogleSignIn }
           className="btn btn-outline btn-info mx-9 mt-5"
         >
           <FaGoogle /> <span className="ml-2">Google</span>

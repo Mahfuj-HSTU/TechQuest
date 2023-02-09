@@ -14,10 +14,11 @@ const Navbar = () => {
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
+  // console.log( role )
 
-  useEffect(() => {
-    dispatch(fetchRole(user?.email));
-  }, [dispatch, user?.email]);
+  useEffect( () => {
+    user?.email && dispatch( fetchRole( user?.email ) );
+  }, [ dispatch, user?.email ] );
 
   const menuItems = (
     <>
@@ -35,8 +36,11 @@ const Navbar = () => {
                 <Link to="/admin/users">All Users</Link>
               </li>
             </>
-          )}
-          {role === recruiter && (
+
+          ) }
+
+          { role === recruiter && (
+
             <>
               <li className="font-medium">
                 <Link to="/recruiter/all-job-seekers">All Job Seekers</Link>
@@ -44,8 +48,11 @@ const Navbar = () => {
                 <Link to="/recruiter/MyJobPost">MyPost</Link>
               </li>
             </>
-          )}
-          {role === jobSeeker && (
+
+          ) }
+
+          { role === jobSeeker && (
+
             <>
               <li className="font-semibold">
                 <Link to="/job-seeker/my-jobs">My Jobs</Link>
@@ -122,11 +129,12 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
+
         <div className="lg:navbar-end">
           <EditProfile></EditProfile>
-          <SignUpModal></SignUpModal>
-        </div>
+
       </div>
+      <SignUpModal></SignUpModal>
     </div>
   );
 };
