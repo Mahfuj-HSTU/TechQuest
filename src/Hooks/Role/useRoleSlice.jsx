@@ -4,7 +4,7 @@ import { ServerLink } from '../../Hooks/useServerLink';
 
 export const fetchRole = createAsyncThunk('role/fetchRole', async (email) => {
 	const res = await axios.get(`${ServerLink}/users/${email}`);
-	// console.log(res);
+	// console.log(email);
 	return res.data;
 });
 

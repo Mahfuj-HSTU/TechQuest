@@ -14,10 +14,10 @@ const Navbar = () => {
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
-  console.log( role )
+  // console.log( role )
 
   useEffect( () => {
-    dispatch( fetchRole( user?.email ) );
+    user?.email && dispatch( fetchRole( user?.email ) );
   }, [ dispatch, user?.email ] );
 
   const menuItems = (
