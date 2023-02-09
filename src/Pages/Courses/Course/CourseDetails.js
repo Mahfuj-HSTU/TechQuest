@@ -37,7 +37,7 @@ const CourseDetails = () => {
               ) }
               { price !== "0" && (
                 <Link
-                  to={ `/common/courses/payment/${ _id }` }
+                  to={ `/courses/payment/${ _id }` }
                   className="bg-green-600 rounded-lg p-1 m-1 text-white"
                 >
                   Buy This Course
