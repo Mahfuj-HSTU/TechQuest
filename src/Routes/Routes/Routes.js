@@ -19,10 +19,9 @@ import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-// import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
-// import Users from "../../Pages/AllUsers/Users/Users";
 import AllUsersView from "../../features/AllUsers/AllUsersView";
 import CoursePayment from "../../Pages/Courses/Course/CoursePayment";
+import ShowVideo from "../../Pages/Courses/Video/ShowVideos";
 const router = createBrowserRouter( [
   {
     path: "/",
@@ -74,8 +73,8 @@ const router = createBrowserRouter( [
       {
         path: "/myjob-details/:id",
         element: <MyJobDetails />,
-        loader: ({ params }) => 
-        fetch(`${ServerLink}/applications/${params.id}`),
+        loader: ( { params } ) =>
+          fetch( `${ ServerLink }/applications/${ params.id }` ),
       },
 
       {
@@ -104,13 +103,19 @@ const router = createBrowserRouter( [
       },
       {
         path: "/courses/payment/:id",
-        element: <PrivateRoute><CoursePayment/></PrivateRoute>,
+        element: <PrivateRoute><CoursePayment /></PrivateRoute>,
       },
       {
         path: "/courses/:id",
         element: <CourseDetails />,
         loader: ( { params } ) =>
           fetch( `http://localhost:5000/courses/${ params.id }` ),
+      },
+      {
+        path: "/video/:id",
+        element: <ShowVideo />,
+        loader: ( { params } ) =>
+          fetch( `http://localhost:5000/videos/${ params.id }` ),
       },
     ],
   },

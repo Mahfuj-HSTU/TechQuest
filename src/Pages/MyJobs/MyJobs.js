@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const MyJobs = () => {
   const { user } = useContext( AuthContext );
-
   const url = `http://localhost:5000/applications?email=${ user?.email }`;
 
   const { data: jobs = [] } = useQuery( {
