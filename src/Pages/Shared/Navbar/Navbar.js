@@ -31,7 +31,7 @@ const Navbar = () => {
           { role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/common/courses">Courses</Link>
+                <Link to="/courses">Courses</Link>
                 <Link to="/admin/users">All Users</Link>
               </li>
             </>
@@ -49,7 +49,7 @@ const Navbar = () => {
             <>
               <li className="font-semibold">
                 <Link to="/job-seeker/my-jobs">My Jobs</Link>
-                <Link to="/job-seeker/courses">Courses</Link>
+                <Link to="/courses">Courses</Link>
               </li>
             </>
           ) }
