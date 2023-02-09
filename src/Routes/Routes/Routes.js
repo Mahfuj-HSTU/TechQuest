@@ -86,7 +86,7 @@ const router = createBrowserRouter( [
         element: <JobSeeker></JobSeeker>,
       },
       {
-        path: "/login",
+        path: "/auth/login",
         element: <Login></Login>,
       },
       {

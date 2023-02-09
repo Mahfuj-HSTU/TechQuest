@@ -16,17 +16,19 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <LookingJobs></LookingJobs>
-      <StartHiring></StartHiring>
-      <Review></Review>
-      <DevelopersCategory />
-      <EmployersCategories />
-      <InterviewAndHire />
-      <GetCandidateForm />
-      <LifeEasier />
-      <Events></Events>
-      <LatestNews />
-      <WeAreSpecialist />
+      <div className="max-w-[1240px] mx-auto">
+        <LookingJobs></LookingJobs>
+        <StartHiring></StartHiring>
+        <Review></Review>
+        <DevelopersCategory />
+        <EmployersCategories />
+        <InterviewAndHire />
+        <GetCandidateForm />
+        <LifeEasier />
+        <Events></Events>
+        <LatestNews />
+        <WeAreSpecialist />
+      </div>
     </div>
   );
 };

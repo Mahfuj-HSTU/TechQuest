@@ -58,7 +58,7 @@ const Login = () => {
         const user = result.user;
         saveUsers(user?.displayName, user?.email, "jobSeeker");
         // console.log( user );
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error("error ", error));
 

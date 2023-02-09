@@ -50,7 +50,7 @@ const CheckoutForm = ({ myOrderId }) => {
           .post(`${ServerLink}/courses/payment/${myOrderId}/${user?.email}`)
           .then((data) => {
             if (data.data.acknowledged) {
-              navigate("/courses");
+              navigate("/job-seeker/courses");
             }
           })
           .catch((e) => {
@@ -64,30 +64,32 @@ const CheckoutForm = ({ myOrderId }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement
-        className="my-5 input input-bordered"
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
+      <div className="flex flex-col md:flex-row md:items-center">
+        <CardElement
+          className="my-5 md:flex-none input input-bordered w-auto mx-3 md:mx-5 md:w-96"
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
+                },
+              },
+              invalid: {
+                color: "#9e2146",
               },
             },
-            invalid: {
-              color: "#9e2146",
-            },
-          },
-        }}
-      />
-      <button
-        className="btn btn-secondary mt-5 text-white"
-        type="submit"
-        disabled={!stripe}
-      >
-        Pay
-      </button>
+          }}
+        />
+        <button
+          className="bg-green-600 h-10 w-56 mx-auto md:mx-0 rounded-lg text-white btn-sm"
+          type="submit"
+          disabled={!stripe}
+        >
+          Pay
+        </button>
+      </div>
       <p className="text-error">{cardError}</p>
     </form>
   );

@@ -16,7 +16,7 @@ const EditProfile = () => {
 
   const handleMode = () => {
     // console.log( 'clicked' );
-    setTheme( theme === "light" ? "dark" : "light" );
+    setTheme( theme === "dark" ? "light" : "dark" );
   };
   useEffect( () => {
     document.querySelector( "html" ).setAttribute( "data-theme", theme );
