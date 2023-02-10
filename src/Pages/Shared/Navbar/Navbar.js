@@ -33,7 +33,7 @@ const Navbar = () => {
             <>
               <li className="font-medium">
                 <Link to="/courses">Courses</Link>
-                <Link to="/admin/users">All Users</Link>
+                <Link to="/users">All Users</Link>
               </li>
             </>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
+    <div className="navbar lg:justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
       <div className="">
         <div className="">
           <div className="dropdown">
@@ -132,9 +132,9 @@ const Navbar = () => {
 
         <div className="lg:navbar-end">
           <EditProfile></EditProfile>
-
       </div>
       <SignUpModal></SignUpModal>
+    </div>
     </div>
   );
 };
