@@ -23,7 +23,7 @@ const EditProfile = () => {
   }, [ theme ] );
 
   return (
-    <div className="navbar-end mr-5">
+    <div className="navbar-end mt-2">
       { user?.email ? (
         <div className="dropdown dropdown-end">
           <label tabIndex={ 0 } className="inline-flex cursor-pointer m-1">
