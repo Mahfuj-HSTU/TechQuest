@@ -75,8 +75,9 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar lg:justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
-      <div className="">
+    <div>
+      <div className="navbar justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
+
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
@@ -129,12 +130,12 @@ const Navbar = () => {
             { menuItems }
           </ul>
         </div>
-
         <div className="lg:navbar-end">
           <EditProfile></EditProfile>
         </div>
-        <SignUpModal></SignUpModal>
+    
       </div>
+       <SignUpModal></SignUpModal>
     </div>
   );
 };
