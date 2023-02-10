@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { ServerLink } from "../../Hooks/useServerLink";
 
 const AddJobs = () => {
   const {
@@ -35,7 +36,7 @@ const AddJobs = () => {
 
     // console.log(jobDetails);
 
-    fetch( "http://localhost:5000/alljobs", {
+    fetch( `${ServerLink}/all-jobs`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

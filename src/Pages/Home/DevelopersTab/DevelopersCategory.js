@@ -39,7 +39,7 @@ const DevelopersCategory = () => {
           The world is your talent pool
         </h2>
       </div>
-      <div className="tabs flex items-center gap-3 lg:flex-nowrap">
+      <div className="tabs flex items-center gap-3 tracking-tighter lg:flex-nowrap mx-auto">
         {categories.map((category, i) => (
           <Link
             key={i}
