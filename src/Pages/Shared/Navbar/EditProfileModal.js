@@ -12,7 +12,7 @@ const EditProfileModal = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`${ServerLink}/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setLoginUser(data))
     }, [user?.email])
