@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
-import MyJobDetails from './MyJobDetails/MyJobDetails';
 import MyjobModal from './MyjobModal/MyjobModal';
 
 
@@ -40,26 +38,23 @@ const MyJobs = () => {
 
               <th>Applied Post</th>
               <th>Job Type</th>
-            <>
               <th>Location </th>
               <th>Job Status</th>
-              <th>Job Type</th>
-              <th>Location </th>
+              <th>Experience</th>
+              <th>Openings</th>
               <th>Details</th>
-              </>
             </tr>
           </thead>
           <tbody>
             {
               jobs.map( ( job, i ) => <tr key={ job._id }>
                 <th>{ i + 1 }</th>
-
                 <td>{ job.job.jobTitle }</td>
                 <td>{ job.job.jobType }</td>
                 <td>{ job.job.location }</td>
                 <td>{ job.job.jobStatus }</td>
-                <td>{ job.job.jobType }</td>
-                <td>{ job.job.location }</td>
+                <td>{ job.job.experience }</td>
+                <td>{ job.job.openings }</td>
              
                <button  onClick={()=>setMyjob(job)}> <label htmlFor="my-modal-3" className="btn">details</label></button>
               
