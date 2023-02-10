@@ -32,11 +32,10 @@ const Navbar = () => {
           {role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/courses">Courses</Link>
-                <Link to="/users">All Users</Link>
+                <Link to="admin/courses">Courses</Link>
+                <Link to="admin/users">All Users</Link>
               </li>
             </>
-
           ) }
 
           { role === recruiter && (
@@ -102,7 +101,7 @@ const Navbar = () => {
               {menuItems}
             </u>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl whitespace-nowrap">
             {" "}
             <svg
               className="w-8 text-deep-purple-accent-400"
