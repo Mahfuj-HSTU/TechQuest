@@ -10,16 +10,15 @@ import Notification from "./Notification";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
-  // const [isRecruiter] = useRecruiter(user?.email);
-  // const [isJobSeeker] = useJobSeeker(user?.email);
   const role = useSelector((state) => state.roleReducer.role.role);
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
+  // console.log( role )
 
   useEffect(() => {
-    dispatch(fetchRole(user?.email));
+    user?.email && dispatch(fetchRole(user?.email));
   }, [dispatch, user?.email]);
 
   const menuItems = (
@@ -34,24 +33,30 @@ const Navbar = () => {
           {role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/courses">Courses</Link>
-                <Link to="/users">All Users</Link>
+                <Link to="admin/courses">Courses</Link>
+                <Link to="admin/users">All Users</Link>
               </li>
             </>
+
           )}
+
           {role === recruiter && (
+
             <>
               <li className="font-medium">
-                <Link to="/all-job-seekers">All Job Seekers</Link>
-                <Link to="/addjob">Add Job</Link>
-                <Link to="/MyJobPost">MyPost</Link>
+                <Link to="/recruiter/all-job-seekers">All Job Seekers</Link>
+                <Link to="/recruiter/add-job">Add Job</Link>
+                <Link to="/recruiter/MyJobPost">MyPost</Link>
               </li>
             </>
+
           )}
+
           {role === jobSeeker && (
+
             <>
               <li className="font-semibold">
-                <Link to="/myjobs">My Jobs</Link>
+                <Link to="/job-seeker/my-jobs">My Jobs</Link>
                 <Link to="/courses">Courses</Link>
               </li>
             </>
@@ -60,7 +65,7 @@ const Navbar = () => {
       ) : (
         <>
           <li className="font-semibold">
-            <Link to="/login">Login</Link>{" "}
+            <Link to="/auth/login">Login</Link>
           </li>
           <li className="font-semibold">
             <label htmlFor="sign-up-modal">Sign Up</label>
@@ -72,8 +77,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar fixed h-16 top-0 z-30 left-0 right-0 max-w-screen-xl mx-auto bg-slate-200 rounded-md">
-        <div className="navbar-start">
+      <div className="navbar justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
+
+        <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -120,15 +126,17 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="navbar-end hidden lg:flex">
+        <div className="lg:mx-52 hidden lg:flex">
           <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
             {menuItems}
           </ul>
         </div>
-        <Notification></Notification>
-        <EditProfile></EditProfile>
-        <SignUpModal></SignUpModal>
+        <div className="lg:navbar-end">
+          <Notification></Notification>
+          <EditProfile></EditProfile>
+        </div>
       </div>
+      <SignUpModal></SignUpModal>
     </div>
   );
 };

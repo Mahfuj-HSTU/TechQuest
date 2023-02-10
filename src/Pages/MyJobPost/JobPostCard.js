@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { ServerLink } from '../../Hooks/useServerLink';
 
 const JobPostCard = ({ jobPost, refetch }) => {
     // console.log(jobPost)
@@ -11,7 +12,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
     const { user } = useContext(AuthContext);
 
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/recruiterJobPosts/${_id}`, {
+        fetch(`${ServerLink}/recruiterJobPosts/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -60,7 +61,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                     </div>
                     <p>{jobDescription}.</p>
                     <div>
-                        <Link to={`/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-error">Aplicant</button></Link>
+                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-error">Aplicant</button></Link>
                     </div>
                 </div>
             </div>

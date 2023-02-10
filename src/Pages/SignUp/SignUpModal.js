@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 const SignUpModal = () => {
   const navigate = useNavigate();
   const handleRecruiter = () => {
-    navigate("/recruiter");
+    navigate( "/auth/recruiter" );
   };
   const handleJobSeeker = () => {
-    navigate("/jobSeeker");
+    navigate( "/auth/jobSeeker" );
   };
   return (
     // <div>
@@ -24,17 +24,19 @@ const SignUpModal = () => {
     <div>
       <input type="checkbox" id="sign-up-modal" className="modal-toggle" />
       <div className="modal">
+
         <div className="modal-box">
-          <div className="grid grid-cols-1 gap-5">
+          <label htmlFor="sign-up-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+          <div className="grid grid-cols-1 gap-5 mt-6 mb-3">
             <label
-              onClick={handleRecruiter}
+              onClick={ handleRecruiter }
               htmlFor="sign-up-modal"
               className="btn btn-outline btn-info"
             >
               Recruiter
             </label>
             <label
-              onClick={handleJobSeeker}
+              onClick={ handleJobSeeker }
               htmlFor="sign-up-modal"
               className="btn btn-outline btn-info"
             >

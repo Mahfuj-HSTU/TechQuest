@@ -8,6 +8,7 @@ export const fetchAllUsers = createAsyncThunk( "users/fetchAllUsers", async () =
 } );
 
 export const UsersSlice = createSlice( {
+
     name: "users",
     initialState: {
         isLoading: false,

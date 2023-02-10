@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { ServerLink } from '../../../Hooks/useServerLink';
 
 const Notification = () => {
     const { user } = useContext(AuthContext);
@@ -8,7 +9,7 @@ const Notification = () => {
     const { data: Applicants = [], refetch } = useQuery({
         queryKey: ['Applicants', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/applicant?email=${user?.email}`)
+            const res = await fetch(`${ServerLink}/applicant?email=${user?.email}`)
             const data = await res.json()
             // console.log(data)
             return data
@@ -16,7 +17,7 @@ const Notification = () => {
     });
 
     const handleNotification = email => {
-        fetch(`http://localhost:5000/applicant/${email}`, {
+        fetch(`${ServerLink}/applicant/${email}`, {
             method: "PUT",
         })
             .then(res => res.json())
@@ -55,10 +56,11 @@ const Notification = () => {
                                 Applicants.length !== 0 && (
                                     <>
                                         <p onClick={() => handleNotification(user?.email)} className="text-xs">
-                                            <span className='text-red-600'>
-                                                {Applicants.length}
+                                            <span className='text-success'>
+                                                {Applicants.length} people applied for your job.
+
                                             </span>
-                                            people applied for your job.
+
                                         </p>
                                     </>
                                 )

@@ -4,7 +4,7 @@ const DevelopersCard = ({ developers }) => {
   //   console.log(developers);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">
+    <div className="grid grid-cols-1 md:grid-cols-3 -p-2 ">
       {developers.map((dev) => {
         // console.log(i);
         return (

@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllJobsView from "../../features/AllJobs/AllJobsView";
 import SingleJobView from "../../features/AllJobs/SingleJobView";
-import ContactNow from "../../features/AllJobSeekerCard/ContactNow";
 import AllJobSeekers from "../../features/AllJobSeekers/AllJobSeekers";
 import ApplyJobView from "../../features/ApplyJob/ApplyJobView";
 import { ServerLink } from "../../Hooks/useServerLink.jsx";
@@ -20,10 +19,9 @@ import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-// import JobSeekerRoute from '../JobSeekerRoute/JobSeekerRoute';
-// import Users from "../../Pages/AllUsers/Users/Users";
 import AllUsersView from "../../features/AllUsers/AllUsersView";
-import ShowApplicant from "../../Pages/ShowApplicant/ShowApplicant";
+import CoursePayment from "../../Pages/Courses/Course/CoursePayment";
+import ShowVideo from "../../Pages/Courses/Video/ShowVideos";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -80,15 +78,15 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/recruiter",
+        path: "/auth/recruiter",
         element: <Recruiter></Recruiter>,
       },
       {
-        path: "/jobSeeker",
+        path: "/auth/jobSeeker",
         element: <JobSeeker></JobSeeker>,
       },
       {
-        path: "/login",
+        path: "/auth/login",
         element: <Login></Login>,
       },
       {
@@ -104,16 +102,26 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Courses></Courses></PrivateRoute>,
       },
       {
+        path: "/courses/payment/:id",
+        element: <PrivateRoute><CoursePayment /></PrivateRoute>,
+      },
+      {
         path: "/courses/:id",
         element: <CourseDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
       },
+      // {
+      //   path: "/applicant/:id",
+      //   element: <ShowApplicant />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/applicant/${params.id}`),
+      // },
       {
-        path: "/applicant/:id",
-        element: <ShowApplicant />,
+        path: "/video/:id",
+        element: <ShowVideo />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/applicant/${params.id}`),
+          fetch(`http://localhost:5000/videos/${params.id}`),
       },
     ],
   },

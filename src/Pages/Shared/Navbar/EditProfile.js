@@ -7,8 +7,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const EditProfile = () => {
-  const [theme, setTheme] = useState("cupcake");
-  const { user, logOut } = useContext(AuthContext);
+  const [ theme, setTheme ] = useState( "light" );
+  const { user, logOut } = useContext( AuthContext );
   // console.log( user )
   const handleLogOut = () => {
     logOut().then().catch();
@@ -16,40 +16,40 @@ const EditProfile = () => {
 
   const handleMode = () => {
     // console.log( 'clicked' );
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme( theme === "dark" ? "light" : "dark" );
   };
-  useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
-  }, [theme]);
+  useEffect( () => {
+    document.querySelector( "html" ).setAttribute( "data-theme", theme );
+  }, [ theme ] );
 
   return (
     <div className="navbar-end mr-5">
-      {user?.email ? (
+      { user?.email ? (
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="inline-flex cursor-pointer m-1">
+          <label tabIndex={ 0 } className="inline-flex cursor-pointer m-1">
             <div className="avatar">
               <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src={user?.photoURL} alt="" />
+                <img src={ user?.photoURL } alt="" />
               </div>
             </div>
           </label>
           <ul
-            tabIndex={0}
+            tabIndex={ 0 }
             className="dropdown-content menu p-2 shadow-lg bg-base-100 rounded-box w-56"
           >
             <li>
               <div className="flex items-center p-2">
                 <img
-                  src={user?.photoURL}
+                  src={ user?.photoURL }
                   alt=""
                   className="w-12 h-12 rounded-full"
                 />
                 <div className="text-start font-semibold">
-                  {/* checking user has name or not */}
-                  {user?.displayName}
+                  {/* checking user has name or not */ }
+                  { user?.displayName }
                   <p>
                     <span className="text-xs hover:underline">
-                      {user?.email}
+                      { user?.email }
                     </span>
                   </p>
                 </div>
@@ -72,13 +72,13 @@ const EditProfile = () => {
                 <div className=" text-gray-500">
                   <FaPowerOff></FaPowerOff>
                 </div>
-                <span className="text-lg" onClick={handleLogOut}>
+                <span className="text-lg" onClick={ handleLogOut }>
                   Logout
                 </span>
               </Link>
               <div className="">
                 <input
-                  onClick={handleMode}
+                  onClick={ handleMode }
                   type="checkbox"
                   className="toggle mx-auto"
                 />
@@ -89,12 +89,12 @@ const EditProfile = () => {
       ) : (
         <div className="">
           <input
-            onClick={handleMode}
+            onClick={ handleMode }
             type="checkbox"
             className="toggle mx-auto"
           />
         </div>
-      )}
+      ) }
     </div>
   );
 };
