@@ -52,7 +52,7 @@ const CourseDetails = () => {
         </div>
       </div>
       {/* <ShowVideo></ShowVideo> */ }
-      <AddVideo></AddVideo>
+      {/* <AddVideo></AddVideo> */ }
     </div>
   );
 };

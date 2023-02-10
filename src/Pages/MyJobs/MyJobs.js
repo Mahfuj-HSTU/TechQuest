@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
-import MyJobDetails from './MyJobDetails/MyJobDetails';
-
+import MyjobModal from './MyjobModal/MyjobModal';
+import { ServerLink } from '../../Hooks/useServerLink';
 
 const MyJobs = () => {
   const { user } = useContext( AuthContext );
-  const url = `http://localhost:5000/applications?email=${ user?.email }`;
+
+  const [ myjob, setMyjob ] = useState( null );
+
+  const url = `${ ServerLink }/applications?email=${ user?.email }`;
 
   const { data: jobs = [] } = useQuery( {
     queryKey: [ "jobs", user?.email ],
@@ -22,18 +24,18 @@ const MyJobs = () => {
     },
   } );
   // console.log(jobs)
-  const showDetails =(e)=>{
-        console.log("clicked", e)
-  }
+  // const showDetails =(e)=>{
+  //       console.log("clicked", e)
+  // }
 
-    return (
-        <div className='mt-24 mb-16'>
-            <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold">My Applied Jobs</h3>
-            <div className="overflow-x-auto gap-4 lg:w-full md:table-fixed">
-                <table className="table w-full table-auto md:flex-row">
-                    <thead>
-                        <tr>
-                            <th></th>
+  return (
+    <div className='mt-24 mb-16'>
+      <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold">My Applied Jobs</h3>
+      <div className="overflow-x-auto gap-4 lg:w-full md:table-fixed">
+        <table className="table w-full table-auto md:flex-row">
+          <thead>
+            <tr>
+              <th></th>
 
               <th>Applied Post</th>
               <th>Job Type</th>
@@ -46,17 +48,29 @@ const MyJobs = () => {
             {
               jobs.map( ( job, i ) => <tr key={ job._id }>
                 <th>{ i + 1 }</th>
-
                 <td>{ job.job.jobTitle }</td>
                 <td>{ job.job.jobType }</td>
                 <td>{ job.job.location }</td>
-                <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td>
+                <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-modal-3" className="btn">details</label></button>
+
+                {/* <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td> */ }
 
               </tr> )
             }
           </tbody>
         </table>
+        {
+
+          myjob &&
+          <MyjobModal jobs={ jobs }
+            myjob={ myjob }
+            setMyjob={ setMyjob }
+          ></MyjobModal>
+
+        }
+
       </div>
+
     </div>
   );
 };

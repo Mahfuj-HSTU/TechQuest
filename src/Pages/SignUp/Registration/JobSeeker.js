@@ -3,22 +3,23 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useToken from "../../../Hooks/jwt/useToken";
+// import useToken from "../../../Hooks/jwt/useToken";
+import { ServerLink } from "../../../Hooks/useServerLink";
 
 const JobSeeker = () => {
   const [ error, setError ] = useState( "" );
-  const [ createdUserEmail, setCreatedUserEmail ] = useState( "" );
+  // const [ createdUserEmail, setCreatedUserEmail ] = useState( "" );
   const { register, handleSubmit, reset } = useForm();
   const { createUser, updateUser } = useContext( AuthContext );
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [ token ] = useToken( createdUserEmail );
+  // const [ token ] = useToken( createdUserEmail );
   const from = location.state?.from?.pathname || "/";
 
-  if ( token ) {
-    navigate( from, { replace: true } );
-  }
+  // if ( token ) {
+  //   navigate( from, { replace: true } );
+  // }
   // handle user create
   const imgApi = process.env.REACT_APP_imgbb;
 
@@ -62,7 +63,7 @@ const JobSeeker = () => {
           // save users
           const saveUsers = () => {
             const user = { name, email, institute, experience, address, photoUrl, role };
-            fetch( "http://localhost:5000/users", {
+            fetch( `${ ServerLink }/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -74,8 +75,9 @@ const JobSeeker = () => {
                 if ( data.acknowledged ) {
                   console.log( data );
                   toast.success( "Registration successful." );
-                  setCreatedUserEmail( user?.email );
-                  console.log( user );
+                  // setCreatedUserEmail( user?.email );
+                  // console.log( user );
+                  navigate( from, { replace: true } );
                 }
               } );
           };

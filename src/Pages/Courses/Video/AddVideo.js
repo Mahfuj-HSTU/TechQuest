@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ServerLink } from '../../../Hooks/useServerLink';
 // import { toast } from 'react-hot-toast';
 
 const VideoUpload = () => {
@@ -17,7 +18,7 @@ const VideoUpload = () => {
     console.log( video );
 
     const handleUpload = () => {
-        axios.post( 'http://localhost:5000/videos', { video } )
+        axios.post( `${ ServerLink }/videos`, { video } )
             .then( () => {
                 console.log( 'Video uploaded successfully' );
             } )
