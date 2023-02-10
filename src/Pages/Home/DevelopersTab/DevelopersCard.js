@@ -10,7 +10,7 @@ const DevelopersCard = ({ developers }) => {
         return (
           <div key={dev._id}>
             {/* {dev._id} */}
-            <div data-aos="fade-left" className="p-5 border  rounded-md w-auto mx-14 md:mx-5">
+            <div data-aos="fade-left" className="p-5 border  rounded-md w-auto">
               <div className=" h-[250px]">
                 <img className="w-full h-full" src={dev.img} alt="" />
               </div>
@@ -19,8 +19,11 @@ const DevelopersCard = ({ developers }) => {
                 <p>{`${dev.title} from ${dev.country}`}</p>
               </div>
               <div className="flex flex-wrap gap-3 mt-3">
-                {dev.skills.map((skill,i) => (
-                  <small key={i} className="bg-gray-200 px-2 rounded-lg font-semibold">
+                {dev.skills.map((skill, i) => (
+                  <small
+                    key={i}
+                    className="bg-gray-200 px-2 rounded-lg font-semibold"
+                  >
                     <span className="text-[#646464]">{skill}</span>
                   </small>
                 ))}
