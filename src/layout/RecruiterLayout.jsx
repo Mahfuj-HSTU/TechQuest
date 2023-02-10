@@ -8,7 +8,9 @@ const RecruiterLayout = () => {
       <div className="mb-20">
         <Navbar />
       </div>
+      <div className="max-w-[1240px] mx-auto">
       <Outlet />
+      </div>
     </div>
   );
 };

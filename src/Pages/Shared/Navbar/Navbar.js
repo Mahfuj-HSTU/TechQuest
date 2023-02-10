@@ -56,8 +56,8 @@ const Navbar = () => {
 
             <>
               <li className="font-semibold">
-                <Link to="/job-seeker/myjobs">My Jobs</Link>
-                <Link to="/courses">Courses</Link>
+                <Link to="/job-seeker/my-jobs">My Jobs</Link>
+                <Link to="/job-seeker/courses">Courses</Link>
               </li>
             </>
           ) }
@@ -131,9 +131,11 @@ const Navbar = () => {
             { menuItems }
           </ul>
         </div>
-        <div className="lg:navbar-end">
-          <Notification></Notification>
+        <div className="">
+         <div className="flex justify-center">
+         <Notification></Notification>
           <EditProfile></EditProfile>
+         </div>
         </div>
       </div>
       <SignUpModal></SignUpModal>
