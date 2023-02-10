@@ -40,9 +40,13 @@ const MyJobs = () => {
 
               <th>Applied Post</th>
               <th>Job Type</th>
+            <>
+              <th>Location </th>
+              <th>Job Status</th>
+              <th>Job Type</th>
               <th>Location </th>
               <th>Details</th>
-
+              </>
             </tr>
           </thead>
           <tbody>
@@ -53,9 +57,12 @@ const MyJobs = () => {
                 <td>{ job.job.jobTitle }</td>
                 <td>{ job.job.jobType }</td>
                 <td>{ job.job.location }</td>
+                <td>{ job.job.jobStatus }</td>
+                <td>{ job.job.jobType }</td>
+                <td>{ job.job.location }</td>
              
                <button  onClick={()=>setMyjob(job)}> <label htmlFor="my-modal-3" className="btn">details</label></button>
-             
+              
                 {/* <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td> */}
              
               </tr> )
