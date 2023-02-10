@@ -23,6 +23,7 @@ const SingleJobView = () => {
 		(state) => state
 		// (state) => state.applicationReducer
 	);
+	// console.log(data)
 	const { isLoading, error, applications } = data.applicationReducer;
 	const role = data.roleReducer.role.role;
 	//   console.log(role);
@@ -58,7 +59,8 @@ const SingleJobView = () => {
 		// console.log(job);
 		const applyInfo = {
 			job,
-			email: user.email,
+			email: user?.email,
+			notification: "true"
 		};
 		dispatch(addApply(applyInfo));
 		setApplied(!applied);

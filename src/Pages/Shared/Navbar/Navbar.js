@@ -6,6 +6,7 @@ import EditProfile from "./EditProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
+import Notification from "./Notification";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -124,6 +125,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
+        <Notification></Notification>
         <EditProfile></EditProfile>
         <SignUpModal></SignUpModal>
       </div>
