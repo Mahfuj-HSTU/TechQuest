@@ -4,40 +4,41 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useToken from "../../../Hooks/jwt/useToken";
 import { useForm } from "react-hook-form";
+import { ServerLink } from "../../../Hooks/useServerLink";
 
 const Recruiter = () => {
-  const [error, setError] = useState("");
-  const [createdRecruiterEmail, setRecruiterEmail] = useState("");
-  const { createUser, updateUser } = useContext(AuthContext);
+  const [ error, setError ] = useState( "" );
+  // const [ createdRecruiterEmail, setRecruiterEmail ] = useState( "" );
+  const { createUser, updateUser } = useContext( AuthContext );
   const navigate = useNavigate();
   const location = useLocation();
-  const [token] = useToken(createdRecruiterEmail);
+  // const [ token ] = useToken( createdRecruiterEmail );
   const { register, handleSubmit, reset } = useForm();
 
   const from = location.state?.from?.pathname || "/";
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  // if (token) {
+  //   navigate(from, { replace: true });
+  // }
 
   // handle user create
 
   const imgApi = process.env.REACT_APP_imgbb;
 
-  const onSubmit = (data) => {
-    const image = data.image[0];
-    console.log(image);
+  const onSubmit = ( data ) => {
+    const image = data.image[ 0 ];
+    console.log( image );
     const formData = new FormData();
-    formData.append("image", image);
-    const imgUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${imgApi}`;
+    formData.append( "image", image );
+    const imgUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${ imgApi }`;
 
-    fetch(imgUrl, {
+    fetch( imgUrl, {
       method: "POST",
       body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
+    } )
+      .then( ( res ) => res.json() )
+      .then( ( imgData ) => {
+        if ( imgData.success ) {
           const photoUrl = imgData.data.url;
           const name = data.name;
           const email = data.email;
@@ -46,42 +47,43 @@ const Recruiter = () => {
           const password = data.password;
           const role = "recruiter";
 
-          createUser(email, password)
-            .then((result) => {
+          createUser( email, password )
+            .then( ( result ) => {
               const user = result.user;
-              console.log(user);
-              updateUser({ displayName: name, photoURL: photoUrl });
+              console.log( user );
+              updateUser( { displayName: name, photoURL: photoUrl } );
               saveUsers();
               reset();
-              setError("");
-            })
-            .catch((error) => {
-              console.error(error);
-              setError(error.message);
-            });
+              setError( "" );
+            } )
+            .catch( ( error ) => {
+              console.error( error );
+              setError( error.message );
+            } );
 
           // save users
           const saveUsers = () => {
             const user = { name, email, company, address, photoUrl, role };
-            fetch("http://localhost:5000/users", {
+            fetch( `${ ServerLink }/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
               },
-              body: JSON.stringify(user),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.acknowledged) {
-                  console.log(data);
-                  toast.success("Registration successful.");
-                  setRecruiterEmail(user?.email);
-                  console.log(user);
+              body: JSON.stringify( user ),
+            } )
+              .then( ( res ) => res.json() )
+              .then( ( data ) => {
+                if ( data.acknowledged ) {
+                  console.log( data );
+                  toast.success( "Registration successful." );
+                  // setRecruiterEmail( user?.email );
+                  navigate( from, { replace: true } );
+                  // console.log( user );
                 }
-              });
+              } );
           };
         }
-      });
+      } );
   };
 
   //   const handleRegister = (event) => {
@@ -165,7 +167,7 @@ const Recruiter = () => {
     <div className="hero w-full my-24">
       <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 py-10">
         <h1 className="text-5xl text-center font-bold">Recruiter Register </h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <form onSubmit={ handleSubmit( onSubmit ) } className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Full Name</span>
@@ -173,7 +175,7 @@ const Recruiter = () => {
             <input
               type="text"
               name="name"
-              {...register("name", { required: true })}
+              { ...register( "name", { required: true } ) }
               placeholder="Enter your name"
               className="input input-bordered"
             />
@@ -186,12 +188,12 @@ const Recruiter = () => {
             <input
               type="email"
               name="email"
-              {...register("email", { required: true })}
+              { ...register( "email", { required: true } ) }
               placeholder="Enter your email"
               className="input input-bordered"
               required
             />
-            <p className="text-red-600 font-semibold">{error.slice(22, 45)}</p>
+            <p className="text-red-600 font-semibold">{ error.slice( 22, 45 ) }</p>
           </div>
 
           <div className="form-control">
@@ -201,7 +203,7 @@ const Recruiter = () => {
             <input
               type="file"
               name="photoUrl"
-              {...register("image", { required: true })}
+              { ...register( "image", { required: true } ) }
               placeholder="photo url"
               className="input pt-2 input-bordered"
             />
@@ -214,7 +216,7 @@ const Recruiter = () => {
             <input
               type="text"
               name="address"
-              {...register("address", { required: true })}
+              { ...register( "address", { required: true } ) }
               placeholder="your address"
               className="input input-bordered"
             />
@@ -227,7 +229,7 @@ const Recruiter = () => {
             <input
               type="text"
               name="company"
-              {...register("company", { required: true })}
+              { ...register( "company", { required: true } ) }
               placeholder="company name"
               className="input input-bordered"
             />
@@ -240,7 +242,7 @@ const Recruiter = () => {
             <input
               type="password"
               name="password"
-              {...register("password", { required: true })}
+              { ...register( "password", { required: true } ) }
               placeholder="password"
               className="input input-bordered"
               required
@@ -251,9 +253,9 @@ const Recruiter = () => {
             <input className="btn btn-primary" type="submit" value="Register" />
           </div>
         </form>
-        {/* if you are old user and you have an account */}
+        {/* if you are old user and you have an account */ }
         <p className="text-center">
-          Already have an account?{" "}
+          Already have an account?{ " " }
           <Link className="text-orange-600 font-bold" to="/auth/login">
             Login
           </Link>

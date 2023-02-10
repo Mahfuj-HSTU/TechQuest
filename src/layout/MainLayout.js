@@ -12,7 +12,7 @@ const MainLayout = () => {
       <div className="mx-auto">
         <Outlet />
       </div>
-      <div className="max-w-screen-xl mx-auto mt-10">
+      <div className="mx-auto mt-10">
         <Footer />
       </div>
     </div>

@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 const AllJobsView = () => {
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
-  console.log(state);
+  // console.log(state);
   const jobs = state.jobsReducer.jobs;
   const {role} = state.roleReducer.role;
 
@@ -54,7 +54,7 @@ const AllJobsView = () => {
                 to={
                   (role === "admin" && `/admin/job-details/${_id}`) ||
                   (role === "jobSeeker" && `/job-seeker/job-details/${_id}`) 
-                  // ||(`/auth/login`)
+                  ||(`/auth/login`)
                 }
               >
                 {openings <= 1 ? (

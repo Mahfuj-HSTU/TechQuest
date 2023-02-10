@@ -50,7 +50,7 @@ const CheckoutForm = ({ myOrderId }) => {
           .post(`${ServerLink}/courses/payment/${myOrderId}/${user?.email}`)
           .then((data) => {
             if (data.data.acknowledged) {
-              navigate("/courses");
+              navigate("/job-seeker/courses");
             }
           })
           .catch((e) => {

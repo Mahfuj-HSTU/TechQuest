@@ -153,7 +153,7 @@ const router = createBrowserRouter([
     children: [
       
       {
-        path: "/admin/courses",
+        path: "/courses",
         element: (
           <PrivateRoute>
             <Courses></Courses>
@@ -161,7 +161,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/admin/courses/payment/:id",
+        path: "/courses/payment/:id",
         element: (
           <PrivateRoute>
             <CoursePayment />
@@ -169,7 +169,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/admin/courses/:id",
+        path: "/courses/:id",
         element: <CourseDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
