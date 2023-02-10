@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { ServerLink } from '../../../Hooks/useServerLink';
 
 const EditProfileModal = () => {
     const { user } = useContext(AuthContext);
@@ -29,7 +30,7 @@ const EditProfileModal = () => {
         };
         // console.log(editProfile)
 
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`${ServerLink}/users/${user?.email}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
