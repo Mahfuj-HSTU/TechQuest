@@ -12,6 +12,7 @@ import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
 
+
 const Home = () => {
   return (
     <div>
@@ -28,6 +29,7 @@ const Home = () => {
         <Events></Events>
         <LatestNews />
         <WeAreSpecialist />
+    
       </div>
     </div>
   );

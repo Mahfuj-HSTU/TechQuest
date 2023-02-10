@@ -3,10 +3,14 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import MyJobDetails from './MyJobDetails/MyJobDetails';
+import MyjobModal from './MyjobModal/MyjobModal';
 
 
 const MyJobs = () => {
   const { user } = useContext( AuthContext );
+
+  const [myjob,setMyjob]= useState(null);
+
   const url = `http://localhost:5000/applications?email=${ user?.email }`;
 
   const { data: jobs = [] } = useQuery( {
@@ -22,9 +26,9 @@ const MyJobs = () => {
     },
   } );
   // console.log(jobs)
-  const showDetails =(e)=>{
-        console.log("clicked", e)
-  }
+  // const showDetails =(e)=>{
+  //       console.log("clicked", e)
+  // }
 
     return (
         <div className='mt-24 mb-16'>
@@ -50,13 +54,27 @@ const MyJobs = () => {
                 <td>{ job.job.jobTitle }</td>
                 <td>{ job.job.jobType }</td>
                 <td>{ job.job.location }</td>
-                <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td>
-
+             
+               <button  onClick={()=>setMyjob(job)}> <label htmlFor="my-modal-3" className="btn">details</label></button>
+             
+                {/* <td> <Link to={ `/job-seeker/myjob-details/${ job._id }` }><button className="btn btn-primary">Details</button></Link></td> */}
+             
               </tr> )
             }
           </tbody>
         </table>
+       { 
+
+      myjob &&
+       <MyjobModal jobs={jobs}
+        myjob={myjob}
+       setMyjob={setMyjob}
+        ></MyjobModal>
+        
+        }
+        
       </div>
+      
     </div>
   );
 };
