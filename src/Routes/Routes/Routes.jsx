@@ -27,6 +27,7 @@ import JobSeekerLayout from '../../layout/JobSeekerLayout';
 import RecruiterLayout from '../../layout/RecruiterLayout';
 import AdminLayout from '../../layout/AdminLayout';
 import AuthenticationLayout from '../../layout/AuthenticationLayout';
+import ShowApplicant from '../../Pages/ShowApplicant/ShowApplicant';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -105,7 +106,7 @@ const router = createBrowserRouter([
 				path: '/job-seeker/courses/:id',
 				element: <CourseDetails />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(`${ServerLink}/courses/${params.id}`),
 			},
 		],
 	},
@@ -142,6 +143,12 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 			},
+			{
+				path: "/recruiter/applicant/:id",
+				element: <ShowApplicant />,
+				loader: ({ params }) =>
+					fetch(`${ServerLink}/applicant/${params.id}`),
+			},
 		],
 	},
 	{
@@ -169,7 +176,7 @@ const router = createBrowserRouter([
 				path: '/admin/courses/:id',
 				element: <CourseDetails />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(`${ServerLink}/courses/${params.id}`),
 			},
 			{
 				path: '/admin/job-details/:id',
@@ -230,7 +237,7 @@ const router = createBrowserRouter([
 				path: '/common/courses/:id',
 				element: <CourseDetails />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(`${ServerLink}/courses/${params.id}`),
 			},
 		],
 	},
