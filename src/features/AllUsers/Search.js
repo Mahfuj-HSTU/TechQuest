@@ -9,7 +9,7 @@ const Search = ( { filteredSearch, setSelected, handleDelete } ) => {
                 <thead className="text-center">
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th className="hidden lg:block">Email</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -20,7 +20,7 @@ const Search = ( { filteredSearch, setSelected, handleDelete } ) => {
                         filteredSearch.map( user =>
                             <tr className='border-2'>
                                 <td className='border-2 font-semibold'><label htmlFor="my-modal" className="link link-primary" onClick={ () => setSelected( user ) }>{ user.name }</label></td>
-                                <td className='border-2'>{ user.email }</td>
+                                <td className='hidden lg:block'>{ user.email }</td>
                                 <td className='border-2'>{ user.role }</td>
                                 <td className='border-2 text-center'>
                                     <button onClick={ () => handleDelete( user ) } className='btn btn-outline btn-error rounded-lg'>Delete</button>
