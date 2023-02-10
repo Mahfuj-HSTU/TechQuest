@@ -21,7 +21,7 @@ const AllJobsView = () => {
   }, [dispatch, user?.email]);
 
   return (
-    <div className="mt-20 mx-10 ">
+    <div className="mt-20 max-w-[1240px] mx-auto">
       <h1 className="text-3xl font-bold text-left">
         Find your dream job abroad or remote
       </h1>
