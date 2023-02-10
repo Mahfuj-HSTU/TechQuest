@@ -8,6 +8,7 @@ import MyjobModal from './MyjobModal/MyjobModal';
 
 const MyJobs = () => {
   const { user } = useContext( AuthContext );
+
   const [myjob,setMyjob]= useState(null);
 
   const url = `http://localhost:5000/applications?email=${ user?.email }`;
