@@ -16,9 +16,9 @@ const EmployersCategories = () => {
       data-aos="fade-up"
       className="grid grid-cols-1 md:grid-cols-2 gap-3 whitespace-nowrap mt-12 mx-2 p-2 my-10"
     >
-      {categories.map((category, i) => (
+      { categories.map( ( category, i ) => (
         <div
-          key={i}
+          key={ i }
           className="rounded-lg border bg-[#F2F6F9] transition duration-300 gap-4"
         >
           <div className="rounded-lg flex items-center justify-center gap-5 p-5 hover:bg-sky-500 hover:shadow-xl hover:text-white w-auto">
@@ -36,9 +36,9 @@ const EmployersCategories = () => {
                 />
               </svg>
             </span>
-            {/* 9071+ Javascript Engineers */}
+            {/* 9071+ Javascript Engineers */ }
             <span className="text-gray text-xl font-bold text-center hover:text-white">
-              {category}
+              { category }
             </span>
             <span className="rounded-full hover:text-white-700 focus:outline-none transition duration-300 hover:text-white">
               <svg
@@ -58,7 +58,7 @@ const EmployersCategories = () => {
             </span>
           </div>
         </div>
-      ))}
+      ) ) }
       {/* <div className="rounded-2xl hover:rounded-lg  border-2 border-slate-400 transition duration-300 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2 gap-4 hover:bg-sky-500  hover:text-purple-900 hover:shadow-xl ">
         <h5 className="text-gray text-2xl font-bold leading-none m-4 text-center">
           <button href="javascript" className=" m-2 rounded-full   text-black ">
