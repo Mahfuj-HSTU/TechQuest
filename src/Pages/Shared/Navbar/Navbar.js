@@ -77,11 +77,10 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-center shadow-lg bg-white shadow-sky-200 fixed h-16 top-0 z-30 left-0 right-0 mx-auto backdrop-blur-lg rounded-md tracking-tighter">
-
+      <div className="navbar justify-center shadow-lg bg-white fixed h-16 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
         <div className="">
           <div className="dropdown">
-            <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
+            <label tabIndex={ 0 } className="btn btn-ghost md:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -104,8 +103,7 @@ const Navbar = () => {
               { menuItems }
             </u>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            { " " }
+          <Link to="/" className="btn btn-ghost">
             <svg
               className="w-8 text-deep-purple-accent-400"
               viewBox="0 0 24 24"
@@ -121,12 +119,12 @@ const Navbar = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="ml-1 text-xl font-bold tracking-wide text-gray-800 uppercase">
               TechQuest
             </span>
           </Link>
         </div>
-        <div className="lg:mx-52 hidden lg:flex">
+        <div className="hidden md:flex">
           <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
             { menuItems }
           </ul>
