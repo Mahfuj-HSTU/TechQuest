@@ -12,7 +12,7 @@ const CourseCard = ( { course } ) => {
                 <div className="text-start">
                     <h3 className="my-7 text-3xl">{ title }</h3>
                 </div>
-                <Link className='btn btn-info w-1/2 text-decoration-none text-dark fs-5 fw-semibold' to={ `/courses/${ _id }` }>More details</Link>
+                <Link className='btn btn-info w-1/2 text-decoration-none text-dark fs-5 fw-semibold' to={ `/admin/courses/${ _id }` }>More details</Link>
             </div>
         </div>
     );
