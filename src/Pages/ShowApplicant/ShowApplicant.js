@@ -13,6 +13,7 @@ const ShowApplicant = () => {
                             <table className="table table-compact w-full border-2 shadow-lg">
                                 <thead className="text-center">
                                     <tr>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Job Title</th>
@@ -24,7 +25,16 @@ const ShowApplicant = () => {
 
                                         applicants.map(applicant =>
                                             <tr className=' border-2 bg-red-300'>
-                                                <td className='border-2 font-semibold'> {applicant?.name} </td>
+                                                <td className='border-2 font-semibold'>
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img src={applicant?.photoUrl} alt="Avatar Tailwind CSS Component" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className='border-2 font-semibold'>
+                                                    {applicant?.name}
+                                                </td>
                                                 <td className='border-2'>{applicant?.email}</td>
                                                 <td className='border-2'>{applicant?.job?.jobTitle}</td>
                                                 {/* <td className='border-2 text-center'>

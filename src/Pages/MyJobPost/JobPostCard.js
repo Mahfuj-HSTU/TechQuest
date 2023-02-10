@@ -36,11 +36,11 @@ const JobPostCard = ({ jobPost, refetch }) => {
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
-                            <h1 className='text-2xl font-semibold text-info'>{jobTitle}</h1>
+                            <h1 className='text-2xl font-semibold text-primary'>{jobTitle}</h1>
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="my-modal-3" className='text-2xl cursor-pointer'> <AiFillDelete></AiFillDelete></label>
+                        <label htmlFor="my-modal-3" className='text-2xl cursor-pointer text-red-600'> <AiFillDelete></AiFillDelete></label>
                         <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                         <div className="modal">
                             <div className="modal-box relative">
@@ -61,7 +61,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                     </div>
                     <p>{jobDescription}.</p>
                     <div>
-                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-error">Aplicant</button></Link>
+                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-primary">Aplicant</button></Link>
                     </div>
                 </div>
             </div>
