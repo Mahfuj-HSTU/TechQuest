@@ -32,8 +32,8 @@ const Navbar = () => {
           { role === admin && (
             <>
               <li className="font-medium">
-                <Link to="/courses">Courses</Link>
-                <Link to="/users">All Users</Link>
+                <Link to="admin/courses">Courses</Link>
+                <Link to="admin/users">All Users</Link>
               </li>
             </>
 
@@ -133,9 +133,8 @@ const Navbar = () => {
         <div className="lg:navbar-end">
           <EditProfile></EditProfile>
         </div>
-    
       </div>
-       <SignUpModal></SignUpModal>
+      <SignUpModal></SignUpModal>
     </div>
   );
 };

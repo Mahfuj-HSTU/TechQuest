@@ -81,7 +81,7 @@ const AllUsersView = () => {
                         {
 
                             users.map( user =>
-                                <tr className='border-2'>
+                                <tr key={ user?._id } className='border-2'>
                                     <td className='border-2 font-semibold'><label htmlFor="my-modal" className="link link-primary" onClick={ () => setSelected( user ) }>{ user.name }</label></td>
                                     <td className='border-2'>{ user.email }</td>
                                     <td className='border-2'>{ user.role }</td>
