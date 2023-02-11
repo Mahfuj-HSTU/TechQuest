@@ -17,9 +17,9 @@ const LookingJobs = () => {
         Apply for jobs now
       </Link>
       {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:grid-cols-7 justify-items-center my-14"> */}
-      <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-items-center my-14">
+      <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-items-center justify-content-center my-14">
         <div>
-          <h3 className=" font-bold text-md whitespace-nowrap">Trusted <span  className="bg-neutral p-1 rounded-md ">by 600+</span> companies</h3>
+          <h3 className=" font-bold text-md whitespace-nowrap">Trusted <span className="bg-neutral p-1 rounded-md ">by 600+</span> companies</h3>
         </div>
         <div className="flex justify-center">
           <img src={skipLogo} alt="" />
