@@ -27,11 +27,11 @@ const Courses = () => {
 
   return (
     <div>
-      <div className="flex justify-center mx-10">
-        <h1 className="text-4xl font-semibold flex-grow underline">All Courses</h1>
+      <div className="flex justify-center ">
+        <h1 className="text-4xl font-semibold flex-grow underline my-10">All Courses</h1>
         { state === 'admin' && <AddCourse /> }
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mx-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 mx-5">
         { courses.map( ( course ) => (
           <CourseCard key={ course._id } course={ course }></CourseCard>
         ) ) }
