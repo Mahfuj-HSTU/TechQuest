@@ -1,8 +1,8 @@
 import React from "react";
 
 const LifeEasier = () => {
-  return (
-    <div data-aos="fade-up" className=" my-32 w-[85%] mx-auto">
+  return (///data-aos="fade-up"
+    <div  className=" my-32 w-[90%] mx-auto shadow-lg p-5 rounded-md">
       <div className="lg:flex">
         <div className="lg:w-[50%] w-11/12 lg:text-start m-1 lg:my-40 my-20">
           <h1 className="text-4xl font-bold">
