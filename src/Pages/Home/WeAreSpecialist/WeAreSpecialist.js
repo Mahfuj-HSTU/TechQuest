@@ -2,8 +2,10 @@ import React from "react";
 
 const WeAreSpecialist = () => {
   return (
-    <div data-aos="fade-up" className="mt-10 ">
-      <div className="bg-primary rounded-lg shadow-lg mx-2 h-72 lg:h-64 items-center flex flex-col justify-center gap-6">
+    <div 
+    data-aos="fade-up" 
+    className="mt-10 ">
+      <div className="bg-primary rounded-lg shadow-lg mx-2 h-72 lg:h-96 items-center flex flex-col justify-center gap-6">
         <p className="text-3xl font-semibold text-white w-3/4">
           We are specialists in finding candidates for the hardest tech roles!
         </p>
