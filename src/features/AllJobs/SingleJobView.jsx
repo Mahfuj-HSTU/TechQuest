@@ -71,7 +71,7 @@ const SingleJobView = () => {
 	};
 
 	return (
-		<div>
+		<div className='max-w-[1240px] mx-auto'>
 			{isLoading && <Loading />}
 			{error && <div className='text-red-600'>{error}</div>}
 			{job && (
