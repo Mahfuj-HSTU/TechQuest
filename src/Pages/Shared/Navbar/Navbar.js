@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-center shadow-lg bg-white fixed h-16 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
+      <div className="navbar justify-evenly shadow-lg bg-white fixed h-16 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost md:hidden">
