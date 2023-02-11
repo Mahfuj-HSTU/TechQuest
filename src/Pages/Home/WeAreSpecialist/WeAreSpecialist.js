@@ -2,21 +2,17 @@ import React from "react";
 
 const WeAreSpecialist = () => {
   return (
-    <div data-aos="fade-up" className="mt-10">
-      {/* <div className="bg-sky-600 rounded-lg w-4/5 mx-auto items-center">
-        <div className="h-24 w-24 rounded-full bg-sky-600 border border-white">
-
-        </div>
-        <div className="avatar top-7">
-          <div className="w-80 rounded-full ring ring-white opacity-75">
-          </div>
-        </div>
-      </div> */}
-      <div className="bg-sky-600 rounded-lg mx-2 h-72 lg:h-64 items-center flex flex-col justify-center gap-6">
-        <p className="text-3xl font-bold text-white w-3/4">
+    <div data-aos="fade-up" className="mt-10 ">
+      <div className="bg-primary rounded-lg shadow-lg mx-2 h-72 lg:h-64 items-center flex flex-col justify-center gap-6">
+        <p className="text-3xl font-semibold text-white w-3/4">
           We are specialists in finding candidates for the hardest tech roles!
         </p>
-        <button className="btn bg-white text-black">get started</button>
+        <label
+          htmlFor="sign-up-modal"
+          className="btn bg-white text-black border-none transition duration-300 hover:shadow-lg"
+        >
+          get started
+        </label>
       </div>
     </div>
   );
