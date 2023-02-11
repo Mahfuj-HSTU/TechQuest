@@ -21,7 +21,7 @@ const Banner = () => {
 
   return (
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 mt-20  justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-md bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg shadow-sky-200">
+    <div className="grid grid-cols-1 mt-20  justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-md bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg">
       {/* left side of the banner // from-[#7209B7] */}
       <div className="flex flex-col mt-20 md:t-0 gap-5 mx-5 top-0">
         <div className="tabs gap-5 mb-5">
@@ -81,7 +81,7 @@ const Banner = () => {
             </p>
             <Link
               to="/auth/recruiter"
-              className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2"
+              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Get Started
             </Link>
@@ -95,7 +95,7 @@ const Banner = () => {
             <small className="text-lg">Remote & International Positions</small>
             <Link
               to="/all-jobs"
-              className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2"
+              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Apply
             </Link>
@@ -111,7 +111,7 @@ const Banner = () => {
         </div>
       )}
       {startHiring && (
-        <div className="">
+        <div className="md:mt-10">
           <Lottie animationData={animation}></Lottie>
         </div>
       )}

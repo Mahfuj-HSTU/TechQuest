@@ -19,7 +19,7 @@ const MyJobPost = () => {
 
 
     return (
-        <div className='lg:mt-24 mt-20 grid lg:grid-cols-4 md:grid-cols-3 gap-5'>
+        <div className='lg:mt-24 mt-20 grid lg:grid-cols-4 md:grid-cols-3 mx-5 gap-5'>
             <div className='lg:col-span-3 md:col-span-2 text-left'>
                 <>
                     {

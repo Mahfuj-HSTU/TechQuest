@@ -6,10 +6,10 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const MainLayout = () => {
   return (
     <div className="mx-auto">
-      <div className="mb-10">
+      <div className="mb-24">
         <Navbar />
       </div>
-      <div className="mx-auto">
+      <div className="mx-auto  ml-1 mr-1">
         <Outlet />
       </div>
       <div className="mx-auto mt-10">
