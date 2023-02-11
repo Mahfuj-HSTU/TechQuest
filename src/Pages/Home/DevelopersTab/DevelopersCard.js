@@ -4,15 +4,15 @@ const DevelopersCard = ({ developers }) => {
   //   console.log(developers);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 -p-2 ">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-3 -p-2 ">
       {developers.map((dev) => {
         // console.log(i);
         return (
           <div key={dev._id}>
             {/* {dev._id} */}
-            <div data-aos="fade-left" className="p-5 border  rounded-md w-auto">
+            <div data-aos="fade-left" className="p-3 border  rounded-md w-auto shadow-lg">
               <div className=" h-[250px]">
-                <img className="w-full h-full" src={dev.img} alt="" />
+                <img className="w-full h-full rounded-md" src={dev.img} alt="" />
               </div>
               <div>
                 <h3 className="text-xl my-4 font-bold">{dev.name}</h3>

@@ -5,9 +5,9 @@ const GetCandidateForm = () => {
   return (
     <div
       data-aos="fade-up"
-      className="bg-primary mt-12 p-12 lg:h-96  lg:flex md:flex"
+      className="bg-primary mt-12 p-12 md:h-[500px]  flex flex-col md:flex-row gap-5 shadow-lg items-center"
     >
-      <div className="col-75 justify-center items-center mt-14  md:w-full  responsive1">
+      <div className="col-75 justify-center items-center   md:w-full  responsive1">
         <h1 className="lg:text-4xl md:text-3xl font-semibold text-white mx-auto">
           We have the tech talent
           <br />
@@ -38,7 +38,7 @@ const GetCandidateForm = () => {
             <div className="">
               <input
                 type="submit"
-                className="rounded-full btn bg-black text-white "
+                className="rounded-full border-none btn bg-black text-white "
                 value="Get Candidate"
               />
             </div>

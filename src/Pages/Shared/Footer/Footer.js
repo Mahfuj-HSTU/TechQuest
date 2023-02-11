@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="m-5">
-      <footer className="footer p-2 bg-slate-200 rounded-md text-left">
+    <div className="m-5 shadow-lg p-5 border">
+      <footer className="footer p-2  rounded-md text-left">
         <div className="w-52 text-left">
           <p className="text-xl font-bold">Connecting Cultures Through Codes</p>
           <div className="text-xl flex flex-row gap-6 my-3">
@@ -19,9 +19,9 @@ const Footer = () => {
             <BsInstagram />
             <FaFacebookSquare />
           </div>
-          <div className="w-24 flex">
+          <div className="w-24 flex items-center">
             <img src={ img1 } alt="" />
-            <img src={ img2 } alt="" />
+            <img  className="w-20 h-20" src={ img2 } alt="" />
           </div>
         </div>
         <div className=" text-slate-400">
