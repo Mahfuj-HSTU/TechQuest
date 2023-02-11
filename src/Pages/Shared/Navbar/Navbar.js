@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link to="/auth/login">Login</Link>
           </li>
           <li className="font-semibold">
-            <label htmlFor="sign-up-modal">Sign Up</label>
+            <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
           </li>
         </>
       ) }
@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-center shadow-lg bg-white fixed h-16 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
+      <div className="navbar justify-evenly shadow-lg bg-white fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost md:hidden">
@@ -129,12 +129,12 @@ const Navbar = () => {
             { menuItems }
           </ul>
         </div>
-        <div className="">
+        { user?.email && <div className="">
           <div className="flex justify-center">
             <Notification></Notification>
             <EditProfile></EditProfile>
           </div>
-        </div>
+        </div>}
       </div>
       <SignUpModal></SignUpModal>
     </div>
