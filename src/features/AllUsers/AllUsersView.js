@@ -53,12 +53,12 @@ const AllUsersView = () => {
 
 
     return (
-        <div className="mt-20 mx-10 ">
-            <div className='flex justify-between mb-5 py-2 px-4 bg-slate-300 rounded-lg'>
+        <div className="mt-20  mx-3 md:mx-12 lg:mx-10 ">
+            <div className='lg:flex lg:justify-between mb-5 py-2 px-4 bg-slate-300 rounded-lg'>
                 <h2 className='text-4xl mb-4'>All Users</h2>
-                <form onSubmit={ handleSearch } className="flex justify-between gap-4">
-                    <input type="text" placeholder="search" name='search' className="input input-bordered max-w-2xl rounded-xl" />
-                    <input className="btn btn-primary rounded-xl" type="submit" value="Submit" />
+                <form onSubmit={ handleSearch } className="flex justify-between gap-4 ">
+                    <input type="text" placeholder="search" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5" />
+                    <input className="btn btn-primary rounded-xl " type="submit" value="Submit" />
                 </form>
             </div>
             <div>
@@ -72,18 +72,17 @@ const AllUsersView = () => {
                     <thead className="text-center">
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th className="hidden lg:block">Email</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-
                             users.map( user =>
-                                <tr className='border-2'>
+                                <tr key={ user?._id } className='border-2'>
                                     <td className='border-2 font-semibold'><label htmlFor="my-modal" className="link link-primary" onClick={ () => setSelected( user ) }>{ user.name }</label></td>
-                                    <td className='border-2'>{ user.email }</td>
+                                    <td className='hidden lg:block'>{ user.email }</td>
                                     <td className='border-2'>{ user.role }</td>
                                     <td className='border-2 text-center'>
                                         <button onClick={ () => handleDelete( user ) } className='btn btn-outline btn-error rounded-lg'>Delete</button>

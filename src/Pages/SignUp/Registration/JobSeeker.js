@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import useToken from "../../../Hooks/jwt/useToken";
+// import useToken from "../../../Hooks/jwt/useToken";
 import { ServerLink } from "../../../Hooks/useServerLink";
 
 const JobSeeker = () => {

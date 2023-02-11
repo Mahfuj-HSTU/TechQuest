@@ -1,31 +1,32 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { ServerLink } from '../../Hooks/useServerLink';
 
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
-    const { user } = useContext( AuthContext );
+    const { user } = useContext(AuthContext);
 
-    const { data: MyJobPost = [], refetch } = useQuery( {
-        queryKey: [ 'MyJobPost', user?.email ],
+    const { data: MyJobPost = [], refetch } = useQuery({
+        queryKey: ['MyJobPost', user?.email],
         queryFn: async () => {
-            const res = await fetch( `http://localhost:5000/recruiterJobPosts?email=${ user?.email }` )
+            const res = await fetch(`${ServerLink}/recruiterJobPosts?email=${user?.email}`)
             const data = await res.json()
             return data
         }
-    } );
+    });
 
 
     return (
-        <div className='lg:mt-24 mt-20 grid lg:grid-cols-4 md:grid-cols-3 gap-5'>
+        <div className='lg:mt-24 mt-20 grid lg:grid-cols-4 md:grid-cols-3 mx-5 gap-5'>
             <div className='lg:col-span-3 md:col-span-2 text-left'>
                 <>
                     {
                         MyJobPost.length !== 0 ? (
                             <>
                                 {
-                                    MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost } refetch={ refetch }></JobPostCard> )
+                                    MyJobPost.map(jobPost => <JobPostCard key={jobPost._id} jobPost={jobPost} refetch={refetch}></JobPostCard>)
                                 }
                             </>
                         ) : <h1 className=' text-4xl font-semibold text-center'>No post done yet</h1>

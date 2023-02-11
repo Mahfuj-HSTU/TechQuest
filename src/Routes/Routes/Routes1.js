@@ -22,7 +22,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AllUsersView from "../../features/AllUsers/AllUsersView";
 import CoursePayment from "../../Pages/Courses/Course/CoursePayment";
 import ShowVideo from "../../Pages/Courses/Video/ShowVideos";
-const router = createBrowserRouter( [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -47,7 +47,7 @@ const router = createBrowserRouter( [
       {
         path: "/job-details/:id",
         element: <SingleJobView />,
-        loader: ( { params } ) => fetch( `${ ServerLink }/job-details/${ params.id }` )
+        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`)
       },
       {
         path: "/applications",
@@ -73,8 +73,8 @@ const router = createBrowserRouter( [
       {
         path: "/myjob-details/:id",
         element: <MyJobDetails />,
-        loader: ( { params } ) =>
-          fetch( `${ ServerLink }/applications/${ params.id }` ),
+        loader: ({ params }) =>
+          fetch(`${ServerLink}/applications/${params.id}`),
       },
 
       {
@@ -108,17 +108,23 @@ const router = createBrowserRouter( [
       {
         path: "/courses/:id",
         element: <CourseDetails />,
-        loader: ( { params } ) =>
-          fetch( `http://localhost:5000/courses/${ params.id }` ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
       },
+      // {
+      //   path: "/applicant/:id",
+      //   element: <ShowApplicant />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/applicant/${params.id}`),
+      // },
       {
         path: "/video/:id",
         element: <ShowVideo />,
-        loader: ( { params } ) =>
-          fetch( `http://localhost:5000/videos/${ params.id }` ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/videos/${params.id}`),
       },
     ],
   },
-] );
+]);
 
 export default router;

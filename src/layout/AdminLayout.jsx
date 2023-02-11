@@ -5,7 +5,7 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const AdminLayout = () => {
   return (
     <div>
-      <div className="mb-20">
+      <div className="mb-24">
         <Navbar />
       </div>
       <div className="max-w-[1240px] mx-auto">

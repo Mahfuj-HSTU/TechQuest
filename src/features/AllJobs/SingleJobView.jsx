@@ -23,9 +23,10 @@ const SingleJobView = () => {
 		(state) => state
 		// (state) => state.applicationReducer
 	);
+	// console.log(data)
 	const { isLoading, error, applications } = data.applicationReducer;
 	const role = data.roleReducer.role.role;
-	//   console.log(role);
+	console.log(data.roleReducer.role);
 
 	// checking if user is applied or not
 	const isApplied = useIsApplied(applications, jobs._id);
@@ -58,7 +59,10 @@ const SingleJobView = () => {
 		// console.log(job);
 		const applyInfo = {
 			job,
-			email: user.email,
+			email: user?.email,
+			name: data?.roleReducer?.role?.name,
+			photoUrl: data?.roleReducer?.role?.photoUrl,
+			notification: "true"
 		};
 		dispatch(addApply(applyInfo));
 		setApplied(!applied);
