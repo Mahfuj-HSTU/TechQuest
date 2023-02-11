@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import RemoveCourse from "../RemoveCourse/RemoveCourse";
-import AddVideo from "../Video/AddVideo";
+// import AddVideo from "../Video/AddVideo";
 // import ShowVideo from "../Video/ShowVideos";
 
 const CourseDetails = () => {
