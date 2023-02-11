@@ -30,7 +30,7 @@ const DevelopersCard = ({ developers }) => {
               </div>
 
               <div className="my-6">
-                <button className="btn border text-[#0675CE] border-[#0675CE] w-full btn-outline font-bold hover:text-white hover:bg-[#0675CE]">
+                <button className="btn border text-primary border-primary w-full bg-white outline-accent font-bold hover:text-white hover:bg-accent">
                   {" "}
                   Sign Up To See Profile
                 </button>
