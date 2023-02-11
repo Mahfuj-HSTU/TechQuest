@@ -16,7 +16,7 @@ const ApplyJobView = () => {
 
   return (
     <div className="my-20 ">
-      <h1>MY JOBS</h1>
+      <h1 className="txt-2xl">All jobs from application collection</h1>
 
       <div className="flex gap-5 justify-center my-5">
         <button className="btn btn-primary">Primary</button>
