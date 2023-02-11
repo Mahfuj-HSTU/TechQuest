@@ -11,7 +11,6 @@ const AllJobsView = () => {
   const state = useSelector((state) => state);
   // console.log(state);
   const jobs = state.jobsReducer.jobs;
-  const { role } = state.roleReducer.role;
 
   const dispatch = useDispatch();
 
