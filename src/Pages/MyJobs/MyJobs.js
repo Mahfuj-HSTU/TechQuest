@@ -40,8 +40,10 @@ const MyJobs = () => {
               <th>Applied Post</th>
               <th>Job Type</th>
               <th>Location </th>
+              <th>Job Status</th>
+              <th>Experience</th>
+              <th>Openings</th>
               <th>Details</th>
-
             </tr>
           </thead>
           <tbody>
