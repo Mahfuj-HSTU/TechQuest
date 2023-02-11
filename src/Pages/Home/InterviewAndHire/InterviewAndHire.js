@@ -3,7 +3,7 @@ import React from 'react';
 
 const InterviewAndHire = () => {
     return (
-        <section data-aos="fade-up" className="py-10 bg-gray-50 sm:py-12 lg:py-16">
+        <section data-aos="fade-up" className="py-10 bg-gray-50 sm:py-12 lg:py-16 shadow-lg">
             <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className="grid items-center md:grid-cols-2 gap-y-10">
                     <div className="pr-12 sm:pr-0">

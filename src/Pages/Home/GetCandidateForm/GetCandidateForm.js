@@ -4,8 +4,8 @@ import React from "react";
 const GetCandidateForm = () => {
   return (
     <div
-      data-aos="fade-up"
-      className="bg-primary mt-12 p-12 lg:h-96  lg:flex md:flex"
+      // data-aos="fade-up"
+      className="bg-primary mt-12 p-12 lg:h-96  lg:flex md:flex shadow-lg"
     >
       <div className="col-75 justify-center items-center mt-14  md:w-full  responsive1">
         <h1 className="lg:text-4xl md:text-3xl font-semibold text-white mx-auto">
