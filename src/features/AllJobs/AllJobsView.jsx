@@ -21,8 +21,8 @@ const AllJobsView = () => {
   }, [dispatch, user?.email]);
 
   return (
-    <div className="mt-20 max-w-[1240px] mx-auto">
-      <h1 className="text-3xl font-bold text-left">
+    <div className="mt-24 mx-5">
+      <h1 className="text-4xl font-bold text-left">
         Find your dream job abroad or remote
       </h1>
       <SearchOption />
@@ -47,7 +47,7 @@ const AllJobsView = () => {
             <div
               key={_id}
               data-aos="fade-up"
-              className="text-left border rounded-lg my-5 p-5 w-3/4 shadow-lg hover:shadow-2xl"
+              className="text-left border rounded-lg my-5 p-5 w-full md:w-3/4 shadow-lg hover:shadow-2xl"
             >
               <Link
                 state={job}
