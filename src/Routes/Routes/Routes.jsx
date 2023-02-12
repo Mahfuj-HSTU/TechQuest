@@ -43,6 +43,11 @@ const router = createBrowserRouter([
 				element: <AllJobsView />,
 			},
 			{
+				path: '/job-details/:id',
+				element: <SingleJobView />,
+				loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
+			},
+			{
 				path: '/EditProfile',
 				element: <EditProfileModal />,
 			},
@@ -79,11 +84,6 @@ const router = createBrowserRouter([
 						<ApplyJobView />
 					</PrivateRoute>
 				),
-			},
-			{
-				path: '/job-seeker/job-details/:id',
-				element: <SingleJobView />,
-				loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
 			},
 
 			{
@@ -177,11 +177,6 @@ const router = createBrowserRouter([
 				element: <CourseDetails />,
 				loader: ({ params }) =>
 					fetch(`${ServerLink}/courses/${params.id}`),
-			},
-			{
-				path: '/admin/job-details/:id',
-				element: <SingleJobView />,
-				loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
 			},
 			{
 				path: '/admin/users',
