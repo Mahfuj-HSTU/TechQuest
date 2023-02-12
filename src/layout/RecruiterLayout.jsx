@@ -9,7 +9,7 @@ const RecruiterLayout = () => {
         <Navbar />
       </div>
       <div className="max-w-[1240px] mx-auto">
-      <Outlet />
+        <Outlet />
       </div>
     </div>
   );
