@@ -15,35 +15,54 @@ const Review = () => {
   return (
     <div data-aos="fade-up" className="mx-10">
       <Swiper
-        slidesPerView={ 3 }
-        spaceBetween={ 10 }
-        pagination={ {
+        slidesPerView={1}
+        centeredSlides={false}
+        slidesPerGroupSkip={1}
+        grabCursor={true}
+        keyboard={{
+          enabled: true,
+        }}
+        breakpoints={{
+          760: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            slidesPerGroup: 2,
+          },
+          1140: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            slidesPerGroup: 3,
+          },
+        }}
+        scrollbar={true}
+        navigation={true}
+        pagination={{
           clickable: true,
-        } }
-        modules={ [ Pagination ] }
+        }}
+        modules={[Pagination]}
         className="mySwiper"
       >
-        { [ 1, 2, 3, 4, 5 ].map( ( review, i ) => (
-          <SwiperSlide key={ i }>
+        {[1, 2, 3, 4, 5].map((review, i) => (
+          <SwiperSlide key={i}>
             <div className="my-16 lg:h-56 border-2 rounded-lg p-3 divide-y divide-black shadow-md">
               <div className="flex flex-col lg:flex-row gap-5 items-center ">
                 <img
-                  src={ reviewInfo.img }
+                  src={reviewInfo.img}
                   className="rounded-full w-16 my-2"
                   alt=""
                 />
                 <div className="flex flex-col items-start">
-                  <p className="font-bold">{ reviewInfo.userName }</p>
-                  <p>{ reviewInfo.duration }</p>
+                  <p className="font-bold">{reviewInfo.userName}</p>
+                  <p>{reviewInfo.duration}</p>
                   <div className="flex rating rating-sm p-1">
                     <input
                       type="radio"
-                      name="rating-6"
+                      name="rating-5"
                       className="mask mask-star-2 bg-orange-400"
                     />
                     <input
                       type="radio"
-                      name="rating-6"
+                      name="rating-2"
                       className="mask mask-star-2 bg-orange-400"
                     />
                     <input
@@ -54,23 +73,23 @@ const Review = () => {
                     />
                     <input
                       type="radio"
-                      name="rating-6"
+                      name="rating-3"
                       className="mask mask-star-2 bg-orange-400"
                     />
                     <input
                       type="radio"
-                      name="rating-6"
+                      name="rating-1"
                       className="mask mask-star-2 bg-orange-400"
                     />
                   </div>
                 </div>
               </div>
               <div>
-                <p className="my-2 text-left">{ reviewInfo.text }</p>
+                <p className="my-2 text-left">{reviewInfo.text}</p>
               </div>
             </div>
           </SwiperSlide>
-        ) ) }
+        ))}
       </Swiper>
     </div>
   );
