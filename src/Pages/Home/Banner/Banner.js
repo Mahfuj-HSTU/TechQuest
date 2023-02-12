@@ -81,7 +81,7 @@ const Banner = () => {
             </p>
             <Link
               to="/auth/recruiter"
-              className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2"
+              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Get Started
             </Link>
@@ -95,7 +95,7 @@ const Banner = () => {
             <small className="text-lg">Remote & International Positions</small>
             <Link
               to="/all-jobs"
-              className="bg-white text-black p-3 rounded-md text-center font-bold w-1/2"
+              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Apply
             </Link>
