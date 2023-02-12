@@ -77,10 +77,10 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-evenly shadow-lg bg-white fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
+      <div className="navbar justify-between shadow-lg bg-white fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
         <div className="">
           <div className="dropdown">
-            <label tabIndex={ 0 } className="btn btn-ghost md:hidden">
+            <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -124,7 +124,7 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
             { menuItems }
           </ul>
