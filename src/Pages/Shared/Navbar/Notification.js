@@ -47,7 +47,7 @@ const Notification = () => {
             </label>
             <ul
                 tabIndex={0}
-                data-aos="fade-left"
+                data-aos="fade-up"
                 className="dropdown-content menu p-2 shadow-lg bg-base-100 rounded-box w-56"
             >
                 <li>
