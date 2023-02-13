@@ -90,7 +90,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto ">
+      <div className="navbar justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg tracking-tighter mx-auto ">
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
@@ -132,7 +132,7 @@ const Navbar = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-1 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="ml-1 text-xl font-bold tracking-wide uppercase">
               TechQuest
             </span>
           </Link>
