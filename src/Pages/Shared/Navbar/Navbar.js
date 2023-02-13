@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 import Notification from "./Notification";
+import './navbar.css'
 
 const Navbar = () => {
   const { user } = useContext( AuthContext );
@@ -62,24 +63,34 @@ const Navbar = () => {
             </>
           ) }
         </>
-      ) 
-      // : (
-      //   <>
-      //     <li className="font-semibold">
-      //       <Link to="/auth/login">Login</Link>
-      //     </li>
-      //     <li className="font-semibold">
-      //       <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
-      //     </li>
-      //   </>
-      // )
-       }
+      )
+        // : (
+        //   <>
+        //     <li className="font-semibold">
+        //       <Link to="/auth/login">Login</Link>
+        //     </li>
+        //     <li className="font-semibold">
+        //       <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
+        //     </li>
+        //   </>
+        // )
+      }
     </>
   );
 
+  window.onscroll = function () {
+    if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ) {
+      document.querySelector( ".customNavbar" ).classList.add( "customNavbar-scrolled" );
+      // console.log( 'check' );
+    } else {
+      document.querySelector( ".customNavbar" ).classList.remove( "customNavbar-scrolled" );
+    }
+  };
+
+
   return (
     <div>
-      <div className="navbar justify-evenly shadow-lg bg-white fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
+      <div className="navbar justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto ">
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
@@ -137,12 +148,12 @@ const Navbar = () => {
             <EditProfile></EditProfile>
           </div>
         </div>
-      :
-      <div className="font-semibold flex gap-1">
-            <Link to="/auth/login" className="btn bg-white border-none hover:bg-gray-200 rounded-full px-4">Login</Link>
+          :
+          <div className="font-semibold flex gap-1">
+            <Link to="/auth/login" className="btn customNavbar border-none hover:bg-gray-200 rounded-full px-4">Login</Link>
             <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-full px-4 text-white">Get Started</label>
-        </div>  
-      }
+          </div>
+        }
       </div>
       <SignUpModal></SignUpModal>
     </div>
