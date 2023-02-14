@@ -23,7 +23,7 @@ const SignUpModal = () => {
     // </div>
     <div>
       <input type="checkbox" id="sign-up-modal" className="modal-toggle" />
-      <div className="modal bg-transparent backdrop-blur-sm">
+      <div className="modal bg-transparent backdrop-brightness-50">
         <div className="modal-box">
           <label htmlFor="sign-up-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
           <div className="grid grid-cols-1 gap-5 mt-6 mb-3">
