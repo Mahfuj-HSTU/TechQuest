@@ -90,7 +90,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg tracking-tighter mx-auto ">
+      <div className="navbar justify-evenly md:justify-between lg:justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg mx-auto ">
         <div className="">
           <div className="dropdown">
             <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
@@ -111,7 +111,7 @@ const Navbar = () => {
             </label>
             <u
               tabIndex={ 0 }
-              className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52"
+              className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52  text-black"
             >
               { menuItems }
             </u>
@@ -142,7 +142,7 @@ const Navbar = () => {
             { menuItems }
           </ul>
         </div>
-        { user?.email ? <div className="">
+        { user?.email ? <div className="text-black">
           <div className="flex justify-center">
             <Notification></Notification>
             <EditProfile></EditProfile>
