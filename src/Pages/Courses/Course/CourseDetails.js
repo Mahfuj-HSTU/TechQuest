@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
+import AddVideo from "../AddCourse/AddVideo";
 import RemoveCourse from "../RemoveCourse/RemoveCourse";
 // import AddVideo from "../Video/AddVideo";
 // import ShowVideo from "../Video/ShowVideos";
@@ -50,6 +51,7 @@ const CourseDetails = () => {
             <b>Our Experienced Instructors : </b> { instructor }
           </p>
         </div>
+        <AddVideo id={_id}/>
       </div>
       {/* <ShowVideo></ShowVideo> */ }
       {/* <AddVideo></AddVideo> */ }
