@@ -11,9 +11,8 @@ const StartHiring = () => {
             <div className="mb-6 text-center lg:text-left">
               <div className="">
                 <p
-                  style={{ whiteSpace: "nowrap" }}
-                  className="inline-block px-3 mb-4 text-xl font-semibold tracking-wider uppercase bg-green-300  rounded-full "
-                >
+                  style={ { whiteSpace: "nowrap" } }
+                  className="inline-block px-1 lg:px-3 mb-4 text-lg font-semibold tracking-wider uppercase bg-green-300  rounded-full ">
                   Hire The Best Professionals
                 </p>
               </div>
@@ -39,8 +38,8 @@ const StartHiring = () => {
           </div>
           <div className="flex items-center justify-center lg:w-1/2">
             <div>
-              <div style={{ marginTop: "-20px" }} className="animation">
-                <Lottie animationData={animation}></Lottie>
+              <div style={ { marginTop: "-20px" } } className="animation">
+                <Lottie animationData={ animation }></Lottie>
               </div>
             </div>
           </div>
