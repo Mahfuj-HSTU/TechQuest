@@ -27,6 +27,7 @@ const Navbar = () => {
         <Link to="/">Features</Link>
         <Link to="/all-jobs">All Jobs</Link>
         <Link to="/about">About Us</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
       { user?.email ? (
         <>
