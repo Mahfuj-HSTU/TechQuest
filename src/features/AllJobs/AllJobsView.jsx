@@ -5,8 +5,29 @@ import { fetchAllJobs } from "./AllJobsSlice";
 import SearchOption from "../Search/SearchOptionView";
 import { fetchRole } from "../../Hooks/Role/useRoleSlice";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import { ServerLink } from "../../Hooks/useServerLink";
+import EnrolmentCourse from "../../Pages/Courses/EnrolmentCourse/EnrolmentCourse";
 
 const AllJobsView = () => {
+
+// const dispatch = useDispatch();
+  // const { user } = useContext( AuthContext );
+  // const state = useSelector( state => state.roleReducer.role.role )
+  // // console.log(state);
+
+  // useEffect( () => {
+  //   dispatch( fetchRole( user?.email ) );
+  // }, [ dispatch, user?.email ] );
+
+  const { data: courses = [] } = useQuery( {
+    queryKey: [ "courses" ],
+    queryFn: () =>
+      fetch( `${ ServerLink }/courses` ).then( ( res ) => res.json() ),
+  } );
+  console.log( courses );
+
+
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
   // console.log(state);
@@ -21,12 +42,15 @@ const AllJobsView = () => {
 
   return (
     <div className="mt-24 max-w-[1240px] mx-auto">
-      <div className="mx-5">
+      <div className="mx-5 ">
         <h1 className="text-4xl font-bold text-left">
           Find your dream job abroad or remote
         </h1>
         <SearchOption />
-        {jobs &&
+          
+          <div className="flex">
+              <div className="w-full">
+              {jobs &&
           jobs.map((job) => {
             const {
               _id,
@@ -44,10 +68,11 @@ const AllJobsView = () => {
             } = job;
 
             return (
+            <div className="lg:mt-24 mt-20  mx-5 gap-5">
               <div
                 key={_id}
                 data-aos="fade-up"
-                className="text-left border rounded-lg my-5 p-5 w-full md:w-3/4 shadow-lg hover:shadow-2xl"
+                className="text-left border rounded-lg my-5 p-5  shadow-lg hover:shadow-2xl"
               >
                 <Link state={job} to={`/job-details/${_id}`}>
                   {openings <= 1 ? (
@@ -90,8 +115,30 @@ const AllJobsView = () => {
                   </div>
                 </Link>
               </div>
+
+             
+
+       
+          </div>
             );
           })}
+  
+              </div>
+
+              <div className="w-2/5 ">
+              <div className='md:col-span-1 hidden lg:inline md:inline '>
+               {
+                courses.map(course => <EnrolmentCourse course={course}></EnrolmentCourse>
+                  // console.log(course , "course");
+                   )
+                 } 
+            </div>
+              </div>
+          </div>
+
+        
+         
+
       </div>
     </div>
   );
