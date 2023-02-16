@@ -44,6 +44,8 @@ const JobSeeker = () => {
           const institute = data.institute;
           const address = data.address;
           const password = data.password;
+          const title = data.title;
+          const skills = data.skills;
           const role = "jobSeeker";
 
           createUser( email, password )
@@ -62,7 +64,7 @@ const JobSeeker = () => {
 
           // save users
           const saveUsers = () => {
-            const user = { name, email, institute, experience, address, photoUrl, role };
+            const user = { name, email, institute, experience, address, photoUrl, role, title, skills };
             fetch( `${ ServerLink }/users`, {
               method: "POST",
               headers: {
@@ -210,6 +212,32 @@ const JobSeeker = () => {
               name="institute"
               { ...register( "institute", { required: true } ) }
               placeholder="Your Institute"
+              className="input input-bordered"
+            />
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Title</span>
+            </label>
+            <input
+              type="text"
+              name="title"
+              { ...register( "title", { required: true } ) }
+              placeholder="front-end developer"
+              className="input input-bordered"
+            />
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">skills</span>
+            </label>
+            <input
+              type="text"
+              name="skills"
+              { ...register( "skills", { required: true } ) }
+              placeholder="HTML, CSE, React"
               className="input input-bordered"
             />
           </div>
