@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ServerLink } from "../../Hooks/useServerLink";
 import { fetchAllUsers } from "./AllUsersSlice";
 import Search from "./Search";
 import UsersDetails from "./UsersDetails";
@@ -20,7 +21,7 @@ const AllUsersView = () => {
     const handleDelete = user => {
         const agree = window.confirm( `Are sure, you want to delete: ${ user.name }` )
         if ( agree ) {
-            fetch( `http://localhost:5000/users/${ user._id }`, {
+            fetch( `${ ServerLink }/users/${ user._id }`, {
                 method: 'DELETE'
             } )
                 .then( res => res.json() )

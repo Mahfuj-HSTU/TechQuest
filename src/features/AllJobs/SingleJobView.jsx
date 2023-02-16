@@ -64,14 +64,14 @@ const SingleJobView = () => {
 			address: data?.roleReducer?.role?.address,
 			photoUrl: data?.roleReducer?.role?.photoUrl,
 			experience: data?.roleReducer?.role?.experience,
-			notification: "true"
+			notification: 'true',
 		};
 		dispatch(addApply(applyInfo));
 		setApplied(!applied);
 	};
 
 	return (
-		<div className='max-w-[1240px] mx-auto'>
+		<div className='max-w-[1240px] mx-auto mt-24'>
 			{isLoading && <Loading />}
 			{error && <div className='text-red-600'>{error}</div>}
 			{job && (
@@ -154,17 +154,25 @@ const SingleJobView = () => {
 								des={jobDescription}></RemoveJob>
 						) : (
 							<>
-								{isApplied === true ? (
-									<p className='text-white font-semibold bg-sky-400 rounded-lg w-20 px-3 py-4 hover:bg-red-400'>
-										Applied
-									</p>
+								{role === 'jobSeeker' ? (
+									<>
+										{isApplied === true ? (
+											<p className='text-white font-semibold bg-sky-400 rounded-lg w-20 px-3 py-4 hover:bg-red-400'>
+												Applied
+											</p>
+										) : (
+											<button
+												onClick={() => handleApply()}
+												className='btn btn-info btn-outline'
+												disabled={applied}>
+												Apply Now
+											</button>
+										)}
+									</>
 								) : (
-									<button
-										onClick={() => handleApply()}
-										className='btn'
-										disabled={applied}>
-										Apply Now
-									</button>
+									<h2 className='text-xl font-semibold mt-10 text-green-600'>
+										Logged in as a employee to apply the job
+									</h2>
 								)}
 							</>
 						)}

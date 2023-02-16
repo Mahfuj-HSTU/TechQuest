@@ -1,34 +1,23 @@
-import React, { useContext, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchAllJobs } from "./AllJobsSlice";
-import SearchOption from "../Search/SearchOptionView";
-import { fetchRole } from "../../Hooks/Role/useRoleSlice";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
-import { ServerLink } from "../../Hooks/useServerLink";
-import EnrolmentCourse from "../../Pages/Courses/EnrolmentCourse/EnrolmentCourse";
+import React, { useContext, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchAllJobs } from './AllJobsSlice';
+import SearchOption from '../Search/SearchOptionView';
+import { fetchRole } from '../../Hooks/Role/useRoleSlice';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const AllJobsView = () => {
-  const { data: courses = [] } = useQuery( {
-    queryKey: [ "courses" ],
-    queryFn: () =>
-      fetch( `${ ServerLink }/courses` ).then( ( res ) => res.json() ),
-  } );
-  // console.log( courses );
+	const { user } = useContext(AuthContext);
+	const state = useSelector((state) => state);
+	// console.log(state);
+	const jobs = state.jobsReducer.jobs;
 
+	const dispatch = useDispatch();
 
-  const { user } = useContext(AuthContext);
-  const state = useSelector((state) => state);
-  // console.log(state);
-  const jobs = state.jobsReducer.jobs;
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllJobs());
-    dispatch(fetchRole(user?.email));
-  }, [dispatch, user?.email]);
+	useEffect(() => {
+		dispatch(fetchAllJobs());
+		dispatch(fetchRole(user?.email));
+	}, [dispatch, user?.email]);
 
   return (
     <div className="mt-24 max-w-[1240px] mx-auto">
@@ -86,7 +75,7 @@ const AllJobsView = () => {
                       </div>
                     </div>
 
-                    {/* <div className="justify-end">
+										{/* <div className="justify-end">
                     <RemoveJob id={_id} title={jobTitle} des={jobDescription} openings={openings}/>
                   </div> */}
                   </div>
