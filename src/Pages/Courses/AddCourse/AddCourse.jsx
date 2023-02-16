@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { fetchAddCourse } from "../AddCourseSlice";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddCourse = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch =  useDispatch();
 
   const handleAddCourse = (e) => {
@@ -14,14 +14,15 @@ const AddCourse = () => {
     const description = form.description.value;
     const instructor = form.instructor.value;
     const image = form.image.value;
+    const videoUrl = form.video.value;
     const price = form.price.value;
     const courseInfo = {
-        title, description, instructor, image,price
+        title, description, instructor, image,price, videoUrl
     }
 
     dispatch(fetchAddCourse(courseInfo))
     // console.log(courseInfo);
-    // navigate('/')
+    navigate('/')
   };
 
   return (
@@ -73,6 +74,13 @@ const AddCourse = () => {
                 name="image"
                 className="input input-bordered w-full"
                 placeholder="course image link"
+              />
+              {/* course video link */}
+              <input
+                type="text"
+                name="video"
+                className="input input-bordered w-full"
+                placeholder="course video link"
               />
               {/* course price */}
               <input
