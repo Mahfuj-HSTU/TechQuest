@@ -5,19 +5,10 @@ import { toast } from 'react-hot-toast';
 
 export const fetchAddCourse = createAsyncThunk('addCourse/fetchAddCourse', async (courseInfo) => {
     // console.log('add course: ', courseInfo);
-    const res = await axios.post(`${ServerLink}/add-course/${courseInfo.title}/${courseInfo.description}/${courseInfo.instructor}/${courseInfo.image}/${courseInfo.price}`);
-    // const res = await fetch(`${ServerLink}/add-course`,{
-    //     method: 'post',
-    //     body: JSON.stringify(courseInfo),
-    //     headers:{
-    //         'Content-type': 'application/json',
-    //     },
-    // });
-    // const data = await res.json();
+    const res = await axios.post(`${ServerLink}/add-course`,courseInfo);
     if (res.data.acknowledged) {
         toast.success('Course added')
     }
-    // console.log('add course post: ',res.data);
     return res.data;
 });
 
