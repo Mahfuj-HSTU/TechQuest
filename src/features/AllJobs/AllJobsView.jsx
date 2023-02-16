@@ -10,22 +10,12 @@ import { ServerLink } from "../../Hooks/useServerLink";
 import EnrolmentCourse from "../../Pages/Courses/EnrolmentCourse/EnrolmentCourse";
 
 const AllJobsView = () => {
-
-// const dispatch = useDispatch();
-  // const { user } = useContext( AuthContext );
-  // const state = useSelector( state => state.roleReducer.role.role )
-  // // console.log(state);
-
-  // useEffect( () => {
-  //   dispatch( fetchRole( user?.email ) );
-  // }, [ dispatch, user?.email ] );
-
   const { data: courses = [] } = useQuery( {
     queryKey: [ "courses" ],
     queryFn: () =>
       fetch( `${ ServerLink }/courses` ).then( ( res ) => res.json() ),
   } );
-  console.log( courses );
+  // console.log( courses );
 
 
   const { user } = useContext(AuthContext);
@@ -115,20 +105,16 @@ const AllJobsView = () => {
                   </div>
                 </Link>
               </div>
-
-             
-
-       
           </div>
             );
           })}
   
               </div>
 
-              <div className="w-2/5 ">
+              <div className="w-3/5 mt-16">
               <div className='md:col-span-1 hidden lg:inline md:inline '>
                {
-                courses.map(course => <EnrolmentCourse course={course}></EnrolmentCourse>
+                courses.map(course => <EnrolmentCourse key={course._id} course={course}></EnrolmentCourse>
                   // console.log(course , "course");
                    )
                  } 
