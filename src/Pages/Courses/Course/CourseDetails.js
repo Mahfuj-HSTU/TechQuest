@@ -15,7 +15,8 @@ const CourseDetails = () => {
   const role = useSelector((state) => state.roleReducer.role.role);
   // console.log(state);
 
-  const { title, img, description, instructor, price, _id } = course;
+  const { title, img, description, instructor, price, _id, videoUrl  } = course;
+  // console.log(course);
   useEffect(() => {
     dispatch(fetchRole(user?.email));
   }, [dispatch, user?.email]);
@@ -49,7 +50,7 @@ const CourseDetails = () => {
             <b>Our Experienced Instructors : </b> {instructor}
           </p>
         </div>
-        <PlayVideo />
+        {videoUrl && <PlayVideo videoUrl={videoUrl} />}
       </div>
     </div>
   );
