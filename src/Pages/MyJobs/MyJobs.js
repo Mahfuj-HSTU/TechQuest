@@ -54,7 +54,6 @@ const MyJobs = () => {
               <th>Applied Post</th>
               <th>Job Type</th>
               <th>Location </th>
-             
               <th>Details</th>
             </tr>
           </thead>

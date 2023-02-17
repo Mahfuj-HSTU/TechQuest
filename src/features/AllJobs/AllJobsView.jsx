@@ -1,35 +1,32 @@
-import React, { useContext, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchAllJobs } from './AllJobsSlice';
-import SearchOption from '../Search/SearchOptionView';
-import { fetchRole } from '../../Hooks/Role/useRoleSlice';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import React, { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchAllJobs } from "./AllJobsSlice";
+import SearchOption from "../Search/SearchOptionView";
+import { fetchRole } from "../../Hooks/Role/useRoleSlice";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const AllJobsView = () => {
-	const { user } = useContext(AuthContext);
-	const state = useSelector((state) => state);
-	// console.log(state);
-	const jobs = state.jobsReducer.jobs;
+  const { user } = useContext(AuthContext);
+  const state = useSelector((state) => state);
+  // console.log(state);
+  const jobs = state.jobsReducer.jobs;
 
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(fetchAllJobs());
-		dispatch(fetchRole(user?.email));
-	}, [dispatch, user?.email]);
+  useEffect(() => {
+    dispatch(fetchAllJobs());
+    dispatch(fetchRole(user?.email));
+  }, [dispatch, user?.email]);
 
   return (
     <div className="mt-24 max-w-[1240px] mx-auto">
-      <div className="mx-5 ">
+      <div className="mx-5">
         <h1 className="text-4xl font-bold text-left">
           Find your dream job abroad or remote
         </h1>
         <SearchOption />
-          
-          <div className="flex">
-              <div className="w-full">
-              {jobs &&
+        {jobs &&
           jobs.map((job) => {
             const {
               _id,
@@ -47,11 +44,10 @@ const AllJobsView = () => {
             } = job;
 
             return (
-            <div className="lg:mt-24 mt-20  mx-5 gap-5">
               <div
                 key={_id}
                 data-aos="fade-up"
-                className="text-left border rounded-lg my-5 p-5  shadow-lg hover:shadow-2xl"
+                className="text-left border rounded-lg my-5 p-5 w-full md:w-3/4 shadow-lg hover:shadow-2xl"
               >
                 <Link state={job} to={`/job-details/${_id}`}>
                   {openings <= 1 ? (
@@ -75,7 +71,7 @@ const AllJobsView = () => {
                       </div>
                     </div>
 
-										{/* <div className="justify-end">
+                    {/* <div className="justify-end">
                     <RemoveJob id={_id} title={jobTitle} des={jobDescription} openings={openings}/>
                   </div> */}
                   </div>
@@ -94,26 +90,8 @@ const AllJobsView = () => {
                   </div>
                 </Link>
               </div>
-          </div>
             );
           })}
-  
-              </div>
-
-              <div className="w-3/5 mt-16">
-              <div className='md:col-span-1 hidden lg:inline md:inline '>
-               {
-                courses.map(course => <EnrolmentCourse key={course._id} course={course}></EnrolmentCourse>
-                  // console.log(course , "course");
-                   )
-                 } 
-            </div>
-              </div>
-          </div>
-
-        
-         
-
       </div>
     </div>
   );
