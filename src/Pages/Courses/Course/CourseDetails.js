@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { fetchAllPayment } from "../../../features/CoursePayment/AllPaymentSlice";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import RemoveCourse from "../RemoveCourse/RemoveCourse";
 import PlayVideo from "../Video/PlayVideo";
@@ -13,12 +14,21 @@ const CourseDetails = () => {
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
   const role = useSelector((state) => state.roleReducer.role.role);
-  // console.log(state);
+  const details = useSelector((state) => state.allPaymentReducer.payments);
+  // console.log(details);
 
-  const { title, img, description, instructor, price, _id, videoUrl  } = course;
+  const { title, img, description, instructor, price, _id, videoUrl } = course;
+  
+  // checking logged in user is made payment
+  const paid = details?.map(detail => 
+    (_id === detail.course_id && user?.email === detail.email)
+  )
+  console.log(paid);
+
   // console.log(course);
   useEffect(() => {
     dispatch(fetchRole(user?.email));
+    dispatch(fetchAllPayment());
   }, [dispatch, user?.email]);
 
   return (
@@ -50,7 +60,9 @@ const CourseDetails = () => {
             <b>Our Experienced Instructors : </b> {instructor}
           </p>
         </div>
-        {videoUrl && <PlayVideo videoUrl={videoUrl} />}
+        <div>
+          {videoUrl && <PlayVideo videoUrl={videoUrl} />}
+        </div>
       </div>
     </div>
   );
