@@ -11,11 +11,11 @@ const EnrolmentModal = ({course}) => {
                 <div className="modal-box relative">
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <figure><img src={img} alt="course" /></figure>
-                    <h3 className="text-lg font-bold overline underline text-indigo-300">{title}</h3>
-                    <p className="py-4 leading-3 text-amber-500">Instructors: {instructor}</p>
-                    <p className="py-4 leading-3"></p>
-                    <p className='py-4 leading-3'>Price : {price}</p>
-                    <p className="py-4 text-sm ">{description }</p>
+                    <h3 className="text-xl font-bold overline underline text-info">{title}</h3>
+                    <p className="py-4  text-black">Instructors: {instructor}</p>
+
+                    <p className='py-4 text-primary font-bold'>Price : {price}</p>
+                    <p className="py-4 text-sm  ">{description }</p>
                 </div>
             </div>
         </>
