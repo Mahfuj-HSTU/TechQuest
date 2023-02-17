@@ -1,0 +1,74 @@
+.container {
+    height: 30%;
+    width: 30%;
+    border-radius: 4px solid black
+  }
+  
+  .p {
+    position: absolute;
+    /* font-size: .5rem; */
+    font-family: sans-serif;
+    font-weight: bold;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  
+  @media only screen and (min-width: 500px) {
+    .p {
+      font-size: 3rem;
+    }
+  }
+  
+  @media only screen and (min-width: 700px) {
+    .p {
+      font-size: 3rem;
+    }
+  }
+  
+  .p1 {
+    text-shadow: 1px 1px 1px black, -1px -1px 1px black;
+    color: cyan;
+  }
+  
+  .p2 {
+    color: chocolate;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    animation: text-animation 3s ease-in-out forwards alternate infinite;
+    text-shadow: 1px 1px 1px black, -1px -1px 1px black;
+  }
+  
+  .p3 {
+    height: 20%;
+    color: transparent;
+  }
+  
+  @keyframes text-animation {
+    from {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    to {
+      clip-path: polygon(0 0, 0% 1%, 0% 100%, 0% 100%);
+    }
+  }
+  
+  .cursor {
+    position: absolute;
+    top: 50%;
+    height: 30%;
+    width: 30%;
+    transform: translate(0, -50%);
+    border-right: 2px solid red;
+    animation: cursor-animation 3s ease-in-out forwards alternate infinite;
+  }
+  
+  @keyframes cursor-animation {
+    from {
+      width: 50%;
+    }
+    to {
+      width: 0;
+    }
+  }
+  

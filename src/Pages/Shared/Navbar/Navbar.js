@@ -8,19 +8,30 @@ import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 import Notification from "./Notification";
 import './navbar.css'
+import EditProfileModal from "./EditProfileModal";
 
 const Navbar = () => {
   const { user } = useContext( AuthContext );
-  const role = useSelector( ( state ) => state.roleReducer.role.role );
+  const details = useSelector( ( state ) => state.roleReducer.role );
+  const role = details.role
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
-  // console.log( role )
+  console.log( role )
 
   useEffect( () => {
     user?.email && dispatch( fetchRole( user?.email ) );
   }, [ dispatch, user?.email ] );
+
+
+  // const { data: details = [], refetch } = useQuery( {
+  //   queryKey: [ 'details' ],
+  //   queryFn: () => fetch( `${ ServerLink }/users/${ user?.email }` )
+  //     .then( res => res.json() )
+  // } )
+  console.log( details );
+
 
   const menuItems = (
     <>
@@ -149,13 +160,16 @@ const Navbar = () => {
           </div>
         </div>
           :
-          <div className="font-semibold flex gap-1">
-            <Link to="/auth/login" className="btn customNavbar border-none hover:bg-gray-200 rounded-full px-4">Login</Link>
-            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-full px-4 text-white">Get Started</label>
+          <div className="font-semibold flex gap-4">
+            <Link to="/auth/login" className=" border-none hover:bg-gray-200 rounded-lg px-4 py-2 ">Login</Link>
+            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
           </div>
         }
       </div>
       <SignUpModal></SignUpModal>
+      {
+        user?.email && <EditProfileModal details={ details } ></EditProfileModal>
+      }
     </div>
   );
 };
