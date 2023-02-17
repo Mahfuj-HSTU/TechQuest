@@ -8,19 +8,30 @@ import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 import Notification from "./Notification";
 import './navbar.css'
+import EditProfileModal from "./EditProfileModal";
 
 const Navbar = () => {
   const { user } = useContext( AuthContext );
-  const role = useSelector( ( state ) => state.roleReducer.role.role );
+  const details = useSelector( ( state ) => state.roleReducer.role );
+  const role = details.role
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
-  // console.log( role )
+  console.log( role )
 
   useEffect( () => {
     user?.email && dispatch( fetchRole( user?.email ) );
   }, [ dispatch, user?.email ] );
+
+
+  // const { data: details = [], refetch } = useQuery( {
+  //   queryKey: [ 'details' ],
+  //   queryFn: () => fetch( `${ ServerLink }/users/${ user?.email }` )
+  //     .then( res => res.json() )
+  // } )
+  console.log( details );
+
 
   const menuItems = (
     <>
@@ -156,6 +167,9 @@ const Navbar = () => {
         }
       </div>
       <SignUpModal></SignUpModal>
+      {
+        user?.email && <EditProfileModal details={ details } ></EditProfileModal>
+      }
     </div>
   );
 };
