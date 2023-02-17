@@ -91,7 +91,7 @@ const Notification = () => {
             <ul
                 tabIndex={0}
                 data-aos="fade-left"
-                className="dropdown-content menu shadow-lg bg-base-100 rounded-box w-72 "
+                className="dropdown-content menu shadow-lg bg-base-100 rounded-box w-72"
             >
                 {
                     Applicants.length > 0 &&
