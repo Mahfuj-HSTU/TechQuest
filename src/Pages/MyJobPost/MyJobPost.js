@@ -6,16 +6,16 @@ import { ServerLink } from '../../Hooks/useServerLink';
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext( AuthContext );
 
-    const { data: MyJobPost = [], refetch } = useQuery({
-        queryKey: ['MyJobPost', user?.email],
+    const { data: MyJobPost = [], refetch } = useQuery( {
+        queryKey: [ 'MyJobPost', user?.email ],
         queryFn: async () => {
-            const res = await fetch(`${ServerLink}/recruiterJobPosts?email=${user?.email}`)
+            const res = await fetch( `${ ServerLink }/recruiterJobPosts?email=${ user?.email }` )
             const data = await res.json()
             return data
         }
-    });
+    } );
 
 
     return (
@@ -28,7 +28,7 @@ const MyJobPost = () => {
                             MyJobPost.length !== 0 ? (
                                 <>
                                     {
-                                        MyJobPost.map(jobPost => <JobPostCard key={jobPost._id} jobPost={jobPost} refetch={refetch}></JobPostCard>)
+                                        MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost } refetch={ refetch }></JobPostCard> )
                                     }
                                 </>
                             ) : <h1 className=' text-4xl font-semibold text-center'>No post done yet</h1>
@@ -62,7 +62,7 @@ const MyJobPost = () => {
                             <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions justify-end">
                                 <button className="btn btn-warning">Play Now</button>
-                                {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */}
+                                {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */ }
                             </div>
                         </div>
                     </div>

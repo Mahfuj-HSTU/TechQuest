@@ -28,6 +28,7 @@ import RecruiterLayout from '../../layout/RecruiterLayout';
 import AdminLayout from '../../layout/AdminLayout';
 import AuthenticationLayout from '../../layout/AuthenticationLayout';
 import ShowApplicant from '../../Pages/ShowApplicant/ShowApplicant';
+import { Blog } from '../../features/Blog/Blog';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
 			{
 				path: '/about',
 				element: <AboutUs></AboutUs>,
+			},
+			{
+				path: '/blogs',
+				element: <Blog></Blog>,
 			},
 		],
 	},
