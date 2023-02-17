@@ -16,6 +16,11 @@ const AllJobSeekers = () => {
 
   return (
     <div className="grid">
+      <div>
+        <h1 className="text-4xl font-bold text-left ml-8">
+          Find your next top tech employee.
+        </h1>
+      </div>
       <div className="">
         <div className="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
