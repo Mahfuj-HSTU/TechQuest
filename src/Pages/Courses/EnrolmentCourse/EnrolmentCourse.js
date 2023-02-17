@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './EnrolmentCourse.css';
 import EnrolmentModal from './EnrolmentModal';
 
 
 const EnrolmentCourse = ({course}) => {
     const [enroll, setEnroll] = useState(null)
-    const {instructor , img , title} = course;
+    const {instructor , img , title ,_id} = course;
     return (
         <div className= 'animate m-8 p-2 rounded-lg'>
             <span> </span>
@@ -22,8 +23,8 @@ const EnrolmentCourse = ({course}) => {
                         <p className=''> Instructors: <small> {instructor}</small></p>
                         {/* <p>{course.description}</p> */}
                         <div className="card-actions justify-end"> 
-                            <button className="btn-sm btn btn-primary text-white ">Enroll</button>
-                            {/* <button className="btn btn-primary">Details</button> */}
+                        <Link to={`/job-seeker/courses/payment/${_id}`}
+                         className="btn-sm btn btn-primary text-white">Enroll</Link>
                             <button onClick={ () => setEnroll( course ) }> <label htmlFor="my-modal-3" className="btn btn-sm btn-primary text-white">details</label></button>
                         </div>
                     </div>
