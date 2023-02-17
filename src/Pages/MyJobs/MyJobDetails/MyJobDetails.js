@@ -1,8 +1,5 @@
-import React, { useContext, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { Link, useLoaderData, useLocation } from "react-router-dom";
-// import MyjobModal from "../MyjobModal/MyjobModal";
-// import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import React  from "react";
+
 
 const MyJobDetails = ({jobs,setMyjob,myjob}) => {
   // const [applied, setApplied] = useState(false);
