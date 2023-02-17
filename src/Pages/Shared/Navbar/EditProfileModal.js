@@ -1,144 +1,67 @@
-import React, { useContext } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { toast } from 'react-hot-toast';
-import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { ServerLink } from '../../../Hooks/useServerLink';
 
-const EditProfileModal = () => {
-    const { user } = useContext(AuthContext);
-    const [loginUser, setLoginUser] = useState({});
+const EditProfileModal = ( { details } ) => {
+    // console.log( details );
+    const { _id, name, email, institute, address } = details;
 
-
-    useEffect(() => {
-        fetch(`${ServerLink}/users/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setLoginUser(data))
-    }, [user?.email])
-
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const handleEditProfile = (data) => {
-        const editProfile = {
-            name: data.FullName,
-            email: user?.email,
-            PresentAddress: data.PresentAddress,
-            ParmanentAddress: data.ParmanentAddress,
-            mobile: data.mobile
-
-        };
-        // console.log(editProfile)
-
-        fetch(`${ServerLink}/users/${user?.email}`, {
-            method: "PUT",
+    const handleUpdate = event => {
+        event.preventDefault();
+        const form = event.target
+        const name = form.name.value;
+        const email = form.email.value;
+        const institute = form.institute.value;
+        const address = form.address.value;
+        const user = { name, email, institute, address }
+        fetch( `${ ServerLink }/users/${ _id }`, {
+            method: 'PUT',
             headers: {
-                "Content-Type": "application/json",
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(editProfile)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    toast.success(`Your Profile Updated successfully`)
-                }
-            })
+            body: JSON.stringify( user )
+        } )
+            .then( res => res.json() )
+            .then( event => {
+                toast.success( 'updated successfully' )
+            } )
+        console.log( user )
     }
-    return (
-        <div className="my-20 py-9 px-6 lg:w-10/12 md:w-full mx-auto bg-base-100 shadow-2xl rounded-3xl">
-            <h5 className="text-2xl font-semibold mb-10">
-                Update Your Profile Now.
-            </h5>
-            <form onSubmit={handleSubmit(handleEditProfile)}>
 
-                <div className="form-control mb-4 w-full ">
-                    <label className="label font-semibold">
-                        <span className="label-text text-primary">Email</span>
-                    </label>
-                    <input
-                        type="text"
-                        {...register("email")}
-                        defaultValue={loginUser?.email}
-                        className="input input-bordered border-2 border-primary w-full "
-                        readOnly
-                    />
-                    {errors.openings && (
-                        <span className="text-red-500 font-semibold">
-                            This field is required
-                        </span>
-                    )}
+    return (
+        <div>
+            <input type="checkbox" id="details-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="details-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <div className="hero w-full mt-5">
+                        <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 py-10">
+                            <h1 className="text-4xl text-center font-bold">Update Profile </h1>
+                            <form onSubmit={ handleUpdate } className="card-body">
+                                <div className="form-control">
+                                    <input type="text" defaultValue={ name } name='name' placeholder="Enter your name" className="input input-bordered rounded-lg" />
+                                </div>
+
+                                <div className="form-control">
+                                    <input type="email" defaultValue={ email } name='email' placeholder="Enter your email" className="input input-bordered rounded-lg" />
+                                </div>
+
+                                <div className="form-control">
+                                    <input type="text" defaultValue={ institute } name='institute' placeholder="your institute" className="input input-bordered rounded-lg" />
+                                </div>
+
+                                <div className="form-control">
+                                    <input type="text" defaultValue={ address } name='address' placeholder="your address" className="input input-bordered rounded-lg" />
+                                </div>
+
+                                <div className="form-control mt-6">
+                                    <input className="btn btn-primary text-lg" type="submit" value="Save" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div className="form-control w-full ">
-                    <label className="label font-semibold">
-                        <span className="label-text text-primary">Full Name</span>
-                    </label>
-                    <input
-                        type="text"
-                        {...register("FullName", { required: true })}
-                        defaultValue={loginUser?.name}
-                        className="input input-border border-2 border-primary w-full "
-                    />
-                    {errors.FullName && (
-                        <span className="text-red-500 font-semibold">
-                            This field is required
-                        </span>
-                    )}
-                </div>
-                <div className="form-control w-full ">
-                    <label className="label font-semibold">
-                        <span className="label-text text-primary">Present Address</span>
-                    </label>
-                    <input
-                        type="text"
-                        {...register("PresentAddress", { required: true })}
-                        defaultValue={loginUser?.PresentAddress}
-                        className="input input-bordered border-2 border-primary w-full "
-                    />
-                    {errors.PresentAddress && (
-                        <span className="text-red-500 font-semibold">
-                            This field is required
-                        </span>
-                    )}
-                </div>
-                <div className="form-control mb-4 w-full ">
-                    <label className="label">
-                        <span className="label-text font-semibold text-primary">Permanent Address</span>
-                    </label>
-                    <input
-                        type="text"
-                        {...register("ParmanentAddress", { required: true })}
-                        defaultValue={loginUser?.ParmanentAddress}
-                        className="input input-bordered border-2 border-primary w-full "
-                    />
-                    {errors.ParmanentAddress && (
-                        <span className="text-red-500 font-semibold">
-                            This field is required
-                        </span>
-                    )}
-                </div>
-                <div className="form-control mb-4 w-full ">
-                    <label className="label font-semibold">
-                        <span className="label-text text-primary">Mobile</span>
-                    </label>
-                    <input
-                        type="text"
-                        {...register("mobile", { required: true })}
-                        defaultValue={loginUser?.mobile}
-                        className="input input-bordered border-2 border-primary w-full "
-                    />
-                    {errors.mobile && (
-                        <span className="text-red-500 font-semibold">
-                            This field is required
-                        </span>
-                    )}
-                </div>
-                <input
-                    className="btn btn-primary hover:bg-blue-500 w-1/5 border-0 text-white mt-4"
-                    type="submit"
-                    value="Update"
-                />
-            </form>
+            </div>
         </div>
     );
 };

@@ -48,10 +48,6 @@ const router = createBrowserRouter([
 				loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
 			},
 			{
-				path: '/EditProfile',
-				element: <EditProfileModal />,
-			},
-			{
 				path: '/about',
 				element: <AboutUs></AboutUs>,
 			},
@@ -105,8 +101,7 @@ const router = createBrowserRouter([
 			{
 				path: '/job-seeker/courses/:id',
 				element: <CourseDetails />,
-				loader: ({ params }) =>
-					fetch(`${ServerLink}/courses/${params.id}`),
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
 			},
 		],
 	},
@@ -144,10 +139,9 @@ const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "/recruiter/applicant/:id",
+				path: '/recruiter/applicant/:id',
 				element: <ShowApplicant />,
-				loader: ({ params }) =>
-					fetch(`${ServerLink}/applicant/${params.id}`),
+				loader: ({ params }) => fetch(`${ServerLink}/applicant/${params.id}`),
 			},
 		],
 	},
@@ -175,8 +169,7 @@ const router = createBrowserRouter([
 			{
 				path: '/admin/courses/:id',
 				element: <CourseDetails />,
-				loader: ({ params }) =>
-					fetch(`${ServerLink}/courses/${params.id}`),
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
 			},
 			{
 				path: '/admin/users',
@@ -231,8 +224,7 @@ const router = createBrowserRouter([
 			{
 				path: '/common/courses/:id',
 				element: <CourseDetails />,
-				loader: ({ params }) =>
-					fetch(`${ServerLink}/courses/${params.id}`),
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
 			},
 		],
 	},
