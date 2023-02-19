@@ -30,7 +30,7 @@ const Navbar = () => {
   //   queryFn: () => fetch( `${ ServerLink }/users/${ user?.email }` )
   //     .then( res => res.json() )
   // } )
-  console.log( details );
+  // console.log( details );
 
 
   const menuItems = (
