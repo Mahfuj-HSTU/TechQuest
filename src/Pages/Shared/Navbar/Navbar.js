@@ -18,7 +18,7 @@ const Navbar = () => {
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
-  console.log( role )
+  // console.log( role )
 
   useEffect( () => {
     user?.email && dispatch( fetchRole( user?.email ) );
@@ -30,7 +30,7 @@ const Navbar = () => {
   //   queryFn: () => fetch( `${ ServerLink }/users/${ user?.email }` )
   //     .then( res => res.json() )
   // } )
-  console.log( details );
+  // console.log( details );
 
 
   const menuItems = (
