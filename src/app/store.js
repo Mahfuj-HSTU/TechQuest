@@ -3,6 +3,7 @@ import AllJobsSlice from "../features/AllJobs/AllJobsSlice";
 import RemoveJobSlice from "../features/AllJobs/RemoveJobSlice";
 import AllUsersSlice from "../features/AllUsers/AllUsersSlice";
 import ApplyJobSlice from "../features/ApplyJob/ApplyJobSlice";
+import AllPaymentSlice from "../features/CoursePayment/AllPaymentSlice";
 import SearchOptionSlice from "../features/Search/SearchOptionSlice";
 import useRoleSlice from "../Hooks/Role/useRoleSlice";
 import AddCourseSlice from "../Pages/Courses/AddCourseSlice";
@@ -18,6 +19,7 @@ const store = configureStore( {
     removeCourseReducer: RemoveCourseSlice,
     addCourseReducer: AddCourseSlice,
     usersReducer: AllUsersSlice,
+    allPaymentReducer: AllPaymentSlice
   },
 } );
 

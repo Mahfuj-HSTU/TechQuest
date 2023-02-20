@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { ServerLink } from '../../Hooks/useServerLink';
 
@@ -37,12 +38,12 @@ const MyJobPost = () => {
                 </div>
                 <div className='md:col-span-1 hidden lg:inline md:inline'>
                     <div className="card bg-base-100 shadow-xl text-left">
-                        <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                        <figure><img src="https://quickbooks.intuit.com/oidam/intuit/sbseg/en_ca/blog/images/part-time-vs-full-time-photo-qbo-ca-desktop.jpeg" alt="Shoes" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Travel!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <h2 className="card-title">Candidates</h2>
+                            <p>If you hit the target every time, it’s too near or too big.</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                                <Link to="/recruiter/all-job-seekers"><button className="btn btn-primary">See Candidates</button></Link>
                             </div>
                         </div>
                     </div>
@@ -56,12 +57,12 @@ const MyJobPost = () => {
                         </div>
                     </div>
                     <div className="card bg-base-100 shadow-xl text-left my-8">
-                        <figure><img src="https://www.offlinepost.gr/wp-content/uploads/2022/09/flat-world-music-day-background_23-2149386277.jpg" alt="Shoes" /></figure>
+                        <figure><img src="https://surejob.in/wp-content/uploads/2022/12/job-posting-sites-1024x585.jpg" alt="Shoes" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Play Music</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <h2 className="card-title">Search Jobs</h2>
+                            <p>There is no greater thing you can do with your life and your work than follow your passions in a way that serves the world and you.</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-warning">Play Now</button>
+                                <Link to="/all-jobs"><button className="btn btn-warning">Search Jobs</button></Link>
                                 {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */}
                             </div>
                         </div>

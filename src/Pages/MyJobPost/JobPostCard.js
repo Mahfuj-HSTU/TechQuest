@@ -32,7 +32,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
 
     return (
         <div data-aos="fade-up" className='bg-base-100 shadow-2xl my-6 rounded-lg'>
-            <div className="container flex flex-col w-full p-6 mx-auto divide-y divide-gray-700 ">
+            <div className="flex flex-col w-full p-6 mx-auto divide-y divide-gray-700">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
@@ -61,7 +61,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                     </div>
                     <p>{jobDescription}.</p>
                     <div>
-                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-primary">Aplicant</button></Link>
+                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-primary mt-2">Aplicant</button></Link>
                     </div>
                 </div>
             </div>
