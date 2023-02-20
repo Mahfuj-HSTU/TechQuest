@@ -26,7 +26,7 @@ const SingleJobView = () => {
 	// console.log(data)
 	const { isLoading, error, applications } = data.applicationReducer;
 	const role = data.roleReducer.role.role;
-	console.log(data.roleReducer);
+	// console.log(data.roleReducer);
 
 	// checking if user is applied or not
 	const isApplied = useIsApplied(applications, jobs._id);
