@@ -62,7 +62,7 @@ const MyJobPost = () => {
                             <h2 className="card-title">Search Jobs</h2>
                             <p>There is no greater thing you can do with your life and your work than follow your passions in a way that serves the world and you.</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-warning">Play Now</button>
+                                <Link to="/all-jobs"><button className="btn btn-warning">Search Jobs</button></Link>
                                 {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */ }
                             </div>
                         </div>
