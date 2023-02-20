@@ -29,7 +29,7 @@ const JobPostCard = ( { jobPost, refetch } ) => {
 
     return (
         <div data-aos="fade-up" className='bg-base-100 shadow-2xl my-6 rounded-lg'>
-            <div className="flex flex-col w-full p-6 mx-auto divide-y divide-gray-700 ">
+            <div className="flex flex-col w-full p-6 mx-auto divide-y divide-gray-700">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>

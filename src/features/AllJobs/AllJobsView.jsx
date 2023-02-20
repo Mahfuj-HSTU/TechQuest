@@ -16,7 +16,7 @@ const AllJobsView = () => {
     queryFn: () =>
       fetch( `${ ServerLink }/courses` ).then( ( res ) => res.json() ),
   } );
-  console.log( courses );
+  // console.log( courses );
 
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
@@ -58,9 +58,10 @@ const AllJobsView = () => {
             } = job;
 
             return (
-            <div className=" mx-5 gap-5">
+            <div 
+            key={_id}
+            className=" mx-5 gap-5">
               <div
-                key={_id}
                 data-aos="fade-up"
                 className="text-left border rounded-lg my-5 p-5  shadow-lg hover:shadow-2xl"
               >
