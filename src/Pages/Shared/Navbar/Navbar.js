@@ -38,7 +38,8 @@ const Navbar = () => {
       <li className="font-semibold">
         <Link to="/">Features</Link>
         <Link to="/all-jobs">All Jobs</Link>
-        <Link to="/about">About Us</Link>
+        <Link to="/about">Why TechQuest?</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
       { user?.email && (
         <>

@@ -7,16 +7,16 @@ import { ServerLink } from '../../Hooks/useServerLink';
 import JobPostCard from './JobPostCard';
 
 const MyJobPost = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext( AuthContext );
 
-    const { data: MyJobPost = [], refetch } = useQuery({
-        queryKey: ['MyJobPost', user?.email],
+    const { data: MyJobPost = [], refetch } = useQuery( {
+        queryKey: [ 'MyJobPost', user?.email ],
         queryFn: async () => {
-            const res = await fetch(`${ServerLink}/recruiterJobPosts?email=${user?.email}`)
+            const res = await fetch( `${ ServerLink }/recruiterJobPosts?email=${ user?.email }` )
             const data = await res.json()
             return data
         }
-    });
+    } );
 
 
     return (
@@ -29,7 +29,7 @@ const MyJobPost = () => {
                             MyJobPost.length !== 0 ? (
                                 <>
                                     {
-                                        MyJobPost.map(jobPost => <JobPostCard key={jobPost._id} jobPost={jobPost} refetch={refetch}></JobPostCard>)
+                                        MyJobPost.map( jobPost => <JobPostCard key={ jobPost._id } jobPost={ jobPost } refetch={ refetch }></JobPostCard> )
                                     }
                                 </>
                             ) : <h1 className=' text-4xl font-semibold text-center'>No post done yet</h1>
@@ -62,8 +62,8 @@ const MyJobPost = () => {
                             <h2 className="card-title">Search Jobs</h2>
                             <p>There is no greater thing you can do with your life and your work than follow your passions in a way that serves the world and you.</p>
                             <div className="card-actions justify-end">
-                                <Link to="/all-jobs"><button className="btn btn-warning">Search Jobs</button></Link>
-                                {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */}
+                                <button className="btn btn-warning">Play Now</button>
+                                {/* <label className="text-lg cursor-pointer" htmlFor="my-modal">Edit Profile</label> */ }
                             </div>
                         </div>
                     </div>
