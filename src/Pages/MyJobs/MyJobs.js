@@ -33,7 +33,7 @@ const MyJobs = () => {
   return (
     <div className='mt-24 mb-16'>
 <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">My Applied Jobs</h3>
-      <div className="overflow-x-auto gap-4 lg:w-full ">
+      <div className=" gap-4 lg:w-full ">
 
       <div className="drawer drawer-end">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -55,34 +55,26 @@ const MyJobs = () => {
 }
     <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
   </div> 
-  <div className="drawer-side">
+  <div className="drawer-side w-full">
     <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
     <ul className="menu p-4 w-2/3 bg-base-100 text-base-content">
-
-
-      
-    {/* {
+ 
+    {
           myjob &&
           <MyjobModal jobs={ jobs }
             myjob={ myjob }
             setMyjob={ setMyjob }
           ></MyjobModal>
         }
-         */}
+        
     
     </ul>
   </div>
+
+  
 </div>
-
-
-
-
-
-
-
-    
-      </div>
-    </div>
+</div>
+</div>
   );
 };
 
