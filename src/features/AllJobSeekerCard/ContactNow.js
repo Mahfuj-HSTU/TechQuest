@@ -2,7 +2,7 @@ import React from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactNow = ({ contact }) => {
-  const { jobSeekerName, jobSeekerEmail } = contact;
+  const { name , email } = contact;
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -15,10 +15,10 @@ const ContactNow = ({ contact }) => {
     );
   };
   return (
-    <>
-      <input type="checkbox" id="contact-modal" className="modal-toggle" />
+    <div className="">
+      <input type="checkbox" id="contact-modal" className="modal-toggle " />
       <div className="modal">
-        <div className="modal-box relative">
+        <div className="modal-box">
           <label
             htmlFor="contact-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
@@ -30,19 +30,19 @@ const ContactNow = ({ contact }) => {
             name="recipentName"
             className="text-lg font-bold"
           >
-            Contact {jobSeekerName}
+            Contact {name}
           </h3>
           <form onSubmit={sendEmail} className="grid grid-cols-1 gap-3">
             <input
               type="text"
-              value={jobSeekerName}
+              value={name}
               name="recipentName"
               id=""
               className="input input-bordered input-primary w-full"
             />
             <input
               type="email"
-              value={jobSeekerEmail}
+              value={email}
               name="recipentEmail"
               id=""
               className="input input-bordered input-primary w-full"
@@ -76,7 +76,7 @@ const ContactNow = ({ contact }) => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
