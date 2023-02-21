@@ -54,11 +54,11 @@ const AllJobsView = () => {
 									optionalSkills,
 									openings,
 								} = job;
-
 								return (
-									<div className=' mx-5 gap-5'>
+									<div
+										key={_id}
+										className=' mx-5 gap-5'>
 										<div
-											key={_id}
 											data-aos='fade-up'
 											className='text-left border rounded-lg my-5 p-5  shadow-lg hover:shadow-2xl'>
 											<Link

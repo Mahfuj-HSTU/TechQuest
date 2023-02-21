@@ -11,6 +11,7 @@ import Loading from '../../Pages/Shared/Loading/Loading';
 import { useState } from 'react';
 import RemoveJob from './RemoveJob';
 import { fetchRole } from '../../Hooks/Role/useRoleSlice';
+import { useParams } from 'react-router-dom';
 
 const SingleJobView = () => {
 	const [applied, setApplied] = useState(false);
@@ -18,6 +19,8 @@ const SingleJobView = () => {
 	const dispatch = useDispatch();
 	const { user } = useContext(AuthContext);
 	const jobs = useLoaderData();
+	const id = useParams();
+	console.log(id);
 
 	const data = useSelector(
 		(state) => state
@@ -26,7 +29,7 @@ const SingleJobView = () => {
 	// console.log(data)
 	const { isLoading, error, applications } = data.applicationReducer;
 	const role = data.roleReducer.role.role;
-	console.log(data.roleReducer);
+	// console.log(data.roleReducer);
 
 	// checking if user is applied or not
 	const isApplied = useIsApplied(applications, jobs._id);

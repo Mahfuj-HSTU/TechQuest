@@ -124,15 +124,21 @@ const Banner = () => {
               Find your dream Tech job in Canada, the US & Europe
             </p>
             <small className="text-lg">Remote & International Positions</small>
-            <Link
+            {/* <Link
               to="/all-jobs"
               className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Apply
-            </Link>
-            <form onSubmit={ handleSearch } className="flex justify-between gap-4 text-black">
-              <input type="text" placeholder="Find your Dream job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5" />
+            </Link> */}
+            <form onSubmit={ handleSearch } className="flex flex-col text-black">
+              <input type="text" placeholder="Find your Dream job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
               {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
+              { search.length !== 0 &&
+                <div className="bg-white -mt-4 rounded-lg text-start p-2">
+                  {
+                    filteredSearch.map( job => <Link to={ `/job-details/${ job._id }` }>{ job.jobTitle }</Link> )
+                  }
+                </div> }
             </form>
           </div>
         ) }
