@@ -13,9 +13,11 @@ import RemoveJob from "./RemoveJob";
 import { fetchRole } from "../../Hooks/Role/useRoleSlice";
 import axios from "axios";
 import { ServerLink } from "../../Hooks/useServerLink";
+import { toast } from "react-hot-toast";
 
 const SingleJobView = () => {
   const [applied, setApplied] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
@@ -88,10 +90,18 @@ const SingleJobView = () => {
       optionalSkills,
       email: user?.email,
     };
-    axios
-      .post(`${ServerLink}/save-job`, jobDetails)
-      .then((data) => console.log(data))
-      .catch((e) => console.error("save job error => ", e));
+    if (!isSaved) {
+      axios
+        .post(`${ServerLink}/save-job`, jobDetails)
+        .then((data) => {
+			console.log(data)
+			if(data.status === 200){
+				toast.success('Job saved to your account.')
+			}
+		})
+        .catch((e) => console.error("save job error => ", e));
+    }
+    setIsSaved(!isSaved);
   };
 
   return (
@@ -170,6 +180,7 @@ const SingleJobView = () => {
           </ul>
 
           <div>
+            {/* if role is admin he can remove a job */}
             {role === "admin" ? (
               <RemoveJob
                 id={_id}
@@ -179,28 +190,41 @@ const SingleJobView = () => {
               ></RemoveJob>
             ) : (
               <>
+                {/* if role is jobSeeker he will be able to apply with some conditions */}
                 {role === "jobSeeker" ? (
                   <>
-                    {isApplied === true ? (
-                      <p className="text-white font-semibold bg-sky-400 rounded-lg w-20 px-3 py-4 hover:bg-red-400">
-                        Applied
+                    {isApplied === true || applied ? (
+                      // if apply button is clicked or already applied then this paragraph will be displayed
+                      <p className="text-white font-semibold bg-success rounded-lg w-fit px-3 py-4">
+                        Your application is submitted successfully
                       </p>
                     ) : (
+                      // if button is not clicked or applied before
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleApply()}
                           className="btn btn-primary hover:bg-info text-white"
-                          disabled={applied}
                         >
                           Apply Now
                         </button>
-                        <button
-                          onClick={() => handleSave()}
-                          className="btn btn-outline border-primary hover:bg-secondary text-primary hover:text-primary font-bold hover:border-primary"
-                          disabled={applied}
-                        >
-                          Save
-                        </button>
+
+                        {/* if user not applied then he can save this if he wants */}
+
+                        {!isSaved ? (
+                          <button
+                            onClick={() => handleSave()}
+                            className="btn btn-outline border-primary hover:bg-secondary text-primary hover:text-primary font-bold hover:border-primary"
+                          >
+                            Save
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleSave()}
+                            className="btn btn-outline border-primary hover:bg-secondary text-primary hover:text-primary font-bold hover:border-primary"
+                          >
+                            Saved
+                          </button>
+                        )}
                       </div>
                     )}
                   </>
