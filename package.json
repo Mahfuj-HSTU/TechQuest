@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-animated-text": "^0.1.4",
     "react-animated-text-content": "^1.0.1",
+    "react-countup": "^6.4.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
     "react-hot-toast": "^2.4.0",
