@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLoaderData, useLocation } from "react-router";
+import { useLoaderData } from "react-router";
 import { ImLocation } from "react-icons/im";
 import { RiRemoteControlLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,31 +14,46 @@ import { fetchRole } from "../../Hooks/Role/useRoleSlice";
 import axios from "axios";
 import { ServerLink } from "../../Hooks/useServerLink";
 import { toast } from "react-hot-toast";
+import { fetchSavedJob } from "../SavedJob/SavedJobSlice";
 
 const SingleJobView = () => {
   const [applied, setApplied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
-  const location = useLocation();
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
   const jobs = useLoaderData();
-
   const data = useSelector((state) => state);
+
   //   console.log(data)
+
   const { isLoading, error, applications } = data.applicationReducer;
   const role = data.roleReducer.role.role;
   const userInfo = data.roleReducer.role;
-  //   console.log(userInfo);
+  const savedJob = data.savedJobReducer.savedJobs;
+  //   console.log(savedJob);
+
+  const check = savedJob.map(
+    (job) => user?.email === job.email && job.jobID === jobs._id
+  );
+
+  useEffect(() => {
+    for (let i of check) {
+      if (i === true) {
+        setIsSaved(i);
+      }
+    }
+  }, [check]);
 
   // checking if user is applied or not
   const isApplied = useIsApplied(applications, jobs._id);
+
   // console.log(applied);
   useEffect(() => {
     dispatch(fetchApplicationData());
     dispatch(fetchRole(user?.email));
+    dispatch(fetchSavedJob());
   }, [dispatch, user?.email]);
 
-  const job = location.state;
   const {
     _id,
     openings,
@@ -55,12 +70,10 @@ const SingleJobView = () => {
     mustSkills,
     optionalSkills,
   } = jobs;
-  // console.log(job);
 
   const handleApply = () => {
-    // console.log(job);
     const applyInfo = {
-      job,
+      jobs,
       email: user?.email,
       name: userInfo?.name,
       address: userInfo?.address,
@@ -94,37 +107,32 @@ const SingleJobView = () => {
       axios
         .post(`${ServerLink}/save-job`, jobDetails)
         .then((data) => {
-			console.log(data)
-			if(data.status === 200){
-				toast.success('Job saved to your account.')
-			}
-		})
+          // console.log(data)
+          if (data.status === 200) {
+            toast.success("Job saved to your account.");
+          }
+        })
         .catch((e) => console.error("save job error => ", e));
     }
     setIsSaved(!isSaved);
   };
 
+  //   const handleDeleteSaveJob = () =>{
+  // 	console.log("clicked");
+  //   }
+
   return (
     <div className="max-w-[1240px] mx-auto mt-24">
       {isLoading && <Loading />}
       {error && <div className="text-red-600">{error}</div>}
-      {job && (
+      {jobs && (
         <div className="m-20 text-left">
           {/* <div className='flex gap-5'> */}
-          <h1 className="text-4xl font-semibold text-cyan-600">{jobTitle}</h1>
-          {/* {role === "admin" && (
-              <RemoveJob
-                id={_id}
-                title={jobTitle}
-                openings={openings}
-                des={jobDescription}
-              ></RemoveJob>
-            )} */}
-          {/* </div> */}
+          <h1 className="text-4xl font-semibold text-primary">{jobTitle}</h1>
           <div className="flex gap-3 my-3">
             <p className="border p-1 rounded-lg">
               <ImLocation className="inline" />
-              {job.location}
+              {jobs.location}
             </p>
             <p className="border p-1 rounded-lg">
               <RiRemoteControlLine className="inline" /> {jobStatus}
@@ -219,7 +227,7 @@ const SingleJobView = () => {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleSave()}
+                            // onClick={() => handleDeleteSaveJob()}
                             className="btn btn-outline border-primary hover:bg-secondary text-primary hover:text-primary font-bold hover:border-primary"
                           >
                             Saved
