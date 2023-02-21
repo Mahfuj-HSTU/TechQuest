@@ -1,33 +1,30 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React from 'react';
 import { toast } from 'react-hot-toast';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { ServerLink } from '../../Hooks/useServerLink';
 
-const JobPostCard = ({ jobPost, refetch }) => {
+const JobPostCard = ( { jobPost, refetch } ) => {
     // console.log(jobPost)
     const { _id, jobDescription, jobTitle, location, jobType, jobStatus } = jobPost;
-    const { user } = useContext(AuthContext);
 
-    const handleDelete = (_id) => {
-        fetch(`${ServerLink}/recruiterJobPosts/${_id}`, {
+    const handleDelete = ( _id ) => {
+        fetch( `${ ServerLink }/recruiterJobPosts/${ _id }`, {
             method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    toast.success(`Your Product deleted successfully`);
+        } )
+            .then( res => res.json() )
+            .then( data => {
+                console.log( data );
+                if ( data.deletedCount > 0 ) {
+                    toast.success( `Your Product deleted successfully` );
                     refetch()
                 }
 
-            })
+            } )
     }
 
-    const handleAplicant = (id) => {
-        console.log(id)
+    const handleApplicant = ( id ) => {
+        console.log( id )
     }
 
     return (
@@ -36,7 +33,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
-                            <h1 className='text-2xl font-semibold text-primary'>{jobTitle}</h1>
+                            <h1 className='text-2xl font-semibold text-primary'>{ jobTitle }</h1>
                         </div>
                     </div>
                     <div>
@@ -47,7 +44,7 @@ const JobPostCard = ({ jobPost, refetch }) => {
                                 <h3 className="text-lg font-bold">Are you sure, You Want to delete it?</h3>
                                 <div className="modal-action ">
                                     <label htmlFor="my-modal-3" className="btn btn-primary">NO</label>
-                                    <label onClick={() => handleDelete(_id)} htmlFor="my-modal-3" className="btn btn-primary">YES</label>
+                                    <label onClick={ () => handleDelete( _id ) } htmlFor="my-modal-3" className="btn btn-primary">YES</label>
                                 </div>
                             </div>
                         </div>
@@ -55,13 +52,13 @@ const JobPostCard = ({ jobPost, refetch }) => {
                 </div>
                 <div className="p-4 space-y-2 text-sm ">
                     <div className=' text-sm font-semibold text-gray-400'>
-                        <span>Location: {location}</span>
-                        <span className=' ml-8'>jobType: {jobType}</span>
-                        <span className=' ml-8'>Job Status: {jobStatus}</span>
+                        <span>Location: { location }</span>
+                        <span className=' ml-8'>jobType: { jobType }</span>
+                        <span className=' ml-8'>Job Status: { jobStatus }</span>
                     </div>
-                    <p>{jobDescription}.</p>
+                    <p>{ jobDescription }.</p>
                     <div>
-                        <Link to={`/recruiter/applicant/${_id}`}> <button onClick={() => handleAplicant(_id)} className="btn btn-sm btn-primary mt-2">Aplicant</button></Link>
+                        <Link to={ `/recruiter/applicant/${ _id }` }> <button onClick={ () => handleApplicant( _id ) } className="btn btn-sm btn-primary">Applicant</button></Link>
                     </div>
                 </div>
             </div>
