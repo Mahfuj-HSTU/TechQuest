@@ -6,18 +6,29 @@ import animation from "../../../assets/Animation2/animation2.json";
 import Circle from "../../../assets/Animation/Circle/Circle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllJobs } from "../../../features/AllJobs/AllJobsSlice";
+import { fetchAllUsers } from "../../../features/AllUsers/AllUsersSlice";
 
 const Banner = () => {
   const [ startHiring, setStartHiring ] = useState( true );
   const [ getAJob, setGetAJob ] = useState( false );
   const jobs = useSelector( ( state ) => state.jobsReducer.jobs );
-  const [ search, setSearch ] = useState( '' )
+  const users = useSelector( ( state ) => state.usersReducer.users );
+  const [ jobSearch, setJobSearch ] = useState( '' )
+  const [ employeeSearch, setEmployeeSearch ] = useState( '' )
   const dispatch = useDispatch();
 
-  // console.log( jobs );
+  // console.log( users );
   useEffect( () => {
     dispatch( fetchAllJobs() );
+    dispatch( fetchAllUsers() );
   }, [ dispatch ] );
+
+  // filter jobSeeker
+  const jobSeekers = users.filter(
+    user => {
+      return ( user.role === 'jobSeeker' );
+    }
+  );
 
   const handleStartHiring = () => {
     setStartHiring( true );
@@ -29,26 +40,45 @@ const Banner = () => {
     setStartHiring( false );
   };
 
-  const handleSearch = ( e ) => {
+  const handleJobSearch = ( e ) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
     // console.log( search );
-    setSearch( search )
+    setJobSearch( search )
   }
 
-  const filteredSearch = jobs.filter(
-    user => {
+  // filter jobs by search
+  const filteredJobSearch = jobs.filter(
+    job => {
       return (
-        user.jobTitle.toLowerCase().includes( search.toLowerCase() ) ||
-        user.jobType.toLowerCase().includes( search.toLowerCase() ) ||
-        user.location.toLowerCase().includes( search.toLowerCase() ) ||
-        user.jobStatus.toLowerCase().includes( search.toLowerCase() )
+        job.jobTitle.toLowerCase().includes( jobSearch.toLowerCase() ) ||
+        job.jobType.toLowerCase().includes( jobSearch.toLowerCase() ) ||
+        job.location.toLowerCase().includes( jobSearch.toLowerCase() ) ||
+        job.jobStatus.toLowerCase().includes( jobSearch.toLowerCase() )
       );
     }
   );
+  // console.log( filteredJobSearch );
 
-  console.log( filteredSearch );
+  const handleEmployeeSearch = ( e ) => {
+    e.preventDefault();
+    const form = e.target;
+    const search = form.search.value;
+    // console.log( search );
+    setEmployeeSearch( search )
+  }
+
+  // filter employee by search
+  const filteredEmployeeSearch = jobSeekers?.filter(
+    jobSeeker => {
+      return (
+        jobSeeker?.skills?.toLowerCase().includes( employeeSearch.toLowerCase() ) ||
+        jobSeeker?.title?.toLowerCase().includes( employeeSearch.toLowerCase() )
+      );
+    }
+  );
+  // console.log( jobSeekers );
 
   return (
     // dividing into two part by grid 2 col
@@ -116,6 +146,18 @@ const Banner = () => {
             >
               Get Started
             </Link>
+            <form onSubmit={ handleEmployeeSearch } className="flex flex-col text-black">
+              <input type="text" placeholder="Find skilled employee" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
+              {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
+              { employeeSearch.length !== 0 &&
+                <ul className="bg-white -mt-4 text-start rounded-lg">
+                  {
+                    filteredEmployeeSearch.map( employee => <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
+                      <Link to={ `` }>{ employee.name }</Link>
+                    </li> )
+                  }
+                </ul> }
+            </form>
           </div>
         ) }
         { getAJob && (
@@ -130,15 +172,16 @@ const Banner = () => {
             >
               Apply
             </Link> */}
-            <form onSubmit={ handleSearch } className="flex flex-col text-black">
-              <input type="text" placeholder="Find your Dream job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
-              {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
-              { search.length !== 0 &&
-                <div className="bg-white -mt-4 rounded-lg text-start p-2">
+            <form onSubmit={ handleJobSearch } className="flex flex-col text-black">
+              <input type="text" placeholder="Find your dream job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
+              { jobSearch.length !== 0 &&
+                <ul className="bg-white -mt-4 text-start rounded-lg">
                   {
-                    filteredSearch.map( job => <Link to={ `/job-details/${ job._id }` }>{ job.jobTitle }</Link> )
+                    filteredJobSearch.map( job => <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
+                      <Link to={ `/job-details/${ job._id }` }>{ job.jobTitle }</Link>
+                    </li> )
                   }
-                </div> }
+                </ul> }
             </form>
           </div>
         ) }
