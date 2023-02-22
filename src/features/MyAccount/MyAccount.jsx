@@ -5,10 +5,10 @@ import SavedJobView from "../SavedJob/SavedJobView";
 
 const MyAccount = () => {
   const user = useSelector((state) => state.roleReducer.role);
-//   console.log(user);
+  //   console.log(user);
 
   return (
-    <div className="max-w-[1240px] bg-gray-100 my-32 mx-5">
+    <div className="max-w-[1240px] mx-auto bg-gray-100 my-32 ">
       <div className="flex flex-col mt-5 p-5">
         <div className="flex bg-white items-center mt-5">
           <div className="m-3 bg-gray-100">
@@ -24,36 +24,46 @@ const MyAccount = () => {
         </div>
         {/* profile section  */}
         <div className="flex flex-col md:flex-row justify-start mt-5 bg-white">
-          <div className="">
-            <div className=" flex flex-col whitespace-nowrap text-left font-semibold h-96 bg-gray-200 gap-5 m-3 rounded-lg mr-0 p-5">
+          <div className="mx-auto w-[90%] md:w-[30%]">
+            <div className=" flex flex-col whitespace-nowrap text-left font-semibold h-[92%] bg-gray-200 gap-5 m-3 rounded-lg w-[92%] md:mr-0 p-5">
               <Link>Profile</Link>
               <Link>Applied Jobs</Link>
               <Link>Saved Jobs</Link>
             </div>
           </div>
-          <div className="flex-col flex gap-5 text-left w-full mt-2 pb-5 mx-5">
-            <h1 className="text-2xl font-bold border-b border-gray-300">
-              Profile
-            </h1>
-            <div className="bg-gray-200 px-2 py-5 rounded-lg">
-              <span className="font-bold">Name</span> <span>{user?.name}</span> <br />
-              <span className="font-bold">Gender</span>
+          <div className="flex-col flex gap-5 text-center md:text-left w-full mt-2 md:mx-5 pb-5 ">
+            <div>
+              <h1 className="text-2xl font-bold">Profile</h1>
             </div>
+            <div className="mx-auto w-[90%]">
+              <div className="flex flex-col md:flex-row gap-5">
+                <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+                  <span className="font-bold">Name</span>{" "}
+                  <span>{user?.name}</span>
+                  <br />
+                  <span className="font-bold">Gender</span>
+                </div>
 
-            <div className="bg-gray-200 px-2 py-5 rounded-lg">
-              <span className="font-bold">Email</span> <span>{user?.email}</span>
-              <p className="font-bold">Mobile</p>
-            </div>
-            <div className="flex flex-col md:flex-row gap-5 ">
-              <div className="bg-gray-200 px-2 py-5 rounded-lg w-full">
-                <p className="font-bold">Education</p>
-                <span className="font-bold">Institute</span> <span>{user?.institute}</span>
-              </div>
+                <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+                  <span className="font-bold">Email</span>{" "}
+                  <span>{user?.email}</span>
+                  <p className="font-bold">Mobile</p>
+                </div>
+              </div>{" "}
+              <br />
+              <div className="flex flex-col md:flex-row gap-5 ">
+                <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+                  <p className="font-bold">Education</p>
+                  <span className="font-bold">Institute</span>{" "}
+                  <span>{user?.institute}</span>
+                </div>
 
-              <div className="bg-gray-200 px-2 py-5 rounded-lg w-full">
-                <span className="font-bold">Address</span> <span>{user?.address}</span>
-                <br />
-                <span className="font-bold">Zip Code</span>
+                <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+                  <span className="font-bold">Address</span>{" "}
+                  <span>{user?.address}</span>
+                  <br />
+                  <span className="font-bold">Zip Code</span>
+                </div>
               </div>
             </div>
           </div>
