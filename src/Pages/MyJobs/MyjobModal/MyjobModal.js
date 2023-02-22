@@ -5,22 +5,27 @@ const MyjobModal = ( { myjob } ) => {
     // console.log(myjob)
     return (
         <>
-
-
-            <div className="drawer drawer-end">
+<div className="drawer drawer-end">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
 
     <div className="drawer-side">
    
-    <label htmlFor="my-drawer-4" className="drawer-overlay">  {jobTitle}</label>
-  <div className="grid">
-        <div><p>This is test</p></div>
-        <div><ul className="steps steps-vertical lg:steps-horizontal">
-  <li className="step step-primary">Register</li>
-  <li className="step step-primary">Choose plan</li>
-  <li className="step">Purchase</li>
-  <li className="step">Receive Product</li>
+    <label htmlFor="my-drawer-4" className="drawer-overlay "> Actively Recruiting</label>
+  <div className="grid grid-cols-2">
+        <div>
+            <p className='text-primary-focus text-3xl'>{jobTitle}</p>
+            <br/>
+            <p className='text-left text-lg text-black'>Job Activity</p>   
+            <p>350 candidates applied for the {jobTitle} </p>
+            <p>15 candidates were screened for {jobTitle}</p>  
+        </div>
+        
+        <div><ul className="steps steps-vertical lg:steps-horizontal w-96 bordered border-4 shadow-lg bordered-lg">
+  <li className="step step-primary">Applied</li>
+  <li className="step step-primary">Screening</li>
+  <li className="step">Job Task</li>
+  <li className="step">Interview</li>
 </ul></div>
     </div>   
   </div>

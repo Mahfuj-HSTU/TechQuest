@@ -25,10 +25,7 @@ const MyJobs = () => {
       return data;
     },
   } );
-  // console.log(jobs)
-  // const showDetails =(e)=>{
-  //       console.log("clicked", e)
-  // }
+
 
   return (
     <div className='mt-24 mb-16'>
@@ -41,10 +38,10 @@ const MyJobs = () => {
   {
   jobs.map(job => 
     <>
-    <div class=" p-2 inline-grid gap-4 grid-cols-4 border-2 shadow-lg  m-8 w-full">
-  <div class=" text-2xl">{ job.job.jobTitle }</div>
-  <div class="">{ job.job.jobType }</div>
-  <div class="">{ job.job.jobStatus}</div>
+    <div className=" p-2 inline-grid gap-4 grid-cols-4 border-2 shadow-lg  m-8 w-full">
+  <div className=" text-2xl">{ job?.job?.jobTitle }</div>
+  <div className="">{ job?.job?.jobType }</div>
+  <div className="">{ job?.job?.jobStatus}</div>
   
   <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label></button>
   {/* <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="btn btn-outline btn-info rounded-lg">details</label></button> */}
@@ -81,7 +78,9 @@ const MyJobs = () => {
 export default MyJobs;
 
 
-
+{/* <div className=" text-2xl">
+<button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
+  { job.job.jobTitle }</label></button></div> */}
 
 
 
