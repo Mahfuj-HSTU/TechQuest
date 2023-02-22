@@ -1,0 +1,13 @@
+.customNavbar {
+	/* background-color: #0675ce; */
+	background-image: linear-gradient(to right, #773cff, #135dd3);
+	color: aliceblue;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.customNavbar-scrolled {
+	/* background-color: rgba(255, 255, 255, 0.9); */
+	background-image: linear-gradient(to right, #ffffff, #ffffff);
+	color: black;
+}

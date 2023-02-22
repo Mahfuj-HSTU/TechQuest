@@ -11,6 +11,7 @@ import Review from "../Review/Review.js";
 import StartHiring from "../StartHiring/StartHiring.js";
 import WeAreSpecialist from "../WeAreSpecialist/WeAreSpecialist.js";
 import InterviewAndHire from "../InterviewAndHire/InterviewAndHire.js";
+import Customers from "../Customers/Customers.js";
 
 
 const Home = () => {
@@ -29,7 +30,7 @@ const Home = () => {
         <Events></Events>
         <LatestNews />
         <WeAreSpecialist />
-    
+        <Customers></Customers>
       </div>
     </div>
   );

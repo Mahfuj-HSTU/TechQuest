@@ -7,6 +7,7 @@ import ContactNow from "../AllJobSeekerCard/ContactNow";
 
 const AllJobSeekers = () => {
   const [jobSeekers, setJobSeekers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState();
   const [contact, setContact] = useState(null);
   useEffect(() => {
     fetch(`${ServerLink}/jobSeekersCollection`)
@@ -55,7 +56,9 @@ const AllJobSeekers = () => {
                         type="text"
                         placeholder="Search…"
                         className="input input-bordered"
+                        
                       />
+                      
                       <button className="btn btn-square">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
