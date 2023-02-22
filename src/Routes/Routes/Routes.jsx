@@ -26,6 +26,7 @@ import AdminLayout from "../../layout/AdminLayout";
 import AuthenticationLayout from "../../layout/AuthenticationLayout";
 import ShowApplicant from "../../Pages/ShowApplicant/ShowApplicant";
 import { Blog } from "../../features/Blog/Blog";
+import MyAccount from "../../features/MyAccount/MyAccount";
 import SavedJobView from "../../features/SavedJob/SavedJobView";
 const router = createBrowserRouter([
   {
@@ -54,11 +55,14 @@ const router = createBrowserRouter([
         path: "/blogs",
         element: <Blog></Blog>,
       },
-	  {
-		path: '/my-account',
-		element: <SavedJobView/>
-	  }
-	  ,
+      {
+        path: "/my-account",
+        element: <MyAccount />,
+      },
+      {
+        path: "/my-account/saved-jobs",
+        element: <SavedJobView />,
+      },
       {
         path: "/test",
         element: <ApplyJobView />,
