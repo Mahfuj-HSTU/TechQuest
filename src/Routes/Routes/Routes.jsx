@@ -26,7 +26,7 @@ import AdminLayout from "../../layout/AdminLayout";
 import AuthenticationLayout from "../../layout/AuthenticationLayout";
 import ShowApplicant from "../../Pages/ShowApplicant/ShowApplicant";
 import { Blog } from "../../features/Blog/Blog";
-import SavedJobView from "../../features/SavedJob/SavedJobView";
+import MyAccount from "../../features/MyAccount/MyAccount";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       },
 	  {
 		path: '/my-account',
-		element: <SavedJobView/>
+		element: <MyAccount/>
 	  }
 	  ,
       {
