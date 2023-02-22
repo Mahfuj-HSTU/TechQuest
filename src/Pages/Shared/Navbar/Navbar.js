@@ -162,7 +162,7 @@ const Navbar = () => {
         </div>
           :
           <div className="font-semibold flex gap-4">
-            <Link to="/auth/login" className=" border-none hover:bg-gray-200 rounded-lg px-4 py-2 ">Login</Link>
+            <Link to="/auth/login" className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
             <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
           </div>
         }
