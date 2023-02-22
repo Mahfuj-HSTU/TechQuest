@@ -7,7 +7,7 @@ const StartHiring = () => {
     <div data-aos="fade-up" className="mt-20 border rounded-md p-5 mx-5">
       <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 my-20">
         <div className="flex flex-col  w-full lg:flex-row">
-          <div className="mb-10 lg:mb-0 lg:max-w-lg ">
+          <div className="mb-10 ml-8 lg:mb-0 lg:max-w-lg ">
             <div className="mt-10 mb-6 text-center lg:text-left">
               <div className="">
                 <p
