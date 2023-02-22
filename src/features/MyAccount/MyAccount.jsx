@@ -28,7 +28,7 @@ const MyAccount = () => {
             <div className=" flex flex-col whitespace-nowrap text-left font-semibold h-[92%] bg-gray-200 gap-5 m-3 rounded-lg w-[92%] md:mr-0 p-5">
               <Link>Profile</Link>
               <Link>Applied Jobs</Link>
-              <Link>Saved Jobs</Link>
+              <Link to='/my-account/saved-jobs'>Saved Jobs</Link>
             </div>
           </div>
           <div className="flex-col flex gap-5 text-center md:text-left w-full mt-2 md:mx-5 pb-5 ">
