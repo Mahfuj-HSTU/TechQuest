@@ -41,7 +41,7 @@ export const ApplyJobSlice = createSlice({
 			// state.apply.push(action.payload);
 
 			axios
-				.post(`${ServerLink}/applications`, action.payload)
+				.post(`${ServerLink}/save-applications`, action.payload)
 				.then((data) => {
 					// console.log(data);
 					if (data.status === 200) {

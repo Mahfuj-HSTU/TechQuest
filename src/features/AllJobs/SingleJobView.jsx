@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addApply, fetchApplicationData } from "../ApplyJob/ApplyJobSlice";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import useIsApplied from "../../Hooks/useIsApplied";
 import Loading from "../../Pages/Shared/Loading/Loading";
 import { useState } from "react";
 import RemoveJob from "./RemoveJob";
@@ -24,28 +23,38 @@ const SingleJobView = () => {
   const jobs = useLoaderData();
   const data = useSelector((state) => state);
 
-  //   console.log(data)
+    // console.log(jobs)
 
   const { isLoading, error, applications } = data.applicationReducer;
   const role = data.roleReducer.role.role;
   const userInfo = data.roleReducer.role;
   const savedJob = data.savedJobReducer.savedJobs;
-  //   console.log(savedJob);
+    // console.log(applications);
 
-  const check = savedJob.map(
-    (job) => user?.email === job.email && job.jobID === jobs._id
+  const checkSavedJob = savedJob.map(
+    (job) => user?.email === job?.email && job?.jobID === jobs?._id
+  );
+
+  const checkApplied = applications.map(
+    (applied) => 
+	// console.log(applied.job)
+	user?.email === applied?.email && applied.job?._id === jobs?._id
   );
 
   useEffect(() => {
-    for (let i of check) {
+    for (let i of checkSavedJob) {
       if (i === true) {
         setIsSaved(i);
       }
     }
-  }, [check]);
-
-  // checking if user is applied or not
-  const isApplied = useIsApplied(applications, jobs._id);
+	
+    for (let i of checkApplied) {
+		// console.log(i);
+      if (i === true) {
+        setApplied(i);
+      }
+    }
+  }, [checkApplied, checkSavedJob]);
 
   // console.log(applied);
   useEffect(() => {
@@ -73,7 +82,7 @@ const SingleJobView = () => {
 
   const handleApply = () => {
     const applyInfo = {
-      jobs,
+      job: jobs,
       email: user?.email,
       name: userInfo?.name,
       address: userInfo?.address,
@@ -81,7 +90,10 @@ const SingleJobView = () => {
       experience: userInfo?.experience,
       notification: "true",
     };
-    dispatch(addApply(applyInfo));
+    
+	if(!applied){
+		dispatch(addApply(applyInfo));
+	}
     setApplied(!applied);
   };
 
@@ -201,7 +213,7 @@ const SingleJobView = () => {
                 {/* if role is jobSeeker he will be able to apply with some conditions */}
                 {role === "jobSeeker" ? (
                   <>
-                    {isApplied === true || applied ? (
+                    { applied ? (
                       // if apply button is clicked or already applied then this paragraph will be displayed
                       <p className="text-white font-semibold bg-success rounded-lg w-fit px-3 py-4">
                         Your application is submitted successfully
