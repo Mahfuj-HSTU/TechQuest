@@ -8,7 +8,7 @@ const StartHiring = () => {
       <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 my-20">
         <div className="flex flex-col  w-full lg:flex-row">
           <div className="mb-10 lg:mb-0 lg:max-w-lg ">
-            <div className="mb-6 text-center lg:text-left">
+            <div className="mt-10 mb-6 text-center lg:text-left">
               <div className="">
                 <p
                   style={ { whiteSpace: "nowrap" } }
@@ -36,9 +36,9 @@ const StartHiring = () => {
               </label>
             </div>
           </div>
-          <div className="flex items-center justify-center lg:w-1/2">
+          <div className="flex items-center ml-10 justify-center lg:w-1/2">
             <div>
-              <div style={ { marginTop: "-20px" } } className="animation">
+              <div style={ { marginTop: "-40px" } } className="animation">
                 <Lottie animationData={ animation }></Lottie>
               </div>
             </div>
