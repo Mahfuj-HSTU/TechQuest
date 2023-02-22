@@ -7,6 +7,7 @@ import Circle from "../../../assets/Animation/Circle/Circle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllJobs } from "../../../features/AllJobs/AllJobsSlice";
 import { fetchAllUsers } from "../../../features/AllUsers/AllUsersSlice";
+import "./Banner.css";
 
 const Banner = () => {
   const [ startHiring, setStartHiring ] = useState( true );
@@ -142,12 +143,12 @@ const Banner = () => {
             </p>
             <Link
               to="/auth/recruiter"
-              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
+              className="bg-white hover:bg-secondary text-black p-3 rounded-md text-left font-semibold w-1/2"
             >
-              Get Started
+              Sign Up & Start Hiring
             </Link>
             <form onSubmit={ handleEmployeeSearch } className="flex flex-col text-black">
-              <input type="text" placeholder="Find skilled employee" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
+              <input id="inputID" type="text" placeholder="Search For Skilled Professionals" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
               {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
               { employeeSearch.length !== 0 &&
                 <ul className="bg-white -mt-4 text-start rounded-lg">
@@ -173,7 +174,7 @@ const Banner = () => {
               Apply
             </Link> */}
             <form onSubmit={ handleJobSearch } className="flex flex-col text-black">
-              <input type="text" placeholder="Find your dream job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
+              <input type="text" placeholder="Find Your Dream Job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
               { jobSearch.length !== 0 &&
                 <ul className="bg-white -mt-4 text-start rounded-lg">
                   {
