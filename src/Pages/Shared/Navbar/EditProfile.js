@@ -45,7 +45,7 @@ const EditProfile = () => {
                     alt=""
                     className="w-12 h-12 rounded-full"
                   />
-                  <div className="text-start font-semibold">
+                  <Link to="/my-account" className="text-start font-semibold">
                     {/* checking user has name or not */ }
                     { user?.displayName }
                     <p>
@@ -53,7 +53,7 @@ const EditProfile = () => {
                         { user?.email }
                       </span>
                     </p>
-                  </div>
+                  </Link>
                 </div>
               </li>
               <li className="flex flex-col items-start">
