@@ -25,7 +25,7 @@ const AllJobSeekers = () => {
     <div className="grid">
       <div className="my-5">
         <h1 className="text-4xl font-bold text-left ml-8">
-          Find your next top tech employee.
+          Find Your Next Top Tech Employee.
         </h1>
       </div>
       <div className="">
