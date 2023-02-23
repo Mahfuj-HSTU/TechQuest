@@ -61,7 +61,7 @@ const MyJobs = () => {
           <tbody>
             {
               jobs.map( ( job, i ) =>
-                <tr key={ user?._id } className='border-2'>
+                <tr key={ i } className='border-2'>
                   <td className='border-2'>{ i + 1 }</td>
                   <td className='border-2'>{ job.job?.jobTitle }</td>
                   <td className='border-2'>{ job.job?.jobType }</td>
