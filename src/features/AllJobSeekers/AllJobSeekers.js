@@ -7,6 +7,7 @@ import ContactNow from "../AllJobSeekerCard/ContactNow";
 
 const AllJobSeekers = () => {
   const [jobSeekers, setJobSeekers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState();
   const [contact, setContact] = useState(null);
   useEffect(() => {
     fetch(`${ServerLink}/jobSeekersCollection`)
@@ -16,6 +17,11 @@ const AllJobSeekers = () => {
 
   return (
     <div className="grid">
+      <div>
+        <h1 className="text-4xl font-bold text-left ml-8">
+          Find your next top tech employee.
+        </h1>
+      </div>
       <div className="">
         <div className="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -50,7 +56,9 @@ const AllJobSeekers = () => {
                         type="text"
                         placeholder="Search…"
                         className="input input-bordered"
+                        
                       />
+                      
                       <button className="btn btn-square">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
