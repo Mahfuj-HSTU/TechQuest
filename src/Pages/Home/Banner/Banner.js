@@ -140,12 +140,12 @@ const Banner = () => {
             <p className="whitespace-nowrap mr-10">
               Get your first 10 candidates in 48 hours!
             </p>
-            <Link
+            {/* <Link
               to="/auth/recruiter"
               className="bg-white hover:bg-secondary text-black p-3 rounded-md text-center font-semibold w-1/2"
             >
               Get Started
-            </Link>
+            </Link> */}
             <form onSubmit={ handleEmployeeSearch } className="flex flex-col text-black">
               <input type="text" placeholder="Find skilled employee" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
               {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
