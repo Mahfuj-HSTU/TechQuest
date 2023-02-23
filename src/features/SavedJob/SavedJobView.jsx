@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchSavedJob } from "./SavedJobSlice";
 
 const SavedJobView = () => {
@@ -15,18 +16,32 @@ const SavedJobView = () => {
   }, [dispatch]);
 
   return (
-    <div className="my-28">
-      <h1 className="text-lg">Saved Jobs</h1>
+    <div className="flex-col flex gap-5 text-center md:text-left w-full mt-2 md:mx-5 pb-5">
+      <h1 className="text-2xl font-bold">Saved Jobs</h1>
       <hr />
-      {savedJob?.map((job) => (
-        <div key={job._id}>
-          {
-            job.email === user?.email && <div>
-            <h1>{job.jobTitle}</h1>
-          </div>
-          }
-        </div>
-      ))}
+
+      <table className=" mx-auto w-[70%]">
+        <thead className="bg-gray-200">
+          <tr className="">
+            {/* <th>Sl No</th> */}
+            <th>Job Title</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        {savedJob?.map((job, i) => (
+          <tbody key={job._id}>
+            {job.email === user?.email && (
+              <tr className="">
+                {/* <td>{i+1}</td> */}
+                <td><Link to={`/job-details/${job?._id}`}>{job.jobTitle}</Link></td>
+                <td><button className="btn btn-error btn-sm text-white">
+                  Delete
+                </button></td>
+              </tr>
+            )}
+          </tbody>
+        ))}
+      </table>
     </div>
   );
 };
