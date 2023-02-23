@@ -43,7 +43,7 @@ export const AboutUsTwo = () => {
             <div className="pt-1 pb-8">
               <p className="mb-2 text-lg font-bold">Step 1</p>
               <p className="text-gray-700">
-                We started out as an online school and recruiting platform to
+                We started out as an online recruiting platform to
                 help Bangladeshis get jobs in abroad.
               </p>
             </div>
