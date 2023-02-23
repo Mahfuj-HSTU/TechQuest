@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRef } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ServerLink } from "../../Hooks/useServerLink";
@@ -7,17 +8,22 @@ import ContactNow from "../AllJobSeekerCard/ContactNow";
 
 const AllJobSeekers = () => {
   const [jobSeekers, setJobSeekers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState();
+  const searchRef = useRef();
+  const [search, setSearch] = useState("");
   const [contact, setContact] = useState(null);
   useEffect(() => {
-    fetch(`${ServerLink}/jobSeekersCollection`)
+    fetch(`${ServerLink}/jobSeekersCollection?search=${search}`)
       .then((res) => res.json())
       .then((data) => setJobSeekers(data));
-  }, []);
+  }, [search]);
+
+  const handleSearch = () => {
+    setSearch(searchRef.current.value);
+  }
 
   return (
     <div className="grid">
-      <div>
+      <div className="my-5">
         <h1 className="text-4xl font-bold text-left ml-8">
           Find your next top tech employee.
         </h1>
@@ -53,13 +59,14 @@ const AllJobSeekers = () => {
                   <div className="form-control">
                     <div className="input-group">
                       <input
+                        ref={searchRef}
                         type="text"
-                        placeholder="Search…"
+                        placeholder="Search For Talents"
                         className="input input-bordered"
                         
                       />
                       
-                      <button className="btn btn-square">
+                      <button onClick={handleSearch} className="btn btn-square">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"
