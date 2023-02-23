@@ -10,7 +10,7 @@ const MyAccount = () => {
   return (
     <div>
       <Navbar />
-      <div className="mx-auto bg-gray-100 my-32 ">
+      <div className="mx-auto bg-gray-100 my-32 max-w-[1100px]">
         <div className="flex flex-col mt-5 p-5">
           <div className="flex bg-white items-center mt-5">
             <div className="m-3 bg-gray-100">
