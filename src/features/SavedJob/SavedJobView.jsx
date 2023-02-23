@@ -20,7 +20,7 @@ const SavedJobView = () => {
       <h1 className="text-2xl font-bold">Saved Jobs</h1>
       <hr />
 
-      <table className=" mx-auto w-[70%]">
+      <table className="table table-compact mx-auto w-[70%]">
         <thead className="bg-gray-200">
           <tr className="">
             {/* <th>Sl No</th> */}
