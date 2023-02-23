@@ -33,7 +33,7 @@ const SavedJobView = () => {
             {job.email === user?.email && (
               <tr className="">
                 {/* <td>{i+1}</td> */}
-                <td><Link to={`/job-details/${job?._id}`}>{job.jobTitle}</Link></td>
+                <td><Link to={`/job-details/${job?.jobID}`}>{job.jobTitle}</Link></td>
                 <td><button className="btn btn-error btn-sm text-white">
                   Delete
                 </button></td>
