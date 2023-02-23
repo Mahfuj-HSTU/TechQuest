@@ -63,8 +63,8 @@ const MyJobs = () => {
               jobs.map( ( job, i ) =>
                 <tr key={ user?._id } className='border-2'>
                   <td className='border-2'>{ i + 1 }</td>
-                  <td className='border-2'>{ job.job.jobTitle }</td>
-                  <td className='border-2'>{ job.job.jobType }</td>
+                  <td className='border-2'>{ job.job?.jobTitle }</td>
+                  <td className='border-2'>{ job.job?.jobType }</td>
                   <td className='border-2 text-center'>
                     <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-modal-3" className="btn btn-outline btn-info rounded-lg">details</label></button>
                   </td>
