@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Shared/Navbar/Navbar";
+import Profile from "./Profile";
 
 const MyAccount = () => {
   const user = useSelector((state) => state.roleReducer.role);
-  //   console.log(user);
-
+  // console.log(user);
+  const [routeChanged, isRouteChanged] = useState(false);
   return (
     <div>
       <Navbar />
@@ -30,13 +31,19 @@ const MyAccount = () => {
           </div>
           {/* profile section  */}
           <div className="flex flex-col md:flex-row justify-start mt-5 bg-white">
-            <div className="w-[90%] md:w-[30%]">
+            <div
+              className="w-[90%] md:w-[30%]"
+              onFocus={() => isRouteChanged(true)}
+            >
               <div className=" flex flex-col whitespace-nowrap text-left font-semibold h-[92%] bg-gray-200 gap-5 m-3 rounded-lg md:mr-0 p-5">
                 <Link to="/my-account/profile">Profile</Link>
-                <Link>Applied Jobs</Link>
-                <Link to="/my-account/saved-jobs">Saved Jobs</Link>
+                {user?.role === "jobSeeker" && <Link>Applied Jobs</Link>}
+                {user?.role === "jobSeeker" && (
+                  <Link to="/my-account/saved-jobs">Saved Jobs</Link>
+                )}
               </div>
             </div>
+            {routeChanged === false && <Profile />}
             <Outlet />
           </div>
         </div>
