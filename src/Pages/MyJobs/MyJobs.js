@@ -1,35 +1,35 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import "./MyJobs.css";
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { useQuery } from '@tanstack/react-query';
-import MyjobModal from './MyjobModal/MyjobModal';
-import { ServerLink } from '../../Hooks/useServerLink';
-
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import MyjobModal from "./MyjobModal/MyjobModal";
+import { ServerLink } from "../../Hooks/useServerLink";
 
 const MyJobs = () => {
-  const { user } = useContext( AuthContext );
+  const { user } = useContext(AuthContext);
 
-  const [ myjob, setMyjob ] = useState( null );
+  const [myjob, setMyjob] = useState(null);
 
-  const url = `${ ServerLink }/applications?email=${ user?.email }`;
+  const url = `${ServerLink}/applications?email=${user?.email}`;
 
-  const { data: jobs = [] } = useQuery( {
-    queryKey: [ "jobs", user?.email ],
+  const { data: jobs = [] } = useQuery({
+    queryKey: ["jobs", user?.email],
     queryFn: async () => {
-      const res = await fetch( url, {
+      const res = await fetch(url, {
         headers: {
-          authorization: `bearer ${ localStorage.getItem( "accessToken" ) }`,
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
-      } );
+      });
       const data = await res.json();
       return data;
     },
-  } );
-
+  });
 
   return (
-    <div className='mt-24 mb-16'>
-<h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">My Applied Jobs</h3>
+    <div className="mt-24 mb-16">
+      <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">
+        My Applied Jobs
+      </h3>
       <div className=" gap-4 lg:w-full ">
 
       <div className="drawer drawer-end">
@@ -77,35 +77,30 @@ const MyJobs = () => {
 
 export default MyJobs;
 
+// {/* <div className=" text-2xl">
+// <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
+//   { job.job.jobTitle }</label></button></div> */}
 
-{/* <div className=" text-2xl">
-<button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
-  { job.job.jobTitle }</label></button></div> */}
-
-
-
-{/* <table className="table table-compact w-full border-2 shadow-lg">
-<thead className="text-center">
-  <tr>
-    <th>Sl No</th>
-    <th>Job Title</th>
-    <th>Job Type</th>
-    <th>Details</th>
-  </tr>
-</thead>
-<tbody>
-  {
-    jobs.map( ( job, i ) =>
-      <tr key={ user?._id } className='border-2'>
-        <td className='border-2'>{ i + 1 }</td>
-        <td className='border-2'>{ job.job.jobTitle }</td>
-        <td className='border-2'>{ job.job.jobType }</td>
-        <td className='border-2 text-center'>
-          <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-modal-3" className="btn btn-outline btn-info rounded-lg">details</label></button>
-        </td>
-      </tr> )
-  }
-</tbody>
-</table> */}
-
-
+// {/* <table className="table table-compact w-full border-2 shadow-lg">
+// <thead className="text-center">
+//   <tr>
+//     <th>Sl No</th>
+//     <th>Job Title</th>
+//     <th>Job Type</th>
+//     <th>Details</th>
+//   </tr>
+// </thead>
+// <tbody>
+//   {
+//     jobs.map( ( job, i ) =>
+//       <tr key={ user?._id } className='border-2'>
+//         <td className='border-2'>{ i + 1 }</td>
+//         <td className='border-2'>{ job.job.jobTitle }</td>
+//         <td className='border-2'>{ job.job.jobType }</td>
+//         <td className='border-2 text-center'>
+//           <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-modal-3" className="btn btn-outline btn-info rounded-lg">details</label></button>
+//         </td>
+//       </tr> )
+//   }
+// </tbody>
+// </table> */}
