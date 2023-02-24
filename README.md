@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# TechQuest - Job Hiring Agency
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is [live here](https://techquest-f0116.web.app/).
 
-## Available Scripts
+## Technology Used
 
-In the project directory, you can run:
+ReactJS, NodeJS, ExpressJS, MongoDB, react-redux, Redux-toolkit, Tailwind CSS, DaisyUI, Firebase, Vercel, Multer
 
-### `npm start`
+## Functionalities of this project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In this project , we have:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Job-seeker role`
 
-### `npm test`
+- Candidate can find their dream job by searching a specific job.
+- Candidate can find all jobs in [all job page](https://techquest-f0116.web.app/all-jobs).
+- Job seeker can apply for any job by visiting the job details page
+- One candidate can apply one job
+- Job seekers also can improve their skills by buy a course from [Courses](https://techquest-f0116.web.app/job-seeker/courses) page.
+- Course video will be visible after successful payment for job seeker
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Recruiter role`
 
-### `npm run build`
+- Recruiter can add a job with the suitable requirements to get  actual candidate.
+- Recruiter is also able to delete a job from [recruiter posts](https://techquest-f0116.web.app/recruiter/MyJobPost).
+- Applicant can be found from recruiter posts.
+- If any job seeker apply for posted job then the recruiter will be notified
+- Recruiter can find Skillful candidate by searching.
+- A search feature is implemented on the banner to get candidate by skills.
+- Recruiter can also find job seeker by visiting [all job seekers](https://techquest-f0116.web.app/recruiter/all-job-seekers)
+- From the all-job-seekers page recruiter can contact with a candidate directly.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Admin role`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Admin is able to monitor all the [users](https://techquest-f0116.web.app/admin/users) of this website.
+- A search functionality is added to get a specific user.
+- Admin can remove a job, if he find something wrong.
+- Admin can add courses and can remove.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Server side
 
-### `npm run eject`
+[Server Side GitHub repository](https://github.com/Mahfuj-HSTU/tech-quest-server).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Live Site Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[Visit live site](https://techquest-f0116.web.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Note: this project is under development, use as your own pace!**

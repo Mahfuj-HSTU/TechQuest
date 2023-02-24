@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { fetchAddCourse } from "../AddCourseSlice";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddCourse = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch =  useDispatch();
 
   const handleAddCourse = (e) => {
@@ -14,27 +14,28 @@ const AddCourse = () => {
     const description = form.description.value;
     const instructor = form.instructor.value;
     const image = form.image.value;
+    const videoUrl = form.video.value;
     const price = form.price.value;
     const courseInfo = {
-        title, description, instructor, image,price
+        title, description, instructor, image,price, videoUrl
     }
 
     dispatch(fetchAddCourse(courseInfo))
     // console.log(courseInfo);
-    // navigate('/')
+    navigate('/')
   };
 
   return (
     <div>
       <form onSubmit={handleAddCourse}>
         {/* The button to open modal */}
-        <label htmlFor="add-course-modal" className="btn">
+        <label htmlFor="add-course-modal" className="btn btn-info text-white">
           Add Course
         </label>
 
         {/* Put this part before </body> tag */}
         <input type="checkbox" id="add-course-modal" className="modal-toggle" />
-        <div className="modal">
+        <div className="modal bg-transparent backdrop-brightness-50">
           <div className="modal-box relative">
             <label
               htmlFor="add-course-modal"
@@ -42,7 +43,7 @@ const AddCourse = () => {
             >
               ✕
             </label>
-            <h3 className="text-lg font-bold bg-sky-200 rounded-md py-3 my-5">
+            <h3 className="text-lg font-bold text-white bg-primary rounded-md py-3 my-5">
               Add Course
             </h3>
             <div className="grid grid-cols-1 gap-3">
@@ -54,10 +55,10 @@ const AddCourse = () => {
                 placeholder="course title"
               />
               {/* course description */}
-              <input
-                type="text"
+              <textarea
+                type="textarea"
                 name="description"
-                className="input input-bordered w-full"
+                className="textarea textarea-bordered w-full"
                 placeholder="course description"
               />
               {/* course instructor */}
@@ -74,6 +75,13 @@ const AddCourse = () => {
                 className="input input-bordered w-full"
                 placeholder="course image link"
               />
+              {/* course video link */}
+              <input
+                type="text"
+                name="video"
+                className="input input-bordered w-full"
+                placeholder="course video link"
+              />
               {/* course price */}
               <input
                 type="number"
@@ -83,10 +91,10 @@ const AddCourse = () => {
               />
             </div>
             <div className="my-3 flex justify-center gap-3">
-              <label htmlFor="add-course-modal" className="cursor-pointer bg-gray-500 rounded-lg text-white font-bold uppercase p-1 hover:bg-gray-700">
+              <label htmlFor="add-course-modal" className="cursor-pointer bg-gray-500 btn-sm btn text-white  uppercase p-1 hover:bg-gray-700">
                 close
               </label>
-              <input type="submit" value="submit" className="cursor-pointer bg-green-500 rounded-lg text-white font-bold uppercase btn-sm hover:bg-green-700" />
+              <input type="submit" value="submit" className="btn btn-success btn-sm hover:text-white " />
             </div>
           </div>
         </div>

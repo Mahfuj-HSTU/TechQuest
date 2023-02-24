@@ -7,10 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 import Notification from "./Notification";
+import './navbar.css'
+import EditProfileModal from "./EditProfileModal";
 
 const Navbar = () => {
   const { user } = useContext( AuthContext );
-  const role = useSelector( ( state ) => state.roleReducer.role.role );
+  const details = useSelector( ( state ) => state.roleReducer.role );
+  const role = details.role
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
@@ -21,15 +24,23 @@ const Navbar = () => {
     user?.email && dispatch( fetchRole( user?.email ) );
   }, [ dispatch, user?.email ] );
 
+
+  // const { data: details = [], refetch } = useQuery( {
+  //   queryKey: [ 'details' ],
+  //   queryFn: () => fetch( `${ ServerLink }/users/${ user?.email }` )
+  //     .then( res => res.json() )
+  // } )
+  // console.log( details );
+
+
   const menuItems = (
     <>
       <li className="font-semibold">
-        <Link to="/">Features</Link>
         <Link to="/all-jobs">All Jobs</Link>
         <Link to="/about">Why TechQuest?</Link>
         <Link to="/blogs">Blogs</Link>
       </li>
-      { user?.email ? (
+      { user?.email && (
         <>
           { role === admin && (
             <>
@@ -63,25 +74,37 @@ const Navbar = () => {
             </>
           ) }
         </>
-      ) : (
-        <>
-          <li className="font-semibold">
-            <Link to="/auth/login">Login</Link>
-          </li>
-          <li className="font-semibold">
-            <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
-          </li>
-        </>
-      ) }
+      )
+        // : (
+        //   <>
+        //     <li className="font-semibold">
+        //       <Link to="/auth/login">Login</Link>
+        //     </li>
+        //     <li className="font-semibold">
+        //       <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
+        //     </li>
+        //   </>
+        // )
+      }
     </>
   );
 
+  window.onscroll = function () {
+    if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ) {
+      document.querySelector( ".customNavbar" ).classList.add( "customNavbar-scrolled" );
+      // console.log( 'check' );
+    } else {
+      document.querySelector( ".customNavbar" ).classList.remove( "customNavbar-scrolled" );
+    }
+  };
+
+
   return (
     <div>
-      <div className="navbar justify-evenly shadow-lg bg-white fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg rounded-md tracking-tighter mx-auto">
+      <div className="navbar justify-evenly md:justify-between lg:justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg mx-auto ">
         <div className="">
           <div className="dropdown">
-            <label tabIndex={ 0 } className="btn btn-ghost md:hidden">
+            <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -99,7 +122,7 @@ const Navbar = () => {
             </label>
             <u
               tabIndex={ 0 }
-              className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52"
+              className="menu menu-compact dropdown-content no-underline p-2 shadow bg-gray-200 rounded-box w-52  text-black"
             >
               { menuItems }
             </u>
@@ -120,24 +143,33 @@ const Navbar = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-1 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="ml-1 text-xl font-bold tracking-wide uppercase">
               TechQuest
             </span>
           </Link>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
             { menuItems }
           </ul>
         </div>
-        { user?.email && <div className="">
+        { user?.email ? <div className="text-black">
           <div className="flex justify-center">
             <Notification></Notification>
             <EditProfile></EditProfile>
           </div>
-        </div>}
+        </div>
+          :
+          <div className="font-semibold flex gap-4">
+            <Link to="/auth/login" className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
+            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
+          </div>
+        }
       </div>
       <SignUpModal></SignUpModal>
+      {
+        user?.email && <EditProfileModal details={ details } ></EditProfileModal>
+      }
     </div>
   );
 };

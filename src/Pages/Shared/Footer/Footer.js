@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="m-5 shadow-lg p-5 border">
+    <div className="shadow-lg p-5 border">
       <footer className="footer p-2  rounded-md text-left">
         <div className="w-52 text-left">
           <p className="text-xl font-bold">Connecting Cultures Through Codes</p>
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
           <div className="w-24 flex items-center">
             <img src={ img1 } alt="" />
-            <img  className="w-20 h-20" src={ img2 } alt="" />
+            <img className="w-20 h-20" src={ img2 } alt="" />
           </div>
         </div>
         <div className=" text-slate-400">

@@ -10,6 +10,7 @@ const ShowApplicant = () => {
                 applicants.length !== 0 ? (
                     <>
                         <div>
+                            <h3 className='text-4xl font-bold text-center my-5'>Applicants for this job</h3>
                             <table className="table table-zebra table-compact w-full border-2 shadow-lg">
                                 <thead className="text-center">
                                     <tr>
