@@ -64,7 +64,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/my-account",
-    element: <MyAccount />,
+    element: <PrivateRoute><MyAccount /></PrivateRoute>,
     children: [
       {
         path: "/my-account/saved-jobs",

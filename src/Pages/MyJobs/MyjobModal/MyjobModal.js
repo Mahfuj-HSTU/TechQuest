@@ -1,58 +1,76 @@
 import React from 'react';
+import { IoIosPeople } from 'react-icons/io';
+import { BsSticky } from 'react-icons/bs';
 
 const MyjobModal = ( { myjob } ) => {
-    const { jobType, jobTitle, jobDescription, jobStatus, location, mustSkills, optionalSkills, jobRequirements } = myjob.job;
+    const { jobType, jobTitle, jobDescription, jobStatus, location, mustSkills, optionalSkills, jobRequirements } = myjob?.job;
     // console.log(myjob)
     return (
         <>
-<div className="drawer drawer-end">
+<div className="drawer drawer-end mx-auto">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
 
-    <div className="drawer-side">
+    <div className="drawer-side overflow-x-hidden">
    
-    <label htmlFor="my-drawer-4" className="drawer-overlay "> Actively Recruiting</label>
-  <div className="grid grid-cols-2">
+    <label htmlFor="my-drawer-4" className="drawer-overlay text-2xl m-8 p-6 rounded-full"> Actively Recruiting</label>
+  <div className="grid grid-cols-2 overflow-hidden">
         <div>
+        <div className= 'animate m-8 p-2 rounded-lg'>
+            <span> </span>
+            <span> </span>
+            <span> </span>
+            <span> </span>
             <p className='text-primary-focus text-3xl'>{jobTitle}</p>
-            <br/>
-            <p className='text-left text-lg text-black'>Job Activity</p>   
-            <p>350 candidates applied for the {jobTitle} </p>
-            <p>15 candidates were screened for {jobTitle}</p>  
+            </div>
+
+            <p className='text-left text-gray-700 text-2xl mt-4 '>Job Activity</p>  
+            <br/> 
+            <div className='flex  border-2 border-r-slate-500 mt-1'><BsSticky className='mt-1'/> <span className='mx-3 text-xl'> 15 candidates were screened for {jobTitle}</span></div>
+            <div className='flex  border-2 border-r-slate-500 mt-1'><IoIosPeople className='mt-1'/> <span className='mx-2 text-xl'>350 candidates applied for the {jobTitle} </span></div>
+            <div className='justify-start'>
+          <h3 className='text-3xl underline-offset-8 mt-8'> About The Job</h3>
+         <div className=' card-body bg-secondary bg-opacity-30 text-black text-justify shadow-2xl'>
+            <p> <span className=' text-xl text-info'> Job Requirements</span>: {jobRequirements }</p>
+          <p> <span className='text-xl text-info'> Mandatory Skill: </span> {mustSkills}</p>
+          <p> <span className='text-xl text-info'> Nice to have Skill: </span> {optionalSkills}</p>
+          <p> <span className='text-xl text-info'> Location: </span> {location}</p>
+          <p> <span className='text-xl text-info'> Job Type: </span> {jobStatus}</p>
+         </div>
+        </div>
+        <button className="btn btn-warning mt-2" >Delete The Job</button>
         </div>
         
-        <div><ul className="steps steps-vertical lg:steps-horizontal w-96 bordered border-4 shadow-lg bordered-lg">
-  <li className="step step-primary">Applied</li>
-  <li className="step step-primary">Screening</li>
-  <li className="step">Job Task</li>
-  <li className="step">Interview</li>
-</ul></div>
+        
+        <div>
+
+          <div className='m-8 shadow-lg bordered-8 text-center '>
+            <h3  className='text-2xl'>About The Company</h3>
+            <p>This company has already hired 1 Techquest</p>
+            <p>More information on interview stage</p>
+          </div>
+
+          
+          <p className='text-center text-green-900 text-xl'>Our Hiring Process</p>
+          <ul className="steps steps-vertical lg:steps-vertical w-80 bordered border-4 shadow-lg bordered-lg text-center m-4 p-4">
+            <li className="step step-primary">Applied</li>
+            <li className="step step-primary">Screening</li>
+            <li className="step">1st round</li>
+            <li className="step">2nd round</li>
+            <li className="step">Final round</li>
+            <li className="step">Interview</li>
+            <li className="step">Reference Check</li>
+        </ul>
+        
+    </div>
+  
+
     </div>   
   </div>
   </div> 
  
-</div>
-
-
-
-
-
-
-
-
-            {/* <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-            <div className="modal text-start">
-                <div className="modal-box relative">
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold overline underline text-indigo-300">{ jobTitle } ({ jobType })</h3>
-                    <p className="py-4 leading-3 text-amber-500">Mandatory skill: { mustSkills }</p>
-                    <p className="py-4 leading-3">Other skills: { optionalSkills }</p>
-                    <p className='py-4 leading-3'>{ jobStatus } { location }</p>
-                    <p className="py-4 text-sm">job Requirements: { jobRequirements }</p>
-                    <p className="py-4 text-sm ">{ jobDescription }</p>
-                </div>
-            </div> */}
-        </>
+   </div>
+  </>
 
     );
 };

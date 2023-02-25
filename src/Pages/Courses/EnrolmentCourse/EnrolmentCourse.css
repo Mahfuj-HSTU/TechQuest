@@ -6,6 +6,21 @@
 	place-items: center;
 } */
 
+.animate:after {
+    content:' ' attr(title);
+    visibility: hidden;
+    opacity:0;
+    transition: visibility 0s linear 0.5s, opacity 0.5s linear, font 0.05s linear;
+    font-size: 0;
+}
+.animate:hover:after {
+    content:' ' attr(title);
+    visibility: visible;
+    opacity:1;
+    transition-delay:0s;
+    font-size: 13px;
+}
+
 .animate {
 	position: relative;
 	/* padding: 30px 60px; */
