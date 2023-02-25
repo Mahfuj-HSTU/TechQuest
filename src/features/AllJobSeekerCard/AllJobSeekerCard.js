@@ -14,9 +14,9 @@ const AllJobSeekerCard = ( { jobSeeker, setContact } ) => {
 
   return (
 
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
-      <hr className="mb-5" />
-      <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
+    <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12">
+      <hr className="mb-2 shadow-lg" />
+      <div className="grid gap-5  lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <div className="max-w-xl mb-6">
             <h2 className="font-bold text-2xl text-center">{ name }</h2>
@@ -48,7 +48,7 @@ const AllJobSeekerCard = ( { jobSeeker, setContact } ) => {
           </figure>
         </div>
       </div>
-      <hr className="mt-16" />
+      <hr className="mt-12"/>
     </div>
   );
 };

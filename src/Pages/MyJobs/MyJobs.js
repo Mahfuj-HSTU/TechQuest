@@ -1,35 +1,35 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import "./MyJobs.css";
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { useQuery } from '@tanstack/react-query';
-import MyjobModal from './MyjobModal/MyjobModal';
-import { ServerLink } from '../../Hooks/useServerLink';
-
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import MyjobModal from "./MyjobModal/MyjobModal";
+import { ServerLink } from "../../Hooks/useServerLink";
 
 const MyJobs = () => {
-  const { user } = useContext( AuthContext );
+  const { user } = useContext(AuthContext);
 
-  const [ myjob, setMyjob ] = useState( null );
+  const [myjob, setMyjob] = useState(null);
 
-  const url = `${ ServerLink }/applications?email=${ user?.email }`;
+  const url = `${ServerLink}/applications?email=${user?.email}`;
 
-  const { data: jobs = [] } = useQuery( {
-    queryKey: [ "jobs", user?.email ],
+  const { data: jobs = [] } = useQuery({
+    queryKey: ["jobs", user?.email],
     queryFn: async () => {
-      const res = await fetch( url, {
+      const res = await fetch(url, {
         headers: {
-          authorization: `bearer ${ localStorage.getItem( "accessToken" ) }`,
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
-      } );
+      });
       const data = await res.json();
       return data;
     },
-  } );
-
+  });
 
   return (
-    <div className='mt-24 mb-16'>
-<h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">My Applied Jobs</h3>
+    <div className="mt-24 mb-16">
+      <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">
+        My Applied Jobs
+      </h3>
       <div className=" gap-4 lg:w-full ">
 
       <div className="drawer drawer-end">
@@ -76,7 +76,5 @@ const MyJobs = () => {
 };
 
 export default MyJobs;
-
-
 
 
