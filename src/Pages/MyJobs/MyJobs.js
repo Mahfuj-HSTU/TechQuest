@@ -37,7 +37,10 @@ const MyJobs = () => {
     <div className="drawer-content ">
   {
   jobs.map(job => 
+ 
     <>
+      {/* key ={job?.job?._id} */}
+     
     <div className=" p-2 inline-grid  grid-cols-4 border-2 shadow-lg  m-1 w-full ">
   <div className=" text-2xl">{ job?.job?.jobTitle }</div>
   <div className="">{ job?.job?.jobType }</div>
