@@ -26,8 +26,8 @@ const MyjobModal = ( { myjob } ) => {
 
             <p className='text-left text-gray-700 text-2xl mt-4 '>Job Activity</p>  
             <br/> 
-            <div className='flex border border-8 border-r-slate-500 mt-1'><BsSticky className='mt-1'/> <span className='mx-2'>  15 candidates were screened for {jobTitle}</span></div>
-            <div className='flex border border-8 border-r-slate-500 mt-1'><IoIosPeople className='mt-1'/> <span className='mx-4'>  350 candidates applied for the {jobTitle} </span></div>
+            <div className='flex  border-8 border-r-slate-500 mt-1'><BsSticky className='mt-1'/> <span className='mx-2'>  15 candidates were screened for {jobTitle}</span></div>
+            <div className='flex  border-8 border-r-slate-500 mt-1'><IoIosPeople className='mt-1'/> <span className='mx-4'>  350 candidates applied for the {jobTitle} </span></div>
             <div className=''>
           <h3 className='text-3xl underline-offset-8'> About The Job</h3>
           <p> <span className='text-amber-300'>Job Requirements</span>: {jobRequirements }</p>
