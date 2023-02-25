@@ -1,19 +1,39 @@
 import React from 'react';
 import { IoIosPeople } from 'react-icons/io';
 import { BsSticky } from 'react-icons/bs';
+import { ServerLink } from '../../../Hooks/useServerLink';
 
 const MyjobModal = ( { myjob } ) => {
-    const { jobType, jobTitle, jobDescription, jobStatus, location, mustSkills, optionalSkills, jobRequirements } = myjob?.job;
-    // console.log(myjob)
+    const { jobType, jobTitle, jobDescription, jobStatus, location, mustSkills, optionalSkills, jobRequirements,_id } = myjob?.job;
+    console.log(myjob)
+
+    const handleDelete = myjob => {
+      const agree = window.confirm( `Are sure, you want to delete: ${ jobTitle }` )
+      if ( agree ) {
+          fetch( `${ ServerLink }/applications/${ myjob?.job?._id }`, {
+              method: 'DELETE'
+          } )
+              .then( res => res.json() )
+              .then( data => {
+                  // console.log( data )
+                  if ( data.deletedCount > 0 ) {
+                      alert( 'user deleted successfully.' )
+                  }
+              } )
+      }
+  }
+
     return (
         <>
+        <hr></hr>
 <div className="drawer drawer-end mx-auto">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
 
     <div className="drawer-side overflow-x-hidden">
    
-    <label htmlFor="my-drawer-4" className="drawer-overlay text-2xl m-8 p-6 rounded-full"> Actively Recruiting</label>
+    {/* <label htmlFor="" className=" text-2xl m-8 p-6 rounded-full text-left text-info"> Actively Recruiting</label> */}
+{/* <p className=" text-2xl m-8 p-6 rounded-full text-left text-info"> Actively Recruiting</p> */}
   <div className="grid grid-cols-2 overflow-hidden">
         <div>
         <div className= 'animate m-8 p-2 rounded-lg'>
@@ -38,7 +58,8 @@ const MyjobModal = ( { myjob } ) => {
           <p> <span className='text-xl text-info'> Job Type: </span> {jobStatus}</p>
          </div>
         </div>
-        <button className="btn btn-warning mt-2" >Delete The Job</button>
+        {/* <button className="btn btn-warning mt-2" >Delete The Job</button> */}
+        <button onClick={ () => handleDelete( myjob ) } className='btn btn-outline btn-error rounded-lg mt-3'>Delete</button>
         </div>
         
         
