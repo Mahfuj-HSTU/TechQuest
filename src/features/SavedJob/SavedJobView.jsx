@@ -20,7 +20,7 @@ const SavedJobView = () => {
       <h1 className="text-2xl font-bold">Saved Jobs</h1>
       <hr />
 
-      <table className=" mx-auto w-[70%]">
+      <table className="table table-compact mx-auto w-[70%]">
         <thead className="bg-gray-200">
           <tr className="">
             {/* <th>Sl No</th> */}
@@ -33,7 +33,7 @@ const SavedJobView = () => {
             {job.email === user?.email && (
               <tr className="">
                 {/* <td>{i+1}</td> */}
-                <td><Link to={`/job-details/${job?._id}`}>{job.jobTitle}</Link></td>
+                <td><Link to={`/job-details/${job?.jobID}`}>{job.jobTitle}</Link></td>
                 <td><button className="btn btn-error btn-sm text-white">
                   Delete
                 </button></td>

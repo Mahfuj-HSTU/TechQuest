@@ -23,7 +23,7 @@ export const Blog = () => {
               alt=""
             />
           </div>
-          <p className="text-base text-gray-700 md:text-lg">
+          <p className="text-base text-justify text-gray-700 md:text-lg">
             Create React App (CRA) has played a pivotal role in the development
             of React’s community and its ecosystem at large. It is the tool of
             choice for developers of different skill sets when it comes to
@@ -181,7 +181,7 @@ export const Blog = () => {
               alt=""
             />
           </div>
-          <p className="text-base text-gray-700 md:text-lg">
+          <p className="text-base text-justify text-gray-700 md:text-lg">
             After completing a complete web development course and making a lot
             of projects with React, I have been exploring Redux at this moment
             and I can only express that it's nothing but awesome. Redux is a

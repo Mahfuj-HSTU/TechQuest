@@ -28,7 +28,7 @@ const JobSeeker = () => {
     console.log( image );
     const formData = new FormData();
     formData.append( "image", image );
-    const imgUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${ imgApi }`;
+    const imgUrl = `https://api.imgbb.com/1/upload?key=${ imgApi }`;
 
     fetch( imgUrl, {
       method: "POST",
