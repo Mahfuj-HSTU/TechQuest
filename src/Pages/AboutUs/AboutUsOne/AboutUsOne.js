@@ -35,15 +35,6 @@ const AboutUsOne = () => {
             talent worldwide to improve their soft skills and achieve their goal
             of getting hired abroad or remote.
           </p>
-          <div className="">
-            <Link to='/login' >
-            <button
-              className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-            >
-              Get Started
-            </button>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
