@@ -36,7 +36,6 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li className="font-semibold">
-        <Link to="/">Features</Link>
         <Link to="/all-jobs">All Jobs</Link>
         <Link to="/about">Why TechQuest?</Link>
         <Link to="/blogs">Blogs</Link>
@@ -123,7 +122,7 @@ const Navbar = () => {
             </label>
             <u
               tabIndex={ 0 }
-              className="menu menu-compact dropdown-content p-2 shadow bg-gray-200 rounded-box w-52  text-black"
+              className="menu menu-compact dropdown-content no-underline p-2 shadow bg-gray-200 rounded-box w-52  text-black"
             >
               { menuItems }
             </u>
