@@ -8,7 +8,7 @@ export const fetchSavedJob = createAsyncThunk("jobs/fetchAllJobs", async () => {
 });
 
 export const SavedJobSlice = createSlice({
-  name: "jobs",
+  name: "jobSeekers",
   initialState: {
     isLoading: false,
     savedJobs: [],
