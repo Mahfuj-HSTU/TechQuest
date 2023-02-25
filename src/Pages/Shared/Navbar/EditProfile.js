@@ -86,13 +86,13 @@ const EditProfile = () => {
                     Logout
                   </span>
                 </Link>
-                <div className="">
+                {/* <div className="">
                   <input
                     onClick={ handleMode }
                     type="checkbox"
                     className="toggle mx-auto"
                   />
-                </div>
+                </div> */}
               </li>
             </ul>
           </div>

@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import AllJobsSlice from "../features/AllJobs/AllJobsSlice";
 import RemoveJobSlice from "../features/AllJobs/RemoveJobSlice";
 import AllJobSeekersSlice from "../features/AllJobSeekers/AllJobSeekersSlice";
+import SingleJobSlice from "../features/AllJobs/SingleJobSlice";
 import AllUsersSlice from "../features/AllUsers/AllUsersSlice";
 import ApplyJobSlice from "../features/ApplyJob/ApplyJobSlice";
 import AllPaymentSlice from "../features/CoursePayment/AllPaymentSlice";
@@ -23,6 +24,7 @@ const store = configureStore( {
     addCourseReducer: AddCourseSlice,
     usersReducer: AllUsersSlice,
     allPaymentReducer: AllPaymentSlice,
+    jobDetailsReducer: SingleJobSlice,
     allJobSeekersReducer: AllJobSeekersSlice,
   },
 } );
