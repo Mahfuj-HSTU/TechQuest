@@ -149,7 +149,7 @@ const Banner = () => {
               to="/auth/recruiter"
               className="bg-white hover:bg-secondary text-black p-3 rounded-md text-left font-semibold w-1/2"
             >
-              Sign Up & Start Hiring
+              Get Started
             </Link> */}
             <form onSubmit={ handleEmployeeSearch } className="flex flex-col text-black">
               <input id="inputID" type="text" placeholder="Search For Skilled Professionals" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
