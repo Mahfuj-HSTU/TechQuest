@@ -16,6 +16,7 @@
     "body-parser": "^1.20.1",
     "daisyui": "^2.46.1",
     "firebase": "^9.15.0",
+    "formik": "^2.2.9",
     "lottie-react": "^2.3.1",
     "react": "^18.2.0",
     "react-animated-text": "^0.1.4",
