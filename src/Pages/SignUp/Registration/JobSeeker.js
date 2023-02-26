@@ -25,7 +25,7 @@ const JobSeeker = () => {
 
   const onSubmit = ( data ) => {
     const image = data.image[ 0 ];
-    console.log( image );
+    // console.log( image );
     const formData = new FormData();
     formData.append( "image", image );
     const imgUrl = `https://api.imgbb.com/1/upload?key=${ imgApi }`;
