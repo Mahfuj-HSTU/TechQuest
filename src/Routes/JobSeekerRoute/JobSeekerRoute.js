@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -28,7 +29,7 @@ const JobSeekerRoute = ( { children } ) => {
         return children;
     }
     logOut()
-        .then()
+        .then( toast.error( 'Please login as a Recruiter' ) )
         .catch()
 
     return <Navigate to='/auth/login' state={ { from: location } } replace></Navigate>

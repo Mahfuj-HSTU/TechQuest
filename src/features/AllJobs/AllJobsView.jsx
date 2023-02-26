@@ -14,14 +14,10 @@ const AllJobsView = () => {
     queryKey: ["courses"],
     queryFn: () => fetch(`${ServerLink}/courses`).then((res) => res.json()),
   });
-  // console.log( courses );
 
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
-
   const jobs = state.jobsReducer.jobs;
-  console.log(jobs.length);
-
 
   const dispatch = useDispatch();
 
@@ -117,7 +113,6 @@ const AllJobsView = () => {
                     course={course}
                   ></EnrolmentCourse>
                 )
-                // console.log(course , "course");
               )}
             </div>
           </div>
