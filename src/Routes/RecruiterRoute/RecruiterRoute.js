@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { fetchRole } from '../../Hooks/Role/useRoleSlice';
-// import useRecruiter from '../../Hooks/useRecruiter';
-import Loading from '../../pages/Shared/Loading/Loading';
+import Loading from '../../Pages/Shared/Loading/Loading';
 
 const RecruiterRoute = ( { children } ) => {
     const { user, loading, logOut } = useContext( AuthContext )
@@ -15,7 +15,7 @@ const RecruiterRoute = ( { children } ) => {
     const dispatch = useDispatch();
 
     useEffect( () => {
-        dispatch( fetchRole( user?.email ) );
+        user?.email && dispatch( fetchRole( user?.email ) );
     }, [ dispatch, user?.email ] );
 
 
@@ -24,12 +24,13 @@ const RecruiterRoute = ( { children } ) => {
     }
 
     if ( user && role === recruiter ) {
-        return children;
+       return children;
     }
     logOut()
-        .then()
+        .then(
+            toast.error( 'Please login as a Recruiter' )
+        )
         .catch()
-
     return <Navigate to='/auth/login' state={ { from: location } } replace></Navigate>
 };
 
