@@ -82,18 +82,22 @@ const Banner = () => {
   // console.log( jobSeekers );
 
   return (
+    // from-violet-600  to-[#0675CE] 
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 mt-16 justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-b-md bg-gradient-to-r from-violet-600  to-[#0675CE] shadow-lg">
+    <div className="grid grid-cols-1 mt-16 justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-b-md bg-gradient-to-r 
+    
+    from-info  to-primary
+    shadow-lg">
       {/* left side of the banner // from-[#7209B7] */ }
       <div className="flex flex-col mt-20 md:t-0 gap-5 mx-5 top-0">
         <div className="tabs gap-5 mb-5">
           <p
             onClick={ handleStartHiring }
-            // className="rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-blue-500"
+            // className="rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-gray-400"
             className={
               startHiring
-                ? "rounded pb-2 text-white font-semibold border-b-4 border-blue-500 cursor-pointer"
-                : "rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-blue-500 cursor-pointer"
+                ? "rounded pb-2 text-white font-semibold border-b-4 border-gray-400 cursor-pointer"
+                : "rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-gray-400 cursor-pointer"
             }
           >
             Start Hiring
@@ -102,8 +106,8 @@ const Banner = () => {
             onClick={ handleGetAJob }
             className={
               getAJob
-                ? "rounded pb-2 text-white font-semibold border-b-4 border-blue-500 cursor-pointer"
-                : "rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-blue-500 cursor-pointer"
+                ? "rounded pb-2 text-white font-semibold border-b-4 border-gray-400 cursor-pointer"
+                : "rounded pb-2 text-white font-semibold border-b-4 hover:border-b-4 hover:border-gray-400 cursor-pointer"
             }
           >
             Get A Job
