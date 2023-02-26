@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addApply, fetchApplicationData } from "../ApplyJob/ApplyJobSlice";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { fetchApplicationData } from "../ApplyJob/ApplyJobSlice";
 import Loading from "../../Pages/Shared/Loading/Loading";
 import { useState } from "react";
 import RemoveJob from "./RemoveJob";
@@ -19,9 +17,9 @@ import { ImLocation } from "react-icons/im";
 import { RiRemoteControlLine } from "react-icons/ri";
 
 const SingleJobView = () => {
-  const [applied, setApplied] = useState(false);
+  const [isApplied, setApplied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
-  const { user } = useContext(AuthContext);
+  // const { user: userInfo } = useContext(AuthContext);
 
   const id = useParams();
   // console.log(id)
@@ -29,21 +27,21 @@ const SingleJobView = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const { isLoading, error, applications } = data.applicationReducer;
+  const { isLoading, error, applications } = data?.applicationReducer;
   const { jobDetails } = data.jobDetailsReducer;
-  const role = data.roleReducer.role.role;
-  const userInfo = data.roleReducer.role;
-  const savedJob = data.savedJobReducer.savedJobs;
+  const role = data?.roleReducer?.role?.role;
+  const userInfo = data?.roleReducer?.role;
+  const savedJob = data?.savedJobReducer?.savedJobs;
   // console.log(jobDetails,jobDetails);
 
-  const checkSavedJob = savedJob.map(
-    (job) => user?.email === job?.email && job?.jobID === jobDetails?._id
+  const checkSavedJob = savedJob?.map(
+    (job) => userInfo?.email === job?.email && job?.jobID === jobDetails?._id
   );
 
-  const checkApplied = applications.map(
-    (applied) =>
+  const checkApplied = applications?.map(
+    (application) =>
       // console.log(applied.job)
-      user?.email === applied?.email && applied.job?._id === jobDetails?._id
+      userInfo?.email === application?.email && application?.job?._id === jobDetails?._id
   );
 
   useEffect(() => {
@@ -64,10 +62,10 @@ const SingleJobView = () => {
   // console.log(applied);
   useEffect(() => {
     dispatch(fetchApplicationData());
-    dispatch(fetchRole(user?.email));
+    dispatch(fetchRole(userInfo?.email));
     dispatch(fetchSavedJob());
     dispatch(fetchSingleJob(id));
-  }, [dispatch, id, user?.email]);
+  }, [dispatch, id, userInfo?.email]);
 
   const {
     _id,
@@ -86,24 +84,6 @@ const SingleJobView = () => {
     optionalSkills,
   } = jobDetails;
 
-  // storing application
-  const handleApply = () => {
-    const applyInfo = {
-      job: jobDetails,
-      email: user?.email,
-      name: userInfo?.name,
-      address: userInfo?.address,
-      photoUrl: userInfo?.photoUrl,
-      experience: userInfo?.experience,
-      notification: "true",
-    };
-
-    if (!applied) {
-      dispatch(addApply(applyInfo));
-    }
-    setApplied(!applied);
-  };
-
   // storing saved job
   const handleSave = () => {
     const jobDetails = {
@@ -121,7 +101,7 @@ const SingleJobView = () => {
       language,
       mustSkills,
       optionalSkills,
-      email: user?.email,
+      email: userInfo?.email,
     };
     if (!isSaved) {
       axios
@@ -221,7 +201,7 @@ const SingleJobView = () => {
                 {/* if role is jobSeeker he will be able to apply with some conditions */}
                 {role === "jobSeeker" ? (
                   <>
-                    {applied ? (
+                    {isApplied === true ? (
                       // if apply button is clicked or already applied then this paragraph will be displayed
                       <p className="text-white font-semibold bg-success rounded-lg w-fit px-3 py-4">
                         Your application is submitted successfully

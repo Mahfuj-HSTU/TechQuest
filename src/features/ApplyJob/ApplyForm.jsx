@@ -1,45 +1,60 @@
 import React from "react";
 import { Formik } from "formik";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addApply } from "./ApplyJobSlice";
+import { useNavigate } from "react-router-dom";
 
 const ApplyForm = () => {
+  const navigate = useNavigate();
   const stateData = useSelector((state) => state);
+  const dispatch = useDispatch();
   const { role } = stateData.roleReducer;
-  const jobDetailsData = stateData.jobDetailsReducer.jobDetails;
-  // console.log(role);
+  const jobDetails = stateData.jobDetailsReducer.jobDetails;
+  //   console.log(stateData);
+
+  // storing application
+  const handleApply = () => {
+    const applyInfo = {
+      job: jobDetails,
+      email: role?.email,
+      name: role?.name,
+      address: role?.address,
+      photoUrl: role?.photoUrl,
+      experience: role?.experience,
+      notification: "true",
+    };
+    // console.log(applyInfo);
+    dispatch(addApply(applyInfo));
+    navigate(`/job-details/${jobDetails._id}`);
+  };
+
   return (
     <div>
       <h1 className="text-2xl my-2 font-bold">
-        Applying For: {jobDetailsData.jobTitle}{" "}
+        Applying For: {jobDetails.jobTitle}{" "}
       </h1>
       <Formik
-        initialValues={{ email: "", name: "" }}
+        initialValues={{ resume: "", message: "" }}
         validate={(values) => {
           const errors = {};
-          if (!values.email) {
-            errors.email = "Required";
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          }
-
-          if (!values.name) {
-            errors.name = "Required";
-          }
-
           if (!values.resume) {
-            errors.resume = "Required";
+            errors.email = "Required";
           }
+          //   else if (
+          //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          //   ) {
+          //     errors.email = "Invalid email address";
+          //   }
 
           if (!values.message) {
-            errors.message = "Required";
+            errors.name = "Required";
           }
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            // alert(JSON.stringify(values, null, 2));
+            handleApply();
             setSubmitting(false);
           }, 400);
         }}
@@ -59,21 +74,17 @@ const ApplyForm = () => {
               <label className="label">
                 <span className="label-text-alt">Name</span>
               </label>
-              <input
-                className="border rounded-md border-primary p-2 w-full"
-                value={role?.name}
-                readOnly
-              />
+              <p className="border rounded-md border-primary p-2 w-full">
+                {role?.name}
+              </p>
             </div>
             <div>
               <label className="label">
                 <span className="label-text-alt">Email</span>
               </label>
-              <input
-                className="border rounded-md border-primary p-2 w-full"
-                value={role?.email}
-                readOnly
-              />
+              <p className="border rounded-md border-primary p-2 w-full">
+                {role?.email}
+              </p>
             </div>
             <div>
               <label className="label">
@@ -109,11 +120,16 @@ const ApplyForm = () => {
             </div>
             <div className="flex justify-end w-full pr-4">
               <button
-                className="btn btn-sm btn-info "
+                // className=" btn-sm btn-info "
                 type="submit"
                 disabled={isSubmitting}
               >
-                Submit
+                <label
+                  htmlFor="apply-form-modal"
+                  className="btn btn-sm btn-info text-white "
+                >
+                  submit
+                </label>
               </button>
             </div>
           </form>
