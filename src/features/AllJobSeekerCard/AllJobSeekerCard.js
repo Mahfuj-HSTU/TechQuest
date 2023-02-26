@@ -1,54 +1,48 @@
 import React from "react";
 
-const AllJobSeekerCard = ( { jobSeeker, setContact } ) => {
-  const {
-    name,
-    email,
-    photoUrl,
-    institute,
-    title,
-    skills,
-    address,
-    experience,
-  } = jobSeeker;
-
+const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
+  const { name, email, photoUrl, institute, skills, address, experience } =
+    jobSeeker;
+  // console.log(jobSeeker);
   return (
-
-    <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12">
+    <div className="">
       <hr className="mb-2 shadow-lg" />
-      <div className="grid gap-5  lg:grid-cols-2">
-        <div className="flex flex-col justify-center">
-          <div className="max-w-xl mb-6">
-            <h2 className="font-bold text-2xl text-center">{ name }</h2>
-            <p className="font-semibold text-blue-500  text-center mt-2">{ title }</p>
-            <p className="font-semibold text-start mt-1">Skills: { skills }</p>
-            <p className="text-start mt-1">Email: { email }</p>
-            <p className="text-start mt-1">Educational Institute: { institute }</p>
-            <p className="text-start mt-1">Location: { address }</p>
-            <p className="text-left mt-1">Experience: { experience }</p>
-          </div>
-          <div className="grid gap-5 row-gap-8 sm:grid-cols-2">
-            <form action="">
-              <div className="card-actions">
-                <label
-                  onClick={ () => setContact( jobSeeker ) }
-                  htmlFor="contact-modal"
-                  className="btn btn-primary ml-24 mt-8"
-                >
-                  Contact Now
-                </label>
+      <div className="flex flex-col md:flex-row justify-between gap-5 mt-5 ">
+        <div className="flex text-left gap-4">
+          {/* left side  */}
+          <div>
+            <div className="avatar">
+              <div className="w-16 rounded-full">
+                <img src={photoUrl} alt="" />
               </div>
-            </form>
-
+            </div>
+          </div>
+          {/* right side */}
+          <div className="max-w-xl mb-6 flex flex-col gap-3">
+            <h2 className="font-bold text-2xl ">{name}</h2>
+            <p className="font-semibold text-start mt-1">Skills: {skills}</p>
+            <p className="text-start mt-1">Email: {email}</p>
+            <p className="text-start mt-1">
+              Educational Institute: {institute}
+            </p>
+            <p className="text-start mt-1">Location: {address}</p>
+            <p className="text-left mt-1">Experience: {experience}</p>
           </div>
         </div>
-        <div>
-          <figure className="px-10 pt-10 object-cover">
-            <img src={ photoUrl } alt="" className="rounded-xl h-96" />
+        <div className="mb-10">
+          <figure className="hidden md:flex">
+            <img src={photoUrl} alt="" className="rounded w-56 h-72" />
           </figure>
+          <label
+            onClick={() => setContact(jobSeeker)}
+            htmlFor="contact-modal"
+            className="btn btn-primary rounded-none mt-2 w-full text-white"
+          >
+            Contact Now
+          </label>
         </div>
       </div>
-      <hr className="mt-12"/>
+      {/* <hr className="mt-12" /> */}
     </div>
   );
 };
