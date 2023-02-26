@@ -18,8 +18,10 @@ const AllJobsView = () => {
 
   const { user } = useContext(AuthContext);
   const state = useSelector((state) => state);
-  // console.log(state);
+
   const jobs = state.jobsReducer.jobs;
+  console.log(jobs.length);
+
 
   const dispatch = useDispatch();
 
@@ -108,7 +110,7 @@ const AllJobsView = () => {
 
           <div className="w-3/6 ">
             <div className="md:col-span-1 hidden lg:inline md:inline ">
-              {courses.map(
+              {courses.slice(0, jobs.length-2).map(
                 (course) => (
                   <EnrolmentCourse
                     key={course._id}
