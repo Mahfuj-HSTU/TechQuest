@@ -44,13 +44,13 @@
 .spinner {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     margin: 0 auto 45px auto;
     animation-name: zoomInOut;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    border: 3px solid #ffffff;
+    /* border: 3px solid #ffffff; */
 }
 
 .text-loading {
@@ -85,7 +85,8 @@
   }
 
 .handle-preloader {
-    background: linear-gradient(to right, #773cff, #135dd3);;
+    background: linear-gradient(to right, #0978D3, #2D9BF5);;
+    /* background: linear-gradient(to right, #773cff, #135dd3);; */
     position: relative;
     /* top: 50%;
     left: 50%;    
