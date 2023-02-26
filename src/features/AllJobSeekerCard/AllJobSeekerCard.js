@@ -6,7 +6,7 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
   // console.log(jobSeeker);
   return (
     <div className="">
-      <hr className="mb-2 shadow-lg" />
+      <hr className="mb-2 shadow-lg hidden md:flex " />
       <div className="flex flex-col md:flex-row justify-between gap-5 mt-5 ">
         <div className="flex text-left gap-4">
           {/* left side  */}
@@ -20,6 +20,7 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
           {/* right side */}
           <div className="max-w-xl mb-6 flex flex-col gap-3">
             <h2 className="font-bold text-2xl ">{name}</h2>
+            <hr className="mb-2 shadow-lg md:hidden" />
             <p className="font-semibold text-start mt-1">Skills: {skills}</p>
             <p className="text-start mt-1">Email: {email}</p>
             <p className="text-start mt-1">
