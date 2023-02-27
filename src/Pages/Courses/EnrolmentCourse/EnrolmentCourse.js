@@ -8,15 +8,12 @@ const EnrolmentCourse = ({course}) => {
     const [enroll, setEnroll] = useState(null)
     const {instructor , img , title ,_id} = course;
     return (
-        <div className= ' hover-bordered animate m-8 p-2 rounded-lg'>
+        <div className= ' hover-bordered  animate m-8 p-2 rounded-lg course'>
             <span> </span>
             <span> </span>
             <span> </span>
             <span> </span>
-     
              <div className="card border-black shadow-lg hover:shadow-2xl text-left border  rounded-lg w-full  p-2 ">
-                    
-                    
                     <figure><img src={img} alt="course" /></figure>
                     <div className="card-body bg-secondary bg-opacity-30 text-black">
                         <h2 className="card-title">{title}</h2>

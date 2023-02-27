@@ -62,6 +62,7 @@ const MyJobs = () => {
     {
           myjob &&
           <MyjobModal jobs={ jobs }
+          key ={jobs._id}
             myjob={ myjob }
             setMyjob={ setMyjob }
           ></MyjobModal>
