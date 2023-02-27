@@ -1,6 +1,7 @@
 import React from "react";
 import Lottie from "lottie-react";
 import animation from "../../../assets/Animation/animation.json";
+import { Link } from "react-router-dom";
 
 const StartHiring = () => {
   return (
@@ -28,12 +29,7 @@ const StartHiring = () => {
                   combine both by starting remotely and then relocating.
                 </p>
               </div>
-              <label
-                htmlFor="sign-up-modal"
-                className="btn btn-primary text-white my-5 transition duration-300 hover:shadow-lg"
-              >
-                Start Hiring
-              </label>
+              <Link to="/recruiter/all-job-seekers" className="btn btn-primary text-white my-5 transition duration-300 hover:shadow-lg">Start Hiring</Link>
             </div>
           </div>
           <div className="flex items-center ml-10 justify-center lg:w-1/2">
