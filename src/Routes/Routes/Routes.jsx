@@ -29,227 +29,236 @@ import { Blog } from "../../features/Blog/Blog";
 import MyAccount from "../../features/MyAccount/MyAccount";
 import SavedJobView from "../../features/SavedJob/SavedJobView";
 import Profile from "../../features/MyAccount/Profile";
+import RecruiterRoute from "../RecruiterRoute/RecruiterRoute";
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/all-jobs",
-        element: <AllJobsView />,
-      },
-      {
-        path: "/job-details/:id",
-        element: <SingleJobView />,
-        loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
-      },
-      {
-        path: "/about",
-        element: <AboutUs></AboutUs>,
-      },
-      {
-        path: "/blogs",
-        element: <Blog></Blog>,
-      },
-      {
-        path: "/test",
-        element: <ApplyJobView />,
-      },
-    ],
-  },
-  {
-    path: "/my-account",
-    element: <PrivateRoute><MyAccount /></PrivateRoute>,
-    children: [
-      {
-        path: "/my-account/saved-jobs",
-        element: <SavedJobView />,
-      },
-      {
-        path: "/my-account/profile",
-        element: <Profile/>,
-      },
-    ],
-  },
-  {
-    path: "/job-seeker",
-    element: <JobSeekerLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/job-seeker/myJobs",
-        element: (
-          <PrivateRoute>
-            <MyJobs></MyJobs>
-          </PrivateRoute>
-        ),
-      },
-      //  MY JOB DETAILS
-      {
-        path: "/job-seeker/myJob-details/:id",
-        element: <MyJobDetails />,
-        loader: ({ params }) =>
-          fetch(`${ServerLink}/applications/${params.id}`),
-      },
-      {
-        path: "/job-seeker/my-jobs",
-        element: (
-          <PrivateRoute>
-            <ApplyJobView />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/job-seeker/courses",
-        element: (
-          <PrivateRoute>
-            <Courses></Courses>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/job-seeker/courses/payment/:id",
-        element: (
-          <PrivateRoute>
-            <CoursePayment />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/job-seeker/courses/:id",
-        element: <CourseDetails />,
-        loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
-      },
-    ],
-  },
-  {
-    path: "/recruiter",
-    element: <RecruiterLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/recruiter/applications",
-        element: (
-          <PrivateRoute>
-            <ApplyJobView />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/recruiter/all-job-seekers",
-        element: <AllJobSeekers />,
-      },
-      {
-        path: "/recruiter/add-job",
-        element: (
-          <PrivateRoute>
-            <AddJobs></AddJobs>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/recruiter/MyJobPost",
-        element: (
-          <PrivateRoute>
-            <MyJobPost></MyJobPost>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/recruiter/applicant/:id",
-        element: <ShowApplicant />,
-        loader: ({ params }) => fetch(`${ServerLink}/applicant/${params.id}`),
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    element: <AdminLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/admin/courses",
-        element: (
-          <PrivateRoute>
-            <Courses></Courses>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/admin/courses/payment/:id",
-        element: (
-          <PrivateRoute>
-            <CoursePayment />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/admin/courses/:id",
-        element: <CourseDetails />,
-        loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
-      },
-      {
-        path: "/admin/users",
-        element: (
-          <PrivateRoute>
-            <AllUsersView></AllUsersView>
-          </PrivateRoute>
-        ),
-      },
-    ],
-  },
-  {
-    path: "/auth",
-    element: <AuthenticationLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/auth/jobSeeker",
-        element: <JobSeeker></JobSeeker>,
-      },
-      {
-        path: "/auth/recruiter",
-        element: <Recruiter></Recruiter>,
-      },
-      {
-        path: "/auth/login",
-        element: <Login />,
-      },
-    ],
-  },
-  {
-    path: "/common",
-    element: <MainLayout />,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-      {
-        path: "/common/courses",
-        element: (
-          <PrivateRoute>
-            <Courses></Courses>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/common/courses/payment/:id",
-        element: (
-          <PrivateRoute>
-            <CoursePayment />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/common/courses/:id",
-        element: <CourseDetails />,
-        loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
-      },
-    ],
-  },
+	{
+		path: '/',
+		element: <MainLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/',
+				element: <Home />,
+			},
+			{
+				path: '/all-jobs',
+				element: <AllJobsView />,
+			},
+			{
+				path: '/job-details/:id',
+				element: <SingleJobView />,
+				loader: ({ params }) => fetch(`${ServerLink}/job-details/${params.id}`),
+			},
+			{
+				path: '/about',
+				element: <AboutUs></AboutUs>,
+			},
+			{
+				path: '/blogs',
+				element: <Blog></Blog>,
+			},
+			{
+				path: '/test',
+				element: <ApplyJobView />,
+			},
+		],
+	},
+	{
+		path: '/my-account',
+		element: (
+			<PrivateRoute>
+				<MyAccount />
+			</PrivateRoute>
+		),
+		children: [
+			{
+				path: '/my-account/saved-jobs',
+				element: <SavedJobView />,
+			},
+			{
+				path: '/my-account/profile',
+				element: <Profile />,
+			},
+		],
+	},
+	{
+		path: '/job-seeker',
+		element: <JobSeekerLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/job-seeker/myJobs',
+				element: (
+					<PrivateRoute>
+						<MyJobs></MyJobs>
+					</PrivateRoute>
+				),
+			},
+			//  MY JOB DETAILS
+			{
+				path: '/job-seeker/myJob-details/:id',
+				element: <MyJobDetails />,
+				loader: ({ params }) =>
+					fetch(`${ServerLink}/applications/${params.id}`),
+			},
+			{
+				path: '/job-seeker/my-jobs',
+				element: (
+					<PrivateRoute>
+						<ApplyJobView />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/job-seeker/courses',
+				element: (
+					<PrivateRoute>
+						<Courses></Courses>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/job-seeker/courses/payment/:id',
+				element: (
+					<PrivateRoute>
+						<CoursePayment />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/job-seeker/courses/:id',
+				element: <CourseDetails />,
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
+			},
+		],
+	},
+	{
+		path: '/recruiter',
+		element: <RecruiterLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/recruiter/applications',
+				element: (
+					<PrivateRoute>
+						<ApplyJobView />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/recruiter/all-job-seekers',
+				element: (
+					<RecruiterRoute>
+						<AllJobSeekers />
+					</RecruiterRoute>
+				),
+			},
+			{
+				path: '/recruiter/add-job',
+				element: (
+					<PrivateRoute>
+						<AddJobs></AddJobs>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/recruiter/MyJobPost',
+				element: (
+					<PrivateRoute>
+						<MyJobPost></MyJobPost>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/recruiter/applicant/:id',
+				element: <ShowApplicant />,
+				loader: ({ params }) => fetch(`${ServerLink}/applicant/${params.id}`),
+			},
+		],
+	},
+	{
+		path: '/admin',
+		element: <AdminLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/admin/courses',
+				element: (
+					<PrivateRoute>
+						<Courses></Courses>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/admin/courses/payment/:id',
+				element: (
+					<PrivateRoute>
+						<CoursePayment />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/admin/courses/:id',
+				element: <CourseDetails />,
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
+			},
+			{
+				path: '/admin/users',
+				element: (
+					<PrivateRoute>
+						<AllUsersView></AllUsersView>
+					</PrivateRoute>
+				),
+			},
+		],
+	},
+	{
+		path: '/auth',
+		element: <AuthenticationLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/auth/jobSeeker',
+				element: <JobSeeker></JobSeeker>,
+			},
+			{
+				path: '/auth/recruiter',
+				element: <Recruiter></Recruiter>,
+			},
+			{
+				path: '/auth/login',
+				element: <Login />,
+			},
+		],
+	},
+	{
+		path: '/common',
+		element: <MainLayout />,
+		errorElement: <ErrorPage></ErrorPage>,
+		children: [
+			{
+				path: '/common/courses',
+				element: (
+					<PrivateRoute>
+						<Courses></Courses>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/common/courses/payment/:id',
+				element: (
+					<PrivateRoute>
+						<CoursePayment />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: '/common/courses/:id',
+				element: <CourseDetails />,
+				loader: ({ params }) => fetch(`${ServerLink}/courses/${params.id}`),
+			},
+		],
+	},
 ]);
 
 export default router;

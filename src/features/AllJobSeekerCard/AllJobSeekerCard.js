@@ -1,7 +1,7 @@
 import React from "react";
 
 const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
-  const { name, email, photoUrl, institute, skills, address, experience } =
+  const { name, email, photoUrl, institute, skills,title, address, experience } =
     jobSeeker;
   // console.log(jobSeeker);
   return (
@@ -19,7 +19,10 @@ const AllJobSeekerCard = ({ jobSeeker, setContact }) => {
           </div>
           {/* right side */}
           <div className="max-w-xl mb-6 flex flex-col gap-3">
+            <div>
             <h2 className="font-bold text-2xl ">{name}</h2>
+            <p>{title}</p>
+            </div>
             <hr className="mb-2 shadow-lg md:hidden" />
             <p className="font-semibold text-start mt-1">Skills: {skills}</p>
             <p className="text-start mt-1">Email: {email}</p>
