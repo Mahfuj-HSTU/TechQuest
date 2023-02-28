@@ -134,7 +134,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/recruiter',
-		element: <RecruiterLayout />,
+		element: (
+			<PrivateRoute>
+				<RecruiterLayout />
+			</PrivateRoute>
+		),
 		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{

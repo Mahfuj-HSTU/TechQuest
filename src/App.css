@@ -8,13 +8,14 @@
 }
 
 /* ### custom scrollbar ###  */
+
 ::-webkit-scrollbar{
   width: 8px;
 }
 
-/* ::-webkit-scrollbar-track{
-  background: #000;
-} */
+::-webkit-scrollbar-track{
+  background: #abcff3;
+}
 
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(to right, #0978D3, #2D9BF5 );

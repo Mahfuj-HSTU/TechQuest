@@ -4,6 +4,7 @@ import { BsSticky } from "react-icons/bs";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
 
+
 const MyjobModal = ({ myjob }) => {
   const {
     jobType,
@@ -16,7 +17,7 @@ const MyjobModal = ({ myjob }) => {
     jobRequirements,
     _id,
   } = myjob?.job;
-  console.log(myjob);
+  // console.log(myjob);
 
   const handleDelete = (myjob) => {
     const agree = window.confirm(`Are sure, you want to delete: ${jobTitle}`);
