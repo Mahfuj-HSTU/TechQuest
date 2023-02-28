@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosPeople } from "react-icons/io";
 import { BsSticky } from "react-icons/bs";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
 
 const MyjobModal = ({ myjob }) => {
+  const [deleting ,setDeleting] = useState(null);
+  const {job } = myjob;
   const {
-    jobType,
     jobTitle,
     jobDescription,
     jobStatus,
@@ -15,18 +16,22 @@ const MyjobModal = ({ myjob }) => {
     optionalSkills,
     jobRequirements,
     _id,
-  } = myjob?.job;
+  } = job;
+  // console.log(job,"added job");
   console.log(myjob);
 
-  const handleDelete = (myjob) => {
+
+
+  const handleDelete = myjob => {
+// console.log(job,"deleted job");
     const agree = window.confirm(`Are sure, you want to delete: ${jobTitle}`);
     if (agree) {
-      fetch(`${ServerLink}/applications/${myjob?.job?._id}`, {
+      fetch(`${ServerLink}/applications/${myjob._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log( data )
+        console.log( data, 'deleted data' )
           if (data.deletedCount > 0) {
             alert("user deleted successfully.");
           }
@@ -142,6 +147,7 @@ const MyjobModal = ({ myjob }) => {
                   className="btn btn-outline btn-error rounded-lg mb-8 "
                 >
                   Withdraw My Application
+                
                 </button>
               </div>
               
