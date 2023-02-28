@@ -176,11 +176,13 @@ const Navbar = () => {
           </div>
         </div>
           :
-          <div onClick={ () => {
-            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
-          } } className="font-semibold flex gap-1 md:gap-4">
-            <Link to="/auth/login" className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
-            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
+          <div className="font-semibold flex gap-1 md:gap-4">
+            <Link to="/auth/login" onClick={ () => {
+              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            } } className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
+            <label htmlFor="sign-up-modal" onClick={ () => {
+              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            } } className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
           </div>
         }
       </div>
