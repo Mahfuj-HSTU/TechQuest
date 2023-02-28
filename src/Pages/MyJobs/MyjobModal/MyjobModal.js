@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { IoIosPeople } from "react-icons/io";
-import { BsSticky } from "react-icons/bs";
+import React from "react";
+// import { IoIosPeople } from "react-icons/io";
+// import { BsSticky } from "react-icons/bs";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyjobModal = ({ myjob }) => {
-  const [deleting, setDeleting] = useState(null);
   const navigate = useNavigate();
   const { job } = myjob;
   const {
     jobTitle,
-    jobDescription,
     jobStatus,
     location,
     mustSkills,
@@ -50,7 +48,9 @@ const MyjobModal = ({ myjob }) => {
             <div className="grid grid-cols-2 overflow-hidden">
               <div>
                 <div className="animate m-8 p-2 rounded-lg">
-                  <p className="text-primary-focus text-2xl">{jobTitle}</p>
+                  <p className="text-primary text-xl tracking-tighter">
+                    {jobTitle}
+                  </p>
                 </div>
 
                 {/* <div className="m-8 shadow-lg bordered-8 text-center ">
@@ -63,72 +63,47 @@ const MyjobModal = ({ myjob }) => {
                 </p>
                 <br />
                 <div className="flex  border-2 border-r-slate-500 mt-1">
-                  <BsSticky className="mt-1" />{" "}
+                  <BsSticky className="mt-1" />
                   <span className="mx-3 text-xl">
-                    {" "}
+                    
                     15 candidates were screened for {jobTitle}
                   </span>
                 </div> */}
                 {/* <div className="flex  border-2 border-r-slate-500 mt-1">
-                  <IoIosPeople className="mt-1" />{" "}
+                  <IoIosPeople className="mt-1" />
                   <span className="mx-2 text-xl">
-                    350 candidates applied for the {jobTitle}{" "}
+                    350 candidates applied for the {jobTitle}
                   </span>
                 </div> */}
                 <div className="justify-start">
-                  <div className="flex mx-auto border-2  mt-2 p-4">
-                    <FaBusinessTime className="mt-2 " />{" "}
+                  <div className="flex mx-auto border-2 bg-secondary rounded-lg mt-2 p-4">
+                    <FaBusinessTime className="mt-2 " />
                     <span className="mx-3 text-2xl">About The Job</span>
                   </div>
                   <div className=" card-body bg-secondary bg-opacity-30 text-black text-justify shadow-xl">
                     <p>
-                      {" "}
-                      <span className=" text-xl text-gray">
-                        Requirements
-                      </span>: {jobRequirements}
+                      <span className=" text-info">Requirements</span>
+                      <p>{jobRequirements}</p>
                     </p>
                     <p>
-                      {" "}
-                      <span className="text-xl text-gray">
-                        {" "}
-                        Mandatory{" "}
-                      </span>{" "}
-                      {mustSkills}
+                      <span className="text-info">Skills </span>
+                      <p>{mustSkills}</p>
+                    </p>
+                    <p>{optionalSkills}</p>
+                    <p>
+                      <span className="text-info">Location: </span>
+                      <p>{location}</p>
                     </p>
                     <p>
-                      {" "}
-                      <span className="text-xl text-gray"> Optional </span>{" "}
-                      {optionalSkills}
+                      <span className="text-info">Job Type: </span>
+                      <p>{jobStatus}</p>
                     </p>
-                    <p>
-                      {" "}
-                      <span className="text-xl text-gray">
-                        {" "}
-                        Location:{" "}
-                      </span>{" "}
-                      {location}
-                    </p>
-                    <p>
-                      {" "}
-                      <span className="text-xl text-gray">
-                        {" "}
-                        Job Type:{" "}
-                      </span>{" "}
-                      {jobStatus}
-                    </p>
-                    <p>
-                      {" "}
-                      <span className="text-xl text-gray">
-                        {" "}
-                        Applied Date{" "}
-                      </span>{" "}
-                      2023-02-26T17:51:22.718Z
-                    </p>
+                    <p></p>
                   </div>
                 </div>
               </div>
 
-              <div>
+              <div className="flex flex-col items-center">
                 <p className="text-center text-green-900 text-xl">
                   Our Hiring Process
                 </p>
@@ -141,18 +116,18 @@ const MyjobModal = ({ myjob }) => {
                   <li className="step">Interview</li>
                   <li className="step">Reference Check</li>
                 </ul>
-                {/* <button
-                  onClick={() => handleDelete(myjob)}
-                  className="btn btn-outline btn-error rounded-lg mb-8 "
+                <Link
+                  to={`/job-details/${_id}`}
+                  className="text-info hover:text-primary"
                 >
-                  Withdraw My Application
-                </button> */}
+                  See details
+                </Link>
                 <label
                   htmlFor="my-job-drawer"
                   onClick={() => handleDelete(myjob)}
-                  className="btn btn-outline btn-error hover:text-white rounded-lg mb-8 "
+                  className="btn btn-outline hover:bg-error hover:border-none btn-sm hover:text-white rounded-lg my-3 w-1/2"
                 >
-                  Withdraw My Application
+                  Revert Application
                 </label>
               </div>
             </div>
