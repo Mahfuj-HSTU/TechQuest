@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 export const Blog = () => {
   return (
-    <div>
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
+    <div className="max-w-[1140px] mx-auto">
+      <div className="mx-10">
+        <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase text-center">
           23 Feb 2022
         </p>
-        <div className="max-w-xl mb-5 md:mx-auto sm:text-center lg:max-w-2xl">
+        <div className="mb-5">
           <div className="mb-4">
             <Link
               href="/"
               aria-label="Article"
-              className="inline-block max-w-lg font-sans text-3xl font-extrabold leading-none tracking-tight text-black transition-colors duration-200 hover:text-deep-purple-accent-700 sm:text-4xl"
+              className="inline-block md:text-3xl font-bold text-black text-xl"
             >
               Vite 3.0 vs. Create React App: Comparison and migration guide
             </Link>
             <img
-              className="my-5 object-cover"
+              className="my-5 mx-auto"
               src="https://blog.logrocket.com/wp-content/uploads/2022/08/vite-3-vs-create-react-app.png"
               alt=""
             />
@@ -162,21 +162,21 @@ export const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="px-4 mx-10 ">
         <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
           16 Feb 2022
         </p>
-        <div className="max-w-xl mb-5 md:mx-auto sm:text-center lg:max-w-2xl">
+        <div className="mb-5 ">
           <div className="mb-4">
             <Link
               href="/"
               aria-label="Article"
-              className="inline-block max-w-lg font-sans text-3xl font-extrabold leading-none tracking-tight text-black transition-colors duration-200 hover:text-deep-purple-accent-700 sm:text-4xl"
+              className="inline-block max-w-lg font-sans text-3xl font-bold"
             >
               Redux : What I've fount out!!
             </Link>
             <img
-              className="my-5 object-cover"
+              className="my-5 w-96 mx-auto"
               src="https://upload.wikimedia.org/wikipedia/commons/3/30/Redux_Logo.png"
               alt=""
             />
