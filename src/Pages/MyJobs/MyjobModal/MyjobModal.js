@@ -3,11 +3,12 @@ import { IoIosPeople } from "react-icons/io";
 import { BsSticky } from "react-icons/bs";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
-
+import { useNavigate } from "react-router-dom";
 
 const MyjobModal = ({ myjob }) => {
-  const [deleting ,setDeleting] = useState(null);
-  const {job } = myjob;
+  const [deleting, setDeleting] = useState(null);
+  const navigate = useNavigate();
+  const { job } = myjob;
   const {
     jobTitle,
     jobDescription,
@@ -21,10 +22,8 @@ const MyjobModal = ({ myjob }) => {
   // console.log(job,"added job");
   console.log(myjob);
 
-
-
-  const handleDelete = myjob => {
-// console.log(job,"deleted job");
+  const handleDelete = (myjob) => {
+    // console.log(job,"deleted job");
     const agree = window.confirm(`Are sure, you want to delete: ${jobTitle}`);
     if (agree) {
       fetch(`${ServerLink}/applications/${myjob._id}`, {
@@ -32,10 +31,11 @@ const MyjobModal = ({ myjob }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-        console.log( data, 'deleted data' )
+          console.log(data, "deleted data");
           if (data.deletedCount > 0) {
             alert("user deleted successfully.");
           }
+          navigate("/job-seeker/myJobs");
         });
     }
   };
@@ -50,16 +50,15 @@ const MyjobModal = ({ myjob }) => {
             <div className="grid grid-cols-2 overflow-hidden">
               <div>
                 <div className="animate m-8 p-2 rounded-lg">
-             
                   <p className="text-primary-focus text-2xl">{jobTitle}</p>
                 </div>
 
-                <div className="m-8 shadow-lg bordered-8 text-center ">
+                {/* <div className="m-8 shadow-lg bordered-8 text-center ">
                   <h3 className="text-2xl">About The Company</h3>
                   <p>This company has already hired 1 Techquest</p>
                   <p>More information on interview stage</p>
-                </div>
-                <p className="text-left text-gray-700 text-2xl mt-4 ">
+                </div> */}
+                {/* <p className="text-left text-gray-700 text-2xl mt-4 ">
                   Job Activity
                 </p>
                 <br />
@@ -69,19 +68,19 @@ const MyjobModal = ({ myjob }) => {
                     {" "}
                     15 candidates were screened for {jobTitle}
                   </span>
-                </div>
-                <div className="flex  border-2 border-r-slate-500 mt-1">
+                </div> */}
+                {/* <div className="flex  border-2 border-r-slate-500 mt-1">
                   <IoIosPeople className="mt-1" />{" "}
                   <span className="mx-2 text-xl">
                     350 candidates applied for the {jobTitle}{" "}
                   </span>
-                </div>
+                </div> */}
                 <div className="justify-start">
-                  <div className="flex mx-auto border-2 shadow-2xl mt-2 p-4">
+                  <div className="flex mx-auto border-2  mt-2 p-4">
                     <FaBusinessTime className="mt-2 " />{" "}
                     <span className="mx-3 text-2xl">About The Job</span>
                   </div>
-                  <div className=" card-body bg-secondary bg-opacity-30 text-black text-justify shadow-2xl">
+                  <div className=" card-body bg-secondary bg-opacity-30 text-black text-justify shadow-xl">
                     <p>
                       {" "}
                       <span className=" text-xl text-gray">
@@ -127,14 +126,13 @@ const MyjobModal = ({ myjob }) => {
                     </p>
                   </div>
                 </div>
-              
               </div>
 
               <div>
                 <p className="text-center text-green-900 text-xl">
                   Our Hiring Process
                 </p>
-                <ul className="steps steps-vertical lg:steps-vertical w-80 bordered border-4 shadow-lg bordered-lg text-center m-4 p-4">
+                <ul className="steps steps-vertical lg:steps-vertical w-72 bordered border-2 shadow-lg bordered-lg text-center m-4 p-4">
                   <li className="step step-primary">Applied</li>
                   <li className="step step-primary">Screening</li>
                   <li className="step">1st round</li>
@@ -143,15 +141,20 @@ const MyjobModal = ({ myjob }) => {
                   <li className="step">Interview</li>
                   <li className="step">Reference Check</li>
                 </ul>
-                <button
+                {/* <button
                   onClick={() => handleDelete(myjob)}
                   className="btn btn-outline btn-error rounded-lg mb-8 "
                 >
                   Withdraw My Application
-                
-                </button>
+                </button> */}
+                <label
+                  htmlFor="my-job-drawer"
+                  onClick={() => handleDelete(myjob)}
+                  className="btn btn-outline btn-error hover:text-white rounded-lg mb-8 "
+                >
+                  Withdraw My Application
+                </label>
               </div>
-              
             </div>
           </div>
         </div>
