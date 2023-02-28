@@ -17,26 +17,26 @@ const Profile = () => {
       </div>
       <div className="mx-auto w-[90%]">
         <div className="flex flex-col md:flex-row gap-5">
-          <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+          <div className="bg-gray-100 px-2 py-5 rounded-lg w-[92%]">
             <span className="font-bold">Name</span> <span>{user?.name}</span>
             <br />
             <span className="font-bold">Gender</span>
           </div>
 
-          <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+          <div className="bg-gray-100 px-2 py-5 rounded-lg w-[92%]">
             <span className="font-bold">Email</span> <span>{user?.email}</span>
             <p className="font-bold">Mobile</p>
           </div>
         </div>{" "}
         <br />
         <div className="flex flex-col md:flex-row gap-5 ">
-          <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+          <div className="bg-gray-100 px-2 py-5 rounded-lg w-[92%]">
             <p className="font-bold">Education</p>
             <span className="font-bold">Institute</span>{" "}
             <span>{user?.institute}</span>
           </div>
 
-          <div className="bg-gray-200 px-2 py-5 rounded-lg w-[92%]">
+          <div className="bg-gray-100 px-2 py-5 rounded-lg w-[92%]">
             <span className="font-bold">Address</span>{" "}
             <span>{user?.address}</span>
             <br />
