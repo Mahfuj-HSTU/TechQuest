@@ -4,13 +4,14 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import MyjobModal from "./MyjobModal/MyjobModal";
 import { ServerLink } from "../../Hooks/useServerLink";
+import './MyModal.css'
 
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
 
-  const [myjob, setMyjob] = useState(null);
+  const [myJob, setMyJob] = useState(null);
 
-  const url = `${ServerLink}/applications?email=${user?.email}`;
+  const url = `${ServerLink}/myjobs?email=${user?.email}`;
 
   const { data: jobs = [] } = useQuery({
     queryKey: ["jobs", user?.email],
@@ -25,59 +26,48 @@ const MyJobs = () => {
     },
   });
 
+  // console.log(jobs);
   return (
-    <div className="mt-24 mb-16">
+    <div className="mt-24 mb-16 m">
       <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">
         My Applied Jobs
       </h3>
-      <div className=" gap-4 lg:w-full ">
-
-      <div className="drawer drawer-end">
-  <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-    <div className="drawer-content ">
-  {
-  jobs.map(job => 
- 
-    <>
-      {/* key ={job?.job?._id} */}
-     
-    <div className=" p-2 inline-grid  grid-cols-4 border-2 shadow-lg  m-1 w-full ">
-  <div className=" text-2xl">{ job?.job?.jobTitle }</div>
-  <div className="">{ job?.job?.jobType }</div>
-  <div className="">{ job?.job?.jobStatus}</div>
-
-  <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary ">Details</label></button>
-  {/* <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="btn btn-outline btn-info rounded-lg">details</label></button> */}
-</div>
-    
-    </>
-  )
-}
-    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Details</label>
-  </div> 
-  <div className="drawer-side w-full  ">
-    <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-    <ul className="menu p-4 w-5/6 bg-base-100 text-base-content overflow-y-hidden">
- 
-    {
-          myjob &&
-          <MyjobModal jobs={ jobs }
-            myjob={ myjob }
-            setMyjob={ setMyjob }
-          ></MyjobModal>
-        }
-        
-    
-    </ul>
-  </div>
-
-  
-</div>
-</div>
-</div>
+      <div className="mx-10">
+        <div className="drawer drawer-end ">
+          <input id="my-job-drawer" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content ">
+            {jobs.map((job) => (
+              <div key={job?._id}>
+                <div className=" p-2 grid grid-cols-3 border shadow m-1 w-11/12 text-left ">
+                  <label
+                    onClick={() => setMyJob(job)}
+                    htmlFor="my-job-drawer"
+                    className="text-primary text-xl cursor-pointer"
+                  >
+                    {job?.job?.jobTitle}
+                  </label>
+                  <div className="">{job?.job?.jobType}</div>
+                  <div className="">{job?.job?.jobStatus}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="drawer-side w-full  ">
+            <label htmlFor="my-job-drawer" className="drawer-overlay"></label>
+            <ul className="menu p-4 w-5/6 bg-base-100 text-base-content ">
+              {myJob && (
+                <MyjobModal
+                  jobs={jobs}
+                  myjob={myJob}
+                  setMyjob={setMyJob}
+                ></MyjobModal>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default MyJobs;
-
-
