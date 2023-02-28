@@ -11,7 +11,9 @@ const MyJobs = () => {
 
   const [myJob, setMyJob] = useState(null);
 
+
   const url = `${ServerLink}/myjobs?email=${user?.email}`;
+
 
   const { data: jobs = [] } = useQuery({
     queryKey: ["jobs", user?.email],
