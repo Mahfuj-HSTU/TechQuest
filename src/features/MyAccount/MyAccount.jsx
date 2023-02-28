@@ -23,6 +23,7 @@ const MyAccount = () => {
             </div>
             <div className="p-2 rounded-lg text-left">
               <h1 className="text-3xl font-bold">{user?.name}</h1>
+              <span>( {user?.role} )</span>
               <br />
               <span>
                 <p>{user?.email}</p>
