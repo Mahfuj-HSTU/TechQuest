@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="shadow-lg p-5 border">
+    <div className="shadow-lg p-5 border mt-10">
       <footer className="footer p-2  rounded-md text-left">
         <div className="w-52 text-left">
           <p className="text-xl font-bold">Connecting Cultures Through Codes</p>
