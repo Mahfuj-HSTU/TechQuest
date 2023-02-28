@@ -1,26 +1,21 @@
-import React, { useState } from "react";
-import { IoIosPeople } from "react-icons/io";
-import { BsSticky } from "react-icons/bs";
+import React from "react";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
 import { useNavigate } from "react-router-dom";
 
 const MyjobModal = ({ myjob }) => {
-  const [deleting, setDeleting] = useState(null);
   const navigate = useNavigate();
   const { job } = myjob;
   const {
     jobTitle,
-    jobDescription,
     jobStatus,
     location,
     mustSkills,
     optionalSkills,
     jobRequirements,
-    _id,
   } = job;
   // console.log(job,"added job");
-  console.log(myjob);
+  // console.log(myjob);
 
   const handleDelete = (myjob) => {
     // console.log(job,"deleted job");
