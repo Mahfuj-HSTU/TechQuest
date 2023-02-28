@@ -104,16 +104,14 @@ const MyjobModal = ({ myjob }) => {
               </div>
 
               <div className="flex flex-col items-center">
-                <p className="text-center text-green-900 text-xl">
+                <p className="text-center text-green-700 font-semibold border rounded-md p-5 my-7 text-xl">
                   Our Hiring Process
                 </p>
                 <ul className="steps steps-vertical lg:steps-vertical w-72 bordered border-2 shadow-lg bordered-lg text-center m-4 p-4">
-                  <li className="step step-primary">Applied</li>
-                  <li className="step step-primary">Screening</li>
-                  <li className="step">1st round</li>
-                  <li className="step">2nd round</li>
-                  <li className="step">Final round</li>
+                  <li className="step step-success">Applied</li>
+                  <li className="step step-success">Screening</li>
                   <li className="step">Interview</li>
+                  <li className="step">Final round</li>
                   <li className="step">Reference Check</li>
                 </ul>
                 <Link

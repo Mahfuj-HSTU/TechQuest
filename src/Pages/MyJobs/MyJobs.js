@@ -38,6 +38,7 @@ const MyJobs = () => {
         <div className="drawer drawer-end ">
           <input id="my-job-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content ">
+          <p className="text-green-700 font-bold text-lg text-left">Applied ({jobs.length})</p>
             {jobs.map((job) => (
               <div key={job?._id}>
                 <div className=" p-2 grid grid-cols-3 border shadow m-1 w-11/12 text-left ">
