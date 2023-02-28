@@ -10,7 +10,7 @@ const MyJobs = () => {
 
   const [myjob, setMyjob] = useState(null);
 
-  const url = `${ServerLink}/applications?email=${user?.email}`;
+  const url = `${ServerLink}/applications?.email=${user?.email}`;
 
   const { data: jobs = [] } = useQuery({
     queryKey: ["jobs", user?.email],
@@ -47,13 +47,12 @@ const MyJobs = () => {
   <div className="">{ job?.job?.jobStatus}</div>
 
   <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary ">Details</label></button>
-  {/* <button onClick={ () => setMyjob( job ) }> <label htmlFor="my-drawer-4" className="btn btn-outline btn-info rounded-lg">details</label></button> */}
 </div>
     
     </>
   )
 }
-    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Details</label>
+    {/* <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Details</label> */}
   </div> 
   <div className="drawer-side w-full  ">
     <label htmlFor="my-drawer-4" className="drawer-overlay"></label>

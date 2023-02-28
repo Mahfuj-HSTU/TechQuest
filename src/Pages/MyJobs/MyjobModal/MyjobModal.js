@@ -44,10 +44,7 @@ const MyjobModal = ({ myjob }) => {
             <div className="grid grid-cols-2 overflow-hidden">
               <div>
                 <div className="animate m-8 p-2 rounded-lg">
-                  <span> </span>
-                  <span> </span>
-                  <span> </span>
-                  <span> </span>
+             
                   <p className="text-primary-focus text-2xl">{jobTitle}</p>
                 </div>
 
@@ -124,12 +121,7 @@ const MyjobModal = ({ myjob }) => {
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => handleDelete(myjob)}
-                  className="btn btn-outline btn-error rounded-lg "
-                >
-                  Withdraw My Application
-                </button>
+              
               </div>
 
               <div>
@@ -145,7 +137,14 @@ const MyjobModal = ({ myjob }) => {
                   <li className="step">Interview</li>
                   <li className="step">Reference Check</li>
                 </ul>
+                <button
+                  onClick={() => handleDelete(myjob)}
+                  className="btn btn-outline btn-error rounded-lg mb-8 "
+                >
+                  Withdraw My Application
+                </button>
               </div>
+              
             </div>
           </div>
         </div>
