@@ -69,7 +69,7 @@ const AllJobsView = () => {
                             <h1 className="text-xl font-semibold text-cyan-600">
                               {jobTitle}
                             </h1>
-                            <div className="flex flex-col md:flex-row justify-start  md:gap-0">
+                            <div className="flex flex-col md:flex-row justify-start">
                               <small className="m-1">{location}</small>
                               <small className="m-1">{jobStatus}</small>
                               <small className="m-1">{jobType}</small>
@@ -104,16 +104,14 @@ const AllJobsView = () => {
               })}
           </div>
 
-          <div className="w-3/6 ">
+          <div className="w-1/2 ">
             <div className="md:col-span-1 hidden lg:inline md:inline ">
-              {courses.slice(0, jobs.length-2).map(
-                (course) => (
-                  <EnrolmentCourse
-                    key={course._id}
-                    course={course}
-                  ></EnrolmentCourse>
-                )
-              )}
+              {courses.slice(0, jobs.length - 2).map((course) => (
+                <EnrolmentCourse
+                  key={course._id}
+                  course={course}
+                ></EnrolmentCourse>
+              ))}
             </div>
           </div>
         </div>
