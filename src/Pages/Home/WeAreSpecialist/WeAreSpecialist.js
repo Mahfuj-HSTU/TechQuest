@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WeAreSpecialist = () => {
   return (
@@ -7,12 +8,13 @@ const WeAreSpecialist = () => {
         <p className="text-3xl font-semibold text-white w-3/4">
           We are specialists in finding candidates for the hardest tech roles!
         </p>
-        <label
+        {/* <label
           htmlFor="sign-up-modal"
-          className="btn bg-white text-black border-none transition duration-300 hover:shadow-lg hover:text-white"
+          className="btn  bg-white text-black border-none transition duration-300 hover:shadow-lg hover:text-white"
         >
           get started
-        </label>
+        </label> */}
+        <Link to="/recruiter/all-job-seekers" className="btn btn-info bg-white text-black border-none transition duration-300 hover:shadow-lg hover:text-white">Start Hiring</Link>
       </div>
     </div>
   );

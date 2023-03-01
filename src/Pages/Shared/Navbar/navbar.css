@@ -1,6 +1,7 @@
 .customNavbar {
 	/* background-color: #0675ce; */
-	background-image: linear-gradient(to right, #773cff, #135dd3);
+	background-image: linear-gradient(to right, #0978D3, #2D9BF5 ); 
+	/* #773cff, #135dd3*/
 	color: aliceblue;
 	font-weight: 600;
 	font-size: 18px;

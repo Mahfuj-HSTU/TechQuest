@@ -1,11 +1,7 @@
 import React, { useEffect } from "react";
-import { useLoaderData } from "react-router";
-import { ImLocation } from "react-icons/im";
-import { RiRemoteControlLine } from "react-icons/ri";
+import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addApply, fetchApplicationData } from "../ApplyJob/ApplyJobSlice";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { fetchApplicationData } from "../ApplyJob/ApplyJobSlice";
 import Loading from "../../Pages/Shared/Loading/Loading";
 import { useState } from "react";
 import RemoveJob from "./RemoveJob";
@@ -14,42 +10,51 @@ import axios from "axios";
 import { ServerLink } from "../../Hooks/useServerLink";
 import { toast } from "react-hot-toast";
 import { fetchSavedJob } from "../SavedJob/SavedJobSlice";
+import ApplyJobModal from "../ApplyJob/ApplyJobModal";
+import { fetchSingleJob } from "./SingleJobSlice";
+// react icons
+import { ImLocation } from "react-icons/im";
+import { RiRemoteControlLine } from "react-icons/ri";
 
 const SingleJobView = () => {
-  const [applied, setApplied] = useState(false);
+  const [isApplied, setApplied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
-  const dispatch = useDispatch();
-  const { user } = useContext(AuthContext);
-  const jobs = useLoaderData();
+  // const { user: userInfo } = useContext(AuthContext);
+
+  const id = useParams();
+  // console.log(id)
+
   const data = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-    // console.log(jobs)
+  const { isLoading, error, applications } = data?.applicationReducer;
+  const { jobDetails } = data.jobDetailsReducer;
+  const role = data?.roleReducer?.role?.role;
+  const userInfo = data?.roleReducer?.role;
+  const savedJob = data?.savedJobReducer?.savedJobs;
+  // console.log(jobDetails,jobDetails);
 
-  const { isLoading, error, applications } = data.applicationReducer;
-  const role = data.roleReducer.role.role;
-  const userInfo = data.roleReducer.role;
-  const savedJob = data.savedJobReducer.savedJobs;
-    // console.log(applications);
-
-  const checkSavedJob = savedJob.map(
-    (job) => user?.email === job?.email && job?.jobID === jobs?._id
+  const checkSavedJob = savedJob?.map(
+    (job) => userInfo?.email === job?.email && job?.jobID === jobDetails?._id
   );
 
-  const checkApplied = applications.map(
-    (applied) => 
-	// console.log(applied.job)
-	user?.email === applied?.email && applied.job?._id === jobs?._id
+  const checkApplied = applications?.map(
+    (application) =>
+      // console.log(applied.job)
+      userInfo?.email === application?.email && application?.job?._id === jobDetails?._id
   );
 
   useEffect(() => {
+    // checking and storing if any job is saved
     for (let i of checkSavedJob) {
       if (i === true) {
         setIsSaved(i);
       }
     }
-	
+
+    // checking and storing if any job is applied
     for (let i of checkApplied) {
-		// console.log(i);
+      // console.log(i);
       if (i === true) {
         setApplied(i);
       }
@@ -59,9 +64,10 @@ const SingleJobView = () => {
   // console.log(applied);
   useEffect(() => {
     dispatch(fetchApplicationData());
-    dispatch(fetchRole(user?.email));
+    dispatch(fetchRole(userInfo?.email));
     dispatch(fetchSavedJob());
-  }, [dispatch, user?.email]);
+    dispatch(fetchSingleJob(id));
+  }, [dispatch, id, userInfo?.email]);
 
   const {
     _id,
@@ -78,25 +84,9 @@ const SingleJobView = () => {
     language,
     mustSkills,
     optionalSkills,
-  } = jobs;
+  } = jobDetails;
 
-  const handleApply = () => {
-    const applyInfo = {
-      job: jobs,
-      email: user?.email,
-      name: userInfo?.name,
-      address: userInfo?.address,
-      photoUrl: userInfo?.photoUrl,
-      experience: userInfo?.experience,
-      notification: "true",
-    };
-    
-	if(!applied){
-		dispatch(addApply(applyInfo));
-	}
-    setApplied(!applied);
-  };
-
+  // storing saved job
   const handleSave = () => {
     const jobDetails = {
       jobID: _id,
@@ -113,7 +103,7 @@ const SingleJobView = () => {
       language,
       mustSkills,
       optionalSkills,
-      email: user?.email,
+      email: userInfo?.email,
     };
     if (!isSaved) {
       axios
@@ -137,14 +127,14 @@ const SingleJobView = () => {
     <div className="max-w-[1240px] mx-auto mt-24">
       {isLoading && <Loading />}
       {error && <div className="text-red-600">{error}</div>}
-      {jobs && (
+      {jobDetails && (
         <div className="m-20 text-left">
           {/* <div className='flex gap-5'> */}
           <h1 className="text-4xl font-semibold text-primary">{jobTitle}</h1>
           <div className="flex gap-3 my-3">
             <p className="border p-1 rounded-lg">
               <ImLocation className="inline" />
-              {jobs.location}
+              {jobDetails.location}
             </p>
             <p className="border p-1 rounded-lg">
               <RiRemoteControlLine className="inline" /> {jobStatus}
@@ -213,7 +203,7 @@ const SingleJobView = () => {
                 {/* if role is jobSeeker he will be able to apply with some conditions */}
                 {role === "jobSeeker" ? (
                   <>
-                    { applied ? (
+                    {isApplied === true ? (
                       // if apply button is clicked or already applied then this paragraph will be displayed
                       <p className="text-white font-semibold bg-success rounded-lg w-fit px-3 py-4">
                         Your application is submitted successfully
@@ -221,12 +211,19 @@ const SingleJobView = () => {
                     ) : (
                       // if button is not clicked or applied before
                       <div className="flex gap-2">
-                        <button
+                        {/* <button
                           onClick={() => handleApply()}
                           className="btn btn-primary hover:bg-info text-white"
                         >
                           Apply Now
-                        </button>
+                        </button> */}
+
+                        <label
+                          htmlFor="apply-form-modal"
+                          className="btn btn-primary text-white"
+                        >
+                          Apply Now
+                        </label>
 
                         {/* if user not applied then he can save this if he wants */}
 
@@ -256,6 +253,8 @@ const SingleJobView = () => {
               </>
             )}
           </div>
+
+          <ApplyJobModal />
         </div>
       )}
     </div>

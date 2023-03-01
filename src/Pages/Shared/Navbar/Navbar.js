@@ -75,16 +75,6 @@ const Navbar = () => {
           ) }
         </>
       )
-        // : (
-        //   <>
-        //     <li className="font-semibold">
-        //       <Link to="/auth/login">Login</Link>
-        //     </li>
-        //     <li className="font-semibold">
-        //       <label htmlFor="sign-up-modal" className="bg-primary rounded-full px-4 text-white">Get Started</label>
-        //     </li>
-        //   </>
-        // )
       }
     </>
   );
@@ -120,14 +110,38 @@ const Navbar = () => {
                 />
               </svg>
             </label>
-            <u
+            <u onClick={ () => {
+              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            } }
               tabIndex={ 0 }
               className="menu menu-compact dropdown-content no-underline p-2 shadow bg-gray-200 rounded-box w-52  text-black"
             >
+              <Link to="/" className="btn btn-ghost pl-0 md:hidden">
+                <svg
+                  className="w-8 text-deep-purple-accent-400"
+                  viewBox="0 0 24 24"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  stroke="currentColor"
+                  fill="none"
+                >
+                  <rect x="3" y="1" width="6" height="12" />
+                  <rect x="3" y="17" width="6" height="6" />
+                  <rect x="14" y="1" width="6" height="6" />
+                  <rect x="14" y="11" width="6" height="12" />
+                </svg>
+                <span className="ml-1 text-xl font-bold tracking-wide uppercase">
+                  TechQuest
+                </span>
+              </Link>
               { menuItems }
             </u>
           </div>
-          <Link to="/" className="btn btn-ghost">
+          <Link onClick={ () => {
+            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+          } } to="/" className="btn btn-ghost hidden sm:flex">
             <svg
               className="w-8 text-deep-purple-accent-400"
               viewBox="0 0 24 24"
@@ -139,8 +153,8 @@ const Navbar = () => {
               fill="none"
             >
               <rect x="3" y="1" width="7" height="12" />
-              <rect x="3" y="17" width="7" height="6" />
-              <rect x="14" y="1" width="7" height="6" />
+              <rect x="3" y="17" width="7" height="7" />
+              <rect x="14" y="1" width="7" height="7" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span className="ml-1 text-xl font-bold tracking-wide uppercase">
@@ -149,7 +163,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal p-0 justify-end flex-nowrap">
+          <ul onClick={ () => {
+            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+          } } className="menu menu-horizontal p-0 justify-end flex-nowrap">
             { menuItems }
           </ul>
         </div>
@@ -160,9 +176,13 @@ const Navbar = () => {
           </div>
         </div>
           :
-          <div className="font-semibold flex gap-4">
-            <Link to="/auth/login" className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
-            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
+          <div className="font-semibold flex gap-1 md:gap-4">
+            <Link to="/auth/login" onClick={ () => {
+              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            } } className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
+            <label htmlFor="sign-up-modal" onClick={ () => {
+              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            } } className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
           </div>
         }
       </div>

@@ -4,6 +4,7 @@ import { FaChartLine, FaMedal } from 'react-icons/fa';
 import { BiMessageRoundedCheck } from 'react-icons/bi';
 import { GiClockwork } from 'react-icons/gi';
 import { BsPiggyBank } from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
 const LifeEasier = () => {
   return (
@@ -17,12 +18,13 @@ const LifeEasier = () => {
             Find senior tech talent who fit your needs from our global community
             of over 400,000 candidates who are ready to relocate or work remotely.
           </p>
-          <label
+          {/* <label
             htmlFor="sign-up-modal"
             className="btn btn-primary text-white my-5 transition duration-300 hover:shadow-lg"
           >
             Start Hiring
-          </label>
+          </label> */}
+          <Link to="/recruiter/all-job-seekers" className="btn btn-primary text-white my-5 transition duration-300 hover:shadow-lg">Start Hiring</Link>
         </div>
         <div className='lg:relative grid justify-items-center md:grid-cols-2 grid-cols-1 justify-evenly gap-6' >
           <div data-aos="fade-up" className='w-52 h-40 p-5 rounded-lg border-2 lg:absolute top-0 left-0 grid justify-items-center'><span className="text-4xl"><RiTeamFill /></span> <p>Build Diverse Teams</p></div>

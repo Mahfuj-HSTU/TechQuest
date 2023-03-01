@@ -37,7 +37,7 @@ const Login = () => {
     login( email, password )
       .then( ( result ) => {
         const user = result.user;
-        console.log( user );
+        // console.log( user );
         // setLoginEmail(user?.email);
         navigate( from, { replace: true } );
         form.reset();
@@ -57,14 +57,12 @@ const Login = () => {
       .then( ( result ) => {
         const user = result.user;
         saveUsers( user?.displayName, user?.email, "jobSeeker" );
-        // console.log( user );
         navigate( from, { replace: true } );
       } )
       .catch( ( error ) => console.error( "error ", error ) );
 
     const saveUsers = ( name, email, role ) => {
       const info = { name, email, role };
-      // console.log( info )
       fetch( `${ ServerLink }/users`, {
         method: "POST",
         headers: {
