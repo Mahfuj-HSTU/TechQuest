@@ -84,6 +84,7 @@ const SingleJobView = () => {
     language,
     mustSkills,
     optionalSkills,
+    allow,
   } = jobDetails;
 
   // storing saved job
@@ -220,7 +221,7 @@ const SingleJobView = () => {
 
                         <label
                           htmlFor="apply-form-modal"
-                          className="btn btn-primary text-white"
+                          className={allow? "btn btn-primary text-white" : "btn btn-disabled"}
                         >
                           Apply Now
                         </label>

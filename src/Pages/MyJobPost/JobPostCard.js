@@ -6,7 +6,7 @@ import { ServerLink } from "../../Hooks/useServerLink";
 
 const JobPostCard = ({ jobPost, refetch }) => {
   // console.log(jobPost)
-  const { _id, jobDescription, jobTitle, location, jobType, jobStatus } =
+  const { _id, jobDescription, jobTitle, location, jobType, jobStatus, allow } =
     jobPost;
 
   const handleDelete = (_id) => {
@@ -23,7 +23,18 @@ const JobPostCard = ({ jobPost, refetch }) => {
       });
   };
 
-  const handleApplicant = (id) => {};
+  const handleAllowBtn = (id) => {
+    fetch(`${ServerLink}/recruiterJobPosts/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          refetch();
+        }
+      });
+  };
 
   return (
     <div data-aos="fade-up" className="bg-base-100 shadow-2xl my-6 rounded-lg">
@@ -76,21 +87,18 @@ const JobPostCard = ({ jobPost, refetch }) => {
           <div>
             <Link to={`/recruiter/applicant/${_id}`}>
               {" "}
-              <button
-                onClick={() => handleApplicant(_id)}
-                className="btn btn-sm btn-primary"
-              >
-                Applicant
-              </button>
+              <button className="btn btn-sm btn-primary">Applicant</button>
             </Link>
-            {/* <button onClick={() => handleApplyBtn()} className={applyBtn ? "btn btn-sm btn-success ml-3" : "btn btn-sm btn-warning ml-3"}>
-                            {
-                                applyBtn ?
-                                    <>Allowed</>
-                                    :
-                                    <>Not Allowed</>
-                            }
-                        </button> */}
+            <button
+              onClick={() => handleAllowBtn(_id)}
+              className={
+                allow
+                  ? "btn btn-sm btn-success ml-3"
+                  : "btn btn-sm btn-warning ml-3"
+              }
+            >
+              {allow ? <>Allowed</> : <>Not Allowed</>}
+            </button>
           </div>
         </div>
       </div>
