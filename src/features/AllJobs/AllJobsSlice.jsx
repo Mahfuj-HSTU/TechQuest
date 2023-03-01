@@ -7,6 +7,7 @@ export const fetchAllJobs = createAsyncThunk("jobs/fetchAllJobs", async () => {
   return res.data;
 });
 
+
 export const JobsSlice = createSlice({
   name: "jobs",
   initialState: {
@@ -29,6 +30,7 @@ export const JobsSlice = createSlice({
       state.jobs = [];
       state.error = action.error.message;
     });
+
   },
 
   reducers: {
