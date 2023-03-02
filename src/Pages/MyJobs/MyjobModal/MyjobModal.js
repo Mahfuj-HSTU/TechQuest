@@ -1,6 +1,4 @@
 import React from "react";
-// import { IoIosPeople } from "react-icons/io";
-// import { BsSticky } from "react-icons/bs";
 import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,10 +13,9 @@ const MyjobModal = ({ myjob }) => {
     mustSkills,
     optionalSkills,
     jobRequirements,
-    _id,
   } = job;
   // console.log(job,"added job");
-  console.log(myjob);
+  // console.log(myjob);
 
   const handleDelete = (myjob) => {
     // console.log(job,"deleted job");

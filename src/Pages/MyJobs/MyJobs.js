@@ -60,6 +60,7 @@ const MyJobs = () => {
             <ul className="menu p-4 w-5/6 bg-base-100 text-base-content ">
               {myJob && (
                 <MyjobModal
+                key={jobs._id}
                   jobs={jobs}
                   myjob={myJob}
                   setMyjob={setMyJob}
