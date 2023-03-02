@@ -7,6 +7,7 @@ export const fetchAllJobs = createAsyncThunk("jobs/fetchAllJobs", async () => {
   return res.data;
 });
 
+
 export const JobsSlice = createSlice({
   name: "jobSeekers",
   initialState: {
@@ -29,7 +30,9 @@ export const JobsSlice = createSlice({
       state.jobs = [];
       state.error = action.error.message;
     });
+
   },
+
   reducers: {
     showJobs: (state) => state,
     addJobs: (state, action) => {
@@ -45,7 +48,7 @@ export const JobsSlice = createSlice({
     },
     deleteJobs: (state, action) => {
       const id = action.payload;
-      state.jobs = state.jobs.filter((book) => book.id !== id);
+      state.jobs = state.jobs.filter((job) => job.id !== id);
     },
   },
 });

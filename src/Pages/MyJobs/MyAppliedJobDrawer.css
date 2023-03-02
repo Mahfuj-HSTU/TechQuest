@@ -1,0 +1,5 @@
+/* ### custom scrollbar ###  */
+
+.drawer ::-webkit-scrollbar {
+    width: 0;
+}

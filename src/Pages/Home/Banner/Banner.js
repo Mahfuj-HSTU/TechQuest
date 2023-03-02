@@ -10,86 +10,80 @@ import { fetchAllUsers } from "../../../features/AllUsers/AllUsersSlice";
 import "./Banner.css";
 
 const Banner = () => {
-  const [ startHiring, setStartHiring ] = useState( true );
-  const [ getAJob, setGetAJob ] = useState( false );
-  const jobs = useSelector( ( state ) => state.jobsReducer.jobs );
-  const users = useSelector( ( state ) => state.usersReducer.users );
-  const [ jobSearch, setJobSearch ] = useState( '' )
-  const [ employeeSearch, setEmployeeSearch ] = useState( '' )
+  const [startHiring, setStartHiring] = useState(true);
+  const [getAJob, setGetAJob] = useState(false);
+  const jobs = useSelector((state) => state.jobsReducer.jobs);
+  const users = useSelector((state) => state.usersReducer.users);
+  const [jobSearch, setJobSearch] = useState("");
+  const [employeeSearch, setEmployeeSearch] = useState("");
   const dispatch = useDispatch();
 
   // console.log( users );
-  useEffect( () => {
-    dispatch( fetchAllJobs() );
-    dispatch( fetchAllUsers() );
-  }, [ dispatch ] );
+  useEffect(() => {
+    dispatch(fetchAllJobs());
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
   // filter jobSeeker
-  const jobSeekers = users.filter(
-    user => {
-      return ( user.role === 'jobSeeker' );
-    }
-  );
+  const jobSeekers = users.filter((user) => {
+    return user.role === "jobSeeker";
+  });
 
   const handleStartHiring = () => {
-    setStartHiring( true );
-    setGetAJob( false );
+    setStartHiring(true);
+    setGetAJob(false);
   };
 
   const handleGetAJob = () => {
-    setGetAJob( true );
-    setStartHiring( false );
+    setGetAJob(true);
+    setStartHiring(false);
   };
 
-  const handleJobSearch = ( e ) => {
+  const handleJobSearch = (e) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
     // console.log( search );
-    setJobSearch( search )
-  }
+    setJobSearch(search);
+  };
 
   // filter jobs by search
-  const filteredJobSearch = jobs.filter(
-    job => {
-      return (
-        job.jobTitle.toLowerCase().includes( jobSearch.toLowerCase() ) ||
-        job.jobType.toLowerCase().includes( jobSearch.toLowerCase() ) ||
-        job.location.toLowerCase().includes( jobSearch.toLowerCase() ) ||
-        job.jobStatus.toLowerCase().includes( jobSearch.toLowerCase() )
-      );
-    }
-  );
+  const filteredJobSearch = jobs.filter((job) => {
+    return (
+      job.jobTitle.toLowerCase().includes(jobSearch.toLowerCase()) ||
+      job.jobType.toLowerCase().includes(jobSearch.toLowerCase()) ||
+      job.location.toLowerCase().includes(jobSearch.toLowerCase()) ||
+      job.jobStatus.toLowerCase().includes(jobSearch.toLowerCase())
+    );
+  });
 
-  const handleEmployeeSearch = ( e ) => {
+  const handleEmployeeSearch = (e) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
-    setEmployeeSearch( search )
-  }
+    setEmployeeSearch(search);
+  };
 
   // filter employee by search
-  const filteredEmployeeSearch = jobSeekers?.filter(
-    jobSeeker => {
-      return (
-        jobSeeker?.skills?.toLowerCase().includes( employeeSearch.toLowerCase() ) ||
-        jobSeeker?.title?.toLowerCase().includes( employeeSearch.toLowerCase() )
-      );
-    }
-  );
+  const filteredEmployeeSearch = jobSeekers?.filter((jobSeeker) => {
+    return (
+      jobSeeker?.skills?.toLowerCase().includes(employeeSearch.toLowerCase()) ||
+      jobSeeker?.title?.toLowerCase().includes(employeeSearch.toLowerCase())
+    );
+  });
 
   return (
     // from-violet-600  to-[#0675CE]
     // dividing into two part by grid 2 col
-    <div className="grid grid-cols-1 mt-16 justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-b-md bg-gradient-to-r
-
-    from-info  to-primary
-    shadow-lg">
-      {/* left side of the banner // from-[#7209B7] */ }
+    <div
+      className="grid grid-cols-1 -mt-4 justify-items-center md:grid-cols-2 px-4 md:px-8 rounded-b-md bg-gradient-to-r
+    from-info  to-primary shadow-lg"
+    >
+      {/* left side of the banner // from-[#7209B7] */}
       <div className="flex flex-col mt-20 md:t-0 gap-5 mx-5 top-0">
         <div className="tabs gap-5 mb-5">
           <p
-            onClick={ handleStartHiring }
+            onClick={handleStartHiring}
             className={
               startHiring
                 ? "rounded pb-2 text-white font-semibold border-b-4 border-gray-400 cursor-pointer"
@@ -99,7 +93,7 @@ const Banner = () => {
             Start Hiring
           </p>
           <p
-            onClick={ handleGetAJob }
+            onClick={handleGetAJob}
             className={
               getAJob
                 ? "rounded pb-2 text-white font-semibold border-b-4 border-gray-400 cursor-pointer"
@@ -109,7 +103,7 @@ const Banner = () => {
             Get A Job
           </p>
         </div>
-        { startHiring && (
+        {startHiring && (
           <div className="text-white flex flex-col gap-4 items-start">
             <h2 className="text-3xl text-left font-bold tracking-tight text-white sm:text-4xl">
               Hire Skillful
@@ -117,7 +111,7 @@ const Banner = () => {
             <div>
               <TypeAnimation
                 className="text-4xl font-bold tracking-tight text-white text-left whitespace-nowrap"
-                sequence={ [
+                sequence={[
                   "Frontend Developers",
                   1000,
                   "Backend Developers",
@@ -130,62 +124,81 @@ const Banner = () => {
                   1000,
                   "UI/UX Designers",
                   1000,
-                ] }
-                style={ { fontSize: "2em" } }
-                speed={ 1 }
-                wrapper={ "p" }
-                repeat={ Infinity }
-                omitDeletionAnimation={ true }
+                ]}
+                style={{ fontSize: "2em" }}
+                speed={1}
+                wrapper={"p"}
+                repeat={Infinity}
+                omitDeletionAnimation={true}
               />
             </div>
             <p className="whitespace-nowrap mr-10">
               Get your first 10 candidates in 48 hours!
             </p>
-            <form onSubmit={ handleEmployeeSearch } className="flex flex-col text-black">
-              <input id="inputID" type="text" placeholder="Search For Skilled Professionals" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
-              {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */ }
-              { employeeSearch.length !== 0 &&
+            <form
+              onSubmit={handleEmployeeSearch}
+              className="flex flex-col text-black"
+            >
+              <input
+                id="inputID"
+                type="text"
+                placeholder="Search For Skilled Professionals"
+                name="search"
+                className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96"
+              />
+              {/* <input className="btn btn-primary rounded-xl " type="submit" value="Submit" /> */}
+              {employeeSearch.length !== 0 && (
                 <ul className="bg-white -mt-4 text-start rounded-lg">
-                  {
-                    filteredEmployeeSearch.map( employee => <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
-                      <Link to={ `` }>{ employee.name }</Link>
-                    </li> )
-                  }
-                </ul> }
+                  {filteredEmployeeSearch.map((employee) => (
+                    <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
+                      <Link to={``}>{employee.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </form>
           </div>
-        ) }
-        { getAJob && (
+        )}
+        {getAJob && (
           <div className="text-white flex flex-col gap-4 items-start w-96 mb-24">
             <p className="text-4xl text-left font-bold leading-normal">
               Find your dream Tech job in Canada, the US & Europe
             </p>
             <small className="text-lg">Remote & International Positions</small>
-            <form onSubmit={ handleJobSearch } className="flex flex-col text-black">
-              <input type="text" placeholder="Find Your Dream Job" name='search' className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96" />
-              { jobSearch.length !== 0 &&
+            <form
+              onSubmit={handleJobSearch}
+              className="flex flex-col text-black"
+            >
+              <input
+                type="text"
+                placeholder="Find Your Dream Job"
+                name="search"
+                className="input input-bordered lg:max-w-2xl sm:max-w-lg rounded-xl sm:mb-5 py-9 w-96"
+              />
+              {jobSearch.length !== 0 && (
                 <ul className="bg-white -mt-4 text-start rounded-lg">
-                  {
-                    filteredJobSearch.map( job => <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
-                      <Link to={ `/job-details/${ job._id }` }>{ job.jobTitle }</Link>
-                    </li> )
-                  }
-                </ul> }
+                  {filteredJobSearch.map((job) => (
+                    <li className="px-3 py-2 m-2 hover:bg-slate-300 rounded-lg ">
+                      <Link to={`/job-details/${job._id}`}>{job.jobTitle}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </form>
           </div>
-        ) }
+        )}
       </div>
-      {/* right side of the banner  */ }
-      { getAJob && (
+      {/* right side of the banner  */}
+      {getAJob && (
         <div>
           <Circle />
         </div>
-      ) }
-      { startHiring && (
+      )}
+      {startHiring && (
         <div className="">
-          <Lottie animationData={ animation } className="h-[600px]"></Lottie>
+          <Lottie animationData={animation} className="h-[600px]"></Lottie>
         </div>
-      ) }
+      )}
     </div>
   );
 };

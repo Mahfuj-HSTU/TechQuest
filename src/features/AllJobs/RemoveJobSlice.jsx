@@ -5,7 +5,7 @@ import { ServerLink } from "../../Hooks/useServerLink";
 
 export const deleteJob = createAsyncThunk("jobs/removeJob", async (id) => {
   const res = await axios.delete(`${ServerLink}/delete-job/${id}`);
-  if(res.data.acknowledged){
+  if (res.data.acknowledged) {
     toast.success("Job deleted");
   }
   return res.data;

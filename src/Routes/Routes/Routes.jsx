@@ -12,8 +12,6 @@ import Courses from "../../Pages/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import MyJobPost from "../../Pages/MyJobPost/MyJobPost";
-import MyJobDetails from "../../Pages/MyJobs/MyJobDetails/MyJobDetails";
-import MyJobs from "../../Pages/MyJobs/MyJobs";
 import Login from "../../Pages/SignUp/Login/Login";
 import JobSeeker from "../../Pages/SignUp/Registration/JobSeeker";
 import Recruiter from "../../Pages/SignUp/Registration/Recruiter";
@@ -30,6 +28,9 @@ import MyAccount from "../../features/MyAccount/MyAccount";
 import SavedJobView from "../../features/SavedJob/SavedJobView";
 import Profile from "../../features/MyAccount/Profile";
 import RecruiterRoute from "../RecruiterRoute/RecruiterRoute";
+import AppliedJob from "../../features/MyAccount/AppliedJob";
+import MyAppliedJobDetails from "../../Pages/MyJobs/MyAppliedJobDetails/MyAppliedJobDetails";
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
 				element: <SavedJobView />,
 			},
 			{
+				path: '/my-account/applied-jobs',
+				element: <AppliedJob />,
+			},
+			{
 				path: '/my-account/profile',
 				element: <Profile />,
 			},
@@ -86,18 +91,11 @@ const router = createBrowserRouter([
 		element: <JobSeekerLayout />,
 		errorElement: <ErrorPage></ErrorPage>,
 		children: [
-			{
-				path: '/job-seeker/myJobs',
-				element: (
-					<PrivateRoute>
-						<MyJobs></MyJobs>
-					</PrivateRoute>
-				),
-			},
+			
 			//  MY JOB DETAILS
 			{
 				path: '/job-seeker/myJob-details/:id',
-				element: <MyJobDetails />,
+				element: <MyAppliedJobDetails/> ,
 				loader: ({ params }) =>
 					fetch(`${ServerLink}/applications/${params.id}`),
 			},
@@ -134,7 +132,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/recruiter',
-		element: <RecruiterLayout />,
+		element: (
+			<PrivateRoute>
+				<RecruiterLayout />
+			</PrivateRoute>
+		),
 		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{

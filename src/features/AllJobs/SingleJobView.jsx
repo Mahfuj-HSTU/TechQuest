@@ -45,12 +45,14 @@ const SingleJobView = () => {
   );
 
   useEffect(() => {
+    // checking and storing if any job is saved
     for (let i of checkSavedJob) {
       if (i === true) {
         setIsSaved(i);
       }
     }
 
+    // checking and storing if any job is applied
     for (let i of checkApplied) {
       // console.log(i);
       if (i === true) {
@@ -82,6 +84,7 @@ const SingleJobView = () => {
     language,
     mustSkills,
     optionalSkills,
+    allow,
   } = jobDetails;
 
   // storing saved job
@@ -218,7 +221,7 @@ const SingleJobView = () => {
 
                         <label
                           htmlFor="apply-form-modal"
-                          className="btn btn-primary text-white"
+                          className={allow? "btn btn-primary text-white" : "btn btn-disabled"}
                         >
                           Apply Now
                         </label>

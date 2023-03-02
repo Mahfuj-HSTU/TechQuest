@@ -16,11 +16,11 @@ const SavedJobView = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex-col flex gap-5 text-center md:text-left w-full mt-2 md:mx-5 pb-5">
+    <div className="flex-col flex gap-5 md:text-left w-full mt-2 md:mx-5 pb-5">
       <h1 className="text-2xl font-bold">Saved Jobs</h1>
       <hr />
 
-      <table className="table table-compact mx-auto w-[70%]">
+      <table className="table table-compact  w-[92%]">
         <thead className="bg-gray-200">
           <tr className="">
             {/* <th>Sl No</th> */}
@@ -33,7 +33,7 @@ const SavedJobView = () => {
             {job.email === user?.email && (
               <tr className="">
                 {/* <td>{i+1}</td> */}
-                <td><Link to={`/job-details/${job?.jobID}`}>{job.jobTitle}</Link></td>
+                <td><Link to={`/job-details/${job?.jobID}`} className="font-bold">{job.jobTitle}</Link></td>
                 <td><button className="btn btn-error btn-sm text-white">
                   Delete
                 </button></td>

@@ -14,8 +14,8 @@ const AllJobSeekers = () => {
   const dispatch = useDispatch();
   const jobSeekerData = useSelector((state) => state.allJobSeekersReducer);
   const jobSeekers = jobSeekerData.jobSeeker;
-
-  // console.log(jobSeekerData);
+  const totalJobSeeker = jobSeekers.length;
+  // console.log(jobSeekers);
   useEffect(() => {
     dispatch(fetchAllJobSeekers(search));
   }, [dispatch, search]);
@@ -55,6 +55,7 @@ const AllJobSeekers = () => {
               </svg>
             </button>
           </div>
+            <h1 className=" text-left my-3">You are seeing {totalJobSeeker} candidates</h1>
         </div>
       </div>
       <div className="">

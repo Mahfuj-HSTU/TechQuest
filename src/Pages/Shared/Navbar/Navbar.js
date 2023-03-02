@@ -7,23 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRole } from "../../../Hooks/Role/useRoleSlice";
 import { useEffect } from "react";
 import Notification from "./Notification";
-import './navbar.css'
+import "./navbar.css";
 import EditProfileModal from "./EditProfileModal";
 
 const Navbar = () => {
-  const { user } = useContext( AuthContext );
-  const details = useSelector( ( state ) => state.roleReducer.role );
-  const role = details.role
+  const { user } = useContext(AuthContext);
+  const details = useSelector((state) => state.roleReducer.role);
+  const role = details.role;
   const admin = "admin";
   const recruiter = "recruiter";
   const jobSeeker = "jobSeeker";
   const dispatch = useDispatch();
   // console.log( role )
 
-  useEffect( () => {
-    user?.email && dispatch( fetchRole( user?.email ) );
-  }, [ dispatch, user?.email ] );
-
+  useEffect(() => {
+    user?.email && dispatch(fetchRole(user?.email));
+  }, [dispatch, user?.email]);
 
   // const { data: details = [], refetch } = useQuery( {
   //   queryKey: [ 'details' ],
@@ -32,28 +31,23 @@ const Navbar = () => {
   // } )
   // console.log( details );
 
-
   const menuItems = (
     <>
       <li className="font-semibold">
         <Link to="/all-jobs">All Jobs</Link>
-        <Link to="/about">Why TechQuest?</Link>
-        <Link to="/blogs">Blogs</Link>
       </li>
-      { user?.email && (
+      {user?.email && (
         <>
-          { role === admin && (
+          {role === admin && (
             <>
               <li className="font-medium">
                 <Link to="admin/courses">Courses</Link>
                 <Link to="admin/users">All Users</Link>
               </li>
             </>
+          )}
 
-          ) }
-
-          { role === recruiter && (
-
+          {role === recruiter && (
             <>
               <li className="font-medium">
                 <Link to="/recruiter/all-job-seekers">All Job Seekers</Link>
@@ -61,40 +55,47 @@ const Navbar = () => {
                 <Link to="/recruiter/MyJobPost">MyPost</Link>
               </li>
             </>
+          )}
 
-          ) }
-
-          { role === jobSeeker && (
-
+          {role === jobSeeker && (
             <>
               <li className="font-semibold">
-                <Link to="/job-seeker/myjobs">My Jobs</Link>
+                {/* <Link to="/job-seeker/myjobs">My Jobs</Link> */}
                 <Link to="/job-seeker/courses">Courses</Link>
               </li>
             </>
-          ) }
+          )}
         </>
-      )
-      }
+      )}
+      <li>
+        <Link to="/about">About</Link>
+        <Link to="/blogs">Blogs</Link>
+      </li>
     </>
   );
 
   window.onscroll = function () {
-    if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ) {
-      document.querySelector( ".customNavbar" ).classList.add( "customNavbar-scrolled" );
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      document
+        .querySelector(".customNavbar")
+        .classList.add("customNavbar-scrolled");
       // console.log( 'check' );
     } else {
-      document.querySelector( ".customNavbar" ).classList.remove( "customNavbar-scrolled" );
+      document
+        .querySelector(".customNavbar")
+        .classList.remove("customNavbar-scrolled");
     }
   };
-
 
   return (
     <div>
       <div className="navbar justify-evenly md:justify-between lg:justify-evenly customNavbar shadow-lg fixed h-20 top-0 z-30 left-0 right-0 backdrop-blur-lg mx-auto ">
         <div className="">
           <div className="dropdown">
-            <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -110,10 +111,11 @@ const Navbar = () => {
                 />
               </svg>
             </label>
-            <u onClick={ () => {
-              window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
-            } }
-              tabIndex={ 0 }
+            <u
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+              tabIndex={0}
               className="menu menu-compact dropdown-content no-underline p-2 shadow bg-gray-200 rounded-box w-52  text-black"
             >
               <Link to="/" className="btn btn-ghost pl-0 md:hidden">
@@ -136,12 +138,16 @@ const Navbar = () => {
                   TechQuest
                 </span>
               </Link>
-              { menuItems }
+              {menuItems}
             </u>
           </div>
-          <Link onClick={ () => {
-            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
-          } } to="/" className="btn btn-ghost hidden sm:flex">
+          <Link
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+            to="/"
+            className="btn btn-ghost hidden sm:flex"
+          >
             <svg
               className="w-8 text-deep-purple-accent-400"
               viewBox="0 0 24 24"
@@ -163,31 +169,47 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden lg:flex">
-          <ul onClick={ () => {
-            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
-          } } className="menu menu-horizontal p-0 justify-end flex-nowrap">
-            { menuItems }
+          <ul
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+            className="menu menu-horizontal p-0 justify-end flex-nowrap"
+          >
+            {menuItems}
           </ul>
         </div>
-        { user?.email ? <div className="text-black">
-          <div className="flex justify-center">
-            <Notification></Notification>
-            <EditProfile></EditProfile>
+        {user?.email ? (
+          <div className="text-black">
+            <div className="flex justify-center">
+              <Notification></Notification>
+              <EditProfile></EditProfile>
+            </div>
           </div>
-        </div>
-          :
-          <div onClick={ () => {
-            window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
-          } } className="font-semibold flex gap-1 md:gap-4">
-            <Link to="/auth/login" className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 ">Login</Link>
-            <label htmlFor="sign-up-modal" className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white">Get Started</label>
+        ) : (
+          <div className="font-semibold flex gap-1 md:gap-4">
+            <Link
+              to="/auth/login"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+              className=" border-none hover:bg-gray-400 rounded-lg px-4 py-2 "
+            >
+              Login
+            </Link>
+            <label
+              htmlFor="sign-up-modal"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+              className="btn bg-primary border-none hover:bg-info rounded-lg px-4 text-white"
+            >
+              Get Started
+            </label>
           </div>
-        }
+        )}
       </div>
       <SignUpModal></SignUpModal>
-      {
-        user?.email && <EditProfileModal details={ details } ></EditProfileModal>
-      }
+      {user?.email && <EditProfileModal details={details}></EditProfileModal>}
     </div>
   );
 };
