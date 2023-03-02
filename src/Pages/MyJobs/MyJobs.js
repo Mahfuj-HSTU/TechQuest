@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./MyJobs.css";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import MyjobModal from "./MyjobModal/MyjobModal";
+import MyJobModal from "./MyJobModal/MyJobModal";
 import { ServerLink } from "../../Hooks/useServerLink";
 import './MyModal.css'
 
@@ -59,12 +59,12 @@ const MyJobs = () => {
             <label htmlFor="my-job-drawer" className="drawer-overlay"></label>
             <ul className="menu p-4 w-5/6 bg-base-100 text-base-content ">
               {myJob && (
-                <MyjobModal
+                <MyJobModal
                 key={jobs._id}
                   jobs={jobs}
-                  myjob={myJob}
-                  setMyjob={setMyJob}
-                ></MyjobModal>
+                  myJob={myJob}
+                  setMyJob={setMyJob}
+                ></MyJobModal>
               )}
             </ul>
           </div>
