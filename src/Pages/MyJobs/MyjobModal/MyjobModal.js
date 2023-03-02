@@ -13,6 +13,7 @@ const MyjobModal = ({ myjob }) => {
     mustSkills,
     optionalSkills,
     jobRequirements,
+    _id
   } = job;
   // console.log(job,"added job");
   // console.log(myjob);
