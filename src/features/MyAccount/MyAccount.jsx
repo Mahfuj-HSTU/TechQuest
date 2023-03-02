@@ -38,7 +38,7 @@ const MyAccount = () => {
             >
               <div className=" flex flex-col whitespace-nowrap text-left font-semibold h-[92%] bg-gray-100 gap-5 m-3 rounded-lg md:mr-0 p-5">
                 <Link to="/my-account/profile">Profile</Link>
-                {user?.role === "jobSeeker" && <Link>Applied Jobs</Link>}
+                {user?.role === "jobSeeker" && <Link to='/my-account/applied-jobs' >Applied Jobs</Link>}
                 {user?.role === "jobSeeker" && (
                   <Link to="/my-account/saved-jobs">Saved Jobs</Link>
                 )}
