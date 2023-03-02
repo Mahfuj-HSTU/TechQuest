@@ -30,21 +30,22 @@ const MyJobs = () => {
 
   // console.log(jobs);
   return (
-    <div className="mt-24 mb-16 m">
-      <h3 className="lg:text-4xl md:text-3xl mb-5 font-semibold text-info">
+    <div className="mt-2 mb-16 md:text-left w-full md:mx-5 pb-5 ">
+      <h3 className="text-2xl font-bold mb-5">
         My Applied Jobs
       </h3>
       <div className="mx-10">
         <div className="drawer drawer-end ">
           <input id="my-job-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content ">
+          <p className="text-green-700 font-bold text-lg text-left">Applied ({jobs.length})</p>
             {jobs.map((job) => (
               <div key={job?._id}>
-                <div className=" p-2 grid grid-cols-3 border shadow m-1 w-11/12 text-left ">
+                <div className="bg-gray-100 p-2 grid grid-cols-3 border shadow m-3 w-11/12 text-left ">
                   <label
                     onClick={() => setMyJob(job)}
                     htmlFor="my-job-drawer"
-                    className="text-primary text-xl cursor-pointer"
+                    className="font-bold cursor-pointer"
                   >
                     {job?.job?.jobTitle}
                   </label>

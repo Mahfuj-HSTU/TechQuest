@@ -45,9 +45,9 @@ const AllUsersView = () => {
     const filteredSearch = users.filter(
         user => {
             return (
-                user.name.toLowerCase().includes( search.toLowerCase() ) ||
-                user.email.includes( search ) ||
-                user.role.toLowerCase().includes( search.toLowerCase() )
+                user.name?.toLowerCase().includes( search.toLowerCase() ) ||
+                user.email?.includes( search ) ||
+                user.role?.toLowerCase().includes( search.toLowerCase() )
             );
         }
     );
@@ -83,7 +83,7 @@ const AllUsersView = () => {
                             users.map( user =>
                                 <tr key={ user?._id } className='border-2'>
                                     <td className='border-2 font-semibold'><label htmlFor="my-modal" className="link link-primary" onClick={ () => setSelected( user ) }>{ user.name }</label></td>
-                                    <td className='hidden lg:block'>{ user.email }</td>
+                                    <td className='border-none mt-2 hidden lg:block'>{ user.email }</td>
                                     <td className='border-2'>{ user.role }</td>
                                     <td className='border-2 text-center'>
                                         <button onClick={ () => handleDelete( user ) } className='btn btn-outline btn-error rounded-lg'>Delete</button>
