@@ -2,17 +2,17 @@ import React, { useContext, useState } from "react";
 import "./MyJobs.css";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import MyjobModal from "./MyjobModal/MyjobModal";
+import MyJobModal from "./MyAppliedJobModal/MyAppliedJobModal";
 import { ServerLink } from "../../Hooks/useServerLink";
-import './MyModal.css'
+import './MyAppliedJobDrawer.css'
 
-const MyJobs = () => {
+const MyAppliedJobs = () => {
   const { user } = useContext(AuthContext);
 
   const [myJob, setMyJob] = useState(null);
 
 
-  const url = `${ServerLink}/myjobs?email=${user?.email}`;
+  const url = `${ServerLink}/myJobs?email=${user?.email}`;
 
 
   const { data: jobs = [] } = useQuery({
@@ -59,12 +59,12 @@ const MyJobs = () => {
             <label htmlFor="my-job-drawer" className="drawer-overlay"></label>
             <ul className="menu p-4 w-5/6 bg-base-100 text-base-content ">
               {myJob && (
-                <MyjobModal
+                <MyJobModal
                 key={jobs._id}
                   jobs={jobs}
-                  myjob={myJob}
-                  setMyjob={setMyJob}
-                ></MyjobModal>
+                  myJob={myJob}
+                  setMyJob={setMyJob}
+                ></MyJobModal>
               )}
             </ul>
           </div>
@@ -74,4 +74,4 @@ const MyJobs = () => {
   );
 };
 
-export default MyJobs;
+export default MyAppliedJobs;

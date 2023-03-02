@@ -3,9 +3,9 @@ import { FaBusinessTime } from "react-icons/fa";
 import { ServerLink } from "../../../Hooks/useServerLink";
 import { Link, useNavigate } from "react-router-dom";
 
-const MyjobModal = ({ myjob }) => {
+const MyJobModal = ({ myJob }) => {
   const navigate = useNavigate();
-  const { job } = myjob;
+  const { job } = myJob;
   const {
     jobTitle,
     jobStatus,
@@ -13,16 +13,16 @@ const MyjobModal = ({ myjob }) => {
     mustSkills,
     optionalSkills,
     jobRequirements,
-    _id
+    _id,
   } = job;
   // console.log(job,"added job");
   // console.log(myjob);
 
-  const handleDelete = (myjob) => {
+  const handleDelete = (myJob) => {
     // console.log(job,"deleted job");
     const agree = window.confirm(`Are sure, you want to delete: ${jobTitle}`);
     if (agree) {
-      fetch(`${ServerLink}/applications/${myjob._id}`, {
+      fetch(`${ServerLink}/applications/${myJob._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -50,29 +50,6 @@ const MyjobModal = ({ myjob }) => {
                     {jobTitle}
                   </p>
                 </div>
-
-                {/* <div className="m-8 shadow-lg bordered-8 text-center ">
-                  <h3 className="text-2xl">About The Company</h3>
-                  <p>This company has already hired 1 Techquest</p>
-                  <p>More information on interview stage</p>
-                </div> */}
-                {/* <p className="text-left text-gray-700 text-2xl mt-4 ">
-                  Job Activity
-                </p>
-                <br />
-                <div className="flex  border-2 border-r-slate-500 mt-1">
-                  <BsSticky className="mt-1" />
-                  <span className="mx-3 text-xl">
-                    
-                    15 candidates were screened for {jobTitle}
-                  </span>
-                </div> */}
-                {/* <div className="flex  border-2 border-r-slate-500 mt-1">
-                  <IoIosPeople className="mt-1" />
-                  <span className="mx-2 text-xl">
-                    350 candidates applied for the {jobTitle}
-                  </span>
-                </div> */}
                 <div className="justify-start">
                   <div className="flex mx-auto border-2 bg-secondary rounded-lg mt-2 p-4">
                     <FaBusinessTime className="mt-2 " />
@@ -120,10 +97,10 @@ const MyjobModal = ({ myjob }) => {
                 </Link>
                 <label
                   htmlFor="my-job-drawer"
-                  onClick={() => handleDelete(myjob)}
-                  className="btn btn-outline hover:bg-error hover:border-none btn-sm hover:text-white rounded-lg my-3 w-1/2"
+                  onClick={() => handleDelete(myJob)}
+                  className="btn btn-outline border-error hover:bg-error hover:border-none btn-sm hover:text-white rounded-lg my-3 w-1/2"
                 >
-                  Revert Application
+                  Revert
                 </label>
               </div>
             </div>
@@ -134,4 +111,4 @@ const MyjobModal = ({ myjob }) => {
   );
 };
 
-export default MyjobModal;
+export default MyJobModal;

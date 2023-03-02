@@ -1,10 +1,10 @@
 import React from 'react';
-import MyJobs from '../../Pages/MyJobs/MyJobs';
+import MyAppliedJobs from '../../Pages/MyJobs/MyAppliedJobs';
 
 const AppliedJob = () => {
     return (
         <div>
-            <MyJobs/>
+            <MyAppliedJobs/>
         </div>
     );
 };
