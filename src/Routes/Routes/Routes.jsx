@@ -30,6 +30,7 @@ import MyAccount from "../../features/MyAccount/MyAccount";
 import SavedJobView from "../../features/SavedJob/SavedJobView";
 import Profile from "../../features/MyAccount/Profile";
 import RecruiterRoute from "../RecruiterRoute/RecruiterRoute";
+import AppliedJob from "../../features/MyAccount/AppliedJob";
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
 			{
 				path: '/my-account/saved-jobs',
 				element: <SavedJobView />,
+			},
+			{
+				path: '/my-account/applied-jobs',
+				element: <AppliedJob />,
 			},
 			{
 				path: '/my-account/profile',
