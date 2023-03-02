@@ -68,11 +68,11 @@ const EditProfile = () => {
                   <label htmlFor="details-modal" className="btn btn-xs btn-outline w-14 text-lg cursor-pointer">Edit Profile</label>
                 </Link> */}
 
-                <div><div className=" text-gray-500">
+                {/* <div><div className=" text-gray-500">
                   <FaEdit></FaEdit>
-                </div>
+                </div> */}
                   {/* <label className="text-lg cursor-pointer">Edit Profile</label> */ }
-                  <label htmlFor="details-modal" className="text-lg cursor-pointer">Edit Profile</label></div>
+                  {/* <label htmlFor="details-modal" className="text-lg cursor-pointer">Edit Profile</label></div> */}
 
 
                 <Link
