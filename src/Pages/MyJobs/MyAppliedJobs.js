@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import "./MyJobs.css";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import MyJobModal from "./MyJobModal/MyJobModal";
+import MyJobModal from "./MyAppliedJobModal/MyAppliedJobModal";
 import { ServerLink } from "../../Hooks/useServerLink";
-import './MyModal.css'
+import './MyAppliedJobDrawer.css'
 
-const MyJobs = () => {
+const MyAppliedJobs = () => {
   const { user } = useContext(AuthContext);
 
   const [myJob, setMyJob] = useState(null);
@@ -74,4 +74,4 @@ const MyJobs = () => {
   );
 };
 
-export default MyJobs;
+export default MyAppliedJobs;
